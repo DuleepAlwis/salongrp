@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbdc956f-9eed-40a2-92e6-4fe21f75446b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/views/ReceptionistAppointment.html" afterPath="$PROJECT_DIR$/views/ReceptionistAppointment.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+            <state relative-caret-position="-192">
+              <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
               <folding>
                 <element signature="e#17716#17722#0" expanded="true" />
                 <element signature="e#18365#18372#1" expanded="true" />
@@ -41,8 +41,21 @@
       <file leaf-file-name="ReceptionistAppointment.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/ReceptionistAppointment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            <state relative-caret-position="483">
+              <caret line="52" column="42" lean-forward="false" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Appointment.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/Appointment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1875">
+              <caret line="134" column="20" lean-forward="false" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -51,8 +64,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="147" column="11" lean-forward="false" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="11" />
+            <state relative-caret-position="771">
+              <caret line="173" column="29" lean-forward="false" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -87,8 +100,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/07939b5d-0df5-488b-b971-c30fc850d648/console.sql" />
-        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/model/Appointment.php" />
         <option value="$PROJECT_DIR$/views/ReceptionistAppointment.html" />
       </list>
     </option>
@@ -196,7 +210,7 @@
       <workItem from="1531679126348" duration="7875000" />
       <workItem from="1533998487877" duration="6467000" />
       <workItem from="1534100474180" duration="448000" />
-      <workItem from="1534158772336" duration="747000" />
+      <workItem from="1534158772336" duration="9719000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1531688271121</created>
@@ -244,7 +258,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36467000" />
+    <option name="totallyTimeSpent" value="45439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -493,6 +507,41 @@
     </entry>
     <entry file="file://E:/pro/learningkit/Web/Bootstrap/bootstrap-4-from-scratch-with-5-projects/07 Project 1 - LoopLab Social Theme/044 7-6-project-files/7_6_project_files/looplab/src/css/style.css" />
     <entry file="file://E:/pro/learningkit/Web/Bootstrap/bootstrap-4-from-scratch-with-5-projects/07 Project 1 - LoopLab Social Theme/044 7-6-project-files/7_6_project_files/looplab/src/index.html" />
+    <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-192">
+          <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+          <folding>
+            <element signature="e#17716#17722#0" expanded="true" />
+            <element signature="e#18365#18372#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Appointment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="134" column="20" lean-forward="false" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="173" column="29" lean-forward="false" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/normalize.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -501,30 +550,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="147" column="11" lean-forward="false" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding>
-            <element signature="e#17716#17722#0" expanded="true" />
-            <element signature="e#18365#18372#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/ReceptionistAppointment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="483">
+          <caret line="52" column="42" lean-forward="false" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
