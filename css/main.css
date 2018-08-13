@@ -150,8 +150,29 @@ body {
     height:50px;
 }
 
+.heading
+{
+    background-color: #5a6268;
 
+}
 
+.box1
+{
+    border-color: #005cbf;
+    border-radius: 5px;
+    background-color: #71dd8a;
+    width:350px;
+    height:100px
+}
+.newsForm
+{
+    border-color: #005cbf;
+    border-radius: 5px;
+    background-color: #71dd8a;
+    width:350px;
+    height:150px;
+    overflow-scrolling: touch
+}
 
 
 
