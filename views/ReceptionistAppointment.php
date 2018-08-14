@@ -9,7 +9,6 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/x-icon" href="../icontop.jpg">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -24,23 +23,20 @@
     </div>
     <div class="row mt-3">
         <div class="col-4">
-            <a href="../index.html"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.html"><span class="logoutBtn"></span></a>
-            <div class="table-responsive-md">
             <table class="table table-bordered">
                 <thead class="thead-dark">
 
                 <tr><td><a href="ReceptionistAppointment.html">View Appointments</a></td></tr>
-                <tr><td><a href="ReceptionistStock.html">Stock details</a></td></tr>
+                <tr><td><a href="ReceptionistAppointment.html">Stock details</a></td></tr>
                 <tr><td><a href="ReceptionistAppointment.html">View Customers</a></td></tr>
                 <tr><td><a href="ReceptionistAppointment.html">Generate reports</a></td></tr>
-                <tr><td><a href="ReceptionistChat.html">Chat</a></td></tr>
+                <tr><td><a href="ReceptionistAppointment.html">Chat</a></td></tr>
                 <tr></tr>
                 </thead>
             </table>
-            </div>
         </div>
         <div class="col-8">
-            <h1 align="center">View Appointments</h1>
+            <h1 style="display:inline-block" align="center">View Appointments</h1>
         </div>
 
     </div>
