@@ -208,6 +208,12 @@ body {
     overflow-y:auto
 }
 
+.msgSend
+{
+    width:250px;
+    height:150px;
+    border-style: outset;
+}
 
 
 
