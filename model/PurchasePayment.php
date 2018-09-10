@@ -14,66 +14,37 @@ class PurchasePayment extends Payment
     /**
      * @return mixed
      */
-    public function getPaymentId()
+    public function getItemId()
     {
-        return $this->paymentId;
+        return $this->itemId;
     }
 
     /**
-     * @param mixed $paymentId
+     * @param mixed $itemId
      */
-    public function setPaymentId($paymentId)
+    public function setItemId($itemId)
     {
-        $this->paymentId = $paymentId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param mixed $price
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
+        $this->itemId = $itemId;
     }
 
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getQuantity()
     {
-        return $this->date;
+        return $this->quantity;
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $quantity
      */
-    public function setDate($date)
+    public function setQuantity($quantity)
     {
-        $this->date = $date;
+        $this->quantity = $quantity;
     }
 
     /**
      * @return mixed
      */
-    public function getTime()
-    {
-        return $this->time;
-    }
-
-    /**
-     * @param mixed $time
-     */
-    public function setTime($time)
-    {
-        $this->time = $time;
-    }
 
 }
-?>

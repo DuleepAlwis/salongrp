@@ -8,40 +8,64 @@
 
 class Stock
 {
-    private $itemCode;
-    private $itemName;
-    private $quantity;
+    public $itemCode;
+    public $itemName;
+    public $quantity;
+    public $cquantity;
+    public $brand;
+    protected $con;
+
 
     /**
      * @return mixed
      */
-    public function getItemCode()
-    {
-        return $this->itemCode;
-    }
 
-    /**
-     * @param mixed $itemCode
-     */
-    public function setItemCode($itemCode)
-    {
-        $this->itemCode = $itemCode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
 
     /**
      * @param mixed $quantity
      */
-    public function setQuantity($quantity)
+
+    public function __construct()
     {
-        $this->quantity = $quantity;
+        $this->con = Database::getConnection();
     }
+
+    public function AddItem()
+    {
+        $sql = "insert into stock(name,quantity,currentq,brand) values(?,?,?,?);";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param('ssss',$this->name,$this->quantity,$this->quantity,$this->brand);
+        if($stmt->execute())
+        {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function UpdateItem($id,$quantity)
+    {
+        $sql = "update stock set quantity=? where id=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param('ii',$quantity,$id);
+        return $stmt->execute();
+    }
+
+    public function RemoveItem($id)
+    {
+        $sql = "delete from stock where id=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param('i',$id);
+        return $stmt->execute();
+    }
+
+    public function getAll()
+    {
+        $sql = "select * from stock;";
+        $stmt = $this->con->prepare($sql);
+        return $stmt->execute();
+    }
+
 
 }

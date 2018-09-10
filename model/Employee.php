@@ -8,22 +8,11 @@
 
 class Employee extends Person
 {
-    private $joindate;
+    protected $joindate;
 
     /**
      * @return mixed
      */
-    public function getJoindate()
-    {
-        return $this->joindate;
-    }
+    public function AddEmployee($)
 
-    /**
-     * @param mixed $joindate
-     */
-    public function setJoindate($joindate)
-    {
-        $this->joindate = $joindate;
-    }
 }
-?>
