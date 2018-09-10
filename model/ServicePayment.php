@@ -15,65 +15,53 @@ class ServicePayment extends Payment
     /**
      * @return mixed
      */
-    public function getPaymentId()
+    public function getAppointmentId()
     {
-        return $this->paymentId;
+        return $this->AppointmentId;
     }
 
     /**
-     * @param mixed $paymentId
+     * @param mixed $AppointmentId
      */
-    public function setPaymentId($paymentId)
+    public function setAppointmentId($AppointmentId)
     {
-        $this->paymentId = $paymentId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param mixed $price
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
+        $this->AppointmentId = $AppointmentId;
     }
 
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getBeauticianId()
     {
-        return $this->date;
+        return $this->beauticianId;
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $beauticianId
      */
-    public function setDate($date)
+    public function setBeauticianId($beauticianId)
     {
-        $this->date = $date;
+        $this->beauticianId = $beauticianId;
     }
 
     /**
      * @return mixed
      */
-    public function getTime()
+    public function getCommission()
     {
-        return $this->time;
+        return $this->commission;
     }
 
     /**
-     * @param mixed $time
+     * @param mixed $commission
      */
-    public function setTime($time)
+    public function setCommission($commission)
     {
-        $this->time = $time;
+        $this->commission = $commission;
     }
+
+    /**
+     * @return mixed
+     */
+
 }
-?>

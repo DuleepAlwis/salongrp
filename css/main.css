@@ -104,6 +104,9 @@ body {
     background: #333;
     color: #fff; }
 
+#services{
+    background-color: #025aa5;
+}
 .navbar {
     border-bottom: #008ed6 3px solid;
     opacity: 0.8; }
@@ -133,7 +136,7 @@ body {
 
 #explore-section .fa, #share-section .fa {
     /*color: #fff;*/
-    background: #333;
+    background:#17a2b8;
     padding: 4px;
     border-radius: 5px;
     font-size: 30px; }
@@ -194,7 +197,7 @@ body {
 .box2
 {
     width:650px;
-    height:550px;
+    height:570px;
     border-style: double;
     border-color: #1b1e21;
 }
@@ -205,19 +208,51 @@ body {
     height:350px;
     border-style: inset;
     border-color: #5a6268;
-    overflow-y:auto
+    overflow-y:auto;
+    background-color: #31b0d5;
 }
 
 .msgSend
 {
     width:250px;
-    height:150px;
+    height:200px;
     border-style: outset;
 }
 
+.menuBox:hover
+{
+    border-color: #014c8c;
+}
 
 
+.navCard
+{
+    width:150px;
+    height:150px
+}
 
+.navCard > img
+{
+    width:100px;
+    height:80px
+}
+
+.navCard:hover
+{
+
+    background-color: transparent;
+}
+
+.panel
+{
+    background-color: #1b1e21;
+
+}
+
+.panel table a
+{
+    text-decoration-line: none;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -23,14 +23,18 @@
     </div>
     <div class="row mt-3">
         <div class="col-4">
+        <a href="ReceptionistHome.php"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.php"><span class="logoutBtn"></span></a>
+
             <table class="table table-bordered">
                 <thead class="thead-dark">
+                
 
-                <tr><td><a href="ReceptionistAppointment.html">View Appointments</a></td></tr>
-                <tr><td><a href="ReceptionistAppointment.html">Stock details</a></td></tr>
-                <tr><td><a href="ReceptionistAppointment.html">View Customers</a></td></tr>
-                <tr><td><a href="ReceptionistAppointment.html">Generate reports</a></td></tr>
-                <tr><td><a href="ReceptionistAppointment.html">Chat</a></td></tr>
+                <tr><td></td></tr>
+                    <tr><td><a href="ReceptionistStock.php">Stock details</a></td></tr>
+                    <tr><td><a href="ReceptionistCustomer.php">View Customers</a></td></tr>
+                    <tr><td><a href="ReceptionistReport.php">Generate reports</a></td></tr>
+                    <tr><td><a href="ReceptionistChat.php">Chat</a></td></tr>
+                    <tr><td><a href="ReceptionistPayment.php">Payment</a></td></tr>
                 <tr></tr>
                 </thead>
             </table>

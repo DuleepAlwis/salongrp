@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<body>
+<body class="bg-info text-white">
 <div class="container-fluid">
     <div class="row heading">
         <div class="col-3"></div>
@@ -24,15 +24,17 @@
     </div>
     <div class="row mt-3">
         <div class="col-4">
-            <a href="../index.html"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.html"><span class="logoutBtn"></span></a>
-            <div class="table-responsive-md">
+            <a href="ReceptionistHome.php"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.php"><span class="logoutBtn"></span></a>
+            <div class="table-responsive-md panel">
                 <table class="table table-bordered">
                     <thead class="thead-dark">
-                    <tr><td><a href="ReceptionistAppointment.html">View Appointments</a></td></tr>
-                    <tr><td><a href="ReceptionistStock.html">Stock details</a></td></tr>
-                    <tr><td><a href="ReceptionistCustomer.html">View Customers</a></td></tr>
-                    <tr><td><a href="ReceptionistAppointment.html">Generate reports</a></td></tr>
-                    <tr><td><a href="ReceptionistChat.html">Chat</a></td></tr>
+                    <tr><td><a href="ReceptionistAppointment.php">View Appointments</a></td></tr>
+                    <tr><td><a href="ReceptionistStock.php">Stock details</a></td></tr>
+                    <tr><td><a href="ReceptionistCustomer.php">View Customers</a></td></tr>
+                    <tr><td><a href="ReceptionistReport.php">Generate reports</a></td></tr>
+                    <tr><td><a href="ReceptionistChat.php">Chat</a></td></tr>
+                    <tr><td><a href="ReceptionistPayment.php">Payment</a></td></tr>
+
                     <tr></tr>
                     </thead>
                 </table>
@@ -80,3 +82,6 @@
             <ul id="wlist"></ul>
         </div>
     </div>
+</div>
+</body>
+</html>

@@ -8,13 +8,13 @@
 
 class Person
 {
-    private $id;
-    private $name;
-    private $email;
-    private $tpno;
-    private $address;
-    private $password;
-    private $username;
+    protected $id;
+    protected $name;
+    protected $email;
+    protected $tpno;
+    protected $address;
+    protected $password;
+    protected $username;
 
     /**
      * @return mixed
@@ -128,4 +128,3 @@ class Person
         $this->username = $username;
     }
 }
-?>
