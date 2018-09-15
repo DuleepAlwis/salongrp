@@ -6,6 +6,7 @@
  * Time: 7:00 PM
  */
 
+include "Database.php";
 class Stock
 {
     public $itemCode;
@@ -63,8 +64,14 @@ class Stock
     public function getAll()
     {
         $sql = "select * from stock;";
-        $stmt = $this->con->prepare($sql);
-        return $stmt->execute();
+        if($stmt = $this->con->prepare($sql))
+        {
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+        }
+        return null;
     }
 
 

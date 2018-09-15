@@ -6,10 +6,10 @@
  * Time: 1:32 AM
  */
 
-include "model/Stock.php";
+include "../model/Stock.php";
 
 
-public function AddItem()
+function AddItem()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -26,8 +26,7 @@ public function AddItem()
 
     }
 }
-
-public function RemoveItem($id)
+function RemoveItem($id)
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stock = new Stock();
@@ -39,3 +38,13 @@ public function RemoveItem($id)
         }
     }
 }
+
+function getAll()
+{
+
+        $stock = new Stock();
+
+        return $stock->getAll();
+
+}
+?>

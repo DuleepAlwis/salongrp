@@ -63,16 +63,16 @@
                                 <div class="card bg-primary text-center card-form">
                                     <div class="card-body">
                                         <h3>Here is your Login</h3>
-                                        <form>
+                                        <form name="login" method="post" action="controller/LoginController.php">
                                             <div class="form-group">
-                                                <input type="text" class="form-control form-control-lg" placeholder="Username">
+                                                <input type="text" name="uname" class="form-control form-control-lg" placeholder="Username">
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-lg" placeholder="Password">
+                                                <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
                                             </div>
 
-                                            <input type="submit" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
+                                            <input type="submit" name="login"class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
 
                                         </form>
                                     </div>
@@ -117,7 +117,7 @@
                     <div class="form-group col-md-3">
                         <label for="inputDistrict">District</label>
                         <input type="text" class="form-control" name="District" placeholder="" required maxlength="20">
-                        <!--<select name="cusDistrict" class="text-primary" id="district" onclick="displayDistrict()"></select>-->
+                        <select name="District" id="district" class="form-control" style="width:50%" onclick="displayDistrict()"></select>
                     </div>
                     </div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Sign in"> <input type="reset" class="btn btn-primary" name="Cancel" value="Cancel">
@@ -211,7 +211,7 @@
                     </div>
                     <div class="col-md-3">
                 <div class="card ml-3" style="width: 18rem;">
-                    <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                    <img class="card-img-top" src="img/image17.jpg" width="50" height="150" alt="Card image cap">
                     <div class="card-body">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal3">
                             Threading
@@ -239,10 +239,10 @@
 
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-1">
                 <div class="col-md-3">
             <div class="card ml-3" style="width: 18rem;">
-                <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                <img class="card-img-top" src="img/image11.jpg" width="50" height="150" alt="Card image cap">
                 <div class="card-body">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal4">
                         Waxing
@@ -271,7 +271,7 @@
 
                         <div class="col-md-3">
                 <div class="card ml-3" style="width: 18rem;">
-                    <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                    <img class="card-img-top" src="img/image12.png" width="50" height="150" alt="Card image cap">
                     <div class="card-body">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal5">
                             Facials
@@ -299,7 +299,7 @@
                         </div>
                 <div class="col-md-3">
                     <div class="card ml-3" style="width: 18rem;">
-                        <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                        <img class="card-img-top" src="img/image18.jpg" width="50" height="150" alt="Card image cap">
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal6">
                                 Dressing
@@ -331,7 +331,7 @@
         </section>
 
         <!-- CREATE SECTION -->
-        <section id="create-section" class="py-5">
+        <!--<section id="create-section" class="py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -360,17 +360,43 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
 
         <!-- SHARE HEAD -->
-        <section id="Gallery" class="bg-primary">
+        <!--<section id="Gallery" class="bg-primary">
+            Gallery
             <div class="container">
                 <div class="row">
-
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="img/image14.png" alt="First slide" style="width: 100%;height:100%">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/image15.jpg" alt="Second slide" style="width: 100%;height:100%">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/image8.jpg" alt="Third slide" style="width: 100%;height:100%">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <!-- SHARE SECTION -->
         <section id="share-section" class="py-5 bg-light text-muted">
@@ -397,35 +423,7 @@
         </footer>
 
         <!-- CONTACT MODAL -->
-        <div class="modal fade-out text-dark" id="contactModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactModalTitle">Contact Us</h5>
-                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Message</label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary btn-block">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
         <script src="js/vendor/jquery-3.2.1.min.js"></script>
@@ -446,6 +444,8 @@
 include "controller/CustomerController.php";
 if(isset($_POST['submit']))
 {
+    include "controller/CustomerController.php";
+
     if(Addcustomer())
     {
         echo "<script type='text/javascript'>alert('Successfully registered , check your email')</script>";
@@ -455,6 +455,11 @@ if(isset($_POST['submit']))
         echo "<script type='text/javascript'>alert('Invalid details')</script>";
     }
 }
+
+/*if(isset($_POST['login']))
+{
+    include "controller/LoginController.php";
+}*/
 ?>
 
 

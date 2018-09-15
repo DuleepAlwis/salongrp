@@ -6,143 +6,53 @@
  * Time: 7:22 PM
  */
 
+include "Database.php";
 class Appointment
 {
-    private $AppointmentId;
-    private $CustomerId;
-    private $BeauticianId;
-    private $ServiceId;
-    private $date;
-    private $stime;
-    private $etime;
-    private $state;
+    protected $AppointmentId;
+    protected $CustomerId;
+    protected $BeauticianId;
+    protected $ServiceId;
+    protected $date;
+    protected $stime;
+    protected $etime;
+    protected $state;
+    protected $con;
 
     /**
      * @return mixed
      */
-    public function getAppointmentId()
+
+    public function __construct()
     {
-        return $this->AppointmentId;
+        $this->con = Database::getConnection();
     }
 
-    /**
-     * @param mixed $AppointmentId
-     */
-    public function setAppointmentId($AppointmentId)
+    public function AddAppointment()
     {
-        $this->AppointmentId = $AppointmentId;
+
     }
 
-    /**
-     * @return mixed
-     */
-    public function getBeauticianId()
+    public function getAll($date,$employee)
     {
-        return $this->BeauticianId;
+        if($employee==0)
+        {
+            $sql = "select * from salon.appointment where date='$date' and ;";
+        }
+        else
+        {
+            $sql = "select appointment.* from salon.appointment,salon.employee where date='$date' and emploee.name='$employee' 
+                    and salon.appointment.beauticianid=salon.employee.id;";
+        }
+        if($stmt = $this->con->prepare($sql))
+        {
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+        }
+        return null;
     }
 
-    /**
-     * @param mixed $BeauticianId
-     */
-    public function setBeauticianId($BeauticianId)
-    {
-        $this->BeauticianId = $BeauticianId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getServiceId()
-    {
-        return $this->ServiceId;
-    }
-
-    /**
-     * @param mixed $ServiceId
-     */
-    public function setServiceId($ServiceId)
-    {
-        $this->ServiceId = $ServiceId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param mixed $date
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEtime()
-    {
-        return $this->etime;
-    }
-
-    /**
-     * @param mixed $etime
-     */
-    public function setEtime($etime)
-    {
-        $this->etime = $etime;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * @param mixed $state
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStime()
-    {
-        return $this->stime;
-    }
-
-    /**
-     * @param mixed $stime
-     */
-    public function setStime($stime)
-    {
-        $this->stime = $stime;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCustomerId()
-    {
-        return $this->CustomerId;
-    }
-
-    /**
-     * @param mixed $CustomerId
-     */
-    public function setCustomerId($CustomerId)
-    {
-        $this->CustomerId = $CustomerId;
-    }
 
 }
