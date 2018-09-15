@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbdc956f-9eed-40a2-92e6-4fe21f75446b" name="Default" comment="Third commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/controller/AppointmentController.php" afterPath="$PROJECT_DIR$/controller/AppointmentController.php" />
-      <change beforePath="$PROJECT_DIR$/controller/StockController.php" afterPath="$PROJECT_DIR$/controller/StockController.php" />
-      <change beforePath="$PROJECT_DIR$/img/image.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/image8.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/model/Appointment.php" afterPath="$PROJECT_DIR$/model/Appointment.php" />
-      <change beforePath="$PROJECT_DIR$/model/Stock.php" afterPath="$PROJECT_DIR$/model/Stock.php" />
-      <change beforePath="$PROJECT_DIR$/views/ReceptionistAppointment.php" afterPath="$PROJECT_DIR$/views/ReceptionistAppointment.php" />
-      <change beforePath="$PROJECT_DIR$/views/ReceptionistStock.php" afterPath="$PROJECT_DIR$/views/ReceptionistStock.php" />
-    </list>
+    <list default="true" id="fbdc956f-9eed-40a2-92e6-4fe21f75446b" name="Default" comment="Third commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +236,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1400" />
@@ -385,7 +373,7 @@
       <workItem from="1536504259358" duration="10150000" />
       <workItem from="1536573272724" duration="1667000" />
       <workItem from="1536600034411" duration="4216000" />
-      <workItem from="1536997741922" duration="9833000" />
+      <workItem from="1536997741922" duration="10034000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1531688271121</created>
@@ -447,10 +435,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209657000" />
+    <option name="totallyTimeSpent" value="209858000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20784102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
