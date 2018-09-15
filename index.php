@@ -25,7 +25,7 @@
         <!-- Add your site or application content here -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
-                <img src="img/image13.png" width="10%" height="10%"><a href="index1.html" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
+                <img src="img/icon/image13.png" width="10%" height="10%"><a href="index.php" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -63,17 +63,18 @@
                                 <div class="card bg-primary text-center card-form">
                                     <div class="card-body">
                                         <h3>Here is your Login</h3>
-                                        <form>
+                                        <form name="login" method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
                                             <div class="form-group">
-                                                <input type="text" class="form-control form-control-lg" placeholder="Username">
+                                                <input type="text"  name="uname" class="form-control form-control-lg" placeholder="Username">
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-lg" placeholder="Password">
+                                                <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
                                             </div>
 
-                                            <input type="submit" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
-
+                                            <input type="submit" name="login" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
+                                            <br>
+                                            <a href="views/resetpassword.php" class="text-white">Forgot password</a>
                                         </form>
                                     </div>
                                 </div>
@@ -94,8 +95,13 @@
                     <div class="form-row">
                         Name:
                         <input type="text" class="form-control" name="Name" placeholder="Name" required maxlength="100" size="100">
-                        Mobile number:
-                        <input type="text" class="form-control" name="Contact" placeholder="" required pattern="[0-9]{10}" size="13">
+                        <div class="form-group col-md-3 mt-3">
+                            Mobile number:
+                        </div>
+                        <div class="form-group col-md-6 mt-3">
+                            <input type="text" class="form-control" name="Contact" placeholder="0715789643" required pattern="[0-9]{10}" size="13" style="width:50%;display: inline-block">
+
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail">Email</label>
                             <input type="email" class="form-control" name="Email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
@@ -116,7 +122,16 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDistrict">District</label>
-                        <input type="text" class="form-control" name="District" placeholder="" required maxlength="20">
+                        <!--<input type="text" class="form-control" name="District" placeholder="" required maxlength="20">-->
+                        <select name="District" class="form-control">
+                            <option>Colombo</option><option>Ampara</option><option>Anuradhapura</option><option>Badulla</option>
+                            <option>Batticaloa</option><option>Colombo</option><option>Galle</option>Gampaha<option>
+                                Hambantota</option><option>Jaffna</option><option>Kalutara</option><option>Kandy</option><option>
+                                Kegalle</option><option>Kilinochchi</option><option>Kurunegala</option><option>Mannar</option>
+                            <option>Matale</option><option>Matara</option><option>Moneragala</option><option>Mullaitivu</option>
+                            <option>Nuwara Eliya</option><option>Polonnaruwa</option><option>Puttalam</option><option>Ratnapura</option>
+                            <option>Trincomalee</option><option>Vavuniya</option></select>
+                        </select>
                         <!--<select name="cusDistrict" class="text-primary" id="district" onclick="displayDistrict()"></select>-->
                     </div>
                     </div>
@@ -330,8 +345,15 @@
 
         </section>
 
+        <div class="carousel-item">
+            <img src="..." alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>...</h5>
+                <p>...</p>
+            </div>
+        </div>
         <!-- CREATE SECTION -->
-        <section id="create-section" class="py-5">
+        <!--<section id="create-section" class="py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -360,7 +382,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
 
         <!-- SHARE HEAD -->
@@ -387,7 +409,7 @@
                 <div class="row">
                     <div class="col text-center">
                         <div class="py-4">
-                            <img src="img/image13.png" width="10%" height="10%"><h3 style="display: inline-block">Sanrooka salon</h3>
+                            <img src="img/icon/image13.png" width="10%" height="10%"><h3 style="display: inline-block">Sanrooka salon</h3>
                             <p>104, Super market building, Mount Lavinia.</p>
                             <p>0112761677 </p>
                         </div>
@@ -443,9 +465,10 @@
     </body>
 </html>
 <?php
-include "controller/CustomerController.php";
 if(isset($_POST['submit']))
 {
+    include "controller/CustomerController.php";
+
     if(Addcustomer())
     {
         echo "<script type='text/javascript'>alert('Successfully registered , check your email')</script>";
@@ -454,6 +477,23 @@ if(isset($_POST['submit']))
     {
         echo "<script type='text/javascript'>alert('Invalid details')</script>";
     }
+}
+else if(isset($_POST['login']))
+{
+    include "controller/LoginController.php";
+    if(logUser())
+    {
+        echo "OK";
+    }
+    else
+    {
+        echo "NO";
+    }
+
+}
+else
+{
+
 }
 ?>
 

@@ -13,3 +13,4 @@ function displayDistrict()
         optTag.appendChild(element)
     }
 }
+

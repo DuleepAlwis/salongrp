@@ -1,65 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="../icontop.jpg">
     <title>Salon Sanrooka</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<body>
+<body class="">
+<?php
+include "layout/ReceptionistLayout.php";
+include "../controller/StockController.php";
+
+?>
 <div class="container-fluid">
-    <div class="row heading">
-        <div class="col-3"></div>
-        <div class="col-5 h1">Salon Sanrooka</div>
-    </div>
+
     <div class="row mt-3">
-        <div class="col-4">
-        <a href="ReceptionistHome.php"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.php"><span class="logoutBtn"></span></a>
 
-            <table class="table table-bordered">
-                <thead class="thead-dark">
-                
 
-                <tr><td></td></tr>
-                    <tr><td><a href="ReceptionistStock.php">Stock details</a></td></tr>
-                    <tr><td><a href="ReceptionistCustomer.php">View Customers</a></td></tr>
-                    <tr><td><a href="ReceptionistReport.php">Generate reports</a></td></tr>
-                    <tr><td><a href="ReceptionistChat.php">Chat</a></td></tr>
-                    <tr><td><a href="ReceptionistPayment.php">Payment</a></td></tr>
-                <tr></tr>
-                </thead>
-            </table>
-        </div>
-        <div class="col-8">
-            <h1 style="display:inline-block" align="center">View Appointments</h1>
-        </div>
+        <div class="col-md-8">
+            <h1 align="center">Appointments</h1>
+            <div class="table-responisve-md" style="height:500px;overflow-y:auto">
+                <table class="table table-bordered" style="height:150px">
 
-    </div>
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-        <form name="appointment" method="get" action=""></form>
-                <div style="font-size: 17px">Select the date <input type="date"> <button class="btn-primary">Check</button></div>
-        </form>
-        </div>
-        <div class="col-4">
-            <div class="newsForm">
-                <ul id="news">
-                    <li>aaaaaaaaaaabbccccc</li>
-                </ul>
+                    <caption>List of Appointments</caption>
+                    <thead>
+                    <tr style="position:sticky;background-color: #01549b">
+
+                        <th scope="col">Appointment No</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Beautician</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<//?php
+                    if(($result=getAll())!=null)
+                    {
+                        $result->bind_result($id,$name,$quantity,$cquantity,$brand,$price);
+                        while($result->fetch())
+                        {
+                            echo "<tr><th scope='row'>".$id."</th><td>".$name."</td><td>".$brand."</td><td><input type='number' id='$id' value='$cquantity' min='0' size='7' maxlength='7' width='7' style='width: 57px'><button type='button' onclick='itemQuantity($id)'>Update</button>"."</td><td>
+                                    ".$price."</td></tr>";
+                        }
+
+                    }
+                    ?>-->
+
+                    </tbody>
+
+                </table>
             </div>
         </div>
+            <div class="col-md-4">
+                <form>
+                    <div class="form-row">
+                        <div class="col-4">
+                            Select the date:
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            Select the beautician:
+                            <select id="employee"><option>ABC1111</option><option>ABC11111</option><option>ABC1111</option></select>
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" name="vAppointment" value="view">
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-5 msgBox">
+                    <ul id="postponel"></ul>
+                </div>
+            </div>
+
     </div>
-</div>
+
+
+    <script src="../js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/Receptionist.js"></script>
 
 </body>
-</html>

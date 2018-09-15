@@ -11,6 +11,7 @@ function Addcustomer()
 
     if($_SERVER["REQUEST_METHOD"]=="POST")
     {
+
         $customer = new Customer();
         $customer->name = testInput($_POST["Name"]);
         $customer->tpno = testInput($_POST["Contact"]);
@@ -22,22 +23,29 @@ function Addcustomer()
         //$m = (int)microtime();
         //echo ($_POST["Name"]+" ");
 
-        $customer->validationc = md5(($customer->name.date_timestamp_get()));
-        if($customer->AddCustomer())
-        {
+        $customer->validationc = md5($customer->name,microtime());
+
+
             $email = $customer->email;
             $validationc = $customer->validationc;
             $subject = "Activation Link";
             $msg = "Please click the link below to activate your account
-                  https://localhost/login/activate.php?email=$email&code=$validationc";
-            $header = "From: noreply@duleepalwis0@gmail.com";
-            ini_set('SMTP','myserver');
-            ini_set('smtp_port',25);
-            if(sendEmail($email,$subject,$msg,$header))
+                  https://localhost/controller/ConfirmUser.php?uname=$email&code=$validationc";
+            $header = "From: noreply@duleepalwis@gmail.com";
+            //ini_set('SMTP','localhost');
+            //ini_set('smtp_port',25);
+            /*if(sendEmail($email,$subject,$msg,$header))
+            {
+                if($customer->AddCustomer())
+                {
+                    return true;
+                }
+            }*/
+            //return true;
+            if($customer->AddCustomer())
             {
                 return true;
             }
-        }
         return false;
     }
 
@@ -46,10 +54,20 @@ function Addcustomer()
 
 function sendEmail($email,$subject,$msg,$headers)
 {
-    if(mail($email,$subject,$msg,$headers))
+
+    try
     {
-        return true;
+        if(mail($email,$subject,$msg,$headers))
+        {
+            echo "aaaaaaaaa11223";
+            return true;
+        }
     }
+    catch (Exception $ex)
+    {
+        echo $ex;
+    }
+    echo "wrong";
     return false;
 }
 

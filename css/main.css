@@ -204,12 +204,12 @@ body {
 
 .msgBox
 {
-    width:650px;
+    width:350px;
     height:350px;
     border-style: inset;
     border-color: #5a6268;
     overflow-y:auto;
-    background-color: #31b0d5;
+    background-color: #abdde5;
 }
 
 .msgSend
@@ -243,6 +243,16 @@ body {
     background-color: transparent;
 }
 
+.menuCard
+{
+    border-width: 17px;
+}
+.menuCard:hover
+{
+    border-style: -moz-bg-inset;
+    border-color: #1b1e21;
+
+}
 .panel
 {
     background-color: #1b1e21;

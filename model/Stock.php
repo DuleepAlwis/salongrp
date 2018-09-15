@@ -6,6 +6,7 @@
  * Time: 7:00 PM
  */
 
+include "Database.php";
 class Stock
 {
     public $itemCode;
@@ -46,9 +47,9 @@ class Stock
 
     public function UpdateItem($id,$quantity)
     {
-        $sql = "update stock set quantity=? where id=?;";
+        $sql = "update stock set quantity=?,currentq=? where id=?;";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('ii',$quantity,$id);
+        $stmt->bind_param('iii',$quantity,$quantity,$id);
         return $stmt->execute();
     }
 
@@ -64,7 +65,18 @@ class Stock
     {
         $sql = "select * from stock;";
         $stmt = $this->con->prepare($sql);
-        return $stmt->execute();
+        $stmt->execute();
+        return $stmt;
+
+    }
+
+    public function getQuantity()
+    {
+        $sql = "select id,quantity from stock;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->execute();
+        //var_dump($stmt);
+        return $stmt;
     }
 
 

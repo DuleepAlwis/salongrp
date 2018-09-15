@@ -53,5 +53,10 @@ class Customer
 
     }
 
+    public function getCustomer()
+    {
+
+    }
+
 
 }
