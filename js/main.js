@@ -10,6 +10,8 @@ function displayDistrict()
     for(i=0;i<district.length;i++)
     {
         element = document.createElement("option");
-        optTag.appendChild(element)
+        element.value = district[i];
+        optTag.appendChild(element);
+        console.log(element.value);
     }
 }

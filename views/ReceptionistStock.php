@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="">
-<?php include "layout/ReceptionistLayout.php" ?>
+<?php
+include "layout/ReceptionistLayout.php";
+include "../controller/StockController.php";
+?>
 <div class="container-fluid">
 
     <div class="row mt-3">
 
-           
-        <div class="col">
+           <div class="col-md-1"></div>
+        <div class="col-md-10">
             <h1 align="center">Stock</h1>
             <div class="table-responisve-md" style="height:500px;overflow-y:auto">
                 <table class="table table-bordered" style="height:150px">
@@ -31,114 +34,35 @@
                             <th scope="col">Name</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Current Quantity</th>
-                            <th scope="col">Price(1 unit)</th>
+                            <th scope="col">Price(1 unit)Rs.</th>
+                            <th scope="col">PreOrderLevel</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        <tbody class="text-primary">
+                        <?php
+                            if(($result=getAll())!=null)
+                            {
+                                $result->bind_result($id,$name,$quantity,$currentq,$brand,$price,$preOrderl,$code);
+                                while($result->fetch())
+                                {
+                                    echo "<tr><th scope='row'>".$code."</th><td>".$name."</td><td>".$brand."</td><td>".
+                                    "<input type='number' id='$id' value='$quantity' style='width:67px'><input type='button' onclick='updateItem($id)' value='Update' style='width:67px;border-radius: 3px'></td><td>".$price."</td><td>".$preOrderl."</td></tr>";
+                                }
+                            }
+
+                            ?>
+
                         </tbody>
 
                 </table>
             </div>
         </div>
         </div>
-    <div class="row">
 
-            <div class="col">
-                <a href="ReceptionistHome.php"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.php"><span class="logoutBtn"></span></a>
-
-                <form name="stockitems" method="get" action="">
-                    <div class="form-group">
-                        <label for="iCode">Item Code</label>
-                        <input type="text" class="form-control" id="iCode"  placeholder="000">
-
-                    </div>
-                    <div class="form-group">
-                        <label for="iName">Name</label>
-                        <input type="text" class="form-control" id="iName" placeholder="Item name">
-                    </div>
-                    <div class="form-group">
-                        <label for="iQuantity">Quantity</label>
-                        <input type="number" min="0" class="form-control" id="iQuantity" placeholder="Quantity">
-                    </div>
-
-
-                    <button type="submit" class="btn btn-primary mr-3">Update</button><button type="reset" class="btn btn-primary">Cancel</button>
-                </form>
-            </div>
-        
-
-    </div>
 
     <script src="../js/vendor/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
-
-</body>
+    <script src="../js/Receptionist.js"></script>
+    </body>
 </html>
