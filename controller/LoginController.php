@@ -1,45 +1,47 @@
 <?php
 
-include "model/Login.php";
-function logUser()
+include "../model/Login.php";
+$login = new Login();
+if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-    $login = new Login();
-
-    if($_SERVER["REQUEST_METHOD"]=="POST")
+    if(isset($_POST["uname"]) && isset($_POST["password"]))
     {
-        if(isset($_POST["uname"]) && isset($_POST["password"]))
+        if($login->logUser(test($_POST["uname"]),test($_POST["password"])))
         {
-            $uname = test($_POST["uname"]);
-            $password = test($_POST["password"]);
-            return $login->userLogin($uname,$password);
+
+        }
+        else
+        {
+            echo "<script type='text/javascript'>alert('Invalid Credentials')</script>";
+            //header("Location:../index.php");
         }
     }
-    return false;
+
 }
 
-function confirmUser()
+if($_SERVER["REQUEST_METHOD"]=="GET")
 {
-    $login = new Login();
-
-    if($_SERVER["REQUEST_METHOD"]=="GET")
+    if(isset($_GET["uname"]) && isset($_GET["validc"]))
     {
-        if(isset($_POST["uname"]) && isset($_POST["code"]))
+        if($login->confirmUserr(test($_GET["uname"]),test($_GET["validc"])))
         {
-            $uname = test($_POST["uname"]);
-            $validationc = $_POST["code"];
-            return $login->userActivate($uname,$validationc);
+
+        }
+        else
+        {
+            echo "<script type='text/javascript'>alert('Invalid Credentials')</script>";
         }
     }
 
-    return false;
 }
 
 function test($data)
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    echo $data."123";
-    return $data;
+
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+
+        return $data;
+
 }
-?>

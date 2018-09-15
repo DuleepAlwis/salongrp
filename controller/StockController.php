@@ -7,6 +7,8 @@
  */
 
 include "../model/Stock.php";
+
+
 function AddItem()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -24,7 +26,6 @@ function AddItem()
 
     }
 }
-
 function RemoveItem($id)
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,14 +41,10 @@ function RemoveItem($id)
 
 function getAll()
 {
-    $stock = new Stock();
-    $stmt = $stock->getAll();
-    if($stmt)
-    {
-        return $stmt;
-    }
-    return null;
+
+        $stock = new Stock();
+
+        return $stock->getAll();
+
 }
-
-
 ?>

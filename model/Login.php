@@ -2,76 +2,83 @@
 /**
  * Created by PhpStorm.
  * User: user
- * Date: 9/14/2018
- * Time: 7:48 PM
+ * Date: 9/15/2018
+ * Time: 12:57 PM
  */
 
 include "Database.php";
-
 class Login
 {
-    public $con = null;
-    public function __construct()
+    protected $con = null;
+    public function __Construct()
     {
         $this->con = Database::getConnection();
     }
 
-    public function userLogin($uname,$password)
+    public function logUser($uname,$password)
     {
-
-        $sqlCustomer = "select * from salon.customer where email=? and password=?;";
+        $sqlCustomer = "select email from customer where email=? and password=?;";
         $stmt = $this->con->prepare($sqlCustomer);
-        $stmt->bind_param('ss',$uname,md5($password));
+        $stmt->bind_param("ss",$uname,$password);
         if($stmt->execute())
         {
             session_start();
-            $_SESSION["username"] = $uname;
-            return true;
-        }
-        else {
-            $sqlEmployee = "select * from salon.employee where email=? and password=?;";
-            $stmt = $this->con->prepare($sqlEmployee);
-            $stmt->bind_param('ss', $uname, md5($password));
-            if ($stmt->execute())
-            {
-                session_start();
-                $_SESSION["username"] = $uname;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-
-    public function userActivate($uname,$validationc)
-    {
-        $sqlCustomer = "select * from salon.customer where email=? and validationcode=?;";
-        $stmt = $this->con->prepare($sqlCustomer);
-        $stmt->bind_param('ss',$uname,$validationc);
-        if($stmt->execute())
-        {
-            session_start();
-            $_SESSION["username"] = $uname;
-            return true;
+            $_SESSION['uname'] = $uname;
         }
         else
         {
-            $sqlEmployee = "select * from salon.employee where email=? and validationcode=?;";
-            $stmt = $this->con->prepare($sqlEmployee);
-            $stmt->bind_param('ss',$uname,$validationc);
+            $sqlEmployee = "select email from salon.employee where email=? and password=?;";
+            $stmt = $this->con->prepare($sqlCustomer);
+            $stmt->bind_param("ss",$uname,$password);
             if($stmt->execute())
             {
                 session_start();
-                $_SESSION["username"] = $uname;
+                $_SESSION['uname'] = $uname;
                 return true;
             }
             else
             {
                 return false;
             }
-
         }
     }
+
+    public function confirmUserr($uname,$validatec)
+    {
+        $num = 0;
+        $sqlCustomer = "select email from customer where email=? and validationcode=?;";
+        $stmt = $this->con->prepare($sqlCustomer);
+        $stmt->bind_param("ss",$uname,$validatec);
+        if($stmt->execute())
+        {
+            $sqlCustomer = "update customer set validationcode=? where email=?;";
+            $stmt = $this->con->prepare($sqlCustomer);
+            $stmt->bind_param("ss",$num,$email);
+            $stmt->execute();
+            session_start();
+            $_SESSION['uname'] = $uname;
+        }
+        else
+        {
+            $sqlEmployee = "select email from salon.employee where email=? and validationcode=?;";
+            $stmt = $this->con->prepare($sqlCustomer);
+            $stmt->bind_param("ss",$uname,$password);
+            if($stmt->execute())
+            {
+                $sqlCustomer = "update employee set validationcode=? where email=?;";
+                $stmt = $this->con->prepare($sqlCustomer);
+                $stmt->bind_param("ss",$num,$email);
+                $stmt->execute();
+                session_start();
+                $_SESSION['uname'] = $uname;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
 }

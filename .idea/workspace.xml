@@ -62,12 +62,39 @@
         <item name="salondb@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="salondb: schema" type="c314c289:MysqlImplModel$Schema" />
+<<<<<<< HEAD
         <item name="customer: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
+=======
+        <item name="appointment: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="salondb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="salondb: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="customer: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="salondb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="salondb: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="employee: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="salondb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="salondb: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="stock: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+>>>>>>> dulip
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/LoginController.php">
@@ -177,6 +204,9 @@
         </entry>
       </file>
     </leaf>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+>>>>>>> dulip
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -191,9 +221,11 @@
       <find>\</find>
       <find>main-header</find>
       <find>&quot;</find>
+      <find>private</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
+      <replace>protected</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -295,7 +327,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/07939b5d-0df5-488b-b971-c30fc850d648/console.sql" />
-        <option value="$PROJECT_DIR$/model/Appointment.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d96294bd-d340-44f0-ba97-c1bdf72a5c26/console.sql" />
         <option value="$PROJECT_DIR$/model/Chat.php" />
         <option value="$PROJECT_DIR$/views/ReceptionistAppointment.html" />
@@ -309,13 +340,13 @@
         <option value="$PROJECT_DIR$/model/ServicePayment.php" />
         <option value="$PROJECT_DIR$/model/PurchasePayment.php" />
         <option value="$PROJECT_DIR$/views/ReceptionistCustomer.html" />
-        <option value="$PROJECT_DIR$/controller/AppointmentController.php" />
         <option value="$PROJECT_DIR$/controller/CustometController.php" />
         <option value="$PROJECT_DIR$/model/Employee.php" />
         <option value="$PROJECT_DIR$/model/Person.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/index1.html" />
         <option value="$PROJECT_DIR$/model/Database.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/controller/StockController.php" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/controller/StockRealTime.php" />
@@ -332,9 +363,13 @@
         <option value="$PROJECT_DIR$/css/simple-sidebar.css" />
         <option value="$PROJECT_DIR$/views/AdminProfile.php" />
         <option value="$PROJECT_DIR$/views/layout/AdminLayout.php" />
+=======
+        <option value="$PROJECT_DIR$/model/Customer.php" />
+>>>>>>> dulip
         <option value="$PROJECT_DIR$/views/layout/ReceptionistLayout.php" />
         <option value="$PROJECT_DIR$/views/AdminDashboard.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/views/AdminCustomer.php" />
         <option value="$PROJECT_DIR$/views/AdminEmployee.php" />
         <option value="$PROJECT_DIR$/model/Stock.php" />
@@ -344,6 +379,21 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/controller/LoginController.php" />
         <option value="$PROJECT_DIR$/model/Login.php" />
+=======
+        <option value="$PROJECT_DIR$/controller/CustomerController.php" />
+        <option value="$PROJECT_DIR$/controller/StockController.php" />
+        <option value="$PROJECT_DIR$/views/ReceptionistStock.php" />
+        <option value="$PROJECT_DIR$/controller/Stockdetails.php" />
+        <option value="$PROJECT_DIR$/js/Receptionist.js" />
+        <option value="$PROJECT_DIR$/model/Login.php" />
+        <option value="$PROJECT_DIR$/model/Stock.php" />
+        <option value="$PROJECT_DIR$/model/Appointment.php" />
+        <option value="$PROJECT_DIR$/controller/AppointmentController.php" />
+        <option value="$PROJECT_DIR$/views/ReceptionistAppointment.php" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/controller/LoginController.php" />
+>>>>>>> dulip
       </list>
     </option>
   </component>
@@ -360,10 +410,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="571" />
     <option name="y" value="39" />
     <option name="width" value="1256" />
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1400" />
+>>>>>>> dulip
     <option name="height" value="990" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -452,6 +509,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -518,6 +576,7 @@
       <workItem from="1536379282814" duration="31315000" />
       <workItem from="1536504259358" duration="10150000" />
       <workItem from="1536573272724" duration="1667000" />
+<<<<<<< HEAD
       <workItem from="1536600034411" duration="13150000" />
       <workItem from="1536649765948" duration="14046000" />
       <workItem from="1536687618820" duration="14811000" />
@@ -528,6 +587,10 @@
       <workItem from="1536912114200" duration="3491000" />
       <workItem from="1536926553020" duration="16831000" />
       <workItem from="1536987259613" duration="1233000" />
+=======
+      <workItem from="1536600034411" duration="4216000" />
+      <workItem from="1536997741922" duration="10034000" />
+>>>>>>> dulip
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1531688271121</created>
@@ -589,6 +652,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="302007000" />
   </component>
   <component name="ToolWindowManager">
@@ -596,6 +660,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11385607" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="209858000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20784102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> dulip
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -661,6 +733,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../UniversityMS/reception.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -676,6 +749,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../UniversityMS/process/connect.php">
+=======
+    <entry file="file://$PROJECT_DIR$/model/Services.php">
+>>>>>>> dulip
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -689,6 +765,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/index1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1176">
@@ -702,6 +779,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../UniversityMS/studenta.php">
+=======
+    <entry file="file://$PROJECT_DIR$/model/PurchasePayment.php">
+>>>>>>> dulip
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2808">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -891,6 +971,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/model/Appointment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-405">
@@ -899,12 +980,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/Stockdetails.php">
+=======
+    <entry file="das://src:table:/10b6ef1d/2b2b0057-fabb-4629-9f6a-9e521ff255ee/salondb.customer">
+>>>>>>> dulip
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -913,6 +998,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/ReceptionistAppointment.php">
+=======
+    <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
+>>>>>>> dulip
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
@@ -926,15 +1014,30 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/js/Receptionist.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
           <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+=======
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="223" column="16" lean-forward="false" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
+>>>>>>> dulip
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="das://table:/10b6ef1d/2b2b0057-fabb-4629-9f6a-9e521ff255ee/salondb.customer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ReceptionistCustomer.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="384">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
@@ -960,27 +1063,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="27" column="69" lean-forward="false" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
-          <folding />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/10b6ef1d/2b2b0057-fabb-4629-9f6a-9e521ff255ee/salondb.customer">
+    <entry file="file://$PROJECT_DIR$/model/Customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+          <folding>
+            <marker date="1536989443866" expanded="true" signature="966:1089" ph="insert into customer... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout/ReceptionistLayout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/10b6ef1d/2b2b0057-fabb-4629-9f6a-9e521ff255ee/salondb.stock">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/Receptionist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="53" lean-forward="false" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Chat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1536">
+          <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+          <folding>
+            <marker date="1536997987555" expanded="true" signature="326:364" ph="select email... customer" />
+            <marker date="1536997987555" expanded="true" signature="326:381" ph="select email... customer" />
+            <marker date="1536997987555" expanded="true" signature="656:717" ph="select email... customer" />
+            <marker date="1536997987555" expanded="true" signature="1190:1251" ph="select email... customer" />
+            <marker date="1536997987555" expanded="true" signature="1424:1474" ph="update customer... " />
+            <marker date="1536997987555" expanded="true" signature="1461:1471" ph="select email... customer" />
+            <marker date="1536997987555" expanded="true" signature="1743:1810" ph="select email... employee" />
+            <marker date="1536997987555" expanded="true" signature="2002:2052" ph="update employee... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/SupplierItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+>>>>>>> dulip
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Stockdetails.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+=======
+    <entry file="file://$PROJECT_DIR$/controller/CustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+>>>>>>> dulip
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/StockController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
         </state>
@@ -1012,10 +1192,72 @@
             <marker date="1536950856630" expanded="true" signature="683:740" ph="select from salon.employee... " />
             <marker date="1536950856630" expanded="true" signature="1208:1271" ph="select from salon.customer... " />
             <marker date="1536950856630" expanded="true" signature="1577:1640" ph="select from salon.employee... " />
+=======
+        <state relative-caret-position="651">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Appointment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="44" column="75" lean-forward="false" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
+          <folding>
+            <marker date="1537002767673" expanded="true" signature="642:696" ph="select * fro... appointment" />
+            <marker date="1537002767673" expanded="true" signature="754:824" ph="select * fro... appointment" />
+            <marker date="1537002767673" expanded="true" signature="754:825" ph="select * fro... appointment" />
+            <marker date="1537002767673" expanded="true" signature="754:826" ph="select * fro... appointment" />
+            <marker date="1537002767673" expanded="true" signature="754:831" ph="select * fro... appointment" />
+            <marker date="1537002767673" expanded="true" signature="754:860" ph="select appoi... appointment" />
+            <marker date="1537002767673" expanded="true" signature="754:934" ph="select appoi... appointment" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/ReceptionistStock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <marker date="1536995368916" expanded="true" signature="2169:2179" ph="..." />
+            <marker date="1536995368916" expanded="true" signature="2250:2260" ph="..." />
+            <marker date="1536995368916" expanded="true" signature="2250:2279" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/ReceptionistAppointment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/AppointmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="63" column="27" lean-forward="true" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+          <folding>
+            <marker date="1537001121446" expanded="true" signature="490:553" ph="insert into stock... " />
+            <marker date="1537001121446" expanded="true" signature="865:903" ph="update stock... " />
+            <marker date="1537001121446" expanded="true" signature="1095:1123" ph="delete from stock... " />
+            <marker date="1537001121446" expanded="true" signature="1297:1316" ph="select * fro... stock" />
+>>>>>>> dulip
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/model/Stock.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="655">
@@ -1039,6 +1281,43 @@
           <caret line="324" column="0" lean-forward="false" selection-start-line="324" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
           <folding>
             <marker date="1536944917876" expanded="true" signature="25127:25222" ph="..." />
+          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/model/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="27" column="69" lean-forward="false" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding />
+>>>>>>> dulip
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="65" column="111" lean-forward="false" selection-start-line="65" selection-start-column="111" selection-end-line="65" selection-end-column="111" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#2;n#div#1;n#form#0;n#div#0;n#section#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1537007423437" expanded="true" signature="8896:9206" ph="..." />
+            <marker date="1537007423437" expanded="true" signature="9305:9670" ph="..." />
+            <marker date="1537007423437" expanded="true" signature="9772:10092" ph="..." />
+            <marker date="1537007423437" expanded="true" signature="24007:24102" ph="..." />
           </folding>
         </state>
       </provider>

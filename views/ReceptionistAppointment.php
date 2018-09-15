@@ -14,15 +14,30 @@
 <body class="">
 <?php
 include "layout/ReceptionistLayout.php";
-include "../controller/StockController.php";
-
+include "../controller/AppointmentController.php";
 ?>
 <div class="container-fluid">
-
+    <div class="row mt-1">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <div class="row">
+            <div class="col">
+                Date :
+                <input type="date" class="form-control" name="date" >
+            </div>
+            <div class="col">
+                Employee :
+                <select name="employee"><option>AAA</option><option>AAA</option><option>AAA</option></select>
+            </div>
+            <div class="col">
+                <input type="submit" name="View" value="View">
+            </div>
+        </div>
+    </form>
+    </div>
     <div class="row mt-3">
 
-
-        <div class="col-md-8">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
             <h1 align="center">Appointments</h1>
             <div class="table-responisve-md" style="height:500px;overflow-y:auto">
                 <table class="table table-bordered" style="height:150px">
@@ -31,64 +46,45 @@ include "../controller/StockController.php";
                     <thead>
                     <tr style="position:sticky;background-color: #01549b">
 
-                        <th scope="col">Appointment No</th>
+                        <th scope="col">No</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Date</th>
                         <th scope="col">Time</th>
                         <th scope="col">Service</th>
-                        <th scope="col">Price</th>
                         <th scope="col">Beautician</th>
+                        <th scope="col">Price</th>
 
                     </tr>
                     </thead>
-                    <tbody>
-                    <!--<//?php
-                    if(($result=getAll())!=null)
+                    <tbody class="text-primary">
+                    <?php
+                    if(isset($_POST["date"]) && isset($_POST["employee"]))
                     {
-                        $result->bind_result($id,$name,$quantity,$cquantity,$brand,$price);
-                        while($result->fetch())
+                        if(($result=getAll($_POST["date"],$_POST["employee"]))!=null)
                         {
-                            echo "<tr><th scope='row'>".$id."</th><td>".$name."</td><td>".$brand."</td><td><input type='number' id='$id' value='$cquantity' min='0' size='7' maxlength='7' width='7' style='width: 57px'><button type='button' onclick='itemQuantity($id)'>Update</button>"."</td><td>
-                                    ".$price."</td></tr>";
+                            $result->bind_result($id,$name,$date,$time,$service,$beautician,$price);
+                            while($result->fetch())
+                            {
+                                echo "<tr><th scope='row'>".$id."</th><td>".$name."</td><td>".$date."</td><td>".
+                                    $time."</td><td>".$service."</td><td>".$beautician."</td><td>".$price."</td></tr>";
+                            }
                         }
-
                     }
-                    ?>-->
+
+
+                    ?>
 
                     </tbody>
 
                 </table>
             </div>
         </div>
-            <div class="col-md-4">
-                <form>
-                    <div class="form-row">
-                        <div class="col-4">
-                            Select the date:
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="col-1"></div>
-                        <div class="col-5">
-                            Select the beautician:
-                            <select id="employee"><option>ABC1111</option><option>ABC11111</option><option>ABC1111</option></select>
-                        </div>
-                        <div class="col-2">
-                            <input type="submit" name="vAppointment" value="view">
-                        </div>
-                    </div>
-                </form>
-                <div class="mt-5 msgBox">
-                    <ul id="postponel"></ul>
-                </div>
-            </div>
-
     </div>
 
 
     <script src="../js/vendor/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
     <script src="../js/Receptionist.js"></script>
-
 </body>
+</html>

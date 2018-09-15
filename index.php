@@ -25,7 +25,7 @@
         <!-- Add your site or application content here -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
-                <img src="img/icon/image13.png" width="10%" height="10%"><a href="index.php" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
+                <img src="img/image13.png" width="10%" height="10%"><a href="index1.html" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -63,18 +63,17 @@
                                 <div class="card bg-primary text-center card-form">
                                     <div class="card-body">
                                         <h3>Here is your Login</h3>
-                                        <form name="login" method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
+                                        <form name="login" method="post" action="controller/LoginController.php">
                                             <div class="form-group">
-                                                <input type="text"  name="uname" class="form-control form-control-lg" placeholder="Username">
+                                                <input type="text" name="uname" class="form-control form-control-lg" placeholder="Username">
                                             </div>
 
                                             <div class="form-group">
                                                 <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
                                             </div>
 
-                                            <input type="submit" name="login" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
-                                            <br>
-                                            <a href="views/resetpassword.php" class="text-white">Forgot password</a>
+                                            <input type="submit" name="login"class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
+
                                         </form>
                                     </div>
                                 </div>
@@ -95,13 +94,8 @@
                     <div class="form-row">
                         Name:
                         <input type="text" class="form-control" name="Name" placeholder="Name" required maxlength="100" size="100">
-                        <div class="form-group col-md-3 mt-3">
-                            Mobile number:
-                        </div>
-                        <div class="form-group col-md-6 mt-3">
-                            <input type="text" class="form-control" name="Contact" placeholder="0715789643" required pattern="[0-9]{10}" size="13" style="width:50%;display: inline-block">
-
-                        </div>
+                        Mobile number:
+                        <input type="text" class="form-control" name="Contact" placeholder="" required pattern="[0-9]{10}" size="13">
                         <div class="form-group col-md-6">
                             <label for="inputEmail">Email</label>
                             <input type="email" class="form-control" name="Email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
@@ -122,17 +116,8 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDistrict">District</label>
-                        <!--<input type="text" class="form-control" name="District" placeholder="" required maxlength="20">-->
-                        <select name="District" class="form-control">
-                            <option>Colombo</option><option>Ampara</option><option>Anuradhapura</option><option>Badulla</option>
-                            <option>Batticaloa</option><option>Colombo</option><option>Galle</option>Gampaha<option>
-                                Hambantota</option><option>Jaffna</option><option>Kalutara</option><option>Kandy</option><option>
-                                Kegalle</option><option>Kilinochchi</option><option>Kurunegala</option><option>Mannar</option>
-                            <option>Matale</option><option>Matara</option><option>Moneragala</option><option>Mullaitivu</option>
-                            <option>Nuwara Eliya</option><option>Polonnaruwa</option><option>Puttalam</option><option>Ratnapura</option>
-                            <option>Trincomalee</option><option>Vavuniya</option></select>
-                        </select>
-                        <!--<select name="cusDistrict" class="text-primary" id="district" onclick="displayDistrict()"></select>-->
+                        <input type="text" class="form-control" name="District" placeholder="" required maxlength="20">
+                        <select name="District" id="district" class="form-control" style="width:50%" onclick="displayDistrict()"></select>
                     </div>
                     </div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Sign in"> <input type="reset" class="btn btn-primary" name="Cancel" value="Cancel">
@@ -226,7 +211,7 @@
                     </div>
                     <div class="col-md-3">
                 <div class="card ml-3" style="width: 18rem;">
-                    <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                    <img class="card-img-top" src="img/image17.jpg" width="50" height="150" alt="Card image cap">
                     <div class="card-body">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal3">
                             Threading
@@ -254,10 +239,10 @@
 
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-1">
                 <div class="col-md-3">
             <div class="card ml-3" style="width: 18rem;">
-                <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                <img class="card-img-top" src="img/image11.jpg" width="50" height="150" alt="Card image cap">
                 <div class="card-body">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal4">
                         Waxing
@@ -286,7 +271,7 @@
 
                         <div class="col-md-3">
                 <div class="card ml-3" style="width: 18rem;">
-                    <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                    <img class="card-img-top" src="img/image12.png" width="50" height="150" alt="Card image cap">
                     <div class="card-body">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal5">
                             Facials
@@ -314,7 +299,7 @@
                         </div>
                 <div class="col-md-3">
                     <div class="card ml-3" style="width: 18rem;">
-                        <img class="card-img-top" src="img/image2.jpg" width="50" height="150" alt="Card image cap">
+                        <img class="card-img-top" src="img/image18.jpg" width="50" height="150" alt="Card image cap">
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal6">
                                 Dressing
@@ -345,13 +330,6 @@
 
         </section>
 
-        <div class="carousel-item">
-            <img src="..." alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>...</h5>
-                <p>...</p>
-            </div>
-        </div>
         <!-- CREATE SECTION -->
         <!--<section id="create-section" class="py-5">
             <div class="container">
@@ -386,13 +364,39 @@
 
 
         <!-- SHARE HEAD -->
-        <section id="Gallery" class="bg-primary">
+        <!--<section id="Gallery" class="bg-primary">
+            Gallery
             <div class="container">
                 <div class="row">
-
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="img/image14.png" alt="First slide" style="width: 100%;height:100%">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/image15.jpg" alt="Second slide" style="width: 100%;height:100%">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/image8.jpg" alt="Third slide" style="width: 100%;height:100%">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <!-- SHARE SECTION -->
         <section id="share-section" class="py-5 bg-light text-muted">
@@ -409,7 +413,7 @@
                 <div class="row">
                     <div class="col text-center">
                         <div class="py-4">
-                            <img src="img/icon/image13.png" width="10%" height="10%"><h3 style="display: inline-block">Sanrooka salon</h3>
+                            <img src="img/image13.png" width="10%" height="10%"><h3 style="display: inline-block">Sanrooka salon</h3>
                             <p>104, Super market building, Mount Lavinia.</p>
                             <p>0112761677 </p>
                         </div>
@@ -419,35 +423,7 @@
         </footer>
 
         <!-- CONTACT MODAL -->
-        <div class="modal fade-out text-dark" id="contactModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactModalTitle">Contact Us</h5>
-                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Message</label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary btn-block">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
         <script src="js/vendor/jquery-3.2.1.min.js"></script>
@@ -465,6 +441,7 @@
     </body>
 </html>
 <?php
+include "controller/CustomerController.php";
 if(isset($_POST['submit']))
 {
     include "controller/CustomerController.php";
@@ -478,23 +455,11 @@ if(isset($_POST['submit']))
         echo "<script type='text/javascript'>alert('Invalid details')</script>";
     }
 }
-else if(isset($_POST['login']))
+
+/*if(isset($_POST['login']))
 {
     include "controller/LoginController.php";
-    if(logUser())
-    {
-        echo "OK";
-    }
-    else
-    {
-        echo "NO";
-    }
-
-}
-else
-{
-
-}
+}*/
 ?>
 
 

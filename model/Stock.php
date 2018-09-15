@@ -47,9 +47,9 @@ class Stock
 
     public function UpdateItem($id,$quantity)
     {
-        $sql = "update stock set quantity=?,currentq=? where id=?;";
+        $sql = "update stock set quantity=? where id=?;";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('iii',$quantity,$quantity,$id);
+        $stmt->bind_param('ii',$quantity,$id);
         return $stmt->execute();
     }
 
@@ -64,19 +64,14 @@ class Stock
     public function getAll()
     {
         $sql = "select * from stock;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->execute();
-        return $stmt;
-
-    }
-
-    public function getQuantity()
-    {
-        $sql = "select id,quantity from stock;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->execute();
-        //var_dump($stmt);
-        return $stmt;
+        if($stmt = $this->con->prepare($sql))
+        {
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+        }
+        return null;
     }
 
 
