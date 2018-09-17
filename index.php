@@ -152,7 +152,7 @@
                         </div>
                         <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
-                                <div class="modal-content text-dark"">
+                                <div class="modal-content text-dark">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Hair Cutting</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

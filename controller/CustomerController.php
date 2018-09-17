@@ -5,13 +5,14 @@
  * Date: 9/3/2018
  * Time: 12:33 AM
  */
-include "model/Customer.php";
+include "../model/Customer.php";
 function Addcustomer()
 {
 
     if($_SERVER["REQUEST_METHOD"]=="POST")
     {
         $customer = new Customer();
+        $customer->id = testInput($_SESSION["id"]);
         $customer->name = testInput($_POST["Name"]);
         $customer->tpno = testInput($_POST["Contact"]);
         $customer->email = testInput($_POST["Email"]);
@@ -45,6 +46,45 @@ function Addcustomer()
     
 }
 
+function UpdateCustomer($id)
+{
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+        $customer = new Customer();
+        $customer->id = testInput($id);
+        $customer->name = testInput($_POST["Name"]);
+        $customer->tpno = testInput($_POST["Mobile"]);
+        $customer->email = testInput($_POST["Email"]);
+        $customer->address = testInput($_POST["Address"]);
+        $customer->city = testInput($_POST["City"]);
+        $customer->district = testInput($_POST["District"]);
+        if($customer->UpdateCustomer())
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
+function ChangePassword($id)
+{
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+        $customer = new Customer();
+        
+        $customer->password = $_POST["password"];
+        if($customer->ChangePassword($_SESSION["id"]))
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+  
+}
+
 function sendEmail($email,$subject,$msg,$headers)
 {
     if(mail($email,$subject,$msg,$headers))
@@ -59,7 +99,7 @@ function testInput($data)
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
-    echo $data."123";
+    //echo $data."123";
     return $data;
 }
 

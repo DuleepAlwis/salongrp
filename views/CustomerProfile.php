@@ -64,7 +64,7 @@ include "logallow.php";
                         <h4>Edit Profile</h4>
                     </div>
                     <div class="card-body">
-                        <form name="register">
+                        <form name="register" method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>>
                             <div class="form-row">
                                 <div class="form-group col-md-9">
                                     <label for="inputName">Name</label>
@@ -77,15 +77,15 @@ include "logallow.php";
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputAddress">Address1</label>
-                                    <input type="email" name="Address" class="form-control" id="inputAddress" placeholder="" value="<?php echo $_SESSION['address'] ?>">
+                                    <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="" value="<?php echo $_SESSION['address'] ?>">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputAddress">City</label>
-                                    <input type="text" name="city" class="form-control" id="inputAddress" placeholder="" value="<?php echo $_SESSION['city'] ?>">
+                                    <input type="text" name="City" class="form-control" id="inputAddress" placeholder="" value="<?php echo $_SESSION['city'] ?>">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputAddress">District</label>
-                                    <input type="text" name="district" class="form-control" id="inputAddress" placeholder="" value="<?php echo $_SESSION['district'] ?>">
+                                    <input type="text" name="District" class="form-control" id="inputAddress" placeholder="" value="<?php echo $_SESSION['district'] ?>">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputMobile">Mobile Number</label>
@@ -96,7 +96,8 @@ include "logallow.php";
 
 
 
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="submit" name="update" class="btn btn-primary">Save Changes</button>
+                            
                         </form>
                     </div>
                 </div>
@@ -122,10 +123,10 @@ include "logallow.php";
                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form name="changePassword" method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>>
                     <div class="form-group">
                         <label for="name">Password</label>
-                        <input type="password" class="form-control">
+                        <input type="password" name="password" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="name">Confirm Password</label>
@@ -135,7 +136,7 @@ include "logallow.php";
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" data-dismiss="modal">Update Password</button>
+                <button type="submit" name="changepassword" class="btn btn-primary" data-dismiss="modal">Update Password</button>
             </div>
         </div>
     </div>
@@ -151,3 +152,40 @@ include "logallow.php";
 </script>
 </body>
 </html>
+<?php
+include "../controller/CustomerController.php";
+if(isset($_POST["update"]))
+{
+    
+    if(UpdateCustomer($_SESSION["id"]))
+    {
+        echo "<script type='text/javascript'>alert('Successfully updated');</script>";
+    }
+    else 
+    {
+        echo "<script type='text/javascript'>alert('Updation failed')</script>";
+    }
+}
+
+if(isset($_POST["changepassword"]))
+{
+    echo "OK";
+    if(strlen(trim($_POST["password"]))>=7)
+    {
+        if(ChangePassword($_SESSION["id"]))
+        {
+            echo "<script type='text/javascript'>alert('Password updated')</script>";
+        }
+        else 
+        {
+            echo "<script type='text/javascript'>alert('Password updation failed')</script>";
+        }
+    }
+    else 
+    {
+        echo "<script type='text/javascript'>alert('There must be 7 or more characters')</script>";
+    }
+    
+}
+
+?>

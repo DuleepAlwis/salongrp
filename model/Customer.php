@@ -40,9 +40,34 @@ class Customer
 
             return true;
         }
-        echo $stmt->error;
+        
         return false;
 
+    }
+
+    public function UpdateCustomer()
+    {
+        $sql = "update customer set name=?,email=?,tpno=?,city=?,district=?,address=? where customer.id=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ssssssi",$this->name,$this->email,$this->tpno,$this->city,$this->district,$this->address,$this->id);
+        if($stmt->execute())
+        {
+            
+            return true;
+        }
+        return false;
+    }
+
+    public function ChangePassword($id)
+    {
+        $sql = "update customer set password=? where customer.id=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss",md5($this->password),$id);
+        if($stmt->execute())
+        {
+            return true;
+        }
+        return false;
     }
 
     public function getCustomer($uname)
