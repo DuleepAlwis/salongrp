@@ -13,43 +13,15 @@
 
 </head>
 <body class="bg-light">
-        <nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
-            <div class='container'>
-                <img src="../img/icon/image13.png" width="10%" height="10%"><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
-                <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav'>
-                    <span class='navbar-toggler-icon'></span>
-                </button>
-                <span style='display: inline-block;width=350px'></span>
-                <div class='collapse navbar-collapse justify-content-end' style='align-content: right;' id='navbarNav'>
+<?php include "layout/AdminLayout.php"; ?>
 
-
-                    <ul class='navbar-nav ml-auto justify-content-end'>
-                        <li class='nav-item dropdown mr-3'>
-                            <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown'>
-                                <img src='../img/icon/user.png' width='35%' height='35%'></i><?php echo "aaa"; ?>
-                            </a>
-                            <div class='dropdown-menu' style='z-index: 999'>
-                                <a href='profile.html' class='dropdown-item'>
-                                    <i class='fa fa-user-circle'></i> Profile
-                                </a>
-                                <a href='settings.html' class='dropdown-item'>
-                                    <i class='fa fa-gear'></i> Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
                     <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icon/employee.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-">
+                        <img class="card-img-top" src="../img/icons/employee.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-info">
                             <a href="AdminEmployee.php" class="btn btn-primary">Employee</a>
 
                         </div>
@@ -57,8 +29,8 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icon/customer.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-">
+                        <img class="card-img-top" src="../img/icons/customer.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-info">
                             <a href="AdminCustomer.php" class="btn btn-primary">Customer</a>
 
                         </div>
@@ -66,8 +38,8 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icon/stock.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-">
+                        <img class="card-img-top" src="../img/icons/stock.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-info">
                             <a href="AdminStock.php" class="btn btn-primary">Stock</a>
 
                         </div>
@@ -79,8 +51,8 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
                     <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icon/service.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-">
+                        <img class="card-img-top" src="../img/icons/service.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-info">
                             <a href="#" class="btn btn-primary">Service</a>
 
                         </div>
@@ -97,8 +69,8 @@
                 </div>
                 <div class="col-md-3">
                     <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icon/report1.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-">
+                        <img class="card-img-top" src="../img/icons/report1.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-info">
                             <a href="AdminReport.php" class="btn btn-primary">S & R Reports</a>
 
                         </div>

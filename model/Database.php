@@ -11,9 +11,7 @@ class Database
     private static $con = null;
     public function  __construct()
     {
-
-
-
+       $this->con = new mysqli("localhost","root","","salondb");
     }
 
     /**
@@ -22,11 +20,14 @@ class Database
 
     public static function getConnection()
     {
-        if(self::$con==null)
-        {
+
             //$con = mysqli_connect("127.0.0.1","root","","salondb");
-            self::$con = new mysqli("localhost","root","","salondb");
-        }
+            if(self::$con==null)
+            {
+                self::$con = new mysqli("localhost","root","","salondb");
+            }
+            //
+
         return self::$con;
     }
     public function Add($details, $sql)

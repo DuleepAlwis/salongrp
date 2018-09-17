@@ -93,12 +93,15 @@
                     <h3>Register</h3>
                     <div class="form-row">
                         Name:
-                        <input type="text" class="form-control" name="Name" placeholder="Name" required maxlength="100" size="100">
-                        Mobile number:
-                        <input type="text" class="form-control" name="Contact" placeholder="" required pattern="[0-9]{10}" size="13">
+                        <input type="text" class="form-control" name="Name" placeholder="Name" required size="100">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail">Mobile number:</label>
+                            <input type="text" class="form-control" name="Contact" placeholder="0715659741" required pattern="[0-9]{10}" size="13" style="width: 50%" title="Enter in the given format">
+                        </div>
+                        <div class="col-md-6"></div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" name="Email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            <input type="email" class="form-control" name="Email" placeholder="mymail@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword">Password</label>
@@ -116,8 +119,11 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDistrict">District</label>
-                        <input type="text" class="form-control" name="District" placeholder="" required maxlength="20">
-                        <select name="District" id="district" class="form-control" style="width:50%" onclick="displayDistrict()"></select>
+                        <select name="District" id="district" class="form-control" style="width:50%">
+                            <option>Ampara</option><option>Anuradhapura</option><option>Badulla</option><option>Batticaloa</option><option>Colombo</option><option>Galle</option><option>Gampaha</option><option>Hambantota</option>
+                            <option>Jaffna</option><option>Kalutara</option><option>Kandy</option><option>Kegalle</option><option>Kilinochchi</option><option>Kurunegala</option><option>Moneragala</option><option>Mannar</option>
+                            <option>Matara</option><option>Mullaitivu</option><option>Nuwara Eliya</option><option>Polonnaruwa</option><option>Puttalam</option><option>Ratnapura</option><option>Matale</option><option>Vavuniya</option>
+                        </select>
                     </div>
                     </div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Sign in"> <input type="reset" class="btn btn-primary" name="Cancel" value="Cancel">
@@ -441,25 +447,29 @@
     </body>
 </html>
 <?php
-include "controller/CustomerController.php";
+
 if(isset($_POST['submit']))
 {
-    include "controller/CustomerController.php";
-
-    if(Addcustomer())
+    if(strlen(trim($_POST["Password"]))<7)
     {
-        echo "<script type='text/javascript'>alert('Successfully registered , check your email')</script>";
+        "<script type='text/javascript'>alert('Password field must be at ')</script>";
     }
     else
     {
-        echo "<script type='text/javascript'>alert('Invalid details')</script>";
+        include "controller/CustomerController.php";
+
+        if(Addcustomer())
+        {
+            echo "<script type='text/javascript'>alert('Successfully registered')</script>";
+        }
+        else
+        {
+            echo "<script type='text/javascript'>alert('Invalid details')</script>";
+        }
     }
+
 }
 
-/*if(isset($_POST['login']))
-{
-    include "controller/LoginController.php";
-}*/
 ?>
 
 

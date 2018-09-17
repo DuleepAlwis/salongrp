@@ -16,7 +16,6 @@ class Customer
     public $city;
     public $district;
     public $password;
-    public $username;
     public $state=0;
     public $terms=0;
     public $validationc;
@@ -31,17 +30,10 @@ class Customer
 
     public function AddCustomer()
     {
-        /*$this->name = $name;
-        $this->email = $email;
-        $this->tpno = $tpno;
-        $this->address = $address;
-        $this->password = $password;
-        $this->state = 0;
-        $this->terms = 0;*/
-        //$details = array($this->name,$this->email,$this->tpno,$this->address,$this->password,$this->city,$this->district,0,0,$this->validationc);
+
         $sql = "insert into customer(name,email,address,tpno,password,city,district,state,terms,validationcode) VALUES(?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('ssssssssss',$this->name,$this->email,$this->tpno,$this->address,$this->password
+        $stmt->bind_param('ssssssssss',$this->name,$this->email,$this->address,$this->tpno,$this->password
         ,$this->city,$this->district,$this->state,$this->terms,$this->validationc);
         if($stmt->execute())
         {
@@ -51,6 +43,21 @@ class Customer
         echo $stmt->error;
         return false;
 
+    }
+
+    public function getCustomer($uname)
+    {
+        $sql = "select * from salon.customer where email=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s",$uname);
+        if($stmt->execute())
+        {
+            return $stmt;
+        }
+        else
+        {
+            return null;
+        }
     }
 
 

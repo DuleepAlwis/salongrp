@@ -12,29 +12,70 @@ class Login
     protected $con = null;
     public function __Construct()
     {
-        $this->con = Database::getConnection();
+        $this->con = (new Database())->getConnection();
     }
 
     public function logUser($uname,$password)
     {
-        $sqlCustomer = "select email from customer where email=? and password=?;";
+        //Customer Login
+        $sqlCustomer = "select id,name,email,address,tpno,password,city,district from customer where email=? and password=?;";
         $stmt = $this->con->prepare($sqlCustomer);
-        $stmt->bind_param("ss",$uname,$password);
+        $passw = md5($password);
+        $stmt->bind_param("ss",$uname,$passw);
         if($stmt->execute())
         {
-            session_start();
-            $_SESSION['uname'] = $uname;
+
+            if($stmt!=null)
+            {
+                $stmt->bind_result($id,$name,$email,$address,$tpno,$password,$city,$district);
+                session_start();
+
+                while($stmt->fetch())
+                {
+                    $_SESSION = array('id'=>$id,'name'=>$name,'email'=>$email,'address'=>$address,'tpno'=>$tpno,
+                        'password'=>$password,'city'=>$city,'district'=>$district);
+                    //Direct to Customer Profile
+                    header("Location:../views/CustomerProfile.php");
+                    return true;
+
+                }
+                return false;
+
+            }
+            else
+            {
+
+                return false;
+            }
+
         }
         else
         {
-            $sqlEmployee = "select email from salon.employee where email=? and password=?;";
+            //Employee Login
+
+            $sqlEmployee = "select id,name,tpno,email,address,joindate,password,NIC,type from salon.employee where email=? and password=?;";
             $stmt = $this->con->prepare($sqlCustomer);
-            $stmt->bind_param("ss",$uname,$password);
+            $passw = md5($password);
+            $stmt->bind_param("ss",$uname,$passw);
             if($stmt->execute())
             {
-                session_start();
-                $_SESSION['uname'] = $uname;
-                return true;
+                $stmt->bind_result($id,$name,$tpno,$email,$address,$jdate,$password,$NIC,$type);
+                while($stmt->fetch())
+                {
+                    session_start();
+                    $_SESSION = array('id'=>$id,'name'=>$name,'tpno'=>$tpno,'email'=>$email,
+                        'address'=>$address,'joindate'=>$jdate,
+                        'password'=>$password,'nic'=>$NIC);
+                    switch($type)
+                    {
+                        case "admin": header("Location:../views/AdminProfile.php");
+                        case "receptionist": header("Location:../views/ReceptionstProfile.php");
+                        case "beautician" : header("Location:../views/EmployeeProfile.php");
+                    }
+                    return true;
+                }
+                return false;
+
             }
             else
             {

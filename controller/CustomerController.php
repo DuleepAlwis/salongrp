@@ -22,10 +22,10 @@ function Addcustomer()
         //$m = (int)microtime();
         //echo ($_POST["Name"]+" ");
 
-        $customer->validationc = md5(($customer->name.date_timestamp_get()));
+        $customer->validationc = md5($customer->name,microtime());
         if($customer->AddCustomer())
         {
-            $email = $customer->email;
+            /*$email = $customer->email;
             $validationc = $customer->validationc;
             $subject = "Activation Link";
             $msg = "Please click the link below to activate your account
@@ -36,7 +36,8 @@ function Addcustomer()
             if(sendEmail($email,$subject,$msg,$header))
             {
                 return true;
-            }
+            }*/
+            return true;
         }
         return false;
     }
@@ -61,3 +62,5 @@ function testInput($data)
     echo $data."123";
     return $data;
 }
+
+?>

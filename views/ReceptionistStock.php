@@ -42,6 +42,8 @@ include "../controller/StockController.php";
                         <?php
                             if(($result=getAll())!=null)
                             {
+                                
+
                                 $result->bind_result($id,$name,$quantity,$currentq,$brand,$price,$preOrderl,$code);
                                 while($result->fetch())
                                 {
@@ -49,6 +51,7 @@ include "../controller/StockController.php";
                                     "<input type='number' id='$id' value='$quantity' style='width:67px'><input type='button' onclick='updateItem($id)' value='Update' style='width:67px;border-radius: 3px'></td><td>".$price."</td><td>".$preOrderl."</td></tr>";
                                 }
                             }
+                            
 
                             ?>
 

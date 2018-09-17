@@ -25,7 +25,7 @@ class Appointment
 
     public function __construct()
     {
-        $this->con = Database::getConnection();
+        $this->con = (new Database())->getConnection();
     }
 
     public function AddAppointment()

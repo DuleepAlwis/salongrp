@@ -11,6 +11,7 @@ function displayDistrict()
     {
         element = document.createElement("option");
         element.value = district[i];
+        element.style.color = "black";
         optTag.appendChild(element);
         console.log(element.value);
     }
