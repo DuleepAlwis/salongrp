@@ -14,7 +14,7 @@ function Addcustomer()
         $customer = new Customer();
         $customer->id = testInput($_SESSION["id"]);
         $customer->name = testInput($_POST["Name"]);
-        $customer->tpno = testInput($_POST["Contact"]);
+        $customer->tpno = testInput($_POST["Mobile"]);
         $customer->email = testInput($_POST["Email"]);
         $customer->password = md5(testInput($_POST["Password"]));
         $customer->address = testInput($_POST["Address"]);

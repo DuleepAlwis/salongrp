@@ -96,8 +96,8 @@
                         Name:
                         <input type="text" class="form-control" name="Name" placeholder="Name" required size="100">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail">Mobile number:</label>
-                            <input type="text" class="form-control" name="Contact" placeholder="0715659741" required pattern="[0-9]{10}" size="13" style="width: 50%" title="Enter in the given format">
+                            <label for="inputMobile">Mobile number:</label>
+                            <input type="text" class="form-control" name="Mobile" placeholder="0715659741" required pattern="[0-9]{10}" size="13" style="width: 50%" title="Enter in the given format">
                         </div>
                         <div class="col-md-6"></div>
                         <div class="form-group col-md-6">

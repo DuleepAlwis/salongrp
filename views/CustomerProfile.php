@@ -126,18 +126,19 @@ include "logallow.php";
                 <form name="changePassword" method="POST" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>>
                     <div class="form-group">
                         <label for="name">Password</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" class="form-control" required pattern=".{7,}" title="7 or more characters">
                     </div>
                     <div class="form-group">
                         <label for="name">Confirm Password</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" required pattern=".{7,}" title="7 or more characters">
+                    </div>
+                    <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="passwordupdate" class="btn btn-primary" data-dismiss="modal">Update Password</button>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="changepassword" class="btn btn-primary" data-dismiss="modal">Update Password</button>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -167,9 +168,8 @@ if(isset($_POST["update"]))
     }
 }
 
-if(isset($_POST["changepassword"]))
+if(isset($_POST["passwordupdate"]))
 {
-    echo "OK";
     if(strlen(trim($_POST["password"]))>=7)
     {
         if(ChangePassword($_SESSION["id"]))
@@ -186,6 +186,11 @@ if(isset($_POST["changepassword"]))
         echo "<script type='text/javascript'>alert('There must be 7 or more characters')</script>";
     }
     
+}
+else 
+{
+    echo "OK";
+
 }
 
 ?>
