@@ -13,6 +13,7 @@
 </head>
 <body class="">
 
+<<<<<<< HEAD
 <nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
     <div class='container'>
         <img src='../img/icons/image13.png' width='10%' height='10%'><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
@@ -43,6 +44,9 @@
     </div>
 </nav>
 </nav>
+=======
+<?php include "layout/AdminLayout.php"; ?>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 
 <header id="main-header" class="py-2 bg-warning text-white">
     <div class="container">
@@ -130,9 +134,15 @@
 
 
 
+<<<<<<< HEAD
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+=======
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor1' );

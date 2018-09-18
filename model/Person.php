@@ -8,13 +8,7 @@
 
 class Person
 {
-    protected $id;
-    protected $name;
-    protected $email;
-    protected $tpno;
-    protected $address;
-    protected $password;
-    protected $username;
+
 
     /**
      * @return mixed

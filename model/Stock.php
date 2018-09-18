@@ -28,6 +28,7 @@ class Stock
 
     public function __construct()
     {
+        //$this->con = (new Database())::getConnection();
         $this->con = Database::getConnection();
     }
 

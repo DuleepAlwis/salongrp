@@ -13,6 +13,7 @@
 </head>
 <body class="">
 
+<<<<<<< HEAD
 <nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
     <div class='container'>
         <img src='../img/icons/image13.png' width='10%' height='10%'><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
@@ -44,6 +45,24 @@
 </nav>
 </nav>
 
+=======
+<?php
+include "layout/AdminLayout.php";
+include "../controller/AdminController.php";
+if(isset($_POST["submit"]))
+{
+    if(AddEmployee())
+    {
+        echo "<script type='text/javascript'>alert('Added successfully')</script>";
+    }
+    else
+    {
+        echo "<script type='text/javascript'>alert('Something wrong')</script>";
+
+    }
+}
+?>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 <header id="main-header" class="py-2 bg-warning text-white">
     <div class="container">
         <div class="row">
@@ -87,6 +106,7 @@
 
                     <div class="form-row">
                         NIC:
+<<<<<<< HEAD
                         <input type="text" class="form-control" id="inputnic" placeholder="nic" required>
 
                         Name:
@@ -98,32 +118,76 @@
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
                             <input type="password" class="form-control" id="inputPassword4" placeholder="Password" minlength="7" required>
+=======
+                        <input type="text" class="form-control" id="inputnic" name="NIC" placeholder="nic" required>
+
+                        Name:
+                        <input type="text" class="form-control" id="inputName" name="Name" placeholder="Name" required>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="abc@gmail.com" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4" name="Password" placeholder="Password" minlength="7" required>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Address</label>
+<<<<<<< HEAD
                         <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
                     </div>
                     <div class="form-group">
                         <label for="inputMobile">Mobile No</label>
                         <input type="text" class="form-control" id="inputMobile" placeholder="01123456789" pattern="[0-9]{10}" required>
+=======
+                        <input type="text" class="form-control" id="inputAddress" name="Address" placeholder="1234 Main St" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMobile">Mobile No</label>
+                        <input type="text" class="form-control" id="inputMobile" name="Contact" placeholder="01123456789" pattern="[0-9]{10}" required>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputJdate">Joined date</label>
+<<<<<<< HEAD
                             <input type="date" class="form-control" id="inputJdate">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
                             <select id="inputGender" class="form-control">
+=======
+                            <input type="date" class="form-control" name="jdate" id="inputJdate">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Gender</label>
+                            <select id="inputGender" name="gender" class="form-control">
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                                 <option selected>Male</option>
                                 <option>Female</option>
                             </select>
                         </div>
 
                     </div>
+<<<<<<< HEAD
                     <div class="modal-footer">
                         <button type="reset" name="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+=======
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputState">User level</label>
+                            <select id="inputGender" name="ulevel" class="form-control">
+                                <option selected>Admin</option>
+                                <option>Receptionist</option>
+                                <option>Beautician</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="reset" name="reset" class="btn btn-secondary" data-dismiss="modal"></input>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         <button type="submit" name="submit"  class="btn btn-primary">Save</button>
                     </div>
                 </form>.
@@ -133,6 +197,7 @@
     </div>
 </div>
 <!-- USERS -->
+<<<<<<< HEAD
 <section id="posts">
     <div class="container">
         <div class="row">
@@ -142,16 +207,38 @@
                     <thead class="thead-inverse">
                     <tr>
                         <th>Code</th>
+=======
+
+<div class="container">
+
+    <div class="row mt-3">
+
+
+        <div class="col-md-12">
+            <h1 align="center">Employees</h1>
+            <div class="table-responisve-md" style="height:500px;overflow-y:auto">
+                <table class="table table-bordered" style="height:150px">
+
+                    <caption>Employee List</caption>
+                    <thead>
+                    <tr style="position:sticky;background-color: #01549b">
+                        <th>NIC</th>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         <th>Name</th>
                         <th>TPNO</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Join-Date</th>
                         <th>Gender</th>
+<<<<<<< HEAD
+=======
+                        <th>User Level</th>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         <th></th>
                         <th></th>
                     </tr>
                     </thead>
+<<<<<<< HEAD
                     <tbody class="bg-light text-primary">
                     <tr>
                         <td scope="row">1</td>
@@ -181,6 +268,25 @@
 
 
                     </tr>
+=======
+                    <tbody class="text-primary">
+
+                        <?php
+
+                        if(($result=getAll())!=null)
+                        {
+
+                            $result->bind_result($id,$name,$tpno,$email,$address,$joindate,$NIC,$gender,$ulevel);
+                            while($result->fetch())
+                            {
+                                echo "<tr><td scope='row'>".$NIC."</td><td>".$name."</td><td>".$tpno."</td><td>".$email."</td><td>".
+                                $address."</td><td>".$joindate."</td><td>".$gender."</td><td>".$ulevel."</td><td><button class='btn btn-info'>".'View'."</button></td><td><button class='btn btn-danger'>".'Remove'."</button></td></tr>";
+                            }
+
+                        }
+                        ?>
+
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                     </tbody>
                 </table>
 
@@ -188,8 +294,12 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
 </section>
+=======
+</div>
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 
 
 
