@@ -113,16 +113,16 @@ class empRegModel
     {
         $sql = "SELECT email FROM  employee";
         $result = $this->conn->query($sql);
-        $exist = false;
+        
         if ($result->num_rows > 0) {
 
             while($row = mysqli_fetch_array($result)){
-                if ($email==$row){$exist=true;}
+                if ($email==$row['email']){return true;}
 
 
             }
         }
-        return $exist;
+        return false;
 
         $this->conn->close();
     }
