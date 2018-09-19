@@ -5,14 +5,23 @@
  * Date: 9/3/2018
  * Time: 12:33 AM
  */
-include "../model/Customer.php";
+if(file_exists( "model/Customer.php"))
+{
+    include "model/Customer.php";
+}
+
+if(file_exists("../model/Customer.php"))
+{
+    include "../model/Customer.php";
+}
+
 function Addcustomer()
 {
 
     if($_SERVER["REQUEST_METHOD"]=="POST")
     {
         $customer = new Customer();
-        $customer->id = testInput($_SESSION["id"]);
+
         $customer->name = testInput($_POST["Name"]);
         $customer->tpno = testInput($_POST["Mobile"]);
         $customer->email = testInput($_POST["Email"]);
@@ -60,6 +69,12 @@ function UpdateCustomer($id)
         $customer->district = testInput($_POST["District"]);
         if($customer->UpdateCustomer())
         {
+            $_SESSION["name"] = $customer->name ;
+            $_SESSION["tpno"] = $customer->tpno ;
+            $_SESSION["email"] = $customer->email;
+            $_SESSION["address"] = $customer->address;
+            $_SESSION["city"] = $customer->city ;
+            $_SESSION["district"] = $customer->district;
             return true;
         }
         return false;
@@ -85,6 +100,11 @@ function ChangePassword($id)
   
 }
 
+function getAll()
+{
+    $customer = new Customer();
+    return $customer->getAll();
+}
 function sendEmail($email,$subject,$msg,$headers)
 {
     if(mail($email,$subject,$msg,$headers))

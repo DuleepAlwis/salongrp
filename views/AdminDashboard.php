@@ -19,27 +19,27 @@
             <div class="row mt-5">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
-                    <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icons/employee.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-info">
+                    <div class="card bg-success menuCard" style="width: 50%;">
+                        <img class="card-img-top" src="../img/icons/employee.png" style="width: 50%" alt="Card image cap">
+                        <div class="card-body bg-warning">
                             <a href="AdminEmployee.php" class="btn btn-primary">Employee</a>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icons/customer.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-info">
+                    <div class="card bg-success menuCard" style="width: 50%;">
+                        <img class="card-img-top" src="../img/icons/salesman.png" style="width: 50%" alt="Card image cap">
+                        <div class="card-body bg-warning">
                             <a href="AdminCustomer.php" class="btn btn-primary">Customer</a>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icons/stock.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-info">
+                    <div class="card bg-success menuCard" style="width: 50%;">
+                        <img class="card-img-top" src="../img/icons/warehouse.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-warning">
                             <a href="AdminStock.php" class="btn btn-primary">Stock</a>
 
                         </div>
@@ -50,27 +50,27 @@
             <div class="row mt-5">
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
-                    <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icons/service.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-info">
+                    <div class="card bg-success menuCard" style="width: 50%;">
+                        <img class="card-img-top" src="../img/icons/makeup.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-warning">
                             <a href="#" class="btn btn-primary">Service</a>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-info menuCard" style="width: 70%;">
-                        <img class="card-img-top" src="../img/icon/profit.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-">
+                    <div class="card bg-success menuCard" style="width: 50%;">
+                        <img class="card-img-top" src="../img/icons/payment.png" style="width: 55%" alt="Card image cap">
+                        <div class="card-body bg-warning">
                             <a href="AdminRevenue.php" class="btn btn-primary">Revenue</a>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card bg-info menuCard" style="width: 70%;">
+                    <div class="card bg-success menuCard" style="width: 50%;">
                         <img class="card-img-top" src="../img/icons/report1.png" style="width: 55%" alt="Card image cap">
-                        <div class="card-body bg-info">
+                        <div class="card-body bg-warning">
                             <a href="AdminReport.php" class="btn btn-primary">S & R Reports</a>
 
                         </div>

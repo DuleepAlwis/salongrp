@@ -79,10 +79,21 @@ class Customer
         {
             return $stmt;
         }
-        else
+
+        return null;
+
+    }
+
+    public function getAll()
+    {
+        $sql = "select id,name,email,address,tpno,terms,city,district,gender from customer;";
+        $stmt = $this->con->prepare($sql);
+        if($stmt->execute())
         {
-            return null;
+            return $stmt;
         }
+
+        return null;
     }
 
 

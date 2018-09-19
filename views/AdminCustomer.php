@@ -13,7 +13,11 @@
 </head>
 <body class="">
 
-<?php include "layout/AdminLayout.php"; ?>
+<?php
+include "layout/AdminLayout.php";
+include "../controller/CustomerController.php";
+?>
+
 
 <header id="main-header" class="py-2 bg-warning text-white">
     <div class="container">
@@ -22,7 +26,7 @@
                 <h1>Customers</h1>
             </div>
             <div class="col-md-4"></div>
-            <div class="col-md-2"><a href="AdminDashboard.php"><h1>Dashboard</h1></a></div>
+            <div class="col-md-2"><a href="AdminDashboard.php"><img src="../img/icons/house.png" style="width:50px"></img></a></div>
         </div>
     </div>
 </header>
@@ -48,11 +52,11 @@
     <div class="container">
         <div class="row">
             <div class="col">
-
-                    <table class="table table-striped" style="overflow-y: auto">
+                <div class="table-responisve-md" style="height:500px;overflow-y:auto">
+                    <table class="table table-striped">
                         <thead class="thead-inverse">
                         <tr>
-                            <th>Code</th>
+
                             <th>Name</th>
                             <th>Email</th>
                             <th>Address</th>
@@ -60,35 +64,27 @@
                             <th>City</th>
                             <th>District</th>
                             <th>Gender</th>
+
                             <th></th>
                         </tr>
                         </thead>
-                        <tbody class="bg-light text-primary">
-                        <tr>
-                            <td scope="row">1</td>
-                            <td>John Doe</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td><button class="btn btn-info">View</button></td>
+                        <tbody class="text-primary">
 
-                        </tr>
-                        <tr>
-                            <td scope="row">2</td>
-                            <td>John Doe</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td>jdoe@gmail.com</td>
-                            <td><button class="btn btn-info">View</button></td>
+                        <?php
 
+                        if(($result=getAll())!=null)
+                        {
 
-                        </tr>
+                            $result->bind_result($id,$name,$email,$address,$tpno,$terms,$city,$district,$gender);
+                            while($result->fetch())
+                            {
+                                echo "<tr><td scope='row'>".$name."</td><td>".$email."</td><td>".$address."</td><td>".$terms."</td><td>".
+                                    $city."</td><td>".$district."</td><td>".$gender."</td><td><button class='btn btn-danger' onclick='removeItem('$id')'>".'Remove'."</button></td></tr>";
+                            }
+
+                        }
+                        ?>
+
                         </tbody>
                     </table>
 

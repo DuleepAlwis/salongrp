@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md-3 mr-auto">
                 <a href="AdminDashboard.php" class="btn btn-light btn-block">
-                    <i class="fa fa-arrow-left"></i> Back To Dashboard
+                    <!--<i class="fa fa-arrow-left"></i>--><img src="../img/icons/house.png" style="width:50px"></img>
                 </a>
             </div>
 

@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <!-- LAnka  -->
+
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -58,7 +58,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 d-none d-lg-block">
-                                <h1 class="display-4">Build <strong>social profiles</strong> and gain revenue and <strong>profits</strong></h1>
+                                <h1 class="display-4"><strong></strong><strong></strong></h1>
                             </div>
                             <div class="col-lg-4">
                                 <div class="card bg-primary text-center card-form">
@@ -453,7 +453,7 @@ if(isset($_POST['submit']))
 {
     if(strlen(trim($_POST["Password"]))<7)
     {
-        "<script type='text/javascript'>alert('Password field must be at ')</script>";
+        "<script type='text/javascript'>alert('Password field must be 7 characters or more')</script>";
     }
     else
     {

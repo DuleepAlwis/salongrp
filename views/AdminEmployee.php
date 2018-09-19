@@ -15,9 +15,10 @@
 
 <?php
 include "layout/AdminLayout.php";
-include "../controller/AdminController.php";
+include "../controller/EmployeeController.php";
 if(isset($_POST["submit"]))
 {
+
     if(AddEmployee())
     {
         echo "<script type='text/javascript'>alert('Added successfully')</script>";
@@ -36,7 +37,7 @@ if(isset($_POST["submit"]))
                 <h1>Employee</h1>
             </div>
             <div class="col-md-4"></div>
-            <div class="col-md-2"><a href="AdminDashboard.php"><h1>Dashboard</h1></a></div>
+            <div class="col-md-2"><a href="AdminDashboard.php"><img src="../img/icons/house.png" style="width:50px"></img></a></div>
         </div>
     </div>
 </header>
@@ -161,7 +162,7 @@ if(isset($_POST["submit"]))
                         if(($result=getAll())!=null)
                         {
 
-                            $result->bind_result($id,$name,$tpno,$email,$address,$joindate,$NIC,$gender,$ulevel);
+                            $result->bind_result($id,$NIC,$name,$tpno,$email,$address,$joindate,$gender,$ulevel);
                             while($result->fetch())
                             {
                                 echo "<tr><td scope='row'>".$NIC."</td><td>".$name."</td><td>".$tpno."</td><td>".$email."</td><td>".

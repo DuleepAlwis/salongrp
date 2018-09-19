@@ -13,14 +13,20 @@ function AddItem()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+        echo $_POST["Name"]." ".$_POST["Quantity"]." ".$_POST["price"];
         $stock = new Stock();
-
-        if ($stock->AddItem())
+        $stock->itemName = $_POST["Name"];
+        $stock->quantity = $_POST["Quantity"];
+        $stock->brand = $_POST["brand"];
+        $stock->preOrderl = $_POST["preOrderl"];
+        $stock->price = $_POST["price"];
+        if($stock->AddItem())
         {
             return true;
         }
         else
         {
+
             return false;
         }
 

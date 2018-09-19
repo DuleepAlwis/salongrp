@@ -9,11 +9,12 @@
 include "Database.php";
 class Stock
 {
-    public $itemCode;
+
     public $itemName;
     public $quantity;
-    public $cquantity;
+    public $price;
     public $brand;
+    public $preOrderl;
     protected $con;
 
 
@@ -34,15 +35,16 @@ class Stock
 
     public function AddItem()
     {
-        $sql = "insert into stock(name,quantity,currentq,brand) values(?,?,?,?);";
+        $sql = "insert into stock(name,quantity,price,brand,preOrderl) values(?,?,?,?,?);";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('ssss',$this->name,$this->quantity,$this->quantity,$this->brand);
-        if($stmt->execute())
+        $stmt->bind_param('sssss',$this->itemName,$this->quantity,$this->price,$this->brand,$this->preOrderl);
+        $stmt->execute();
+        if($stmt->affected_rows>0)
         {
 
             return true;
         }
-
+        echo $stmt->error;
         return false;
     }
 
@@ -64,7 +66,7 @@ class Stock
 
     public function getAll()
     {
-        $sql = "select * from stock;";
+        $sql = "select id,name,quantity,brand,price,preOrderl from stock;";
         if($stmt = $this->con->prepare($sql))
         {
             if($stmt->execute())
