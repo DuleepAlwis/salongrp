@@ -41,16 +41,26 @@
                         <?php
                             if(($result=getAll())!=null)
                             {
+<<<<<<< HEAD
+=======
                                 
 
+<<<<<<< HEAD
                                 $result->bind_result($id,$name,$quantity,$brand,$price,$preOrderl);
+=======
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
+                                $result->bind_result($id,$name,$quantity,$currentq,$brand,$price,$preOrderl,$code);
+>>>>>>> 3fd175b997b7835306557687bb8412d9a37cb842
                                 while($result->fetch())
                                 {
                                     echo "<tr><th scope='row'>".$name."</th><td>".$brand."</td><td>".
                                     "<input type='number' id='$id' value='$quantity' style='width:67px'><input type='button' onclick='updateItem($id)' value='Update' style='width:67px;border-radius: 3px'></td><td>".$price."</td><td>".$preOrderl."</td></tr>";
                                 }
                             }
+<<<<<<< HEAD
+=======
                             
+>>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 
                             ?>
 
