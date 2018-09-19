@@ -15,10 +15,7 @@
 <?php
 include "layout/ReceptionistLayout.php";
 include "../controller/AppointmentController.php";
-<<<<<<< HEAD
-=======
 
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 ?>
 <div class="container-fluid">
     <div class="row mt-1">

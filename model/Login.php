@@ -12,39 +12,11 @@ class Login
     protected $con = null;
     public function __Construct()
     {
-<<<<<<< HEAD
         $this->con = Database::getConnection();
-=======
-<<<<<<< HEAD
-        $this->con = Database::getConnection();
-=======
-        $this->con = (new Database())->getConnection();
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
->>>>>>> 3fd175b997b7835306557687bb8412d9a37cb842
     }
 
     public function logUser($uname,$password)
     {
-<<<<<<< HEAD
-        $sqlCustomer = "select email from customer where email=? and password=?;";
-        $stmt = $this->con->prepare($sqlCustomer);
-        $stmt->bind_param("ss",$uname,$password);
-        if($stmt->execute())
-        {
-            session_start();
-            $_SESSION['uname'] = $uname;
-        }
-        else
-        {
-            $sqlEmployee = "select email from salon.employee where email=? and password=?;";
-            $stmt = $this->con->prepare($sqlCustomer);
-            $stmt->bind_param("ss",$uname,$password);
-            if($stmt->execute())
-            {
-                session_start();
-                $_SESSION['uname'] = $uname;
-                return true;
-=======
         //Customer Login
         $sqlCustomer = "select id,name,email,address,tpno,password,city,district from customer where email=? and password=?;";
         $stmt = $this->con->prepare($sqlCustomer);
@@ -103,7 +75,6 @@ class Login
 
 
 
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
             }
             echo $stmt->affected_rows;
             return false;
