@@ -77,8 +77,8 @@ echo "
 
 </div>
     "
-=======
-<?php echo "
+// =======
+<?php "
 <nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
     <div class='container'>
         <img src='../img/icons/image13.png' width='10%' height='10%'><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
