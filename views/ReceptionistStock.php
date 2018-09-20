@@ -12,10 +12,9 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="">
-<?php
-include "layout/ReceptionistLayout.php";
-include "../controller/StockController.php";
-?>
+<?php include "layout/ReceptionistLayout.php"; ?>
+<?php  include "../controller/StockController.php"; ?>
+
 <div class="container-fluid">
 
     <div class="row mt-3">
@@ -30,7 +29,7 @@ include "../controller/StockController.php";
                         <thead>
                         <tr style="position:sticky;background-color: #01549b">
 
-                            <th scope="col">Code</th>
+
                             <th scope="col">Name</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Current Quantity</th>
@@ -42,22 +41,16 @@ include "../controller/StockController.php";
                         <?php
                             if(($result=getAll())!=null)
                             {
-<<<<<<< HEAD
-=======
                                 
 
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
-                                $result->bind_result($id,$name,$quantity,$currentq,$brand,$price,$preOrderl,$code);
+                                $result->bind_result($id,$name,$quantity,$brand,$price,$preOrderl);
                                 while($result->fetch())
                                 {
-                                    echo "<tr><th scope='row'>".$code."</th><td>".$name."</td><td>".$brand."</td><td>".
+                                    echo "<tr><th scope='row'>".$name."</th><td>".$brand."</td><td>".
                                     "<input type='number' id='$id' value='$quantity' style='width:67px'><input type='button' onclick='updateItem($id)' value='Update' style='width:67px;border-radius: 3px'></td><td>".$price."</td><td>".$preOrderl."</td></tr>";
                                 }
                             }
-<<<<<<< HEAD
-=======
                             
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 
                             ?>
 

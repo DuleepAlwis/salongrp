@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 echo "
 <div id='wrapper'>
@@ -79,6 +80,9 @@ echo "
     "
 // =======
 <?php "
+=======
+<?php echo "
+>>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744
 <nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
     <div class='container'>
         <img src='../img/icons/image13.png' width='10%' height='10%'><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
@@ -109,5 +113,4 @@ echo "
     </div>
 </nav>
 "
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 ?>

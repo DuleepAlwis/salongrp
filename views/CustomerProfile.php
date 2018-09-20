@@ -160,6 +160,7 @@ if(isset($_POST["update"]))
     
     if(UpdateCustomer($_SESSION["id"]))
     {
+
         echo "<script type='text/javascript'>alert('Successfully updated');</script>";
     }
     else 
@@ -187,10 +188,6 @@ if(isset($_POST["passwordupdate"]))
     }
     
 }
-else 
-{
-    echo "OK";
 
-}
 
 ?>

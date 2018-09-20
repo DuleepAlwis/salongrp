@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <!-- LAnka  -->
+
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -26,7 +26,7 @@
         <!-- Add your site or application content here -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
-                <img src="img/icons/image13.png" width="10%" height="10%"><a href="index1.html" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
+                <img src="img/image13.png" width="10%" height="10%"><a href="index1.html" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,7 +58,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 d-none d-lg-block">
-                                <h1 class="display-4">Build <strong>social profiles</strong> and gain revenue and <strong>profits</strong></h1>
+                                <h1 class="display-4"><strong></strong><strong></strong></h1>
                             </div>
                             <div class="col-lg-4">
                                 <div class="card bg-primary text-center card-form">
@@ -120,16 +120,11 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputDistrict">District</label>
-<<<<<<< HEAD
-                        <input type="text" class="form-control" name="District" placeholder="" required maxlength="20">
-                        <select name="District" id="district" class="form-control" style="width:50%" onclick="displayDistrict()"></select>
-=======
                         <select name="District" id="district" class="form-control" style="width:50%">
                             <option>Ampara</option><option>Anuradhapura</option><option>Badulla</option><option>Batticaloa</option><option>Colombo</option><option>Galle</option><option>Gampaha</option><option>Hambantota</option>
                             <option>Jaffna</option><option>Kalutara</option><option>Kandy</option><option>Kegalle</option><option>Kilinochchi</option><option>Kurunegala</option><option>Moneragala</option><option>Mannar</option>
                             <option>Matara</option><option>Mullaitivu</option><option>Nuwara Eliya</option><option>Polonnaruwa</option><option>Puttalam</option><option>Ratnapura</option><option>Matale</option><option>Vavuniya</option>
                         </select>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                     </div>
                     </div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Sign in"> <input type="reset" class="btn btn-primary" name="Cancel" value="Cancel">
@@ -425,7 +420,7 @@
                 <div class="row">
                     <div class="col text-center">
                         <div class="py-4">
-                            <img src="img/icons/image13.png" width="10%" height="10%"><h3 style="display: inline-block">Sanrooka salon</h3>
+                            <img src="img/image13.png" width="10%" height="10%"><h3 style="display: inline-block">Sanrooka salon</h3>
                             <p>104, Super market building, Mount Lavinia.</p>
                             <p>0112761677 </p>
                         </div>
@@ -456,15 +451,9 @@
 
 if(isset($_POST['submit']))
 {
-<<<<<<< HEAD
-    include "controller/CustomerController.php";
-
-    if(Addcustomer())
-=======
     if(strlen(trim($_POST["Password"]))<7)
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
     {
-        "<script type='text/javascript'>alert('Password field must be at ')</script>";
+        "<script type='text/javascript'>alert('Password field must be 7 characters or more')</script>";
     }
     else
     {
@@ -482,13 +471,6 @@ if(isset($_POST['submit']))
 
 }
 
-<<<<<<< HEAD
-/*if(isset($_POST['login']))
-{
-    include "controller/LoginController.php";
-}*/
-=======
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 ?>
 
 

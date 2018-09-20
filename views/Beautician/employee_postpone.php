@@ -199,9 +199,15 @@
     </div>
   </footer>
 
+<<<<<<< HEAD:views/Beautician/employee_postpone.php
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/popper.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
+=======
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+>>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744:views/employee_postpone.html
   <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
   <script>
       CKEDITOR.replace( 'editor1' );

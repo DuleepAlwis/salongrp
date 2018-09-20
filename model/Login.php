@@ -12,35 +12,11 @@ class Login
     protected $con = null;
     public function __Construct()
     {
-<<<<<<< HEAD
         $this->con = Database::getConnection();
-=======
-        $this->con = (new Database())->getConnection();
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
     }
 
     public function logUser($uname,$password)
     {
-<<<<<<< HEAD
-        $sqlCustomer = "select email from customer where email=? and password=?;";
-        $stmt = $this->con->prepare($sqlCustomer);
-        $stmt->bind_param("ss",$uname,$password);
-        if($stmt->execute())
-        {
-            session_start();
-            $_SESSION['uname'] = $uname;
-        }
-        else
-        {
-            $sqlEmployee = "select email from salon.employee where email=? and password=?;";
-            $stmt = $this->con->prepare($sqlCustomer);
-            $stmt->bind_param("ss",$uname,$password);
-            if($stmt->execute())
-            {
-                session_start();
-                $_SESSION['uname'] = $uname;
-                return true;
-=======
         //Customer Login
         $sqlCustomer = "select id,name,email,address,tpno,password,city,district from customer where email=? and password=?;";
         $stmt = $this->con->prepare($sqlCustomer);
@@ -49,64 +25,60 @@ class Login
         if($stmt->execute())
         {
 
-            if($stmt!=null)
-            {
-                $stmt->bind_result($id,$name,$email,$address,$tpno,$password,$city,$district);
+            if($stmt!=null) {
+                $stmt->bind_result($id, $name, $email, $address, $tpno, $password, $city, $district);
                 session_start();
 
-                while($stmt->fetch())
-                {
-                    $_SESSION = array('id'=>$id,'name'=>$name,'email'=>$email,'address'=>$address,'tpno'=>$tpno,
-                        'password'=>$password,'city'=>$city,'district'=>$district);
+                while ($stmt->fetch()) {
+                    $_SESSION = array('id' => $id, 'name' => $name, 'email' => $email, 'address' => $address, 'tpno' => $tpno,
+                        'password' => $password, 'city' => $city, 'district' => $district);
                     //Direct to Customer Profile
                     header("Location:../views/CustomerProfile.php");
                     return true;
 
                 }
-                return false;
 
             }
-            else
-            {
 
-                return false;
-            }
 
         }
-        else
-        {
+
+
             //Employee Login
 
-            $sqlEmployee = "select id,name,tpno,email,address,joindate,password,NIC,type from salon.employee where email=? and password=?;";
-            $stmt = $this->con->prepare($sqlCustomer);
+            $sqlEmployee = "select id,name,tpno,email,address,joindate,password,ulevel,NIC from employee where email=? and password=?;";
+            $stmt = $this->con->prepare($sqlEmployee);
             $passw = md5($password);
             $stmt->bind_param("ss",$uname,$passw);
             if($stmt->execute())
             {
-                $stmt->bind_result($id,$name,$tpno,$email,$address,$jdate,$password,$NIC,$type);
-                while($stmt->fetch())
+                if($stmt!=null)
                 {
-                    session_start();
-                    $_SESSION = array('id'=>$id,'name'=>$name,'tpno'=>$tpno,'email'=>$email,
-                        'address'=>$address,'joindate'=>$jdate,
-                        'password'=>$password,'nic'=>$NIC);
-                    switch($type)
-                    {
-                        case "admin": header("Location:../views/AdminProfile.php");
-                        case "receptionist": header("Location:../views/ReceptionstProfile.php");
-                        case "beautician" : header("Location:../views/EmployeeProfile.php");
-                    }
-                    return true;
-                }
-                return false;
 
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
+                    $stmt->bind_result($id,$name,$tpno,$email,$address,$jdate,$password,$type,$NIC);
+                    while($stmt->fetch())
+                    {
+                        echo $email;
+                        session_start();
+                        $_SESSION = array('id'=>$id,'name'=>$name,'tpno'=>$tpno,'email'=>$email,
+                            'address'=>$address,'joindate'=>$jdate,
+                            'password'=>$password,'nic'=>$NIC);
+                        switch($type)
+                        {
+                            case "Admin": header("Location:../views/AdminProfile.php");
+                            case "Receptionist": header("Location:../views/ReceptionstProfile.php");
+                            case "Beautician" : header("Location:../views/EmployeeProfile.php");
+                        }
+                        return true;
+                    }
+                }
+
+
+
             }
-            else
-            {
-                return false;
-            }
-        }
+            echo $stmt->affected_rows;
+            return false;
+
     }
 
     public function confirmUserr($uname,$validatec)

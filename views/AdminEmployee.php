@@ -13,44 +13,12 @@
 </head>
 <body class="">
 
-<<<<<<< HEAD
-<nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
-    <div class='container'>
-        <img src='../img/icons/image13.png' width='10%' height='10%'><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
-        <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav'>
-            <span class='navbar-toggler-icon'></span>
-        </button>
-        <span style='display: inline-block;width=350px'></span>
-        <div class='collapse navbar-collapse justify-content-end' style='align-content: right;' id='navbarNav'>
-
-
-            <ul class='navbar-nav ml-auto justify-content-end'>
-                <li class='nav-item dropdown mr-3'>
-                    <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown'>
-                        <img src='../img/icons/user.png' width='35%' height='35%'></i><?php echo "aaa"; ?>
-                    </a>
-                    <div class='dropdown-menu' style='z-index: 999'>
-                        <a href='profile.html' class='dropdown-item'>
-                            <i class='fa fa-user-circle'></i> Profile
-                        </a>
-                        <a href='settings.html' class='dropdown-item'>
-                            <i class='fa fa-gear'></i> Logout
-                        </a>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-</nav>
-
-=======
 <?php
 include "layout/AdminLayout.php";
-include "../controller/AdminController.php";
+include "../controller/EmployeeController.php";
 if(isset($_POST["submit"]))
 {
+
     if(AddEmployee())
     {
         echo "<script type='text/javascript'>alert('Added successfully')</script>";
@@ -62,7 +30,6 @@ if(isset($_POST["submit"]))
     }
 }
 ?>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 <header id="main-header" class="py-2 bg-warning text-white">
     <div class="container">
         <div class="row">
@@ -70,7 +37,7 @@ if(isset($_POST["submit"]))
                 <h1>Employee</h1>
             </div>
             <div class="col-md-4"></div>
-            <div class="col-md-2"><a href="AdminDashboard.php"><h1>Dashboard</h1></a></div>
+            <div class="col-md-2"><a href="AdminDashboard.php"><img src="../img/icons/house.png" style="width:50px"></img></a></div>
         </div>
     </div>
 </header>
@@ -106,19 +73,6 @@ if(isset($_POST["submit"]))
 
                     <div class="form-row">
                         NIC:
-<<<<<<< HEAD
-                        <input type="text" class="form-control" id="inputnic" placeholder="nic" required>
-
-                        Name:
-                        <input type="text" class="form-control" id="inputName" placeholder="Name" pattern="[A-Za-z]{255}" required>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" minlength="7" required>
-=======
                         <input type="text" class="form-control" id="inputnic" name="NIC" placeholder="nic" required>
 
                         Name:
@@ -130,51 +84,30 @@ if(isset($_POST["submit"]))
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
                             <input type="password" class="form-control" id="inputPassword4" name="Password" placeholder="Password" minlength="7" required>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Address</label>
-<<<<<<< HEAD
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputMobile">Mobile No</label>
-                        <input type="text" class="form-control" id="inputMobile" placeholder="01123456789" pattern="[0-9]{10}" required>
-=======
                         <input type="text" class="form-control" id="inputAddress" name="Address" placeholder="1234 Main St" required>
                     </div>
                     <div class="form-group">
                         <label for="inputMobile">Mobile No</label>
                         <input type="text" class="form-control" id="inputMobile" name="Contact" placeholder="01123456789" pattern="[0-9]{10}" required>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputJdate">Joined date</label>
-<<<<<<< HEAD
-                            <input type="date" class="form-control" id="inputJdate">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputGender" class="form-control">
-=======
                             <input type="date" class="form-control" name="jdate" id="inputJdate">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">Gender</label>
                             <select id="inputGender" name="gender" class="form-control">
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                                 <option selected>Male</option>
                                 <option>Female</option>
                             </select>
                         </div>
 
                     </div>
-<<<<<<< HEAD
-                    <div class="modal-footer">
-                        <button type="reset" name="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-=======
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputState">User level</label>
@@ -187,7 +120,6 @@ if(isset($_POST["submit"]))
                     </div>
                     <div class="modal-footer">
                         <input type="reset" name="reset" class="btn btn-secondary" data-dismiss="modal"></input>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         <button type="submit" name="submit"  class="btn btn-primary">Save</button>
                     </div>
                 </form>.
@@ -197,17 +129,6 @@ if(isset($_POST["submit"]))
     </div>
 </div>
 <!-- USERS -->
-<<<<<<< HEAD
-<section id="posts">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-
-                <table class="table table-striped" style="overflow-y: auto">
-                    <thead class="thead-inverse">
-                    <tr>
-                        <th>Code</th>
-=======
 
 <div class="container">
 
@@ -223,52 +144,17 @@ if(isset($_POST["submit"]))
                     <thead>
                     <tr style="position:sticky;background-color: #01549b">
                         <th>NIC</th>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         <th>Name</th>
                         <th>TPNO</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Join-Date</th>
                         <th>Gender</th>
-<<<<<<< HEAD
-=======
                         <th>User Level</th>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                         <th></th>
                         <th></th>
                     </tr>
                     </thead>
-<<<<<<< HEAD
-                    <tbody class="bg-light text-primary">
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>John Doe</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-
-                        <td><button class="btn btn-info">View</button></td>
-                        <td><button class="btn btn-danger">Remove</button></td>
-
-
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>John Doe</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-
-                        <td><button class="btn btn-info">View</button></td>
-                        <td><button class="btn btn-danger">Remove</button></td>
-
-
-                    </tr>
-=======
                     <tbody class="text-primary">
 
                         <?php
@@ -276,7 +162,7 @@ if(isset($_POST["submit"]))
                         if(($result=getAll())!=null)
                         {
 
-                            $result->bind_result($id,$name,$tpno,$email,$address,$joindate,$NIC,$gender,$ulevel);
+                            $result->bind_result($id,$NIC,$name,$tpno,$email,$address,$joindate,$gender,$ulevel);
                             while($result->fetch())
                             {
                                 echo "<tr><td scope='row'>".$NIC."</td><td>".$name."</td><td>".$tpno."</td><td>".$email."</td><td>".
@@ -286,7 +172,6 @@ if(isset($_POST["submit"]))
                         }
                         ?>
 
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
                     </tbody>
                 </table>
 
@@ -294,12 +179,7 @@ if(isset($_POST["submit"]))
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-
-</section>
-=======
 </div>
->>>>>>> 54a2114fdd0765d76bc7c4558ab73bf29229f497
 
 
 
