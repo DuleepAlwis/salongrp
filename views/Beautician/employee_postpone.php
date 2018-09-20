@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Salon Sanrooka</title>
-  <link rel="stylesheet" href="../css/font-awesome.min1.css">
-  <link rel="stylesheet" href="../css/bootstrap1.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../css/font-awesome.min1.css">
+  <link rel="stylesheet" href="../../css/bootstrap1.css">
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="../index1.html" class="navbar-brand">Salon Sanrooka</a>
+      <a href="../../index1.html" class="navbar-brand">Salon Sanrooka</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -199,9 +199,15 @@
     </div>
   </footer>
 
+<<<<<<< HEAD:views/Beautician/employee_postpone.php
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+=======
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+>>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744:views/employee_postpone.html
   <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
   <script>
       CKEDITOR.replace( 'editor1' );
