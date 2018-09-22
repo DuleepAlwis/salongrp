@@ -44,7 +44,6 @@ class Stock
 
             return true;
         }
-        echo $stmt->error;
         return false;
     }
 

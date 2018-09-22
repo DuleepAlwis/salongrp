@@ -25,7 +25,7 @@ if(isset($_POST["submit"]))
     }
     else
     {
-        echo "<script type='text/javascript'>alert('Something wrong')</script>";
+        echo "<script type='text/javascript'>alert('Something wrong, Re-enter details')</script>";
 
     }
 }
@@ -73,13 +73,13 @@ if(isset($_POST["submit"]))
 
                     <div class="form-row">
                         NIC:
-                        <input type="text" class="form-control" id="inputnic" name="NIC" placeholder="nic" required>
+                        <input type="text" class="form-control" id="inputnic" name="NIC" placeholder="nic" required pattern="[0-9]{9}[Vv||xX]">
 
                         Name:
                         <input type="text" class="form-control" id="inputName" name="Name" placeholder="Name" required>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="abc@gmail.com" required>
+                            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="abc@gmail.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>

@@ -26,7 +26,7 @@
         <!-- Add your site or application content here -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
-                <img src="img/image13.png" width="10%" height="10%"><a href="index1.html" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
+                <img src="img/image13.png" width="10%" height="10%"><a href="index.php" style="font-size: 37px" class="navbar-brand display-5">Salon SANROOKA</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,7 +73,7 @@
                                                 <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
                                             </div>
 
-                                            <input type="submit" name="login"class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
+                                            <input type="submit" name="login" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
 
                                         </form>
                                     </div>
