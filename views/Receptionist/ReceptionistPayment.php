@@ -9,12 +9,12 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/x-icon" href="../icontop.jpg">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" type="image/x-icon" href="../../icontop.jpg">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body class="bg-info text-white">
 <div class="container-fluid">
@@ -24,7 +24,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-4">
-            <a href="ReceptionistHome.php"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../index.php"><span class="logoutBtn"></span></a>
+            <a href="ReceptionistHome.php"><span class="homeBtn"></span></a><span style="width:100px;display:inline-block"></span><a href="../../index.php"><span class="logoutBtn"></span></a>
             <h1>Appointments</h1>
             <div class="box1 mb-5" style="background-color: transparent;border-style: groove">
                 <ul id="queue"></ul>

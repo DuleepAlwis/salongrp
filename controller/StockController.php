@@ -6,14 +6,14 @@
  * Time: 1:32 AM
  */
 
-include "../model/Stock.php";
+include "../../model/Stock.php";
 
 
 function AddItem()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        echo $_POST["Name"]." ".$_POST["Quantity"]." ".$_POST["price"];
+        
         $stock = new Stock();
         $stock->itemName = $_POST["Name"];
         $stock->quantity = $_POST["Quantity"];

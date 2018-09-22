@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/x-icon" href="../icontop.jpg">
+    <link rel="icon" type="image/x-icon" href="../../icontop.jpg">
     <title>Salon Sanrooka</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body class="">
 <?php
-include "layout/ReceptionistLayout.php";
-include "../controller/AppointmentController.php";
+include "../layout/ReceptionistLayout.php";
+include "../../controller/AppointmentController.php";
 
 ?>
 <div class="container-fluid">
     <div class="row mt-1">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <div class="row">
-            <div class="col">
-                Date :
-                <input type="date" class="form-control" name="date" >
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputDate">Date</label>
+                <input type="date" class="form-control" id="inputDate" name="date">
             </div>
-            <div class="col">
-                Employee :
+            <div class="form-group col-md-4 mt-1">
+                <label for="inputemployee">Employee</label>
                 <select name="employee"><option>AAA</option><option>AAA</option><option>AAA</option></select>
             </div>
-            <div class="col">
-                <input type="submit" name="View" value="View">
+            <div class="form-group col-md-2 mt-3">
+
+                <input type="submit" class="btn btn-primary" name="View" value="View">
             </div>
         </div>
+
     </form>
     </div>
     <div class="row mt-3">
@@ -83,9 +85,9 @@ include "../controller/AppointmentController.php";
     </div>
 
 
-    <script src="../js/vendor/jquery-3.2.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/Receptionist.js"></script>
+    <script src="../../js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/Receptionist.js"></script>
 </body>
 </html>

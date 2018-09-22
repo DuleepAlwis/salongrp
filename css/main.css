@@ -100,8 +100,8 @@ textarea {
 
 
 
-body {
-    background: #333;
+.receptionist-background{
+    background-color: #c6c8ca;
     color: #fff; }
 
 #services{

@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="../icontop.jpg">
-    <link rel="icon" type="image/x-icon" href="../icontop.jpg">
+    <link rel="apple-touch-icon" href="../../icontop.jpg">
+    <link rel="icon" type="image/x-icon" href="../../icontop.jpg">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
@@ -34,8 +34,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 mr-auto">
-                <a href="AdminDashboard.php" class="btn btn-light btn-block">
-                    <i class="fa fa-arrow-left"></i> <img src="../img/icons/house.png" style="width:50px"></img>
+                <a href="../AdminDashboard.php" class="btn btn-light btn-block">
+                    <i class="fa fa-arrow-left"></i> <img src="../../img/icons/house.png" style="width:50px"></img>
                 </a>
             </div>
 
@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="logout.php" class="btn btn-success btn-block">
+                <a href="../logout.php" class="btn btn-success btn-block">
                     <i class="fa fa-lock"></i> Logout
                 </a>
             </div>
@@ -145,9 +145,9 @@
 </div>
 
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor1' );
