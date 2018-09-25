@@ -6,7 +6,6 @@
  * Time: 8:41 PM
  */
 
-include "Database.php";
 
 class Employee
 {

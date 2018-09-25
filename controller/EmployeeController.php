@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+include "../model/Database.php";
 include "../model/Employee.php";
 
 function AddEmployee()

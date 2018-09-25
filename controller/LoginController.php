@@ -1,5 +1,6 @@
 <?php
 
+include "../model/Database.php";
 include "../model/Login.php";
 $login = new Login();
 if($_SERVER["REQUEST_METHOD"]=="POST")

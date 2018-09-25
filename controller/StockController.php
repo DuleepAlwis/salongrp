@@ -6,6 +6,7 @@
  * Time: 1:32 AM
  */
 
+include "../../model/Database.php";
 include "../../model/Stock.php";
 
 
