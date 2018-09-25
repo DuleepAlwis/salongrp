@@ -6,6 +6,7 @@
  * Time: 6:23 PM
  */
 
+include "../model/Database.php";
 include "../model/Employee.php";
 
 function AddEmployee()

@@ -1,5 +1,6 @@
 <?php
 
+include "../model/Database.php";
 include "../model/Stock.php";
 
 $stock = new Stock();

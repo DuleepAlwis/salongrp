@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body class="">
+<body class="receptionist-background">
 <?php
 include "../layout/ReceptionistLayout.php";
 include "../../controller/AppointmentController.php";
@@ -19,8 +19,9 @@ include "../../controller/AppointmentController.php";
 ?>
 <div class="container-fluid">
     <div class="row mt-1">
+        <div class="col-md-3">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <div class="form-row">
+        <div class="form-row text-dark">
             <div class="form-group col-md-6">
                 <label for="inputDate">Date</label>
                 <input type="date" class="form-control" id="inputDate" name="date">
@@ -36,11 +37,12 @@ include "../../controller/AppointmentController.php";
         </div>
 
     </form>
+        </div>
     </div>
     <div class="row mt-3">
 
         <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="col-md-10 text-dark">
             <h1 align="center">Appointments</h1>
             <div class="table-responisve-md" style="height:500px;overflow-y:auto">
                 <table class="table table-bordered" style="height:150px">

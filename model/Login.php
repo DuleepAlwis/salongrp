@@ -6,7 +6,6 @@
  * Time: 12:57 PM
  */
 
-include "Database.php";
 class Login
 {
     protected $con = null;
