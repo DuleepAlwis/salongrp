@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body class="receptionist-background">
+<body class="receptionist-background" onload="loadBeautician()">
 <?php
 include "../layout/ReceptionistLayout.php";
 include "../../controller/AppointmentController.php";
@@ -26,9 +26,10 @@ include "../../controller/AppointmentController.php";
                 <label for="inputDate">Date</label>
                 <input type="date" class="form-control" id="inputDate" name="date">
             </div>
+
             <div class="form-group col-md-4 mt-1">
                 <label for="inputemployee">Employee</label>
-                <select name="employee"><option>AAA</option><option>AAA</option><option>AAA</option></select>
+                <select id="employee" name="employee"></select>
             </div>
             <div class="form-group col-md-2 mt-3">
 
@@ -63,8 +64,9 @@ include "../../controller/AppointmentController.php";
                     </thead>
                     <tbody class="text-primary">
                     <?php
-                    if(isset($_POST["date"]) && isset($_POST["employee"]))
+                    if(!empty($_POST["date"]) && isset($_POST["employee"]))
                     {
+                        echo $_POST["date"]." ".$_POST["employee"];
                         if(($result=getAll($_POST["date"],$_POST["employee"]))!=null)
                         {
                             $result->bind_result($id,$name,$date,$time,$service,$beautician,$price);
