@@ -17,7 +17,7 @@
 
 
 
-<div class="container-fluid">
+<div id="AppStock" class="container-fluid">
     <div class="row mt-3">
 
            <div class="col-md-1"></div>

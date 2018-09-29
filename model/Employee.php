@@ -77,4 +77,19 @@ class Employee
         return null;
     }
 
+    public function getBeautician()
+    {
+        $sql = "select id,name from employee;";
+        $stmt = $this->con->prepare($sql);
+        if($stmt!=null)
+        {
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+
+        }
+        return null;
+    }
+
 }

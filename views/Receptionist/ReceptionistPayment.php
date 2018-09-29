@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body class="receptionist-background">
+<body class="receptionist-background" onload="loadBeautician()">
 <?php
 include "../layout/ReceptionistLayout.php";
 include "../../controller/PaymentController.php";
@@ -30,7 +30,7 @@ include "../../controller/PaymentController.php";
             <ul id="appointments">
 
                 <?php
-                    $_POST["date"] = date("d/m/y");
+                    $_POST["date"] = date("y/m/d");
 
                 if(isset($_POST["date"]))
                 {
@@ -74,8 +74,8 @@ include "../../controller/PaymentController.php";
                         $result->bind_result($id,$serviceName,$price,$duration);
                         while($result->fetch())
                         {
-                            echo "<tr><th scope='row'>".$serviceName."</th><td>".$price."</td><td>".
-                                "<input type='button' class='bg-transparent' onclick='ServiceInvoice($id,$serviceName,$price)' value='Add' style='width:67px;border-radius: 3px'></td></tr>";
+                            echo "<tr><th scope='row' id='Service$id'>".$serviceName."</th><td>".$price."</td><td>".
+                                "<input type='button' class='bg-transparent' onClick='ServiceInvoice($id,$serviceName,$price)' value='Add' style='width:67px;border-radius: 3px'></td></tr>";
                         }
                     }
 
@@ -88,7 +88,8 @@ include "../../controller/PaymentController.php";
 
         </div>
         <div class="col-md-4">
-            <table class="table table-bordered table-hover" style="height:150px;overflow-y: auto">
+            <div class="payment-list">
+            <table class="table table-bordered table-hover">
 
                 <h3>Products</h3>
                 <thead>
@@ -105,14 +106,11 @@ include "../../controller/PaymentController.php";
                 <?php
                 if(($result=getStock())!=null)
                 {
-
-
-
                     $result->bind_result($id,$productName,$quantity,$brand,$price,$preOrderl);
                     while($result->fetch())
                     {
-                        echo "<tr><th scope='row'>".$productName."</th><td>".$price."</td><td>".
-                            "<input type='button' class='bg-transparent' onclick='ProductInvoice($id,$productName,$price)' value='Add' style='width:67px;border-radius: 3px'></td></tr>";
+                        echo "<tr><th scope='row' id='Product$id'>".$productName."</th><td>".$price."</td><td>".
+                            "<input type='button' class='bg-transparent' onClick='ProductInvoice($id,$price)' value='Add' style='width:67px;border-radius: 3px'></td></tr>";
                     }
                 }
 
@@ -122,6 +120,7 @@ include "../../controller/PaymentController.php";
                 </tbody>
 
             </table>
+            </div>
         </div>
 
     </div>
@@ -150,8 +149,30 @@ include "../../controller/PaymentController.php";
             </tbody>
 
         </table>
+        </form>
     </div>
         </div>
+
+        <div class="col-md-3 mt-5">
+            <table>
+                <tr>
+                    <td><button class="btn btn-info" onclick="calculateTotal()">Total(Rs.)</button></td><td><input type="text" id="total"></td>
+                </tr>
+                <tr>
+                    <td>Discount in precentage</td><td><input type="text" id="discount"></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" onclick="netValue()">Net Value(Rs.)</button></td><td><input type="text" id="netValue"></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info" onclick="SavePayment()">Save payment details</button></td><td><button class="btn btn-info ml-3" onclick="clearAll()">Clear All</button></td>
+                </tr>
+            </table>
+
+
+
+        </div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 

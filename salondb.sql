@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.4deb1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 17, 2018 at 06:19 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost:3306
+-- Generation Time: Sep 29, 2018 at 05:38 AM
+-- Server version: 5.7.18-0ubuntu0.16.10.1
+-- PHP Version: 7.0.18-0ubuntu0.16.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -46,8 +44,8 @@ CREATE TABLE `appointment` (
 --
 
 CREATE TABLE `appointmentpay` (
-  `appointmentid` int(255) NOT NULL,
   `paymentid` int(255) NOT NULL,
+  `appointmentid` int(255) NOT NULL,
   `price` double DEFAULT NULL,
   `date` date DEFAULT NULL,
   `time` time DEFAULT NULL
@@ -87,28 +85,20 @@ CREATE TABLE `customer` (
   `activate` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `customer`
+-- Table structure for table `empleave`
 --
 
-INSERT INTO `customer` (`id`, `name`, `email`, `address`, `tpno`, `terms`, `state`, `password`, `city`, `district`, `validationcode`, `code`, `activate`) VALUES
-(1, 'aaaaaaaaaa', 'aaa@gmail.com', '0123456789', 'aaaaaabbcc', 0, 0, '123', NULL, NULL, NULL, '', NULL),
-(2, 'han', 'hma@gmail.com', '0112356479', '12/A,PPP Rd', 0, 0, '1234567', NULL, NULL, NULL, '', NULL),
-(3, 'Kabal', '1111111@gmail.com', '0123456789', '123A', 0, 0, 'fcea920f7412b5da7be0cf42b8c93759', 'AAA', 'CCC', 266, '', NULL),
-(6, 'Kabal', '2@gmail.com', '0123456789', '123A', 0, 0, 'fcea920f7412b5da7be0cf42b8c93759', 'AAA', 'CCC', 266, '', NULL),
-(7, 'Jake', 'aaa3@gmail.com', '0112345679', '12/4,lkj Rd', 0, 0, '7fa8282ad93047a4d6fe6111c93b308a', 'AAA', 'CCC', 0, '', NULL),
-(9, 'Lu kang', 'duleepalwis2@gmail.com', '0123457891', 'AAA', 0, 0, 'fcea920f7412b5da7be0cf42b8c93759', 'BBB', 'CCC', 1, '', NULL),
-(12, 'Lu kang', 'duleepalwis3@gmail.com', '0112345679', 'aaaaaaaa', 0, 0, '41525af98cffe913d396c83bdd493181', 'aaaaaaaaaaaa', 'aaaaaaaaaaaa', 1, '', NULL),
-(14, 'Lu kang', 'duleepalwis0@gmail.com', '0112345679', 'aaaaaaaa', 0, 0, '41525af98cffe913d396c83bdd493181', 'aaaaaaaaaaaa', 'aaaaaaaaaaaa', 1, '', NULL),
-(15, 'Lu kang', '111@gmail.com', '0123456789', 'aaaaa', 0, 0, 'e8e1ee9fcf6197a66c3c0f4e09e1c806', 'aaaaaaaaa', 'CCC', 0, '', NULL),
-(20, 'Jak', 'duleepalwis1@gmail.com', '0714567891', 'aaaaa', 0, 0, 'fcea920f7412b5da7be0cf42b8c93759', 'aaaaaaaaaaaa', 'Matale', 0, '', NULL),
-(21, 'aaaa', 'duleepalwis123@gmail.com', '0123457891', 'aa', 0, 0, 'fcea920f7412b5da7be0cf42b8c93759', 'mmmm', 'Colombo', 0, '', NULL),
-(26, 'raiden', 'raiden@gmail.com', '1234567891', 'aaaaa', 0, 0, 'fcea920f7412b5da7be0cf42b8c93759', 'aaaaaa', 'aaaaaaaaa', 0, '', NULL),
-(30, 'Robo', 'alq@gmail.com', '1111222233', 'aaa', 0, 0, '57f962c03ef3526ec6e95ceb50785c4c', 'aaa', 'aaaaa', 0, '', NULL),
-(32, 'kkk', 'lll@gmail.com', 'aaa', '1478963251', 0, 0, 'aaa42296669b958c3cee6c0475c8093e', 'aaa', 'a', 0, '', NULL),
-(33, 'llllllll', 'kmp@gmail.com', 'aaaaaaaa', '1234567893', 0, 0, 'bc4ef64b2b3bdf0eac6e5d38a528f5bc', 'aaaaaaaaa', 'aaaaaaaaaaa', 0, '', NULL),
-(36, 'aaaaaaaa', 'aaaaa1@gmail.com', '1111111', '1234569873', 0, 0, 'd8e71dbd1afc289a4b102eeadeb6f363', '11111111', '111111111111', 0, '', NULL),
-(39, 'dulip', 'dulip@gmail.com', '123ABJ', '0715469873', 0, 0, '1ef5a9cd207726f31b82da79a0dcd588', 'CCC', 'Colombo', 0, '', NULL);
+CREATE TABLE `empleave` (
+  `id` int(11) NOT NULL,
+  `empid` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -137,8 +127,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `password`, `salary`, `code`, `NIC`, `validationc`, `type`, `gender`) VALUES
-(1, 'aaaaaaa', '0123654787', 'kamal@gmail.com', 'aaaaaaaaaa', '2018-09-11', 'aaa42296669b958c3cee6c0475c8093e', 0, '', '123654789v', NULL, NULL, NULL),
-(3, 'Himal', '0123456789', 'himal@gmail.com', '1111111', '2018-09-11', 'eb34f78aff557f3cb0291b0a921fbf27', 0, '', '123466789v', NULL, 'Receptionist', NULL);
+(1, 'abc', '1234567891', 'aaaaa', 'aaa', '2018-09-07', '123', 123, '', '123456789V', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -182,6 +171,8 @@ CREATE TABLE `messagesr` (
 
 CREATE TABLE `nonappointmentpay` (
   `paymentid` int(255) NOT NULL,
+  `serviceid` int(255) NOT NULL,
+  `beauticianid` int(255) NOT NULL,
   `price` double NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL
@@ -198,8 +189,19 @@ CREATE TABLE `purchaseitem` (
   `itemid` int(255) NOT NULL,
   `date` date NOT NULL,
   `time` time(6) NOT NULL,
-  `quantity` int(3) NOT NULL
+  `quantity` int(3) NOT NULL,
+  `price` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchaseitem`
+--
+
+INSERT INTO `purchaseitem` (`paymentid`, `itemid`, `date`, `time`, `quantity`, `price`) VALUES
+(2, 5, '2018-09-29', '04:22:24.000000', 1, '5000'),
+(3, 5, '2018-09-29', '04:23:13.000000', 1, '5000'),
+(4, 1, '2018-09-29', '04:23:13.000000', 1, '1959.25'),
+(5, 2, '2018-09-29', '04:23:13.000000', 1, '1500');
 
 -- --------------------------------------------------------
 
@@ -210,7 +212,8 @@ CREATE TABLE `purchaseitem` (
 CREATE TABLE `purchasepay` (
   `id` int(255) NOT NULL,
   `price` double NOT NULL,
-  `itemid` int(255) NOT NULL
+  `date` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -261,7 +264,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `name`, `quantity`, `currentq`, `brand`, `price`, `preOrderl`, `code`) VALUES
-(1, 'North for Men Recharge Shaving Gel', 53, 21, 'Eclat', 1959, 10, 'I-1'),
+(1, 'North for Men Recharge Shaving Gel', 57, 21, 'Eclat', 1959.25, 10, 'I-1'),
 (2, 'Mademoiselle Edt', 20, 20, 'Eclat', 1500, 10, 'I-2'),
 (3, 'Giordani Gold Original Perfumed Body Spray', 31, 31, 'Eclat', 999, 15, 'I-3'),
 (4, 'Face Gel Cucumber', 25, 25, 'NovAge', 599, 15, 'I-4'),
@@ -296,6 +299,21 @@ CREATE TABLE `supplyitem` (
   `time` time(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `last_login` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `validationc` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -313,7 +331,8 @@ ALTER TABLE `appointment`
 -- Indexes for table `appointmentpay`
 --
 ALTER TABLE `appointmentpay`
-  ADD PRIMARY KEY (`appointmentid`,`paymentid`);
+  ADD PRIMARY KEY (`paymentid`,`appointmentid`),
+  ADD KEY `appointment_pay` (`appointmentid`);
 
 --
 -- Indexes for table `beautician`
@@ -327,6 +346,12 @@ ALTER TABLE `beautician`
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`,`code`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `empleave`
+--
+ALTER TABLE `empleave`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `employee`
@@ -359,13 +384,15 @@ ALTER TABLE `messagesr`
 -- Indexes for table `nonappointmentpay`
 --
 ALTER TABLE `nonappointmentpay`
-  ADD PRIMARY KEY (`paymentid`);
+  ADD PRIMARY KEY (`paymentid`,`serviceid`,`beauticianid`),
+  ADD KEY `serviceId` (`serviceid`),
+  ADD KEY `beauticianid` (`beauticianid`);
 
 --
 -- Indexes for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  ADD PRIMARY KEY (`paymentid`),
+  ADD PRIMARY KEY (`paymentid`,`itemid`),
   ADD KEY `payment_item` (`itemid`);
 
 --
@@ -407,6 +434,12 @@ ALTER TABLE `supplyitem`
   ADD KEY `supply_supplier` (`supplier`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -415,73 +448,76 @@ ALTER TABLE `supplyitem`
 --
 ALTER TABLE `appointment`
   MODIFY `appointmentid` int(255) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT for table `appointmentpay`
+--
+ALTER TABLE `appointmentpay`
+  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `beautician`
 --
 ALTER TABLE `beautician`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
-
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `empleave`
+--
+ALTER TABLE `empleave`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `healthytips`
 --
 ALTER TABLE `healthytips`
   MODIFY `hid` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `nonappointmentpay`
 --
 ALTER TABLE `nonappointmentpay`
   MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `purchasepay`
 --
 ALTER TABLE `purchasepay`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -498,7 +534,7 @@ ALTER TABLE `appointment`
 -- Constraints for table `appointmentpay`
 --
 ALTER TABLE `appointmentpay`
-  ADD CONSTRAINT `appointment_payment` FOREIGN KEY (`appointmentid`) REFERENCES `appointment` (`appointmentid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `appointment_pay` FOREIGN KEY (`appointmentid`) REFERENCES `appointment` (`appointmentid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `beautician`
@@ -507,10 +543,17 @@ ALTER TABLE `beautician`
   ADD CONSTRAINT `employee_customer` FOREIGN KEY (`id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `nonappointmentpay`
+--
+ALTER TABLE `nonappointmentpay`
+  ADD CONSTRAINT `beauticianid` FOREIGN KEY (`beauticianid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `serviceId` FOREIGN KEY (`serviceid`) REFERENCES `services` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  ADD CONSTRAINT `payment_item` FOREIGN KEY (`itemid`) REFERENCES `stock` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `purchase_item` FOREIGN KEY (`itemid`) REFERENCES `stock` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `supplyitem`
@@ -518,7 +561,6 @@ ALTER TABLE `purchaseitem`
 ALTER TABLE `supplyitem`
   ADD CONSTRAINT `supply_item` FOREIGN KEY (`item`) REFERENCES `stock` (`id`),
   ADD CONSTRAINT `supply_supplier` FOREIGN KEY (`supplier`) REFERENCES `supplier` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
