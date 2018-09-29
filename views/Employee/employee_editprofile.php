@@ -28,17 +28,17 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item px-2">
-            <a href="employee_viewappointments.html" class="nav-link">View Appointments</a>
+            <a href="employee_viewappointments.php" class="nav-link">View Appointments</a>
           </li>
           <li class="nav-item px-2">
-            <a href="employee_postpone.html" class="nav-link">Apply Leave</a>
+            <a href="employee_appointments_history.php" class="nav-link">Appointment History</a>
           </li>
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-user"></i> 
             </a>
             <div class="dropdown-menu">
-              <a href="employee_myprofile.html" class="dropdown-item">
+              <a href="employee_myprofile.php" class="dropdown-item">
                 <i class="fa fa-user-circle"></i> Profile
               </a>
               <a href="#" class="dropdown-item">
@@ -128,6 +128,29 @@
                   <label for="inputAddress">Address</label>
                   <input type="text" class="form-control" id="inputAddress" placeholder="Address">
                 </div>
+                <div class="form-group">
+                  <label for="inputnic">NIC</label>
+                  <input type="text" class="form-control" id="inputnic" placeholder="NIC">
+                </div>
+                <fieldset class="form-group">
+                  <div class="row">
+                    <label for="inputgender" class="col-form-label col-sm-2 pt-0">Gender</label>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
                 
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -169,9 +192,18 @@
                 </div>
                 
                 <br><br>
-                <a href="#" type="submit" class="btn btn-primary">Save Changes</a>
+                <button type="submit" class="btn btn-primary" onclick="myFunction()">Save Changes</button>
+                  <script>
+                    function myFunction() {
+                      alert("Save Changes are Successfully");
+                    }
+                  </script>
 
-                <a href="#" type="submit" class="btn btn-primary">Cancel</a>
+                <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
+
+                <!-- <a href="popup" type="submit" class="btn btn-primary">Save Changes </a> -->
+
+                <a href="employee_myprofile.php" type="submit" class="btn btn-primary">Cancel</a>
 
               </form>
             </div>
@@ -179,13 +211,14 @@
         </div>
         <div class="col-md-3">
           <!-- <h3>Your Avatar</h3> -->
-          <img src="img/avatar.png" alt="" class="d-block img-fluid mb-3">
+          <img src="../../img/avatar.png" alt="" class="d-block img-fluid mb-3">
           <button class="btn btn-primary btn-block">Change Image</button>
           <!-- <button class="btn btn-danger btn-block">Delete Image</button> -->
         </div>
       </div>
     </div>
   </section>
+
 
   <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
     <div class="conatiner">

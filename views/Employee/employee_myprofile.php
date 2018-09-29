@@ -28,17 +28,17 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item px-2">
-            <a href="employee_viewappointments.html" class="nav-link">View Appointments</a>
+            <a href="employee_viewappointments.php" class="nav-link">View Appointments</a>
           </li>
           <li class="nav-item px-2">
-            <a href="employee_postpone.html" class="nav-link">Apply Leave</a>
+            <a href="employee_appointment_history.php" class="nav-link">Appointment History</a>
           </li>
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-user"></i> 
             </a>
             <div class="dropdown-menu">
-              <a href="employee_myprofile.html" class="dropdown-item">
+              <a href="employee_myprofile.php" class="dropdown-item">
                 <i class="fa fa-user-circle"></i> Profile
               </a>
               <a href="#" class="dropdown-item">
@@ -157,7 +157,7 @@
                 </div>
                 <br><br>
 
-          <a href="employee_editprofile.html" type="submit" class="btn btn-primary">Edit Profile</a>
+          <a href="employee_editprofile.php" type="submit" class="btn btn-primary">Edit Profile</a>
 
               </form>
             </div>
