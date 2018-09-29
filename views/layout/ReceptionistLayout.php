@@ -88,7 +88,7 @@ echo "
                     <a class='nav-link' href='ReceptionistSupport.php'><button class='btn btn-info btn-hover'>Customer Help</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistReport.php''><button class='btn btn-info btn-hover'>Reports</button> </a>
+                    <a class='nav-link' href='ReceptionistReport.php'><button class='btn btn-info btn-hover'>Reports</button> </a>
                 </li>
                 <li class='nav-item active'>
                     <a class='nav-link' href='ReceptionistLeave.php'><button class='btn btn-info btn-hover'>Leaves</button> </a>
@@ -105,6 +105,7 @@ echo "
                               </div>
                             </div>
                             </li>
+                            <li></li>
             </ul>
         </div>
     </nav>

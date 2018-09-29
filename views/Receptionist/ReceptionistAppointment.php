@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body class="receptionist-background">
+<body class="receptionist-background" onload="loadBeautician()">
 <?php
 include "../layout/ReceptionistLayout.php";
 include "../../controller/AppointmentController.php";
@@ -19,15 +19,17 @@ include "../../controller/AppointmentController.php";
 ?>
 <div class="container-fluid">
     <div class="row mt-1">
+        <div class="col-md-3">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="form-row text-dark">
             <div class="form-group col-md-6">
                 <label for="inputDate">Date</label>
                 <input type="date" class="form-control" id="inputDate" name="date">
             </div>
+
             <div class="form-group col-md-4 mt-1">
                 <label for="inputemployee">Employee</label>
-                <select name="employee"><option>AAA</option><option>AAA</option><option>AAA</option></select>
+                <select id="employee" name="employee"></select>
             </div>
             <div class="form-group col-md-2 mt-3">
 
@@ -36,13 +38,14 @@ include "../../controller/AppointmentController.php";
         </div>
 
     </form>
+        </div>
     </div>
     <div class="row mt-3">
 
         <div class="col-md-1"></div>
         <div class="col-md-10 text-dark">
             <h1 align="center">Appointments</h1>
-            <div id="Appointment" class="table-responisve-md text-white" style="height:500px;overflow-y:auto">
+            <div class="table-responisve-md" style="height:500px;overflow-y:auto">
                 <table class="table table-bordered" style="height:150px">
 
                     <caption>List of Appointments</caption>
@@ -61,8 +64,9 @@ include "../../controller/AppointmentController.php";
                     </thead>
                     <tbody class="text-primary">
                     <?php
-                    if(isset($_POST["date"]) && isset($_POST["employee"]))
+                    if(!empty($_POST["date"]) && isset($_POST["employee"]))
                     {
+                        echo $_POST["date"]." ".$_POST["employee"];
                         if(($result=getAll($_POST["date"],$_POST["employee"]))!=null)
                         {
                             $result->bind_result($id,$name,$date,$time,$service,$beautician,$price);

@@ -2,12 +2,32 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="databases@localhost" uuid="d96294bd-d340-44f0-ba97-c1bdf72a5c26">
+<<<<<<< HEAD
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
       <introspection-schemas>*:edulink,information_schema,medonat,mysql,nsbm1,performance_schema,phpmyadmin,restaurant,salon,school,schoolnew,test,testing1,unitech,wlox1,wordpress1</introspection-schemas>
     </data-source>
     <data-source name="salondb@localhost" uuid="2b2b0057-fabb-4629-9f6a-9e521ff255ee">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
       <introspection-schemas>*:salondb</introspection-schemas>
+=======
+      <database-info product="MySQL" version="5.5.5-10.1.21-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )" family="MARIADB" exact-version="5.5.5">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <user-name>root</user-name>
+      <introspection-schemas>*:*</introspection-schemas>
+    </data-source>
+    <data-source name="salondb@localhost" uuid="596912a4-b28e-40c9-a18b-0a4f2eea282d">
+      <database-info product="MySQL" version="5.7.18-0ubuntu0.16.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" family="MYSQL" exact-version="5.7.18">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>dulip</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
+>>>>>>> 3fbe61aa40b2c3150cbf8788f12a12d642a43729
     </data-source>
   </component>
 </project>

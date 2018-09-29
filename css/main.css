@@ -97,8 +97,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/*Chat Application css styles */
 
+.receiver-List
+{
+    border: #1c7430;
+    border-style: solid;
+}
 
+/*Payment Css */
+.payment-list
+{
+    height: 350px;
+    overflow-y: auto;
+}
 
 .receptionist-background{
     background-color: #c6c8ca;

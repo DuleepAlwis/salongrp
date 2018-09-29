@@ -6,7 +6,6 @@
  * Time: 7:00 PM
  */
 
-include "Database.php";
 class Stock
 {
 

@@ -1,5 +1,6 @@
 <?php
 
+include "../model/Database.php";
 include "../model/Login.php";
 $login = new Login();
 if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -25,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET")
 {
     if(isset($_GET["uname"]) && isset($_GET["validc"]))
     {
-        if($login->confirmUserr(test($_GET["uname"]),test($_GET["validc"])))
+        if($login->confirmUser(test($_GET["uname"]),test($_GET["validc"])))
         {
 
         }

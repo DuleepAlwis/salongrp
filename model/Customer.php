@@ -5,7 +5,6 @@
  * Date: 8/14/2018
  * Time: 8:39 PM
  */
-include "Database.php";
 class Customer
 {
     public $id;

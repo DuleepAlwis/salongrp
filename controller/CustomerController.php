@@ -7,11 +7,13 @@
  */
 if(file_exists( "model/Customer.php"))
 {
+    include "model/Databse.php";
     include "model/Customer.php";
 }
 
 if(file_exists("../model/Customer.php"))
 {
+    include "../model/Database.php";
     include "../model/Customer.php";
 }
 
