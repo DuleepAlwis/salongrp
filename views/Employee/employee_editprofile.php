@@ -192,16 +192,16 @@
                 </div>
                 
                 <br><br>
-                <button type="submit" class="btn btn-primary" onclick="myFunction()">Save Changes</button>
+                <!-- <button type="submit" class="btn btn-primary">Save Changes</button>
                   <script>
                     function myFunction() {
                       alert("Save Changes are Successfully");
                     }
-                  </script>
+                  </script> -->
 
                 <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
 
-                <!-- <a href="popup" type="submit" class="btn btn-primary">Save Changes </a> -->
+                <a href="popup" type="submit" class="btn btn-primary">Save Changes </a> 
 
                 <a href="employee_myprofile.php" type="submit" class="btn btn-primary">Cancel</a>
 
