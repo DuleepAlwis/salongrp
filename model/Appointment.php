@@ -17,11 +17,10 @@ class Appointment
     protected $etime;
     protected $state;
     protected $con;
-
+    //Appointment states   0-Not completed   1-Postponed   2-Completed
     /**
      * @return mixed
      */
-    //Appointment state   0=not completed  1=completed  2=postponed
     public function __construct()
     {
 
@@ -33,17 +32,17 @@ class Appointment
     {
 
     }
-
     public function getAll($date,$employee)
     {
         if($employee==0)
         {
-            $sql = "select * from appointment where date='$date';";
+            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee  where appointment.beauticianid=employee.id and
+                        appointment.serviceid=services.id and appointment.date='$date' and appointment.state='0';";
         }
         else
         {
-            $sql = "select appointment.* from appointment,employee where appointment.date='$date' and employee.name='$employee' 
-                    and appointment.beauticianid=employee.id;";
+            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee  where appointment.beauticianid=employee.id and
+                        appointment.serviceid=services.id and appointment.date='$date' and appointment.beauticianid='$employee' and appointment.state='0';";
         }
         if($stmt = $this->con->prepare($sql))
         {

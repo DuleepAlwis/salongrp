@@ -8,73 +8,75 @@
 
 class Payment
 {
-    private $paymentId;
-    private $price;
-    private $date;
-    private $time;
+    public $paymentId;
+    public $price;
+    public $date;
+    public $time;
+    private $con;
+
 
     /**
      * @return mixed
      */
-    public function getPaymentId()
+    public function __construct()
     {
-        return $this->paymentId;
+        $this->con = Database::getConnection();
     }
 
-    /**
-     * @param mixed $paymentId
-     */
-    public function setPaymentId($paymentId)
+    public function AppointmentInsert($id,$price)
     {
-        $this->paymentId = $paymentId;
+        $sqlInsert = "insert into appointmentpay(appointmentid, price, date, time) values(?,?,?,?);";
+        $stmtInsert = $this->con->prepare($sqlInsert);
+        $stmtInsert->bind_param("ssss",$id,$price,date(y-m-d),time());
+        $sqlUpdate = "update appointment set state=? where appointmentId=?;";
+        $stmtUpdate = $this->con->prepare($sqlUpdate);
+        $stmtUpdate->bind_param("ss",'2',$id);
+        if($stmtInsert->execute() && $stmtUpdate->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPrice()
+    public function NonAppointmentInsert($serviceid,$beauticianid,$price)
     {
-        return $this->price;
+        $sqlInsert = "insert into nonappointmentpay(serviceid,beauticianid,price,date,time) values(?,?,?,?,?);";
+        $stmtInsert = $this->con->prepare($sqlInsert);
+        $stmtInsert->bind_param("sssss",$serviceid,$beauticianid,$price,date(y-m-d),time());
+
+        if($stmtInsert->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    /**
-     * @param mixed $price
-     */
-    public function setPrice($price)
+    public function ProductInsert($productid,$quantity,$price)
     {
-        $this->price = $price;
+        $date = date("y-m-d");
+        $time = date("H:i:s");
+        $sqlInsert = "insert into purchaseitem(itemid,date,time,quantity,price) values(?,?,?,?,?);";
+        $stmtInsert = $this->con->prepare($sqlInsert);
+        $stmtInsert->bind_param("sssss",$productid,$date,$time,$quantity,$price);
+        //$sqlUpdate = "update stock set stock.quantity=stock.quantity- where stock.id=$productid;";
+        //$stmtUpdate = $this->con->prepare($sqlUpdate);
+        //$stmtUpdate->bind_param("ss",$quantity,$productid);
+        if($stmtInsert->execute())//&& $stmtUpdate->execute())
+        {
+            return $stmtInsert->affected_rows;
+        }
+        else
+        {
+            return $stmtInsert->error;
+        }
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
 
-    /**
-     * @param mixed $date
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTime()
-    {
-        return $this->time;
-    }
-
-    /**
-     * @param mixed $time
-     */
-    public function setTime($time)
-    {
-        $this->time = $time;
-    }
 
 }
