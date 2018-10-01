@@ -117,20 +117,20 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password" minlength="7" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
                 </div>
                 <div class="form-group">
                   <label for="inputnic">NIC</label>
-                  <input type="text" class="form-control" id="inputnic" placeholder="NIC">
+                  <input type="text" class="form-control" id="inputnic" placeholder="NIC" required pattern="[0-9]{9}[Vv||xX]">
                 </div>
                 <fieldset class="form-group">
                   <div class="row">
