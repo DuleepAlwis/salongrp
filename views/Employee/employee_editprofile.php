@@ -116,12 +116,12 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password" minlength="7" required>
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="7" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -201,7 +201,7 @@
 
                 <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
 
-                <a href="popup" type="submit" class="btn btn-primary">Save Changes </a> 
+                <a href="#" type="submit" class="btn btn-primary">Save Changes </a> 
 
                 <a href="employee_myprofile.php" type="submit" class="btn btn-primary">Cancel</a>
 
@@ -258,16 +258,9 @@
     </div>
   </div>
 
-
-<<<<<<< HEAD:views/Beautician/employee_editprofile.php
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/popper.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
-=======
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
->>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744:views/employee_editprofile.html
   <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
   <script>
       CKEDITOR.replace( 'editor1' );
