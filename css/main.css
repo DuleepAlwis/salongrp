@@ -97,12 +97,15 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-/*Chat Application css styles */
+/*CustomerHelp Application css styles */
 
 .receiver-List
 {
-    border: #1c7430;
+    border-color: #1c7430;
     border-style: solid;
+    background-color: #00CA79;
+    width:500px;
+    height: 550px
 }
 
 /*Payment Css */

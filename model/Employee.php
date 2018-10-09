@@ -17,8 +17,9 @@ class Employee
     public $address;
     public $password;
     public $joindate;
-    public $ulevel;
+    public $type;
     public $gender;
+    public $last_login;
     protected $con;
 
 
@@ -33,10 +34,10 @@ class Employee
 
     public function AddEmployee()
     {
-        $sql = "insert into employee(name,NIC,email,address,tpno,password,joindate,validationc,type,gender) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        $sql = "insert into employee(name,NIC,email,address,tpno,password,joindate,validationc,ulevel,gender) VALUES(?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param('ssssssssss',$this->name,$this->nic,$this->email,$this->address,$this->tpno,$this->password
-            ,$this->joindate,$this->validationc,$this->uleve,$this->gender);
+            ,$this->joindate,$this->validationc,$this->ulevel,$this->gender);
         if($stmt->execute())
         {
 
@@ -64,7 +65,7 @@ class Employee
 
     public function getAll()
     {
-        $sql = "select id,NIC,name,tpno,email,address,joindate,gender,ulevel from employee;";
+        $sql = "select id,NIC,name,tpno,email,address,joindate,gender from employee;";
 
 
         if(($stmt = $this->con->prepare($sql)))

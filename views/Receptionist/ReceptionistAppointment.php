@@ -27,9 +27,9 @@ include "../../controller/AppointmentController.php";
                 <input type="date" class="form-control" id="inputDate" name="date">
             </div>
 
-            <div class="form-group col-md-4 mt-1">
-                <label for="inputemployee">Employee</label>
-                <select id="employee" name="employee"></select>
+            <div class="form-group col-md-4">
+                <label for="employee">Employee</label>
+                <select id="employee" name="employee" class="mt-3"></select>
             </div>
             <div class="form-group col-md-2 mt-3">
 

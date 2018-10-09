@@ -7,7 +7,7 @@
  */
 if(file_exists( "model/Customer.php"))
 {
-    include "model/Databse.php";
+    include "model/Database.php";
     include "model/Customer.php";
 }
 
@@ -29,11 +29,12 @@ function Addcustomer()
         $customer->email = testInput($_POST["Email"]);
         $customer->password = md5(testInput($_POST["Password"]));
         $customer->address = testInput($_POST["Address"]);
+        $customer->gender = testInput($_POST["Gender"]);
         $customer->city = testInput($_POST["City"]);
         $customer->district = testInput($_POST["District"]);
         //$m = (int)microtime();
         //echo ($_POST["Name"]+" ");
-
+        $customer->last_login = date("Y-m-d H:i:s");
         $customer->validationc = md5($customer->name,microtime());
         if($customer->AddCustomer())
         {
@@ -107,6 +108,7 @@ function getAll()
     $customer = new Customer();
     return $customer->getAll();
 }
+
 function sendEmail($email,$subject,$msg,$headers)
 {
     if(mail($email,$subject,$msg,$headers))

@@ -21,8 +21,9 @@ class Login
         $stmt = $this->con->prepare($sqlCustomer);
         $passw = md5($password);
         $stmt->bind_param("ss",$uname,$passw);
-        $stmt->execute();
-        if($stmt->affected_rows>0)
+
+
+        if($stmt->execute())
         {
 
             if($stmt!=null) {
@@ -46,7 +47,7 @@ class Login
 
             //Employee Login
 
-        $sqlEmployee = "select id,name,tpno,email,address,joindate,password,ulevel,NIC from employee where email=? and password=?;";
+        $sqlEmployee = "select id,name,tpno,email,address,joindate,password,userLevel,NIC from employee where email=? and password=?;";
         $stmt = $this->con->prepare($sqlEmployee);
         $passw = md5($password);
         $stmt->bind_param("ss",$uname,$passw);
