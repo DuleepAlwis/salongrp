@@ -99,7 +99,9 @@
                             <label for="inputMobile">Mobile number:</label>
                             <input type="text" class="form-control" name="Mobile" placeholder="0715659741" required pattern="[0-9]{10}" size="13" style="width: 50%" title="Enter in the given format">
                         </div>
-                        <div class="col-md-6"></div>
+                        <div class="mt-3 form-group col-md-6">
+                            Gender :<select name="Gender"><option value="M">Male</option><option value="F">Female</option></select>
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail">Email</label>
                             <input type="email" class="form-control" name="Email" placeholder="mymail@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
@@ -475,4 +477,3 @@ if(isset($_POST['submit']))
 
 
 
-        

@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Salon Sanrooka</title>
-  <link rel="stylesheet" href="../css/font-awesome.min1.css">
-  <link rel="stylesheet" href="../css/bootstrap1.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../css/font-awesome.min1.css">
+  <link rel="stylesheet" href="../../css/bootstrap1.css">
+  <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="../index1.html" class="navbar-brand">Salon Sanrooka</a>
+      <a href="../../index1.html" class="navbar-brand">Salon Sanrooka</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -220,9 +220,15 @@
     </div>
   </div>
 
+<<<<<<< HEAD:views/Beautician/employee_viewappointments.php
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+=======
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+>>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744:views/employee_viewappointments.html
   <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
   <!-- Date Picker -->
   <script src="js/bootstrap-datepicker.js"></script>

@@ -105,7 +105,7 @@ echo "
                               </div>
                             </div>
                             </li>
-                            <li></li>
+                            <li><span style='display: inline-block;width:75px'></span></li>
             </ul>
         </div>
     </nav>

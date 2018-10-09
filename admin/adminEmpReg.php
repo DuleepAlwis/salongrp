@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Bootstrap Advance Admin Template</title>
@@ -57,78 +58,53 @@
 
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
+                        <a href="adminIndex.php"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
                     <li>
                         <a href="#"  class="active-menu-top"><i class="fa fa-desktop "></i>Employee<span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level collapse in">
                             <li>
-                                <a class="active-menu" href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Registraion</a>
+                                <a class="active-menu" href="adminEmpReg.php"><i class="fa fa-toggle-on"></i>Registraion</a>
                             </li>
                             <li>
-                                <a href="employeeView.php"><i class="fa fa-bell "></i>View Employee</a>
+                                <a href="adminEmpView.php"><i class="fa fa-bell "></i>View Employee</a>
                             </li>
-                             <li>
-                                <a href="progress.html"><i class="fa fa-circle-o "></i>Progressbars</a>
-                            </li>
-                             <li>
-                                <a href="buttons.html"><i class="fa fa-code "></i>Buttons</a>
-                            </li>
-                             <li>
-                                <a href="icons.html"><i class="fa fa-bug "></i>Icons</a>
-                            </li>
-                             <li>
-                                <a href="wizard.html"><i class="fa fa-bug "></i>Wizard</a>
-                            </li>
-                             <li>
-                                <a href="typography.html"><i class="fa fa-edit "></i>Typography</a>
-                            </li>
-                             <li>
-                                <a href="grid.html"><i class="fa fa-eyedropper "></i>Grid</a>
-                            </li>
-                            
-                           
+
+
+
                         </ul>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-yelp "></i>stock <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
-                            <li>
-                                <a href="invoice.html"><i class="fa fa-coffee"></i>Invoice</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html"><i class="fa fa-flash "></i>Pricing</a>
-                            </li>
+
                              <li>
-                                <a href="component.html"><i class="fa fa-key "></i>Components</a>
+                                <a href="stockVIew.php"><i class="fa fa-send "></i>View stock</a>
                             </li>
-                             <li>
-                                <a href="stock.html"><i class="fa fa-send "></i>View stock</a>
-                            </li>
-                            
+
                              <li>
                                 <a href="message-task.html"><i class="fa fa-recycle "></i>Messages & Tasks</a>
                             </li>
-                            
-                           
+
+
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="#"><i class="fa fa-bicycle "></i>Customer <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
-                           
+
                              <li>
-                                <a href="view customer.html"><i class="fa fa-desktop "></i>View customer </a>
+                                <a href="employeeView.php"><i class="fa fa-desktop "></i>View customer </a>
                             </li>
                              <li>
                                 <a href="form-advance.html"><i class="fa fa-code "></i>Advance</a>
                             </li>
-                             
-                           
+
+
                         </ul>
                     </li>
-                     
+
                 </ul>
 
             </div>
@@ -137,91 +113,72 @@
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
-                
+
                 <!-- /. ROW  -->
 
                 <div class="row">
-           
+
 <div class="col-md-6 col-sm-6 col-xs-12">
                <div class="panel panel-danger">
                         <div class="panel-heading">
                            Registraion form
                         </div>
                         <div class="panel-body">
-                            <form action="empRegCon.php"  role="form" method="post">
-                                <div class="form-group">
-                                    <label>id</label>
-                                    <input class="form-control" type="text" name="id" value="<?php if(!empty($_POST["id"])){echo $_POST["id"];}?>">
-                                    <p class="help-block">
-                                        <font color="red">
-                                            <?php if(isset($_POST["id"]))
-                                            {if(empty($_POST["id"])){
-                                                echo "*required";}} ?>
-                                        </font>
-                                    </p>
-                                </div>
-
+                            <form role="form" method="post"   name="regForm" action="adminEmpRegCon.php" onsubmit="return validateForm()">
 
                                 <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" name="name" value="<?php if(!empty($_POST["name"])){echo $_POST["name"];}  ?>">
+                                            <input class="form-control" type="text" name="Name" value="" required>
                                      <p class="help-block"><p class="help-block">
                                         <font color="red">
-                                            <?php if(isset($_POST["name"]))
-                                            {if(empty($_POST["name"])){
-                                                echo "*required";}} ?>
+
                                         </font>
                                     </p></p>
-                                        </div>
+                                </div>
+
+                                    <div class="form-group">
+                                        <label>NIC</label>
+                                        <input class="form-control" type="text" name="NIC" value="" required>
+                                        <p class="help-block"><p class="help-block">
+                                            <font color="red">
+
+                                            </font>
+                                        </p></p>
+                                    </div>
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input class="form-control" type="text" name="address" value="<?php if(!empty($_POST["address"])){echo $_POST["address"];}  ?>">
+                                    <input class="form-control" type="text" name="Address" value="">
                                     <p class="help-block"><p class="help-block">
                                         <font color="red">
-                                            <?php if(isset($_POST["address"]))
-                                            {if(empty($_POST["address"])){
-                                                echo "*required";}} ?>
+
                                         </font>
                                     </p></p>
                                 </div>
                                 <div class="form-group">
                                     <label>jDate</label>
-                                    <input class="form-control" type="date" name="jDate" value="<?php if(!empty($_POST["jDate"])){echo $_POST["jDate"];}  ?> " >
+                                    <input class="form-control" type="date" name="jdate" value="22/05/1996" required>
                                     <p class="help-block">
                                         <font color="red">
-                                            <?php if(isset($_POST["jDate"]))
-                                            {if(empty($_POST["jDate"])){
-                                                echo "*required";}} ?>
+
                                         </font>
                                     </p>
                                 </div>
-                                        
+
                                  <div class="form-group">
                                             <label>Enter Email</label>
-                                            <input class="form-control" type="email" name="email" value="<?php if(!empty($_POST["email"])){echo $_POST["email"];}  ?>">
+                                            <input class="form-control" type="email" name="Email" value="" required>
                                      <p class="help-block"><p class="help-block">
                                          <font color="red">
-                                             <?php if(isset($_POST["email"]))
-                                             {if(empty($_POST["email"])){
-                                                 echo "*required";}} ?>
+
                                          </font>
                                      </p></p>
                                         </div>
                                 <div class="form-group">
                                             <label>Mobile number</label>
-                                            <input class="form-control" type="tel" name="mobile" value="<?php if(!empty($_POST["mobile"])){echo $_POST["mobile"];}  ?>">
+                                            <input class="form-control" type="tel" name="Contact" value="" id="mobile" required>
                                      <p class="help-block">
                                          <font color="red">
-                                             <?php if(isset($_POST["mobile"]))
-                                             {if(empty($_POST["mobile"])){
-                                                 echo "*required";}
-                                             elseif (isset($tpnoErr)){
-                                                 echo $tpnoErr;
-                                             }
-
-                                             }
-                                             ?>
-
+                                    <p id="demo"></p>
                                          </font>
                                      </p>
                                         </div>
@@ -239,44 +196,35 @@
 
                                 <div class="form-group">
                                             <label>Enter Password</label>
-                                            <input class="form-control" type="password" name="password">
+                                            <input class="form-control" type="password" name="Password" required>
                                      <p class="help-block">
                                          <font color="red">
-                                             <?php if(isset($_POST["password"]))
-                                             {if(empty($_POST["password"])){
-                                                 echo "*required";}
-                                             if(isset($passwordErr)){
-                                                 echo $passwordErr ;
-                                             }
-                                             }
-                                             ?>
+                                    <p id="pass"></p>
                                          </font>
 
                                                 </p>
                                         </div>
                                 <div class="form-group">
                                             <label>Re Type Password </label>
-                                            <input class="form-control" type="password" name="passwordverify">
+                                            <input class="form-control" type="password" name="passwordverify" required>
                                      <p class="help-block">
                                     <font color="red">
-                                        <?php if(isset($_POST["passwordverify"]))
-                                        {if(empty($_POST["passwordverify"])){
-                                            echo "*required";}} ?>
+
                                     </font>
                                     </p>
                                         </div>
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>Select type</label>
-                                        <select class="form-control" name="salary">
+                                        <select class="form-control" name="ulevel">
                                             <option>beautician</option>
                                             <option>receptionist</option>
                                             <option>other</option>
 
                                         </select>
                                     </div>
-                                 
-                                        <button type="submit" class="btn btn-danger">Register Now </button>
+
+                                        <button type="submit"  class="btn btn-danger" >Register Now </button>
 
                                     </form>
                             </div>
@@ -303,7 +251,7 @@
     <div id="footer-sec">
         &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
     </div>
-                  
+
     <!-- /. FOOTER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
@@ -314,6 +262,7 @@
     <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
+    <script src= "assets/js/formValidate.js"></script>
 
 
 </body>

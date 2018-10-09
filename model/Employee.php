@@ -17,8 +17,9 @@ class Employee
     public $address;
     public $password;
     public $joindate;
-    public $ulevel;
+    public $type;
     public $gender;
+    public $last_login;
     protected $con;
 
 
@@ -64,7 +65,7 @@ class Employee
 
     public function getAll()
     {
-        $sql = "select id,NIC,name,tpno,email,address,joindate,gender,ulevel from employee;";
+        $sql = "select id,NIC,name,tpno,email,address,joindate,gender from employee;";
 
 
         if(($stmt = $this->con->prepare($sql)))

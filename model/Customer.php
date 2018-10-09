@@ -14,6 +14,7 @@ class Customer
     public $address;
     public $city;
     public $district;
+    public $gender;
     public $password;
     public $state=0;
     public $terms=0;
@@ -30,19 +31,20 @@ class Customer
     public function AddCustomer()
     {
 
-        $sql = "insert into customer(name,email,address,tpno,password,city,district,state,terms,validationcode) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        $sql = "insert into customer(name,email,address,tpno,password,city,district,state,terms,validationc,gender) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('ssssssssss',$this->name,$this->email,$this->address,$this->tpno,$this->password
-        ,$this->city,$this->district,$this->state,$this->terms,$this->validationc);
+        $stmt->bind_param('sssssssssss',$this->name,$this->email,$this->address,$this->tpno,$this->password
+            ,$this->city,$this->district,$this->state,$this->terms,$this->validationc,$this->gender);
         if($stmt->execute())
         {
 
             return true;
         }
-        
+
         return false;
 
     }
+
 
     public function UpdateCustomer()
     {
