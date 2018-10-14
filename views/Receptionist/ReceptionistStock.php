@@ -23,12 +23,12 @@
            <div class="col-md-1"></div>
         <div class="col-md-10">
             <h1 class="text-dark" align="center">Stock</h1>
-            <div class="table-responisve-md bg-white text-black" style="height:500px;overflow-y:auto">
+            <div class="table-responisve-md text-black" style="height:500px;overflow-y:auto">
                 <table class="table table-bordered table-hover table-dark" style="height:150px">
 
                         <caption>List of Items in the stock</caption>
                         <thead>
-                        <tr style="position:sticky;background-color: #01549b">
+                        <tr style="position:sticky;background-color: #00aa88">
 
 
                             <th scope="col">Name</th>

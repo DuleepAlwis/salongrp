@@ -42,7 +42,7 @@
          <img src='../img/coins.png' width='35%' height='35%'><a href='ReceptionistPayment.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Payment</a>
         </div>
         <div id='appointment' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/appointment.png' width='35%' height='35%'><a href='ReceptionistAppointment.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Appointment</a>
+         <img src='../img/appointment.png' width='35%' height='35%'><a href='index.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Appointment</a>
         </div>
         <div id='stock' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
          <img src='../img/stock.png' width='35%' height='35%'><a href='ReceptionistStock.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Stock details</a>
@@ -76,7 +76,7 @@ echo "
                     <a class='nav-link' href='../../index.php'><button class='btn btn-info'>Home</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistAppointment.php'><button class='btn btn-info btn-hover'>Appointment</button> </a>
+                    <a class='nav-link' href='./'><button class='btn btn-info btn-hover'>Appointment</button> </a>
                 </li>
                 <li class='nav-item active'>
                     <a class='nav-link' href='ReceptionistStock.php'><button class='btn btn-info btn-hover'>Stock</button> </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 29, 2018 at 05:38 AM
+-- Generation Time: Oct 14, 2018 at 06:37 PM
 -- Server version: 5.7.18-0ubuntu0.16.10.1
 -- PHP Version: 7.0.18-0ubuntu0.16.10.1
 
@@ -77,13 +77,20 @@ CREATE TABLE `customer` (
   `tpno` varchar(11) NOT NULL,
   `terms` int(255) NOT NULL,
   `state` int(3) NOT NULL,
-  `password` varchar(256) NOT NULL,
   `city` varchar(255) DEFAULT NULL,
   `district` varchar(255) DEFAULT NULL,
-  `validationcode` int(11) DEFAULT NULL,
-  `code` varchar(255) NOT NULL,
-  `activate` int(11) DEFAULT NULL
+  `gender` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `validationc` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `name`, `email`, `address`, `tpno`, `terms`, `state`, `city`, `district`, `gender`, `password`, `validationc`) VALUES
+(1, 'kamal', 'abc@gmail.com', 'aaa', '0715896313', 0, 0, 'aaa', 'Ampara', 'F', 'd0db92fa9e2dad7794117be118414e74', 'ªc°ÕÙP6"5«R'),
+(2, 'Dulip', 'dulip@gmail.com', 'aaa', '0712589637', 0, 0, 'aaa', 'Badulla', 'M', '1ef5a9cd207726f31b82da79a0dcd588', 'X`Ìkˆ~EŠ;èB–è');
 
 -- --------------------------------------------------------
 
@@ -118,16 +125,16 @@ CREATE TABLE `employee` (
   `code` varchar(255) NOT NULL,
   `NIC` varchar(255) DEFAULT NULL,
   `validationc` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `gender` varchar(256) DEFAULT NULL
+  `gender` varchar(256) DEFAULT NULL,
+  `userLevel` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `password`, `salary`, `code`, `NIC`, `validationc`, `type`, `gender`) VALUES
-(1, 'abc', '1234567891', 'aaaaa', 'aaa', '2018-09-07', '123', 123, '', '123456789V', NULL, NULL, NULL);
+INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `password`, `salary`, `code`, `NIC`, `validationc`, `gender`, `userLevel`) VALUES
+(1, 'zxc', '1234667891', 'aba@gmail.com', '111111111', '2018-10-03', '1234567', 1.111111111111111e15, '', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,8 +155,25 @@ CREATE TABLE `healthytips` (
 
 CREATE TABLE `messages` (
   `mid` int(255) NOT NULL,
-  `message` varchar(256) DEFAULT NULL
+  `customerid` varchar(255) NOT NULL,
+  `question` varchar(256) DEFAULT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `state` varchar(3) DEFAULT NULL,
+  `timestamp` varchar(3) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `msgFrom` varchar(255) DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`mid`, `customerid`, `question`, `answer`, `state`, `timestamp`, `description`, `msgFrom`, `time`) VALUES
+(1, '1', 'jkhkjhk', '', '', '', 'mjhbjh', 'C', '123'),
+(2, '1', NULL, '', '', '', 'xcvxcvxvb', 'R', '321'),
+(3, '1', NULL, '', '', '', 'vcvxcbxvb', 'C', '213\r\n'),
+(4, '1', NULL, NULL, '0', NULL, ' 123', 'R', '2018-10-08 05:18:59');
 
 -- --------------------------------------------------------
 
@@ -201,7 +225,10 @@ INSERT INTO `purchaseitem` (`paymentid`, `itemid`, `date`, `time`, `quantity`, `
 (2, 5, '2018-09-29', '04:22:24.000000', 1, '5000'),
 (3, 5, '2018-09-29', '04:23:13.000000', 1, '5000'),
 (4, 1, '2018-09-29', '04:23:13.000000', 1, '1959.25'),
-(5, 2, '2018-09-29', '04:23:13.000000', 1, '1500');
+(5, 2, '2018-09-29', '04:23:13.000000', 1, '1500'),
+(6, 3, '2018-09-30', '01:18:05.000000', 7, '6993'),
+(7, 2, '2018-09-30', '01:18:05.000000', 1, '1500'),
+(8, 1, '2018-09-30', '01:18:05.000000', 1, '1959.25');
 
 -- --------------------------------------------------------
 
@@ -264,7 +291,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `name`, `quantity`, `currentq`, `brand`, `price`, `preOrderl`, `code`) VALUES
-(1, 'North for Men Recharge Shaving Gel', 57, 21, 'Eclat', 1959.25, 10, 'I-1'),
+(1, 'North for Men Recharge Shaving Gel', 63, 21, 'Eclat', 1959.25, 10, 'I-1'),
 (2, 'Mademoiselle Edt', 20, 20, 'Eclat', 1500, 10, 'I-2'),
 (3, 'Giordani Gold Original Perfumed Body Spray', 31, 31, 'Eclat', 999, 15, 'I-3'),
 (4, 'Face Gel Cucumber', 25, 25, 'NovAge', 599, 15, 'I-4'),
@@ -344,7 +371,7 @@ ALTER TABLE `beautician`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`id`,`code`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -370,7 +397,7 @@ ALTER TABLE `healthytips`
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`mid`);
+  ADD PRIMARY KEY (`mid`,`customerid`);
 
 --
 -- Indexes for table `messagesr`
@@ -462,7 +489,7 @@ ALTER TABLE `beautician`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `empleave`
 --
@@ -482,7 +509,7 @@ ALTER TABLE `healthytips`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `nonappointmentpay`
 --
@@ -492,7 +519,7 @@ ALTER TABLE `nonappointmentpay`
 -- AUTO_INCREMENT for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `purchasepay`
 --
@@ -526,21 +553,15 @@ ALTER TABLE `users`
 -- Constraints for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_beautician` FOREIGN KEY (`beauticianid`) REFERENCES `beautician` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
-  ADD CONSTRAINT `appointment_customer` FOREIGN KEY (`customerid`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `appointment_service` FOREIGN KEY (`serviceid`) REFERENCES `services` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
+  ADD CONSTRAINT `appointment_service` FOREIGN KEY (`serviceid`) REFERENCES `services` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `beautician_id` FOREIGN KEY (`beauticianid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `customer_id` FOREIGN KEY (`customerid`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `appointmentpay`
 --
 ALTER TABLE `appointmentpay`
   ADD CONSTRAINT `appointment_pay` FOREIGN KEY (`appointmentid`) REFERENCES `appointment` (`appointmentid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `beautician`
---
-ALTER TABLE `beautician`
-  ADD CONSTRAINT `employee_customer` FOREIGN KEY (`id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `nonappointmentpay`

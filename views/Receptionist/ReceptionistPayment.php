@@ -27,6 +27,7 @@ include "../../controller/PaymentController.php";
     <div class="row">
         <div class="col-md-3 mt-3 border border-light" style="height: 50%;overflow-y: auto">
             <h3 class="font-weight-light">Appointments</h3>
+            <div class="payment-list">
             <ul id="appointments">
 
                 <?php
@@ -47,16 +48,17 @@ include "../../controller/PaymentController.php";
 
                 ?>
             </ul>
+            </div>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4">
 
-
+                <div class="payment-list">
                 <table class="table table-bordered table-hover" style="height:150px;overflow-y: auto">
 
                     <h3>Services</h3>
                     <thead>
-                    <tr style="position:sticky;background-color: #01549b">
+                    <tr>
 
 
                         <th scope="col">Name</th>
@@ -85,15 +87,18 @@ include "../../controller/PaymentController.php";
                     </tbody>
 
                 </table>
+                </div>
 
         </div>
         <div class="col-md-4">
+            <h3>Products</h3>
             <div class="payment-list">
-            <table class="table table-bordered table-hover">
 
-                <h3>Products</h3>
-                <thead>
-                <tr style="position:sticky;background-color: #01549b">
+
+                <table class="table table-bordered table-hover">
+
+                <thead class="sticky-top">
+                <tr>
 
 
                     <th scope="col">Name</th>
@@ -101,7 +106,7 @@ include "../../controller/PaymentController.php";
                     <th scope="col"></th>
 
                 </tr>
-                </thead>
+                </thead class="sticky-top">
                 <tbody class="text-dark">
                 <?php
                 if(($result=getStock())!=null)

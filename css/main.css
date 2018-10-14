@@ -115,9 +115,24 @@ textarea {
     overflow-y: auto;
 }
 
+.payment-list thead
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #00CA79;
+    table-layout: fixed
+}
+
 .receptionist-background{
     background-color: #c6c8ca;
-    color: #fff; }
+    color: #fff;
+}
+
+.customer-background
+{
+    background-color: #b1dfbb;
+}
 
 #services{
     background-color: #025aa5;
