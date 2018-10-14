@@ -124,18 +124,8 @@
 
                 </div>
             </div>
-            <!-- /. ROW  -->
-
-
-                    <div id="live_data"></div>
-
-
-
+            <div id="live_data"></div>
             <script src="assets/js/ajax.js"></script>
-
-
-
-
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
