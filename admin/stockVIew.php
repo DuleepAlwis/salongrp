@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -64,25 +63,26 @@
                     <a href="adminIndex.php"><i class="fa fa-dashboard "></i>Dashboard</a>
                 </li>
                 <li>
-                    <a href="#" class="active-menu-top" ><i class="fa fa-desktop "></i>Employee<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse in">
+                    <a href="#"  ><i class="fa fa-desktop "></i>Employee<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
 
                         <li>
                             <a href="adminEmpReg.php"><i class="fa fa-toggle-on"></i>Registration</a>
                         </li>
                         <li>
-                            <a class="active-menu" href="adminEmpView.php"><i class="fa fa-bell "></i>view employee</a>
+                            <a  href="adminEmpView.php"><i class="fa fa-bell "></i>view employee</a>
                         </li>
+
 
 
                     </ul>
                 </li>
                 <li>
-                    <a href="#" ><i class="fa fa-yelp "></i>stock <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-
+                    <a href="#" class="active-menu-top"><i class="fa fa-yelp "></i>stock <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in">
                         <li>
-                            <a  href="stockVIew.php"><i class="fa fa-send "></i>View stock</a>
+
+                        <a class="active-menu" href="stockVIew.php"><i class="fa fa-send "></i>View stock</a>
                         </li>
 
                         <li>
@@ -94,8 +94,8 @@
                 </li>
 
                 <li>
-                    <a href="#" ><i class="fa fa-bicycle "></i>Customer <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level ">
+                    <a href="#"><i class="fa fa-bicycle "></i>Customer <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
 
                         <li>
                             <a href="view customer.html"><i class="fa fa-desktop "></i>View customer </a>
@@ -125,7 +125,7 @@
                 </div>
             </div>
             <div id="live_data"></div>
-            <script src="assets/js/ajax.js"></script>
+            <script src="assets/js/ajaxstock.js"></script>
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
@@ -142,7 +142,6 @@
     <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-
 
 
 </body>
