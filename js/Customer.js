@@ -24,11 +24,28 @@ appointmentDate.setAttribute("min",today);
 
 function addToAppointments()
 {
-    var details = [appointmentDate.value,document.getElementById("beautician").value,
+    var beauticianName;
+    var i = 0;
+    var beauticianid = document.getElementById("beautician").value;
+    for(i=0;i<beautician.length;i++)
+    {
+        if(beautician[i][0]==beauticianid || beauticianid=="Any")
+        {
+            console.log(beautician[i][0]+" "+beautician[i][1]);
+            if(beauticianid=="Any")
+            {
+                beauticianName = "Any";
+                break;
+            }
+            beauticianName = beautician[i][1];
+            console.log(beauticianName);
+            break;
+        }
+    }
+    var details = [appointmentDate.value,beauticianName,
         document.getElementById("service").value,document.getElementById("participants").value,document.getElementById("timeslots")];
-    var tr = document.getElementById("AppointmentTable");
+    var table = document.getElementById("AppointmentTable");
     var td = [];
-    var i=0;
     for(i=0;i<8;i++)
     {
         td[i] = document.createElement("td");
@@ -39,29 +56,47 @@ function addToAppointments()
 
     for(i=1;i<details.length;i++)
     {
-        td[i].innerText = details[i];
+
+        td[i].innerText = details[i-1];
+        td[i].style.color = "black";
     }
 
     var btn = document.createElement("button");
     btn.style.color = "red";
     btn.innerText = "X";
     btn.class = "btn-outline-primary";
-
+    btn.setAttribute("onclick","removeRow("+appointmentNumber+")");
+    td[7].appendChild(btn);
+    var tr = document.createElement("tr");
+    tr.setAttribute("id",appointmentNumber);
+    for(i=0;i<td.length;i++)
+    {
+        tr.appendChild(td[i]);
+    }
+    table.appendChild(tr);
 
 }
 
+function removeRow(rowNumber)
+{
+    var row = document.getElementById(rowNumber);
+    appointmentNumber = appointmentNumber - 1;
+    row.remove();
+}
+
 //======================================================================================================================
-function LoadDetails()
+function CallMethods()
 {
     loadBeautician();
-    loadServices();
+    setTimeout(function(){
+        loadServices();
+    },7000);
 }
 
 //Load Beautician's from the DB
 function loadBeautician()
 {
     var url = "../../controller/CustomerServer.php";
-
     ajax.onreadystatechange = beauticianList
     ajax.open("POST",url,true);
     ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');

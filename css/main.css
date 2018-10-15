@@ -104,6 +104,7 @@ textarea {
     border-color: #1c7430;
     border-style: solid;
     background-color: #00CA79;
+    overflow-y: auto;
     width:500px;
     height: 550px
 }

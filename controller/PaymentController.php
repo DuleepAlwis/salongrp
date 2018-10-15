@@ -24,7 +24,7 @@ function getAppointments($date)
 
 function getServices()
 {
-    include "../../model/Services.php";
+    include "../../model/Service.php";
     $services = new Service();
     return $services->getServices();
 }
