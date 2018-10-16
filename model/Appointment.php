@@ -17,7 +17,7 @@ class Appointment
     protected $etime;
     protected $state;
     protected $con;
-    //Appointment states   0-Not completed   1-Postponed   2-Completed
+    //Appointment states   0-Not completed   1-Completed   2-Postponed
     /**
      * @return mixed
      */
@@ -67,6 +67,20 @@ class Appointment
         }
         return null;
 
+    }
+
+    public function getCustomerAppointment($customerid)
+    {
+        $sql = "select appointmentid,date,time,state.price,services.name,employee.name from appoinntment,employee,services where appointment.customerid=? 
+                  and appointment.beauticianid=employee.id and appointment.serviceid=services.id;";
+        if($stmt = $this->con->prepare($sql))
+        {
+            $stmt->bind_param("s",$customerid);
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+        }
     }
 
 }

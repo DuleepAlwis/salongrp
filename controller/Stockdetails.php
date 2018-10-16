@@ -50,7 +50,8 @@ function getBeautcians()
         $emp = array();
         $result->bind_result($id, $name);
         $i = 0;
-        while ($result->fetch()) {
+        while ($result->fetch())
+        {
             $emp[$id] = $name;
         }
         echo json_encode([true, $emp]);

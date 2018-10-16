@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body class="customer-background">
+<body class="customer-background" onload="CallMethods()">
 <?php
 include "../layout/CustomerLayout.php";
 ?>
@@ -53,6 +53,7 @@ include "../layout/CustomerLayout.php";
     <div class="row mt-5">
         <div class="col-md-1"></div>
         <div class="col-md-10">
+            <div style="overflow-y: auto;height:500px">
         <table class="table table-hover mt-5">
             <thead class="thead-dark bg-primary">
             <tr>
@@ -67,26 +68,11 @@ include "../layout/CustomerLayout.php";
             </tr>
             </thead>
             <tbody id="AppointmentTable">
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+
             </tbody>
         </table>
-            <table>
+            </div>
+            <table class="mt-5">
                 <tr>Total : <input class="ml-3" type="text" id="totalprice"></tr>
                 <tr>Advance payment : <input type="text" id="advancep"></tr>
                 <tr><button class="btn btn-outline-primary">Make payment</button></tr>

@@ -73,7 +73,7 @@ echo "
         <div class='collapse navbar-collapse justify-content-end' id='navbarNav'>
             <ul class='navbar-nav'>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='../../index.php'><button class='btn btn-info'>Home</button> </a>
+                    <a class='nav-link' href='../../'><button class='btn btn-info'>Home</button> </a>
                 </li>
                 <li class='nav-item active'>
                     <a class='nav-link' href='./'><button class='btn btn-info btn-hover'>Appointment</button> </a>
