@@ -32,7 +32,7 @@
         <div class="card ml-3 mr-3 mt-3 navCard">
             <img class="card-img-top" src="../../icons/dayview.png" alt="View appointments">
             <div class="card-body">
-                <p class="card-text"><a href="ReceptionistAppointment.php" style="text-decoration: none">To day appointments</a></p>
+                <p class="card-text"><a href="index.php" style="text-decoration: none">To day appointments</a></p>
             </div>
         </div>
         <div class="card ml-3 mr-3 mt-3 navCard">

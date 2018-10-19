@@ -6,7 +6,7 @@
  * Time: 8:41 PM
  */
 
-include "Database.php";
+
 
 class Employee
 {
@@ -43,7 +43,15 @@ class Employee
 		return true;
 		}else{
 			echo $this->con->error;
-            return false;
+            return false
+    {
+        $sql = "insert into employee(name,NIC,email,address,tpno,password,joindate,validationc,type,gender) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param('ssssssssss',$this->name,$this->nic,$this->email,$this->address,$this->tpno,$this->password
+            ,$this->joindate,$this->validationc,$this->uleve,$this->gender);
+        if($stmt->execute())
+        {
+
 
            // return true;
         }

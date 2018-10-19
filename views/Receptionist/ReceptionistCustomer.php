@@ -28,7 +28,7 @@
             <div class="table-responsive-md panel">
                 <table class="table table-bordered">
                     <thead class="thead-dark">
-                    <tr><td><a href="ReceptionistAppointment.php">View Appointments</a></td></tr>
+                    <tr><td><a href="index.php">View Appointments</a></td></tr>
                     <tr><td><a href="ReceptionistStock.php">Stock details</a></td></tr>
                     <tr><td><a href="ReceptionistCustomer.php">View Customers</a></td></tr>
                     <tr><td><a href="ReceptionistReport.php">Generate reports</a></td></tr>
