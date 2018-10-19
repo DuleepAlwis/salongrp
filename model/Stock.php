@@ -6,6 +6,7 @@
  * Time: 7:00 PM
  */
 
+include "Database.php";
 class Stock
 {
 
@@ -43,6 +44,7 @@ class Stock
 
             return true;
         }
+        echo $stmt->error;
         return false;
     }
 
@@ -64,16 +66,26 @@ class Stock
 
     public function getAll()
     {
-        $sql = "select id,name,quantity,brand,price,preOrderl from stock;";
+        $sql = "select id,name,quantity,currentq,brand,price,preOrderl from stock;";
         if($stmt = $this->con->prepare($sql))
         {
             if($stmt->execute())
             {
-                return $stmt;
+                $result = $stmt->get_result();
+                return $result;
             }
         }
         return null;
     }
+    public function editAll($id,$text,$column_name)
+    {
 
+        $sql = "UPDATE stock SET " . $column_name . "='" . $text . "' WHERE id='" . $id . "'";
+        if (mysqli_query($this->con, $sql)) {
+            echo 'Data Updated';
+        } else {
+            echo $this->con->error;
+        }
+    }
 
 }

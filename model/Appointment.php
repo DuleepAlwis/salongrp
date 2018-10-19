@@ -6,6 +6,7 @@
  * Time: 7:22 PM
  */
 
+
 class Appointment
 {
     protected $AppointmentId;
@@ -17,32 +18,33 @@ class Appointment
     protected $etime;
     protected $state;
     protected $con;
+
+
     //Appointment states   0-Not completed   1-Completed   2-Postponed
     /**
      * @return mixed
      */
+
     public function __construct()
     {
-
-        //$this->con = (new Database())->getConnection();
-        $this->con = Database::getConnection();
+        $this->con = (new Database())->getConnection();
     }
 
     public function AddAppointment()
     {
 
     }
+
     public function getAll($date,$employee)
     {
         if($employee==0)
         {
-            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee  where appointment.beauticianid=employee.id and
-                        appointment.serviceid=services.id and appointment.date='$date' and appointment.state='0';";
+            $sql = "select * from salon.appointment where date='$date' and ;";
         }
         else
         {
-            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee  where appointment.beauticianid=employee.id and
-                        appointment.serviceid=services.id and appointment.date='$date' and appointment.beauticianid='$employee' and appointment.state='0';";
+            $sql = "select appointment.* from salon.appointment,salon.employee where date='$date' and emploee.name='$employee' 
+                    and salon.appointment.beauticianid=salon.employee.id;";
         }
         if($stmt = $this->con->prepare($sql))
         {
@@ -53,21 +55,27 @@ class Appointment
         }
         return null;
     }
-
-    public function getAppointments($date)
+    public function getAppointments($id)
     {
-        $sql = "select appointment.appointmentid,customer.name,appointment.price,services.name from appointment,customer,services where appointment.customerId=customer.customerId and appointment.state='0' 
-                and appointment.serviceid=services.serviceid;";
-        if($stmt = $this->con->prepare($sql))
+        $sql = "select appointment.beauticianid, appointment.customerid, appointment.date, appointment.time, appointment.price, services.name  from appointment,services 
+                where services.id = appointment.serviceid ";
+
+
+        if(($stmt = $this->con->prepare($sql)))
         {
             if($stmt->execute())
             {
-                return $stmt;
+                $result = $stmt->get_result();
+                return $result;
             }
         }
+        echo $this->con->error;
         return null;
 
     }
+
+
+
 
     public function getCustomerAppointment($customerid)
     {
@@ -84,3 +92,4 @@ class Appointment
     }
 
 }
+
