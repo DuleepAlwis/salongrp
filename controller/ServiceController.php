@@ -6,10 +6,10 @@
  * Time: 1:03 AM
  */
 
-if(file_exists("../../model/Service.php"))
+if(file_exists("../../model/Services.php"))
 {
     include "../../model/Database.php";
-    include "../../model/Service.php";
+    include "../../model/Services.php";
 }
 else
 {

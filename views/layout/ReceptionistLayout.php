@@ -65,40 +65,40 @@
     '*/
 
 echo "
-    <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-        <img src='../../img/icons/image13.png' width='110px'><a class='navbar-brand display-5' href='#' style='font-size: 35px'>Salon Sanrooka</a>
+    <nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
+        <img src='../../img/icons/image13.png' width='110px'><a class='navbar-brand display-5 text-white' href='#' style='font-size: 35px'>Salon Sanrooka</a>
         <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
             <span class='navbar-toggler-icon'></span>
         </button>
-        <div class='collapse navbar-collapse justify-content-end' id='navbarNav'>
+        <div class='collapse navbar-collapse text-white justify-content-end' id='navbarNav'>
             <ul class='navbar-nav'>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='../../'><button class='btn btn-info'>Home</button> </a>
+                    <a class='nav-link' href='../../'><button class='btn btn-primary btn-hover'>Home</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='./'><button class='btn btn-info btn-hover'>Appointment</button> </a>
+                    <a class='nav-link' href='./'><button class='btn btn-primary btn-hover'>Appointment</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistStock.php'><button class='btn btn-info btn-hover'>Stock</button> </a>
+                    <a class='nav-link' href='ReceptionistStock.php'><button class='btn btn-primary btn-hover'>Stock</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistPayment.php'><button class='btn btn-info btn-hover'>Payment</button> </a>
+                    <a class='nav-link' href='ReceptionistPayment.php'><button class='btn btn-primary btn-hover'>Payment</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistSupport.php'><button class='btn btn-info btn-hover'>Customer Help</button> </a>
+                    <a class='nav-link' href='ReceptionistSupport.php'><button class='btn btn-primary btn-hover'>Customer Help</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistReport.php'><button class='btn btn-info btn-hover'>Reports</button> </a>
+                    <a class='nav-link' href='ReceptionistReport.php'><button class='btn btn-primary btn-hover'>Reports</button> </a>
                 </li>
                 <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistLeave.php'><button class='btn btn-info btn-hover'>Leaves</button> </a>
+                    <a class='nav-link' href='ReceptionistLeave.php'><button class='btn btn-primary btn-hover'>Leaves</button> </a>
                 </li>
                 <li class='nav-item'>
                 <div class='dropdown'>
-                   <button class='btn btn-info dropdown-toggle btn-hover' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                   <button class='btn btn-primary dropdown-toggle btn-hover' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                 <img src='../../img/icons/user.png' width='55%' height='55%'>
                               </button>
-                              <div class='dropdown-menu dropdown-hover' aria-labelledby='dropdownMenu2'>
+                              <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='dropdownMenu2'>
                                 <button class='dropdown-item' type='button'><a class='nav-link' href='ReceptionistProfile.php'>Profile</a></button>
                                 <button class='dropdown-item' type='button'><a class='nav-link' href='../logout.php'>Logout</a></button>
                                 

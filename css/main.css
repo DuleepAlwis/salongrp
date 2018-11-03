@@ -98,7 +98,51 @@ textarea {
    ========================================================================== */
 
 /*CustomerHelp Application css styles */
+#customerMsgbox,#customerMsgflip
+{
+    padding:7px;
+}
 
+#customerMsgflip
+{
+    width:150px;
+    border-radius: 13px;
+    background-color: #e5eecc;
+    border-style: solid
+}
+
+#customerMsgbox
+{
+    width: 150px;
+    height: 250px;
+    overflow-y: auto
+}
+
+#msgArea
+{
+    opacity: 1.5
+}
+
+#messageArea
+{
+    left:77%;
+    top:100%;
+    bottum:0%
+
+}
+.uploadPhoto
+{
+    width:500px;
+    height: 500px;
+}
+
+.avatar
+{
+    width:250px;
+    height: 250px;
+    border-color: #2a2730;
+    border-style: outset;
+}
 .receiver-List
 {
     border-color: #1c7430;
@@ -126,7 +170,7 @@ textarea {
 }
 
 .receptionist-background{
-    background-color: #c6c8ca;
+    background-color: #bee5eb;
     color: #fff;
 }
 

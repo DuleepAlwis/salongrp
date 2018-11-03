@@ -36,7 +36,7 @@ include "../../controller/CustomerHelpController.php";
                             while($result->fetch())
                             {
 
-                                echo "<li style='list-style: none'><div class='mt-3 alert alert-primary border border-info' style='width: 200px'>"."<b id='$id'>".$name."</b>"."<button class='ml-3 btn btn-outline-primary' onClick='getMessages($id)'>Add</button></div>";
+                                echo "<li style='list-style: none'><div class='mt-3 alert alert-primary border border-info' style='width: 200px'>"."<b id='$id'>".$name."</b>"."<button class='ml-3 btn btn-outline-primary' onClick='getReceptionistMessages($id)'>Add</button></div>";
                             }
                         }
 

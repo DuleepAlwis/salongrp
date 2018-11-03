@@ -21,17 +21,17 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
             <li class='nav-item text-white'>
                 <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>Previous Apoointment</a>
             </li>
-            <li class='nav-item'>
-                <div class='dropdown'>
-                    <button class='btn btn-outline-primary dropdown-toggle btn-hover' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-
+            <li class='nav-item dropdown'>
+             
+                    <button class='btn btn-outline-primary dropdown-toggle btn-hover' type='button' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+ 
                     </button>
-                    <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='dropdownMenu2'>
-                        <button class='dropdown-item'><a class='nav-link' href='./CustomerProfile.php'>Profile</a></button>
-                        <button class='dropdown-item'><a class='nav-link' href='../logout.php'>Logout</a></button>
+                    <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='navbarDropdownMenuLink'>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='./CustomerProfile.php'>Profile</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='../logout.php'>Logout</a>
 
                     </div>
-                </div>
+                
             </li>
             <li><span style='display: inline-block;width:175px'></span></li>
         </ul>

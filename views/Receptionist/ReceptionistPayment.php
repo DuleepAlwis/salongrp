@@ -26,7 +26,7 @@ include "../../controller/PaymentController.php";
 
     <div class="row">
         <div class="col-md-3 mt-3 border border-light" style="height: 50%;overflow-y: auto">
-            <h3 class="font-weight-light">Appointments</h3>
+            <h3 class="font-weight-light" style="border-radius: 7px; border-style: wave">Appointments</h3>
             <div class="payment-list">
             <ul id="appointments">
 
@@ -114,8 +114,8 @@ include "../../controller/PaymentController.php";
                     $result->bind_result($id,$productName,$quantity,$brand,$price,$preOrderl);
                     while($result->fetch())
                     {
-                        echo "<tr><th scope='row' id='Product$id'>".$productName."</th><td>".$price."</td><td>".
-                            "<input type='button' class='bg-transparent' onClick='ProductInvoice($id,$price)' value='Add' style='width:67px;border-radius: 3px'></td></tr>";
+                        echo "<tr style='background-color:#b3b3b3'><th scope='row' id='Product$id'>".$productName."</th><td>".$price."</td><td>".
+                            "<input type='button' class='bg-faded border-secondary' style='border-radius: 7px'  onClick='ProductInvoice($id,$price)' value='Add' style='width:67px;border-radius: 3px'></td></tr>";
                     }
                 }
 

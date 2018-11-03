@@ -19,9 +19,10 @@ function getAll($date,$employee)
     return $appointment->getAll($date,$employee);
 }
 
-function getCustomerAppointment($customerid)
+function getCustomerAppointments($id)
 {
     $appointment = new Appointment();
-    return $appointment->getCustomerAppointment($customerid);
+    return $appointment->getCustomerAppointments($id);
 }
+
 

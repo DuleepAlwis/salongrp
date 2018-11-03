@@ -1,11 +1,14 @@
 var ajax = new XMLHttpRequest();
 var cusId;
 var customerName;
-function getMessages(customerid)
+var retriever;
+
+//Receptionist side
+function getReceptionistMessages(customerid)
 {
     cusId = customerid;
     customerName = document.getElementById(customerid).innerText;
-    //console.log(name);
+    retriever = "R";
     //document.getElementById("sendto").innerText=name;
     var url = "../../controller/CustomerHelpController.php";
     ajax.onreadystatechange = loadMessages;
@@ -14,6 +17,22 @@ function getMessages(customerid)
     ajax.send("Id="+customerid+"&number=1");
 }
 
+//===============================================================================================
+
+//Customer side
+function getCustomerMessages(customerid,Name)
+{
+    cusId = customerid;
+    customerName = Name;
+    retriever = "C";
+    //document.getElementById("sendto").innerText=name;
+    var url = "../../controller/CustomerHelpController.php";
+    ajax.onreadystatechange = loadMessages;
+    ajax.open("POST",url,true);
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send("Id="+customerid+"&number=1");
+}
+//==================================================================================================
 
 function loadMessages()
 {
@@ -22,8 +41,9 @@ function loadMessages()
         if(ajax.status==200)
         {
             var result = JSON.parse(ajax.responseText);
-            console.log(result);
+            //console.log(result);
             setMessages(result);
+
         }
     }
 }
@@ -34,46 +54,86 @@ function setMessages(result)
     var i = 0;
     var msgBox = document.getElementById("msgBox");
 
-    msgBox.innerHTML = "";
-    for(i=0;i<result.length;i++)
+    if(result[0]!=false)
     {
+        msgBox.innerHTML = "";
 
-        var li = document.createElement("li");
-        var span = document.createElement("span");
-        var user = document.createElement("b");
-        var time = document.createElement("b");
-        time.style.color = "black";
-        time.innerText = result[i]["time"]+" : "
-        user.style,color = "black";
-        span.style.color = "black";
-        span.innerText = result[i]["description"];
-        var len = (span.innerText).length;
-        span.style.width = len*15+'px';
-        span.style.height = '5px';
-        span.style.borderRadius = '7px';
-        span.style.marginBottom = '13px';
 
-        if(result[i]["from"]=="R")
+        for(i=0;i<result.length;i++)
         {
-            user.innerText = "Receptionist : ";
-            span.style.background = "yellow";
-        }
 
-        if(result[i]["from"]=="C")
-        {
-            user.innerText = customerName+" : ";
-            span.style.background = 'Aqua';
-        }
+            var li = document.createElement("li");
+            var div = document.createElement("div");
+            var span = document.createElement("span");
+            var emptySpan = document.createElement("span");
+            var user = document.createElement("b");
+            var time = document.createElement("b");
+            var msgDescription = document.createElement("p");
+            time.style.color = "black";
+            time.innerText = result[i]["time"]+"  :  ";
+            user.style.color = "black";
+            span.style.color = "black";
+            msgDescription.innerHTML = result[i]["description"];
+            msgDescription.width = (msgDescription.innerText).length+'px';
+            span.style.marginBottom = "377px";
+            var len = (span.innerText).length;
+            span.style.width = len*15+'px';
+            span.style.height = '5px';
+            span.style.borderRadius = '17px';
+            msgDescription.style.borderRadius = "17px";
+            msgDescription.style.padding = "13px";
+            li.style.marginBottom = '57px';
+            span.style.padding = "13px";
+            emptySpan.style.display = "block";
+            emptySpan.style.height = "17px";
 
-        li.appendChild(time);
-        li.appendChild(user);
-        li.appendChild(span);
-        msgBox.appendChild(li);
+            if(result[i]["from"]=="R")
+            {
+                user.innerHTML = "Receptionist  " + "<br>";
+                span.style.background = "yellow";
+                msgDescription.style.background = "#F5FFFA";
+                div.style.marginLeft = "7px";
+            }
+
+            if(result[i]["from"]=="C")
+            {
+                user.innerHTML = customerName+" " + "<br>";
+                span.style.background = 'Aqua';
+                msgDescription.style.background = "#FDF5E6";
+                div.style.marginLeft = "7px";
+            }
+
+            //li.appendChild(time);
+            //li.appendChild(user);
+            span.appendChild(time);
+            span.appendChild(user);
+            div.appendChild(span);
+            div.appendChild(emptySpan);
+            //div.appendChild(document.createElement("<br"));
+            div.appendChild(msgDescription);
+            li.appendChild(div);
+            msgBox.appendChild(li);
+        }
     }
 
-    setInterval(function () {
-        getMessages(cusId);
-    },3000);
+
+    if(retriever=="R") {
+
+
+        setInterval(function () {
+            getReceptionistMessages(cusId);
+        }, 3000);
+    }
+    else if(retriever=="C")
+    {
+        setInterval(function (){
+            getCustomerMessages(cusId,customerName);
+        },3000);
+    }
+    else
+    {
+
+    }
 
 }
 
@@ -84,29 +144,30 @@ function receptionistMessage()
     ajax.open("POST", url, true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     ajax.send("Id="+cusId+"&msg="+message+"&number=2");
-    var msgBox = document.getElementById("msgBox");
+    /*var msgBox = document.getElementById("msgBox");
     var li = document.createElement("li");
 
     li.style.color = "black";
     li.style.background = "yellow";
     li.innerText = message;
-    msgBox.appendChild(li);
+    msgBox.appendChild(li);*/
     clearMessages();
 }
 
-function customerMessage()
+function customerMessage(id)
 {
+    var cusId = id;
     var url = "../../controller/CustomerHelpController.php";
     var message = document.getElementById("msgArea").value;
     ajax.open("POST",url,true);
     ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     ajax.send("Id="+cusId+"&msg="+message+"&number=3");
-    var msgBox = document.getElementById("msgBox");
+    /*var msgBox = document.getElementById("msgBox");
     var li = document.createElement("li");
     li.style.color = "black";
     li.style.background = "blue";
     li.innerText = message;
-    msgBox.appendChild(li);
+    msgBox.appendChild(li);*/
     clearMessages();
 }
 
@@ -114,3 +175,5 @@ function clearMessages()
 {
     document.getElementById("msgArea").value = " ";
 }
+
+

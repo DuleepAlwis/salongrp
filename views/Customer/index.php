@@ -13,7 +13,8 @@
 </head>
 <body class="customer-background" onload="CallMethods()">
 <?php
-include "../layout/CustomerLayout.php";
+require_once("../logallow.php");
+ require_once("../layout/CustomerLayout.php");
 ?>
 <div class="container-fluid">
     <h3 align="center">Make a new appointment</h3>
@@ -73,19 +74,72 @@ include "../layout/CustomerLayout.php";
         </table>
             </div>
             <table class="mt-5">
-                <tr>Total : <input class="ml-3" type="text" id="totalprice"></tr>
-                <tr>Advance payment : <input type="text" id="advancep"></tr>
-                <tr><button class="btn btn-outline-primary">Make payment</button></tr>
+                <tr>
+                    <td>Total : <input class="ml-3" type="text" id="totalprice"></td>
+                    <td>Advance payment : <input type="text" id="advancep"></td>
+                    <td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>
+                    <td><span style="display: inline-block;width: 700px"></span></td>
+                    <td>
+
+
+
+
+                        <!--<div id="msgArea">
+                            <div id="customerMsgbox" class="jumbotron">
+                                <ul id="msgList">
+                                    <li>111</li>
+                                </ul>
+                            </div>
+                        <div id="customerMsgflip" class="alert alert-success border-info" style="width: 150px"><i class="fa-amazon"></i>Message
+
+                        </div>
+                        </div>-->
+                    </td>
+                </tr>
             </table>
     </div>
         <div class="col-md-1">
 
         </div>
     </div>
+    <footer>
+        <div class="col-md-10"></div>
+        <div id="messageArea" class="col-md-2">
+            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #20c997;border-radius: 17px;border-style: ridge" onclick="getCustomerMessages('<?php echo $_SESSION['id']; ?>','<?php echo $_SESSION['name']; ?>')"><img src="../../img/icons/messageicon1.png"> <b>Messages</b></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="left:50%;top:50%">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Support</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="background-color: #6ea1cc;overflow-y: auto">
+                        <ul id="msgBox" style="list-style: none">
+
+                        </ul>
+                        </div>
+
+                        <textarea id="msgArea" style="background-color: #e9ecef;width: 300px;height:100px"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info btn-outline-primary" onclick="clearMessages()" data-dismiss="modal">Close</button>
+                        <button type="button" class="ml-3 btn btn-info btn-outline-primary" onclick="customerMessage('<?php echo $_SESSION['id']; ?>')">Send message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
 </div>
 <script src="../../js/vendor/jquery-3.2.1.min.js"></script>
 <script src="../../js/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/Customer.js"></script>
+<script src="../../js/CustomerHelp.js"></script>
 </body>
 </html>

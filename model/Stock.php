@@ -6,7 +6,6 @@
  * Time: 7:00 PM
  */
 
-include "Database.php";
 class Stock
 {
 
@@ -66,13 +65,13 @@ class Stock
 
     public function getAll()
     {
-        $sql = "select id,name,quantity,currentq,brand,price,preOrderl from stock;";
+        $sql = "select id,name,quantity,brand,price,preOrderl from stock;";
         if($stmt = $this->con->prepare($sql))
         {
             if($stmt->execute())
             {
-                $result = $stmt->get_result();
-                return $result;
+
+                return $stmt;
             }
         }
         return null;

@@ -17,21 +17,26 @@ include "../layout/ReceptionistLayout.php";
 include "../../controller/AppointmentController.php";
 
 ?>
+
+
 <div class="container-fluid">
-    <div class="row mt-1">
-        <div class="col-md-3">
+    <div class="row bg-light">
+
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-3 ml-3 mt-1 border-success" style="border-style: outset;background-color: #99979c">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="form-row text-dark">
             <div class="form-group col-md-6">
                 <label for="inputDate">Date</label>
-                <input type="date" class="form-control" id="inputDate" name="date">
+                <input type="date" class="form-control mt-1" id="inputDate" name="date">
             </div>
 
             <div class="form-group col-md-4">
-                <label for="employee">Employee</label>
-                <select id="employee" name="employee" class="mt-3"></select>
+                <label for="employee">Employee</label><br>
+                <select id="employee" name="employee" class="mt-1"></select>
             </div>
-            <div class="form-group col-md-2 mt-3">
+            <div class="form-group col-md-2">
 
                 <input type="submit" class="btn btn-primary" name="View" value="View">
             </div>

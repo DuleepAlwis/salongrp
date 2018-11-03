@@ -41,7 +41,7 @@ function getMessages($customerid)
     $customerHelp = new CustomerHelp();
     if($result=$customerHelp->getMessages($customerid))
     {
-        $msg = array(array("description"=>"aaa","time"=>"157","from"=>"msgFrom"));
+        $msg = array(array());
         $result->bind_result($description,$time,$msgFrom);
         $i = 0;
         while($result->fetch())

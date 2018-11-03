@@ -110,6 +110,7 @@ function beauticianList()
         if(ajax.status == 200)
         {
             var result = JSON.parse(ajax.responseText);
+
             if(result[0])
             {
                 var keys = Object.keys(result[1]);
@@ -223,4 +224,20 @@ function selectService()
 
 //======================================================================================================================
 
+var slide = 0;  //0 =slide up   1=slide down
+$(document).ready(function(){
+    $("#customerMsgbox").hide();
 
+    $("#customerMsgflip").click(function(){
+        if(slide==0)
+        {
+            $("#customerMsgbox").slideUp("slow");
+            slide = 1;
+        }
+        else
+        {
+            $("#customerMsgbox").slideDown("slow");
+            slide = 0;
+        }
+    });
+});
