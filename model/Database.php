@@ -25,7 +25,9 @@ class Database
             //$con = mysqli_connect("127.0.0.1","root","","salondb");
             if(self::$con==null)
             {
-                self::$con = new mysqli("localhost","dulip","dulip123","salondb");
+               // self::$con = new mysqli("localhost","dulip","dulip123","salondb");
+                self::$con = new mysqli("localhost","root","","salondb");
+
             }
             //
 

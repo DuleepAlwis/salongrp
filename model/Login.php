@@ -17,7 +17,7 @@ class Login
     public function logUser($uname,$password)
     {
         //Customer Login
-        $sqlCustomer = "select id,name,email,address,tpno,password,city,district from customer where email=? and password=?;";
+        $sqlCustomer = "select id,name,email,address,tpno,password,city,district,gender from customer where email=? and password=?;";
         $stmt = $this->con->prepare($sqlCustomer);
         $passw = md5($password);
         $stmt->bind_param("ss",$uname,$passw);
@@ -27,14 +27,14 @@ class Login
         {
 
             if($stmt!=null) {
-                $stmt->bind_result($id, $name, $email, $address, $tpno, $password, $city, $district);
+                $stmt->bind_result($id, $name, $email, $address, $tpno, $password, $city, $district,$gender);
                 session_start();
 
                 while ($stmt->fetch()) {
                     $_SESSION = array('id' => $id, 'name' => $name, 'email' => $email, 'address' => $address, 'tpno' => $tpno,
-                        'password' => $password, 'city' => $city, 'district' => $district);
+                        'password' => $password, 'city' => $city, 'district' => $district,'gender'=>$gender);
                     //Direct to Customer Profile
-                    header("Location:../views/CustomerProfile.php");
+                    header("Location:../views/Customer/");
                     return true;
 
                 }

@@ -31,11 +31,19 @@ class CustomerHelp
 
     public function getMessages($customerid)
     {
-        $sql = "select description,time,msgFrom from messages where customerid=?;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s",$customerid);
-        $stmt->execute();
-        return $stmt;
+        $sqlRetrieve = "select description,time,msgFrom from messages where customerid=?;";
+        $stmtRetrieve = $this->con->prepare($sqlRetrieve);
+        $stmtRetrieve->bind_param("s",$customerid);
+        //======================================================================
+        $sqlUpdate = "update messages set state='1' where customerid=?;";
+        $stmtUpdate = $this->con->prepare($sqlUpdate);
+        $stmtUpdate->bind_param("s",$customerid);
+        if($stmtUpdate->execute() && $stmtRetrieve->execute())
+        {
+            return $stmtRetrieve;
+
+        }
+
     }
 
     public function saveMessage($customerid,$msg,$from)

@@ -13,7 +13,8 @@
 </head>
 <body class="customer-background" onload="CallMethods()">
 <?php
-include "../layout/CustomerLayout.php";
+require_once("../logallow.php");
+ require_once("../layout/CustomerLayout.php");
 ?>
 <div class="container-fluid">
     <h3 align="center">Make a new appointment</h3>
@@ -36,7 +37,7 @@ include "../layout/CustomerLayout.php";
             <select name="service" id="service"></select>
         </div>
         <div class="col-md-1"></div>
-        <div class="col--md-1 ml-3">
+        <div class="col--md-1 ml-2">
             Number of particiapants :<br>
             <input id="participants" type="number" min="1" max="13" width="17px">
         </div>
@@ -53,7 +54,7 @@ include "../layout/CustomerLayout.php";
     <div class="row mt-5">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div style="overflow-y: auto;height:500px">
+            <div style="overflow-y: auto;height:350px">
         <table class="table table-hover mt-5">
             <thead class="thead-dark bg-primary">
             <tr>
@@ -72,20 +73,72 @@ include "../layout/CustomerLayout.php";
             </tbody>
         </table>
             </div>
-            <table class="mt-5">
-                <tr>Total : <input class="ml-3" type="text" id="totalprice"></tr>
-                <tr>Advance payment : <input type="text" id="advancep"></tr>
-                <tr><button class="btn btn-outline-primary">Make payment</button></tr>
+            <table class="mt-1">
+                <tr>
+                    <td>Total : <input class="ml-3" type="text" id="totalprice"></td>
+                    <td>Advance payment : <input type="text" id="advancep"></td>
+                    <td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>
+                    <td><span style="display: inline-block;width: 700px"></span></td>
+                    <td>
+
+
+
+
+                        <!--<div id="msgArea">
+                            <div id="customerMsgbox" class="jumbotron">
+                                <ul id="msgList">
+                                    <li>111</li>
+                                </ul>
+                            </div>
+                        <div id="customerMsgflip" class="alert alert-success border-info" style="width: 150px"><i class="fa-amazon"></i>Message
+
+                        </div>
+                        </div>-->
+                    </td>
+                </tr>
             </table>
     </div>
         <div class="col-md-1">
 
         </div>
     </div>
+    <div class="msgBtn">
+        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #20c997;border-radius: 17px;border-style: ridge" onclick="getCustomerMessages('<?php echo $_SESSION['id']; ?>','<?php echo $_SESSION['name']; ?>')"><img src="../../img/icons/messageicon1.png"> <b>Messages</b></button>
+    </div>
+    <div id="messageArea">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="left:50%;top:50%">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Support</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="background-color: #6ea1cc;overflow-y: auto">
+                            <ul id="msgBox" style="list-style: none">
+
+                            </ul>
+                        </div>
+
+                        <textarea id="msgArea" style="background-color: #e9ecef;width: 300px;height:100px"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info btn-outline-primary" onclick="clearMessages()" data-dismiss="modal">Close</button>
+                        <button class="btn btn-info btn-outline-primary" onclick="customerMessage(<?php echo $_SESSION['id'] ?>)">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="../../js/vendor/jquery-3.2.1.min.js"></script>
 <script src="../../js/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/Customer.js"></script>
+<script src="../../js/CustomerHelp.js"></script>
 </body>
 </html>

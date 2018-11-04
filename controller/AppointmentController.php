@@ -5,8 +5,8 @@
  * Date: 8/16/2018
  * Time: 2:00 AM
  */
-include "../../model/Database.php";
-include "../../model/Appointment.php";
+require_once("../../model/Database.php");
+require_once("../../model/Appointment.php");
 
 function getAll($date,$employee)
 {
@@ -19,9 +19,10 @@ function getAll($date,$employee)
     return $appointment->getAll($date,$employee);
 }
 
-function getCustomerAppointment($customerid)
+function getCustomerAppointments($id)
 {
     $appointment = new Appointment();
-    return $appointment->getCustomerAppointment($customerid);
+    return $appointment->getCustomerAppointments($id);
 }
+
 

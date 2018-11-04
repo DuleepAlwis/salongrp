@@ -10,13 +10,19 @@ var appointmentNumber = 0;
 var date = new Date();
 
 var month = date.getMonth();
+var day = date.getDate();
 if(month<10)
 {
     month = "0"+month;
 }
 
+if(day<10)
+{
+    day = "0"+day;
+}
+
 var appointmentDate = document.getElementById("date");
-var today = date.getFullYear()+"-"+month+"-"+date.getDate();
+var today = date.getFullYear()+"-"+month+"-"+day;
 appointmentDate.setAttribute("min",today);
 
 
@@ -110,6 +116,7 @@ function beauticianList()
         if(ajax.status == 200)
         {
             var result = JSON.parse(ajax.responseText);
+
             if(result[0])
             {
                 var keys = Object.keys(result[1]);
@@ -223,4 +230,20 @@ function selectService()
 
 //======================================================================================================================
 
+var slide = 0;  //0 =slide up   1=slide down
+$(document).ready(function(){
+    $("#customerMsgbox").hide();
 
+    $("#customerMsgflip").click(function(){
+        if(slide==0)
+        {
+            $("#customerMsgbox").slideUp("slow");
+            slide = 1;
+        }
+        else
+        {
+            $("#customerMsgbox").slideDown("slow");
+            slide = 0;
+        }
+    });
+});

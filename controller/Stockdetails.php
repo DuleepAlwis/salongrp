@@ -1,16 +1,16 @@
 <?php
 
-include "../model/Database.php";
-include "../model/Stock.php";
-include "../model/Employee.php";
-include "../model/Payment.php";
+require_once "../model/Database.php";
+require_once "../model/Stock.php";
+require_once "../model/Employee.php";
+require_once "../model/Payment.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     switch ($_POST["number"])
     {
         case "1":UpdateStock($_POST["Id"],$_POST["q"]);break;
-        case "2": getBeautcians();break;
+        case "2": getBeauticians();break;
         case "3":AppointmentPay($_POST["id"],$_POST["price"]);break;
         case "4":NonAppointmentPay($_POST["Serviceid"],$_POST["beauticianid"],$_POST["price"]);break;
         case "5":if($result=PurchasePay($_POST["Productid"],$_POST["quantity"],$_POST["price"]))
@@ -42,20 +42,19 @@ function UpdateStock($id,$quantity)
 }
 
 //Number 2 for getBeauticans
-function getBeautcians()
+function getBeauticians()
 {
     $employee = new Employee();
 
-    if (($result = $employee->getBeautician()) != null) {
+    if (($result = $employee->getBeauticians()) != null) {
         $emp = array();
         $result->bind_result($id, $name);
         $i = 0;
-        while ($result->fetch())
-        {
+        while ($result->fetch()) {
             $emp[$id] = $name;
         }
         echo json_encode([true, $emp]);
-        return;
+
 
     } else {
         echo json_encode([false, null]);
