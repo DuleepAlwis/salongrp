@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body class="customer-background" onload="CallMethods()">
+<body class="customer-background" onload="loadServices()">
 <?php
 require_once("../logallow.php");
  require_once("../layout/CustomerLayout.php");
@@ -22,30 +22,33 @@ require_once("../logallow.php");
 
 
 
-        <div class="col-md-2 ml-3">
+        <div class="col-md-2 ml-1">
             Date :<b id="warning" class="text-danger"></b>
             <input id="date" type="date" class="form-control" width="17px">
         </div>
+        <div class="col-md-1">
+            Service :<br>
+            <select class="form-control" name="service" id="service" onChange="loadBeautician()"></select>
+        </div>
+
         <div class="col-md-1"></div>
         <div class="col-md-1">
             Beautician :<br>
-            <select name="beautician" id="beautician"></select>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1">
-            Service :<br>
-            <select name="service" id="service"></select>
+            <select class="form-control" name="beautician" id="beautician">
+                    <option value="Any">Any</option>
+                </select>
+            <b id="alertMsg"></b>
         </div>
         <div class="col-md-1"></div>
         <div class="col--md-1 ml-2">
             Number of particiapants :<br>
-            <input id="participants" type="number" min="1" max="13" width="17px">
+            <input class="form-control" id="participants" type="number" min="1" max="13" width="17px" value="1">
         </div>
 
         <div class="col-md-1"></div>
         <div class="col--md-1 mr-3">
-            Available time slots :<br>
-            <select name="timeslots" id="timeslots"></select>
+            <button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button><br>
+            <select class="form-control" name="timeslots" id="timeslots"></select>
         </div>
         <div class="col-md-1 ml-3 mt-4">
             <button class="btn btn-info" onclick="addToAppointments()">Add</button>
@@ -73,10 +76,12 @@ require_once("../logallow.php");
             </tbody>
         </table>
             </div>
+
             <table class="mt-1">
+            <table class="mt-5">
                 <tr>
-                    <td>Total : <input class="ml-3" type="text" id="totalprice"></td>
-                    <td>Advance payment : <input type="text" id="advancep"></td>
+                    <td>Total : <input class="ml-3" type="text" id="totalprice" value="0"></td>
+                    <td>Advance payment : <input type="text" id="advancep" value="0"></td>
                     <td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>
                     <td><span style="display: inline-block;width: 700px"></span></td>
                     <td>
@@ -102,11 +107,12 @@ require_once("../logallow.php");
 
         </div>
     </div>
+
     <div class="msgBtn">
         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #20c997;border-radius: 17px;border-style: ridge" onclick="getCustomerMessages('<?php echo $_SESSION['id']; ?>','<?php echo $_SESSION['name']; ?>')"><img src="../../img/icons/messageicon1.png"> <b>Messages</b></button>
     </div>
     <div id="messageArea">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="left:50%;top:50%">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -127,13 +133,13 @@ require_once("../logallow.php");
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-info btn-outline-primary" onclick="clearMessages()" data-dismiss="modal">Close</button>
-                        <button class="btn btn-info btn-outline-primary" onclick="customerMessage(<?php echo $_SESSION['id'] ?>)">Send</button>
+                        <button type="button" class="ml-3 btn btn-info btn-outline-primary" onclick="customerMessage('<?php echo $_SESSION['id']; ?>')">Send message</button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 <script src="../../js/vendor/jquery-3.2.1.min.js"></script>
 <script src="../../js/popper.min.js"></script>

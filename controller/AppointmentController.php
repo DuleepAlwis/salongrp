@@ -8,7 +8,7 @@
 require_once("../../model/Database.php");
 require_once("../../model/Appointment.php");
 
-function getAll($date,$employee)
+function getAppointmentEmployee($date,$employee)
 {
     $appointment = new Appointment();
     if($employee=="Any")

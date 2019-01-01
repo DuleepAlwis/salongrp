@@ -84,4 +84,21 @@ class Appointment
          return null;
     }
 
+    public function getAvailableTime($date,$empId,$serviceId)
+    {
+        $sql = "select time from appointment where state=? and date=? and beauticianid=? and serviceid=?;";
+        $stmt = $this->con->prepare($sql);
+        $state = 0;
+        $stmt->bind_param("ssss", $state, $date, $empId, $serviceId);
+        if($stmt->execute())
+        {
+          return $stmt;
+        }
+        else
+        {
+            return null;
+        }
+
+    }
+
 }

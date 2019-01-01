@@ -41,19 +41,20 @@ class Payment
         }
     }
 
-    public function NonAppointmentInsert($serviceid,$beauticianid,$price)
+    public function NonAppointmentInsert($serviceid,$beauticianid,$price,$date,$time)
     {
+
         $sqlInsert = "insert into nonappointmentpay(serviceid,beauticianid,price,date,time) values(?,?,?,?,?);";
         $stmtInsert = $this->con->prepare($sqlInsert);
-        $stmtInsert->bind_param("sssss",$serviceid,$beauticianid,$price,date(y-m-d),time());
+        $stmtInsert->bind_param("sssss",$serviceid,$beauticianid,$price,$date,$time);
 
         if($stmtInsert->execute())
         {
-            return true;
+            return $stmtInsert->affected_rows;
         }
         else
         {
-            return false;
+            return $stmtInsert->error;
         }
     }
 

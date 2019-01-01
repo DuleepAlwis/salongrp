@@ -146,13 +146,19 @@ textarea {
 
 
 
-.msgBtn
-{
+.msgBtn {
     position: fixed;
-    bottom:0px;
-    right:0px;
+    bottom: 0px;
+    right: 0px;
     margin-right: 17px;
     margin-bottom: 17px
+}
+
+#messageArea
+{
+    left:77%;
+    top:100%;
+    bottum:0%
 
 }
 .uploadPhoto
@@ -174,7 +180,7 @@ textarea {
     border-style: solid;
     background-color: #e2e6ea;
     overflow-y: auto;
-    height: 550px;
+    height: 350px;
     width: 250px
 
 }
@@ -182,7 +188,7 @@ textarea {
 /*Payment Css */
 .payment-list
 {
-    height: 350px;
+    height: 250px;
     overflow-y: auto;
 }
 
@@ -203,6 +209,13 @@ textarea {
 .customer-background
 {
     background-color: #b1dfbb;
+}
+
+.register-box
+{
+    border-color: #0b0b0b;
+    border-style: ridge;
+    padding: 7px;
 }
 
 #services{

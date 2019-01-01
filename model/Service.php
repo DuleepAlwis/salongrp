@@ -25,6 +25,55 @@ class Service
         $this->con = Database::getConnection();
     }
 
+    public function AddService()
+    {
+        $sql = "insert into services(name,price,duration) values(?,?,?);";
+
+        $stmt = null;
+        try
+        {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("sss",$this->name,$this->price,$this->duration);
+            if($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return $stmt->error;
+            }
+
+        }
+        catch (Exception $ex)
+        {
+            return $ex->getMessage();
+        }
+    }
+
+    public function UpdateService($id)
+    {
+        $sql = "update services set name=?,price=?,duration=? where id=?;";
+
+        try
+        {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("ssss",$this->name,$this->price,$this->duration,$id);
+            if($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return $stmt->error;
+            }
+
+        }
+        catch (Exception $ex)
+        {
+            return $ex->getMessage();
+        }
+    }
+
     public function getServices()
     {
         $sql = "select id,name,price,duration from services;";
@@ -34,6 +83,26 @@ class Service
             return $stmt;
         }
         return null;
+    }
+
+    public function RemoveService($id)
+    {
+        $sql = "delete from services where id=?;";
+        try
+        {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("s",$id);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return $stmt->error;
+            }
+        }
+        catch (Exception $ex)
+        {
+            return $ex->getMessage();
+        }
+
     }
 
 

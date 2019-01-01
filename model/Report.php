@@ -1,157 +1,90 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: dulip
- * Date: 9/27/18
- * Time: 12:03 AM
+ * User: dulee
+ * Date: 11/20/2018
+ * Time: 12:08 PM
  */
 
-require "../PDFReport/fpdf.php";
-class Report extends FPDF
+class Report
 {
-    protected $con = null;
+    protected $con;
 
-    function __construct()
+    public function Report()
     {
-        FPDF::__construct();
         $this->con = Database::getConnection();
     }
 
-    function getAppointmentRevenues($date)
+    public function getPurchaseRevenue($startDate,$endDate)
     {
-        $sql = "select sum(price) from appointmentpay where date=?;";
+        $sql = "select pitem.paymentid as id,stock.name as name,pitem.date as datePuchased,pitem.time as timePurchased,pitem.quantity as quantity,pitem.price as price from purchaseitem as pitem,stock where pitem.date BETWEEN '$startDate' AND '$endDate' and pitem.itemid=stock.id order by pitem.paymentid ASC;";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s",$date);
-        $stmt->execute();
-        if($stmt->affected_rows>0)
+        if($stmt)
         {
-            return $stmt;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    function getNAppointmentRevenues($date)
-    {
-        $sql = "select sum(price) from nonappointmentpay where date=?;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s",$date);
-        $stmt->execute();
-        if($stmt->affected_rows>0)
-        {
-            return $stmt;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    function getStockRevenues($date)
-    {
-        $sql = "select sum(price) from purchasepay where date=?;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s",$date);
-        $stmt->execute();
-        if($stmt->affected_rows>0)
-        {
-            return $stmt;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    function getSellItems($date)
-    {
-        $sql = "select stock.name,purchaseitem.quantity from purchaseitem,stock where purchaseitem.itemid=stock.itemid and purchaseitem.date=?;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s",$date);
-        $stmt->execute();
-        if($stmt->affected_rows>0)
-        {
-            return $stmt;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    function generateDailyReport($date)
-    {
-        $report  = new FPDF();
-
-        $report->AddPage();
-        $this->ReportTitle($report,"Stock and Revenue Report for "+date("y/m/d"));
-        $report->SetFont('Arial','B',16);
-
-        //Appointment Revenue details
-        $appointmenr = $this->getAppointmentRevenues($date);
-        $appointmenr->bind_result($revenue1);
-        if($appointmenr!=null)
-        {
-            $appointmentrevenue = $appointmenr->fetch();
-        }
-        $report->cell(10,3,"Revenues gained by Appointments        :- "+$revenue1,0,2,L,false);
-
-        //Non Appointment revenue details
-        $Nonappointmenr = $this->getNAppointmentRevenues($date);
-        $Nonappointmenr->bind_result($revenue2);
-        if($Nonappointmenr!=null)
-        {
-            $Nonappointmentrevenue = $Nonappointmenr->fetch();
-        }
-        $report->cell(10,3,"Revenues gained by Non Appointment Services  :- "+$revenue2,0,2,L,false);
-
-
-        //Sold Stock
-        $report->cell(10,3,"Sold items of the stock ",0,2,L,false);
-        $report->Cell(40,7,"Item",1);
-        $report->Cell(40,7,"Quantity",1);
-        $report->Ln();
-        $products = $this->getSellItems($date);
-        $products->bind_result($name,$quantity);
-        if($products!=null)
-        {
-            while(($result=$products->fetch())!=null)
+            if($stmt->execute())
             {
-                $report->Cell(40,7,$name,1);
-                $report->Cell(40,7,$quantity,1);
-                $report->Ln();
+                $stmt->store_result();
+                if($stmt->num_rows>0)
+                {
+                    return $stmt;
+                }
+            }
+            else
+            {
+                return null;
             }
         }
-        $report->Output();
+
+            return null;
+
     }
 
-    function ReportTitle($report, $label)
+    public function getServiceRevenue($startDate,$endDate)
     {
-        $report->Image("../img/icons/img13.png",10,6,30);
-        // Arial 12
-        $report->SetFont('Arial','',12);
-        // Background color
-        $report->SetFillColor(200,220,255);
-        // Title
-        $report->Cell(0,6, $label,0,1,'C',true);
-        // Line break
-        $report->Ln(20);
+        $sql = "select serviceP.paymentid as id,services.name as service,employee.name as employee,serviceP.price as price,serviceP.date as date,serviceP.time as time from nonappointmentpay as serviceP,services,employee where services.id=serviceP.serviceid and employee.id=serviceP.beauticianid and serviceP.date BETWEEN '$startDate' AND '$endDate' order by services.id ASC;";
+
+        $stmt = $this->con->prepare($sql);
+        if($stmt)
+        {
+            if($stmt->execute())
+            {
+                $stmt->store_result();
+                if($stmt->num_rows>0)
+                {
+                    return $stmt;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        return null;
     }
 
-    function ReportBody($file)
+    public function getAppointmentRevenue($startDate,$endDate)
     {
-        // Read text file
-        $txt = file_get_contents($file);
-        // Times 12
-        $this->SetFont('Times','',12);
-        // Output justified text
-        $this->MultiCell(0,5,$txt);
-        // Line break
-        $this->Ln();
-        // Mention in italics
-        $this->SetFont('','I');
-        $this->Cell(0,5,'(end of excerpt)');
+        $sql = "select service.name as Service,employee.name as Beautician,appointmentpay.price as price,appointmentpay.date as date,
+                 appointmentpay.time as time from employee,service,appointmentpay,appointment where appointment.id=appointmentpay.appointmentid and 
+                 service.id=appointment.serviceid and employee.id=appointment.beauticianid;";
+        $stmt = $this->con->prepare($sql);
+        if($stmt)
+        {
+            if($stmt->execute())
+            {
+                $stmt->store_result();
+                if($stmt->num_rows>0)
+                {
+                    return $stmt;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        return null;
     }
 }

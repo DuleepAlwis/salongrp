@@ -28,12 +28,26 @@ function getCustomers()
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-    switch($_POST["number"])
+
+
+    if(array_key_exists("number",$_POST))
     {
-        case "1":getMessages($_POST["Id"]);break;
-        case "2":ReceptionistMessage($_POST["Id"],$_POST["msg"]);break;
-        case "3":CustomerMessage($_POST["Id"],$_POST["msg"]);break;
+        switch($_POST["number"])
+        {
+            case "1":
+                getMessages($_POST["Id"]);
+                break;
+            case "2":
+                ReceptionistMessage($_POST["Id"], $_POST["msg"]);
+                break;
+            case "3":
+                CustomerMessage($_POST["Id"], $_POST["msg"]);
+                break;
+            default:break;
+        }
     }
+
+
 }
 
 function getMessages($customerid)

@@ -13,7 +13,7 @@
 </head>
 <body class="">
 <?php
-include "layout/ReceptionistLayout.php";
+include "layout/ReceptionistLayout1.php";
 include "../controller/StockController.php";
 ?>
 <div class="container-fluid">

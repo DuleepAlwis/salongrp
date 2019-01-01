@@ -10,7 +10,7 @@ include "../../model/Database.php";
 
 function getAppointments($date)
 {
-    include "../../model/Appointment.php";
+    require_once("../../model/Appointment.php");
     $appointment = new Appointment();
     if(isset($date))
     {
@@ -24,14 +24,14 @@ function getAppointments($date)
 
 function getServices()
 {
-    include "../../model/Services.php";
+    require_once("../../model/Service.php");
     $services = new Service();
     return $services->getServices();
 }
 
 function getStock()
 {
-    include "../../model/Stock.php";
+    require_once("../../model/Stock.php");
     $stock = new Stock();
     return $stock->getAll();
 }

@@ -16,6 +16,7 @@ class Customer
     public $district;
     public $gender;
     public $password;
+    public $passw;
     public $state=0;
     public $terms=0;
     public $validationc;
@@ -30,11 +31,28 @@ class Customer
 
     public function AddCustomer()
     {
+        $checkSql = "select email from customer where email=?;";
+        $checkStmt = $this->con->prepare($checkSql);
+        $checkStmt->bind_param("s",$this->email);
+        if($checkStmt->execute())
+        {
+            if($checkStmt)
+            {
+                $checkStmt->bind_result($emailCheck);
 
-        $sql = "insert into customer(name,email,address,tpno,password,city,district,state,terms,validationc,gender) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+                while ($checkStmt->fetch())
+                {
+                    if (strcmp($this->email, $emailCheck) == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        $sql = "insert into customer(name,email,address,tpno,password,passw,city,district,state,terms,validationc,gender) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param('sssssssssss',$this->name,$this->email,$this->address,$this->tpno,$this->password
-            ,$this->city,$this->district,$this->state,$this->terms,$this->validationc,$this->gender);
+            ,$this->passw,$this->city,$this->district,$this->state,$this->terms,$this->validationc,$this->gender);
         if($stmt->execute())
         {
 
@@ -48,22 +66,42 @@ class Customer
 
     public function UpdateCustomer()
     {
-        $sql = "update customer set name=?,email=?,tpno=?,city=?,district=?,address=? where customer.id=?;";
+        $checkSql = "select email from customer where email=?;";
+        $checkStmt = $this->con->prepare($checkSql);
+        $checkStmt->bind_param("s",$this->email);
+        if($checkStmt->execute())
+        {
+            if($checkStmt)
+            {
+                $checkStmt->bind_result($emailCheck);
+
+                while ($checkStmt->fetch())
+                {
+                    if (strcmp($this->email, $emailCheck) == 0)
+                    {
+                        return "Email Exist";
+                    }
+                }
+            }
+        }
+
+        $sql = "update customer set name=?,email=?,tpno=?,city=?,district=?,address=?,gender=? where customer.id=?;";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssssi",$this->name,$this->email,$this->tpno,$this->city,$this->district,$this->address,$this->id);
+        $stmt->bind_param("sssssssi",$this->name,$this->email,$this->tpno,$this->city,$this->district,$this->address,$this->gender,$this->id);
         if($stmt->execute())
         {
-            
             return true;
         }
-        return false;
+        echo $stmt->error;
+        return $stmt->error;
     }
 
     public function ChangePassword($id)
     {
         $sql = "update customer set password=? where customer.id=?;";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ss",md5($this->password),$id);
+        $passw = md5($this->password);
+        $stmt->bind_param("ss",$passw,$id);
         if($stmt->execute())
         {
             return true;

@@ -17,7 +17,10 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
+<?php
+    session_start();
 
+?>
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -35,9 +38,9 @@
                         <li class="nav-item">
                             <a href="#home-section" class="nav-link text-primary">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a href="#register" class="nav-link text-primary">Register</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a href="#services" class="nav-link text-primary">Services</a>
                         </li>
@@ -47,11 +50,55 @@
                         <li class="nav-item">
                             <a href="#Gallery" class="nav-link text-primary">About us</a>
                         </li>
+                        <?php
+                        
+                        if(!isset($_SESSION["id"]))
+                            {
+                                echo "
+                                     <li class='nav-item'>
+                            <span href='' class='nav-link text-primary'><button type='button' class='btn btn-primary border' data-toggle='modal' data-target='#exampleModal'>Login</button></span>
+                        </li>
+                                ";
+                            }
+                       ?>
 
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-info">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body bg-primary">
+                        <form name="login" method="post" action="controller/LoginController.php">
+                            <div class="form-group">
+                                <input type="text" name="uname" class="form-control form-control-lg" placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
+                            </div>
+                            <small>Don't have an account? Then <a class="text-dark" href="./register.php">Sign in</a></small>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="login" class="btn btn-success text-dark" value="Login"> <input type="reset" class="btn btn-success" value="Cancel" data-dismiss="modal">
+
+                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>-->
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <header id="home-section">
             <div class="dark-overlay">
                 <div class="home-inner">
@@ -61,7 +108,17 @@
                                 <h1 class="display-4"><strong></strong><strong></strong></h1>
                             </div>
                             <div class="col-lg-4">
-                                <div class="card bg-primary text-center card-form">
+
+                                <?php
+                        
+                                    if(!isset($_SESSION["id"]))
+                                        {
+                                            echo "
+                                            <button  type='button' class='btn btn-primary border' data-toggle='modal' data-target='#exampleModal'>Make an appointment</button>
+                                            ";
+                                        }
+                                ?>
+                                <!--<div class="card bg-primary text-center card-form">
                                     <div class="card-body">
                                         <h3>Here is your Login</h3>
                                         <form name="login" method="post" action="controller/LoginController.php">
@@ -76,7 +133,7 @@
                                             <input type="submit" name="login" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
 
                                         </form>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -86,55 +143,88 @@
         </header>
 
         <!-- EXPLORE HEAD-->
-        <section id="register">
+        <!--<section id="register">
             <!-- EXPLORE SECTION -->
         <section id="explore-section" class="bg-light text-muted py-5">
             <div class="container">
-                <form name="register" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <h3>Register</h3>
-                    <div class="form-row">
-                        Name:
-                        <input type="text" class="form-control" name="Name" placeholder="Name" required size="100">
-                        <div class="form-group col-md-6">
-                            <label for="inputMobile">Mobile number:</label>
-                            <input type="text" class="form-control" name="Mobile" placeholder="0715659741" required pattern="[0-9]{10}" size="13" style="width: 50%" title="Enter in the given format">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <!--<img class="d-block w-100" src="..." alt="First slide">-->
+                    <div class="">
+                        <div class="row">
+                        <div class="card" style="width: 18rem;margin-left: 150px">
+                            <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
                         </div>
-                        <div class="mt-3 form-group col-md-6">
-                            Gender :<select name="Gender"><option value="M">Male</option><option value="F">Female</option></select>
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" name="Email" placeholder="mymail@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+
+
+
+                    </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <!--<img class="d-block w-100" src="..." alt="First slide">-->
+                    <div class="">
+                        <div class="row">
+                            <div class="card" style="width: 18rem;margin-left: 150px">
+                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+
+
+
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Password</label>
-                            <input type="password" class="form-control" name="Password" placeholder="Password" required pattern=".{7,}" title="7 or more characters">
-                        </div>
                     </div>
-                    <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" name="Address" placeholder="" required maxlength="100">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputDistrict">City</label>
-                        <input type="text" class="form-control" name="City" placeholder="" required maxlength="20">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputDistrict">District</label>
-                        <select name="District" id="district" class="form-control" style="width:50%">
-                            <option>Ampara</option><option>Anuradhapura</option><option>Badulla</option><option>Batticaloa</option><option>Colombo</option><option>Galle</option><option>Gampaha</option><option>Hambantota</option>
-                            <option>Jaffna</option><option>Kalutara</option><option>Kandy</option><option>Kegalle</option><option>Kilinochchi</option><option>Kurunegala</option><option>Moneragala</option><option>Mannar</option>
-                            <option>Matara</option><option>Mullaitivu</option><option>Nuwara Eliya</option><option>Polonnaruwa</option><option>Puttalam</option><option>Ratnapura</option><option>Matale</option><option>Vavuniya</option>
-                        </select>
-                    </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary" name="submit" value="Sign in"> <input type="reset" class="btn btn-primary" name="Cancel" value="Cancel">
-                </form>
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
             </div>
         </section>
 
-        </section>
+        <!--</section>-->
 
 
         <!-- CREATE HEAD -->
@@ -145,7 +235,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                    <div class="card ml-3" style="width: 18rem;">
+                    <div class="card ml-3 border-primary" style="width: 18rem;border-style: outset">
                         <img class="card-img-top" src="img/image7.jpg" width="50" height="150" alt="Card image cap">
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
@@ -449,31 +539,6 @@
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
 </html>
-<?php
-
-if(isset($_POST['submit']))
-{
-    if(strlen(trim($_POST["Password"]))<7)
-    {
-        "<script type='text/javascript'>alert('Password field must be 7 characters or more')</script>";
-    }
-    else
-    {
-        include "controller/CustomerController.php";
-
-        if(Addcustomer())
-        {
-            echo "<script type='text/javascript'>alert('Successfully registered')</script>";
-        }
-        else
-        {
-            echo "<script type='text/javascript'>alert('Invalid details')</script>";
-        }
-    }
-
-}
-
-?>
 
 
 

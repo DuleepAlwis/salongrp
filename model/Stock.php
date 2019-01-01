@@ -8,7 +8,7 @@
 
 class Stock
 {
-
+    public $id;
     public $itemName;
     public $quantity;
     public $price;
@@ -35,47 +35,102 @@ class Stock
     public function AddItem()
     {
         $sql = "insert into stock(name,quantity,price,brand,preOrderl) values(?,?,?,?,?);";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('sssss',$this->itemName,$this->quantity,$this->price,$this->brand,$this->preOrderl);
-        $stmt->execute();
-        if($stmt->affected_rows>0)
+        try
         {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param('sssss', $this->itemName, $this->quantity, $this->price, $this->brand, $this->preOrderl);
 
-            return true;
+            if ($stmt->execute()) {
+
+                return true;
+            }
+
+            return $stmt->error;
         }
-        echo $stmt->error;
-        return false;
+        catch(Exception $ex)
+        {
+            return $ex->getMessage();
+        }
+
     }
 
     public function UpdateItem($id,$quantity)
     {
         $sql = "update stock set quantity=? where id=?;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('ii',$quantity,$id);
-        return $stmt->execute();
+
+        try
+        {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param('ii', $quantity, $id);
+            return $stmt->execute();
+        }
+        catch (Exception $ex)
+        {
+            return $ex->getMessage();
+        }
     }
+
+    public function UpdateItemAll()
+    {
+        $sql = "update stock set name=?,quantity=?,price=?,brand=?,preOrderl=? where id=?;";
+        try
+        {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param('sssssi', $this->itemName, $this->quantity, $this->price, $this->brand, $this->preOrderl, $this->id);
+            return $stmt->execute();
+        }
+        catch(Exception $ex)
+        {
+            return $ex->getMessage();
+        }
+        }
 
     public function RemoveItem($id)
     {
         $sql = "delete from stock where id=?;";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('i',$id);
-        return $stmt->execute();
+        try
+        {
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param('i', $id);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return $stmt->error;
+            }
+        }
+        catch (Exception $ex)
+        {
+            return $ex->getMessage();
+        }
     }
 
     public function getAll()
     {
         $sql = "select id,name,quantity,brand,price,preOrderl from stock;";
-        if($stmt = $this->con->prepare($sql))
+        try
         {
-            if($stmt->execute())
+            if($stmt = $this->con->prepare($sql))
             {
+                if($stmt->execute())
+                {
 
-                return $stmt;
+
+                    return $stmt;
+
+
+                }
+            }
+            else
+            {
+                return null;
             }
         }
-        return null;
+        catch (Exception $ex)
+        {
+            return $ex->getMessage();
+        }
     }
+
     public function editAll($id,$text,$column_name)
     {
 

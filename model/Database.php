@@ -9,10 +9,12 @@
 class Database
 {
     private static $con = null;
-    private function  __construct()
+    public function  __construct()
     {
        //$this->con = new mysqli("localhost","root","","salondb");
         //$this->con = new mysqli("localhost","dulip","dulip123","salondb");
+        $this->con = new mysqli("localhost","root","","salondb");
+
     }
 
     /**

@@ -6,7 +6,7 @@ var vm = new Vue({
     methods:{
         ajaxMethod:function (msg) {
             var quantity = document.getElementById(id).value
-            var url = '../controller/Stockdetails.php'
+            var url = '../controller/ReceptionistAjax.php'
             console.log(id+" "+quantity)
             obj.open('POST',url,true)
             obj.setRequestHeader('Content-Type','application/x-www-form-urlencoded')

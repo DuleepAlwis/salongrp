@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4deb1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Nov 04, 2018 at 03:31 AM
--- Server version: 5.7.18-0ubuntu0.16.10.1
--- PHP Version: 7.0.18-0ubuntu0.16.10.1
+-- Host: 127.0.0.1
+-- Generation Time: Dec 17, 2018 at 12:19 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -89,7 +91,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `email`, `address`, `tpno`, `terms`, `state`, `city`, `district`, `gender`, `password`, `validationc`) VALUES
-(1, 'kamal', 'abc@gmail.com', 'aaa', '0715896313', 0, 0, 'aaa', 'Ampara', 'F', 'd0db92fa9e2dad7794117be118414e74', 'ªc°ÕÙP6"5«R'),
+(1, 'kamal', 'abc@gmail.com', 'aaa', '0715896313', 0, 0, 'aaa', 'Ampara', 'F', 'd0db92fa9e2dad7794117be118414e74', 'ªc°ÕÙP6\"5«R'),
 (2, 'Dulip', 'dulip@gmail.com', 'aaa', '0712589637', 0, 0, 'aaa', 'Badulla', 'M', '1ef5a9cd207726f31b82da79a0dcd588', 'X`Ìkˆ~EŠ;èB–è'),
 (3, 'sed', 'fschmeler@example.com', '128 Watsica Lodge\nLeuschkeport, WA 75014-4637', '', 0, 0, 'East Ferntown', NULL, NULL, '05e019c221ae81ba1a7a073b8fdbd9c2485c6d69', ''),
 (4, 'sapiente', 'ustroman@example.org', '527 Batz Shore\nEast Isabelle, ND 80348', '', 0, 0, 'Lunastad', NULL, NULL, '63d301df054a710121d131d937f02004391b3140', ''),
@@ -134,7 +136,8 @@ INSERT INTO `customer` (`id`, `name`, `email`, `address`, `tpno`, `terms`, `stat
 (43, 'quam', 'eleonore37@example.com', '907 Moriah Cape\nLake Cobymouth, DE 19181-3764', '', 0, 0, 'West Eulaberg', NULL, NULL, '6b15f2fb0b0d7b0cf3bc711e7003251af63fbe6a', ''),
 (44, 'omnis', 'considine.seth@example.net', '89316 Turcotte Mill Suite 947\nElenorafort, IA 35327', '', 0, 0, 'New Eddie', NULL, NULL, 'a6037de708b5f69de42d7e8dc6491ad2b3d03b22', ''),
 (45, 'delectus', 'skshlerin@example.org', '93011 Alena River Apt. 179\nSammyton, ND 55413', '', 0, 0, 'East Darienton', NULL, NULL, '075b0dcba7543bbba4a3d10f1254df3f4642a745', ''),
-(46, 'dulip', 'dulip1@gmail.com', 'aaa', '0715789641', 0, 0, 'aaa', 'Badulla', 'M', '1ef5a9cd207726f31b82da79a0dcd588', '|ÕÒ<ëur\\µ³Ã‰·');
+(46, 'dulip', 'dulip1@gmail.com', 'aaa', '0715789641', 0, 0, 'aaa', 'Badulla', 'M', '1ef5a9cd207726f31b82da79a0dcd588', '|ÕÒ<ëur\\µ³Ã‰·'),
+(47, 'Max Tennyson', 'MaxTennyson@gmail.com', '11A', '0712365478', 0, 0, 'BNM', 'Kalutara', 'M', '33381ee5c6a6d89e3b23d6b39cd0992b', '£;Ñp¼\"5É¬Nê‰ù)');
 
 -- --------------------------------------------------------
 
@@ -170,15 +173,17 @@ CREATE TABLE `employee` (
   `NIC` varchar(255) DEFAULT NULL,
   `validationc` varchar(255) DEFAULT NULL,
   `gender` varchar(256) DEFAULT NULL,
-  `userLevel` varchar(255) DEFAULT NULL
+  `userLevel` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `password`, `salary`, `code`, `NIC`, `validationc`, `gender`, `userLevel`) VALUES
-(1, 'zxc', '1234667891', 'aba@gmail.com', '111111111', '2018-10-03', '1234567', 1.111111111111111e15, '', NULL, NULL, NULL, NULL);
+INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `password`, `salary`, `code`, `NIC`, `validationc`, `gender`, `userLevel`, `description`) VALUES
+(1, 'zxc', '1234667891', 'aba@gmail.com', '111111111', '2018-10-03', '1234567', 1.111111111111111e15, '', '123456789V', NULL, NULL, 'Admin', ''),
+(2, 'K.Kasun lkj', '0715879631', 'kasun@gmail.com', '123A,Aaa,UIO', '2018-11-23', '031110d8a7024dfcbf57eedda7c9dac9', 0, '', '123466789V', '0', 'Male', 'Admin', 'SCacsa');
 
 -- --------------------------------------------------------
 
@@ -237,7 +242,18 @@ INSERT INTO `messages` (`mid`, `customerid`, `question`, `answer`, `state`, `tim
 (21, '1', NULL, NULL, '1', NULL, ' aasdasd', 'R', '2018-11-04 00:50:42'),
 (22, '1', NULL, NULL, '1', NULL, ' Maintainig my hair\n', 'C', '2018-11-04 00:51:53'),
 (23, '2', NULL, NULL, '1', NULL, 'Hey', 'C', '2018-11-04 03:18:11'),
-(24, '2', NULL, NULL, '1', NULL, 'Can i help you?', 'R', '2018-11-04 03:18:43');
+(24, '2', NULL, NULL, '1', NULL, 'Can i help you?', 'R', '2018-11-04 03:18:43'),
+(25, '2', NULL, NULL, '1', NULL, 'What is the help\n you need from me?\n', 'R', '2018-11-04 16:44:38'),
+(26, '2', NULL, NULL, '1', NULL, 'I need to know about the A001 jel', 'R', '2018-11-04 16:47:36'),
+(27, '2', NULL, NULL, '1', NULL, '', 'C', '2018-11-04 16:56:01'),
+(28, '2', NULL, NULL, '1', NULL, ' What about using a hair cream?', 'C', '2018-11-04 16:56:27'),
+(29, '2', NULL, NULL, '1', NULL, ' No problem.', 'R', '2018-11-04 16:56:56'),
+(30, '2', NULL, NULL, '1', NULL, ' ok', 'C', '2018-11-04 17:16:20'),
+(31, '2', NULL, NULL, '1', NULL, ' Ok', 'R', '2018-11-04 17:16:38'),
+(32, '2', NULL, NULL, '1', NULL, 'Need to know something\n', 'C', '2018-11-04 19:52:23'),
+(33, '2', NULL, NULL, '1', NULL, ' What', 'R', '2018-11-04 19:52:48'),
+(34, '2', NULL, NULL, '1', NULL, ' aaa', 'R', '2018-11-07 09:09:00'),
+(35, '2', NULL, NULL, '1', NULL, 'bbb', 'C', '2018-11-07 09:09:12');
 
 -- --------------------------------------------------------
 
@@ -286,14 +302,13 @@ CREATE TABLE `purchaseitem` (
 --
 
 INSERT INTO `purchaseitem` (`paymentid`, `itemid`, `date`, `time`, `quantity`, `price`) VALUES
-(2, 5, '2018-09-29', '04:22:24.000000', 1, '5000'),
-(3, 5, '2018-09-29', '04:23:13.000000', 1, '5000'),
-(4, 1, '2018-09-29', '04:23:13.000000', 1, '1959.25'),
 (5, 2, '2018-09-29', '04:23:13.000000', 1, '1500'),
-(6, 3, '2018-09-30', '01:18:05.000000', 7, '6993'),
 (7, 2, '2018-09-30', '01:18:05.000000', 1, '1500'),
-(8, 1, '2018-09-30', '01:18:05.000000', 1, '1959.25'),
-(9, 6, '2018-10-16', '18:31:53.000000', 1, '1699');
+(8, 26, '2018-11-20', '13:33:14.000000', 1, '999'),
+(9, 7, '2018-11-20', '13:41:29.000000', 1, '1399'),
+(10, 26, '2018-11-21', '06:16:34.000000', 1, '999'),
+(11, 26, '2018-11-21', '06:17:26.000000', 7, '6993'),
+(12, 2, '2018-11-21', '06:21:55.000000', 1, '1500');
 
 -- --------------------------------------------------------
 
@@ -334,6 +349,15 @@ CREATE TABLE `services` (
   `duration` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name`, `price`, `duration`) VALUES
+(2, 'Hair cutting(Adult)', 357, '15'),
+(3, 'Hair Cutting(Children)', 375, '15'),
+(4, 'Colouring(Men)', 2500, '45');
+
 -- --------------------------------------------------------
 
 --
@@ -356,13 +380,11 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `name`, `quantity`, `currentq`, `brand`, `price`, `preOrderl`, `code`) VALUES
-(1, 'North for Men Recharge Shaving Gel', 67, 21, 'Eclat', 1959.25, 10, 'I-1'),
-(2, 'Mademoiselle Edt', 20, 20, 'Eclat', 1500, 10, 'I-2'),
-(3, 'Giordani Gold Original Perfumed Body Spray', 31, 31, 'Eclat', 999, 15, 'I-3'),
-(4, 'Face Gel Cucumber', 25, 25, 'NovAge', 599, 15, 'I-4'),
-(5, 'Men Energising & Hydrating Booster', 25, 25, 'NovAge', 5000, 15, 'I-5'),
-(6, 'Shampoo for Oily hair with Nettle & Lemon', 25, 25, 'Love Nature', 1699, 15, 'I-6'),
-(7, 'North for Men Recharge Hair & Body Wash', 25, 25, 'North for Men', 1899, 15, 'I-7');
+(2, 'Mademoiselle Edt', 20, 20, 'Eclat', 1550, 10, 'I-2'),
+(7, 'North for Men Recharge Hair & Body Wash', 17, 0, 'North for Men', 1399, 13, ''),
+(26, 'Studio Dry Turban Hair Towel', 11, 0, 'Alterna', 999, 11, ''),
+(49, 'North for Men Recharge Shaving Geln', 67, 0, 'Alterna', 1000, 11, ''),
+(50, 'Studio Dry Turban Hair Towel', 11, 0, 'Alterna', 135, 10, '');
 
 -- --------------------------------------------------------
 
@@ -509,8 +531,7 @@ ALTER TABLE `services`
 -- Indexes for table `stock`
 --
 ALTER TABLE `stock`
-  ADD PRIMARY KEY (`id`,`code`),
-  ADD UNIQUE KEY `stock_code_pk` (`code`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `supplier`
@@ -540,76 +561,91 @@ ALTER TABLE `users`
 --
 ALTER TABLE `appointment`
   MODIFY `appointmentid` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `appointmentpay`
 --
 ALTER TABLE `appointmentpay`
   MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `beautician`
 --
 ALTER TABLE `beautician`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
 --
 -- AUTO_INCREMENT for table `empleave`
 --
 ALTER TABLE `empleave`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `healthytips`
 --
 ALTER TABLE `healthytips`
   MODIFY `hid` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 --
 -- AUTO_INCREMENT for table `nonappointmentpay`
 --
 ALTER TABLE `nonappointmentpay`
   MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `purchasepay`
 --
 ALTER TABLE `purchasepay`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
@@ -639,7 +675,7 @@ ALTER TABLE `nonappointmentpay`
 -- Constraints for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  ADD CONSTRAINT `purchase_item` FOREIGN KEY (`itemid`) REFERENCES `stock` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `purchase_item` FOREIGN KEY (`itemid`) REFERENCES `stock` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `supplyitem`
@@ -647,6 +683,7 @@ ALTER TABLE `purchaseitem`
 ALTER TABLE `supplyitem`
   ADD CONSTRAINT `supply_item` FOREIGN KEY (`item`) REFERENCES `stock` (`id`),
   ADD CONSTRAINT `supply_supplier` FOREIGN KEY (`supplier`) REFERENCES `supplier` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
