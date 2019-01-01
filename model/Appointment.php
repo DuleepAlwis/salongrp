@@ -69,7 +69,20 @@ class Appointment
 
     }
 
-    
+    public function getCustomerAppointments($id)
+    {
+        $sql = "select appointment.appointmentid,appointment.date,appointment.time,appointment.state,appointment.price,services.name,employee.name
+         from appointment,employee where customerid=? and appointment.serviceid=services.id and appointment.beauticianid=employee.,id;";
+
+        if($stmt = $this->con->prepare($sql))
+        {
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+        }
+         return null;
+    }
 
     public function getAvailableTime($date,$empId,$serviceId)
     {
