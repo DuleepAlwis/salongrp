@@ -44,13 +44,13 @@ require_once("../../controller/EmployeeController.php");
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" enctype="multipart/form-data">
                     <input type="hidden" name="File_size" value="300000000">
                     <input type="file" name="upload" value="">
-                    <input type="submit" name="submitPhoto" value="Upload">
+                    <input class="btn btn-primary" type="submit" name="submitPhoto" value="Upload">
                 </form>
 
             </div>
         </div>
         <div class="col-md-5">
-            <h3 style="font-style: italic;font-style: oblique;margin-top: 17px">Profile</h3>
+            <h3 style="margin-top: 17px">Profile</h3>
             <table class="profileData">
                 <tbody id="profileData">
                 <tr><td>NIC</td><td style="display: block;width:65px"></td><td><b><?php echo $_SESSION['nic']; ?></b></td></tr>
