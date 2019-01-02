@@ -8,14 +8,15 @@
 
 class Appointment
 {
-    protected $AppointmentId;
-    protected $CustomerId;
-    protected $BeauticianId;
-    protected $ServiceId;
-    protected $date;
-    protected $stime;
-    protected $etime;
-    protected $state;
+    public $AppointmentId;
+    public $CustomerId;
+    public $BeauticianId;
+    public $ServiceId;
+    public $date;
+    public $time;
+    public $stime;
+    public $etime;
+    public $state;
     protected $con;
     //Appointment states   0-Not completed   1-Postponed   2-Completed
     /**
@@ -30,8 +31,18 @@ class Appointment
 
     public function AddAppointment()
     {
-
+        $sql = "insert into appointment(customerid, date, time, state, price, serviceid, beauticianid) values(?,?,?,?,?,?,?);";
+        $stmt = $this->con->prepare($sql);
+        $this->state = "0";
+        $stmt->bind_param("sssssss",$this->CustomerId,$this->date,$this->time,$this->state,$this->price,$this->ServiceId,$this->BeauticianId);
+        if($stmt->execute())
+        {
+            return true;
+        }
+        return $stmt->error;
     }
+
+    
     public function getAll($date,$employee)
     {
         if($employee==0)

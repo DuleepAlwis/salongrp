@@ -107,10 +107,11 @@ function addToAppointments()
 
 }
 
-function calculatrTotal(price)
+function calculatrTotal()
 {
     var tPrice = document.getElementById("totalprice");
     var advancep = document.getElementById("advancep");
+    var price = document.getElementById("service").value.split("&")[1];
     totalPrice = totalPrice+parseFloat(price);
     console.log(totalPrice);
     tPrice.value = ""+totalPrice;
@@ -142,7 +143,7 @@ function CallMethods()
 //Load Beautician's from the DB
 function loadBeautician()
 {
-    console.log((document.getElementById("service").value).split("&")[0]);
+    //console.log((document.getElementById("service").value).split("&")[0]);
     var service = document.getElementById("service").value.split("&")[0];
     var url = "../../controller/CustomerServer.php";
     ajax.onreadystatechange = beauticianList
@@ -371,19 +372,31 @@ function setTimeList(timeslots,reservedTime)
 {
     var i=0;
     //console.log(timeslots+" "+reservedTime);
-    if(reservedTime.length>0)
+    if(reservedTime.length>1)
     {
 
         var j = 0;
-        for (i = 0; i < reservedTime.length - 1; i++)
+        for (i = 0; i < reservedTime.length; i++)
         {
-            if (reservedTime[i]<timeslots[i] && reservedTime[i+1]>timeslots[i])
+            /*if (parseFloat(reservedTime[i])<timeslots[i] && parseFloat(reservedTime[i+1])>timeslots[i])
             {
                 availableTs[j] = timeslots[i];
                 j = j+1;
+            }*/
+            var booked = parseFloat(reservedTime[i]);
+            for(j=0;i<timeslots.length;j++)
+            {
+                if(booked==timeslots[j])
+                {
+                    timeslots.splice(j,1);
+                    break;
+                }
             }
+
         }
-        if(reservedTime[reservedTime.length-1]<close)
+        availableTs = timeslots;
+
+        /*if(reservedTime[reservedTime.length-1]<close)
         {
             while(i<timeslots.length)
             {
@@ -391,8 +404,21 @@ function setTimeList(timeslots,reservedTime)
                 j = j+1;
                 i = i+1;
             }
-        }
+        }*/
 
+    }
+    if(reservedTime.length==1)
+    {
+        var j = 0;
+        var booked = parseFloat(reservedTime[j]);
+        for(i=0;i<timeslots.length;i++)
+        {
+            if(booked==timeslots[i])
+            {
+                timeslots.splice(i,1);
+            }
+        }
+        availableTs = timeslots;
     }
     else
     {
@@ -422,6 +448,15 @@ function setTimeList(timeslots,reservedTime)
 
         }
     }
+    console.log(reservedTime);
+
+}
+function addTime()
+{
+    var timeslots = document.getElementById("timeslots").value;
+    var time = document.getElementById("time");
+    time.value = timeslots;
+    calculatrTotal();
 
 }
 function updateCustomer()

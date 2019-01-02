@@ -10,20 +10,22 @@
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="customer-background" onload="loadServices()">
 <?php
 require_once("../logallow.php");
 require_once("../layout/CustomerLayout.php");
+require_once("../../controller/AppointmentController.php");
 ?>
 <div class="container-fluid">
     <h3 align="center">Make a new appointment</h3>
     <div class="row mt-5">
 
         <div class="col-md-5"></div>
-        <div class="col-md-7">
-            <form name="appointment" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-                <table>
+        <div class="col-md-5">
+            <form name="appointment" method="post" action="./index.php">
+                <table class="" style="border-style: outset">
                     <tr>
                         <td>
                             Date :<b id="warning" class="text-danger"></b>
@@ -50,22 +52,35 @@ require_once("../layout/CustomerLayout.php");
                     <tr>
                         <td>
                             Number of particiapants :<br>
-                            <input class="form-control" id="participants" type="number" min="1" max="13" width="17px" value="1" style="width:50%">
+                            <input class="form-control" name="participants" id="participants" type="number" min="1" max="13" width="17px" value="1" style="width:50%">
                         </td>
                     </tr>
 
                     <tr>
-                        <td><button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button></td>
-                        <td><select class="form-control" name="timeslots" id="timeslots"></select></td>
+                        <td>
+                            Time :
+                            <input class="form-control" type="text" name="time" id="time" value=""></td>
+
 
                     </tr>
                     <tr>
-
+                        <td>Total : <input class="form-control" type="text" name="totalprice" id="totalprice" value="0"></td>
                     </tr>
-                    <tr><td><input class="btn btn-info" type="submit" name="submitAppointment"></td></tr>
+                    <tr>
+                        <td>Advance payment : <input class="form-control" type="text" id="advancep" value="0"></td>
+                        <!--<td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>-->
+                    </tr>
+                    <tr><td><input class="btn btn-primary mt-3" type="submit" name="submitAppointment" value="Save"></td><td><input type="reset" class="btn btn-primary mt-3" value="Cancel"></td></tr>
                 </table>
             </form>
         </div>
+        <div class="col-md-2">
+            <button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button>
+            <select class="form-control mt-1" name="timeslots" id="timeslots"></select>
+            <button class="btn btn-outline-primary" onclick="addTime()">Add</button>
+
+        </div>
+
                     <!--<tr class="col-md-1 ml-3 mt-4">
                         <td><button class="btn btn-info" onclick="addToAppointments()">Add</button>
                     </tr>
@@ -144,13 +159,15 @@ require_once("../layout/CustomerLayout.php");
                             </ul>
                         </div>
 
-                        <textarea id="msgArea" style="background-color: #e9ecef;width: 300px;height:100px"></textarea>
                     </div>
 
                     <div class="modal-footer">
+                        <div>
+                        <textarea id="msgArea" style="background-color: #e9ecef;width: 300px;height:100px"></textarea>
+
                         <button type="button" class="btn btn-info btn-outline-primary" onclick="clearMessages()" data-dismiss="modal">Close</button>
                         <button type="button" class="ml-3 btn btn-info btn-outline-primary" onclick="customerMessage('<?php echo $_SESSION['id']; ?>')">Send message</button>
-
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,3 +181,37 @@ require_once("../layout/CustomerLayout.php");
 <script src="../../js/CustomerHelp.js"></script>
 </body>
 </html>
+
+<?php
+if(isset($_POST["submitAppointment"]))
+{
+    $result = addAppointment($_SESSION["id"]);
+
+
+    if($result)
+    {
+        /*echo $_POST["service"];
+        var_dump($_POST["service"][0]);*/
+        echo "<script type='text/javascript'>
+                //alert('Record updated successfully');
+                swal({
+                    title:'Appointment saved Successfully',
+                    icon:'success',
+                    });
+                setTimeout(function(){
+                    window.location.href = window.location.href;
+                    },1500)
+                    </script>";
+    }
+    else
+    {
+        echo $result." "."123";
+        echo "<script type='text/javascript'>
+                //alert($result)
+                swal({
+                    title:'Something Wrong',
+                    icon:'error',
+                    });
+                </script>";
+    }
+}

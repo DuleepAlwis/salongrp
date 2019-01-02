@@ -162,13 +162,13 @@
                             {
 
                                 $rateValue = $rateValue."%";
-                                    echo "<div class='col-md-3 mr-3'><div class='card border-light' style='width: 18rem;margin-left: 150px;border-style: inset;'>
+                                    echo "<div class='col-md-3'><div class='card border-light' style='width: 18rem;margin-left: 0px;border-style: inset;'>
                             <img class='card-img-top' src=" . "$location" . " alt='Card'" . ">
                             <div class='card-body' style='background-color: #8699a4'>
                                 <p class='card-text text-dark'><b>" . "$name" . "</b></p>
                                <div style='border-radius: 7px;border-style: inset'>
 <div class='mt-0 progress'><div class='progress-bar' role='progressbar' aria-valuenow=" . "0" . " aria-valuemin='0' aria-valuemax='100' style="."width:$rateValue"."></div></div>
-</div></div></div></div>";
+</div></div></div></div><div class='col-md-1'></div>";
 
                                     if ($i % 3 == 0 || $i==$result->num_rows)
                                     {
