@@ -19,6 +19,7 @@
     </head>
 <?php
     session_start();
+    require_once("controller/EmployeeController.php");
 
 ?>
     <body>
@@ -147,80 +148,93 @@
             <!-- EXPLORE SECTION -->
         <section id="explore-section" class="bg-light text-muted py-5">
             <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <!--<img class="d-block w-100" src="..." alt="First slide">-->
-                    <div class="">
-                        <div class="row">
-                        <div class="card" style="width: 18rem;margin-left: 150px">
-                            <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
+                <?php
+                $result = getEmployeeRatings();
+                if($result)
+                    {
+                        $result->store_result();
+                        $result->bind_result($name,$location,$rateValue);
+                        $i=1;
+                        while($i<$result->num_rows)
+                        {
+                            echo "<div class='row'>";
+                            while($result->fetch())
+                            {
+
+                                $rateValue = $rateValue."%";
+                                    echo "<div class='col-md-3 mr-3'><div class='card border-light' style='width: 18rem;margin-left: 150px;border-style: inset;'>
+                            <img class='card-img-top' src=" . "$location" . " alt='Card'" . ">
+                            <div class='card-body' style='background-color: #8699a4'>
+                                <p class='card-text text-dark'><b>" . "$name" . "</b></p>
+                               <div style='border-radius: 7px;border-style: inset'>
+<div class='mt-0 progress'><div class='progress-bar' role='progressbar' aria-valuenow=" . "0" . " aria-valuemin='0' aria-valuemax='100' style="."width:$rateValue"."></div></div>
+</div></div></div></div>";
+
+                                    if ($i % 3 == 0 || $i==$result->num_rows)
+                                    {
+                                        break;
+                                    }
+                                $i = $i + 1;
+
+                            }
+                            echo "</div>";
+
+                        }
+
+                    }
+                    else
+                    {
+                        echo 111;
+                    }
+                    ?>
+
+                        <?php
+                        /*$result = getEmployeeRatings();
+                        $i=0;
+                        if($result)
+                        {
+                            $result->bind_result($name,$location,$rateValue);
+                            echo $name." ".$location." ".$rateValue;
+
+                            while($i!=$result->num_rows)
+                            {
+                                echo "<div class='carousel-inner'>";
+                                if ($i == 0) {
+                                    echo "<div class='carousel-item active'>";
+                                } else {
+                                    echo "<div class='carousel-item'>";
+
+                                }
+
+
+                                echo "<div class='row'>";
+                                while ($result->fetch())
+                                {
+                                    $rateValue = $rateValue . "%";
+                                    echo "<div class='card' style='width: 18rem;margin-left: 150px'>
+                            <img class='card-img-top' src=" . "$location" . " alt='Card image cap'" . ">
+                            <div class='card-body'>
+                                <p class='card-text'><b>" . "$name" . "</b></p>
+                               <div style='border-radius: 7px;border-style: inset'>
+<div class='mt-0 progress'><div class='progress-bar' role='progressbar' aria-valuenow=" . "0" . " aria-valuemin='0' aria-valuemax='100' style="."width:$rateValue"."></div></div>
+</div>";
+                                    $i = $i + 1;
+                                    if ($i % 3 == 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                                echo "</div></div></div>";
+                            }
+                                
+
+                            }
 
 
 
-                    </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <!--<img class="d-block w-100" src="..." alt="First slide">-->
-                    <div class="">
-                        <div class="row">
-                            <div class="card" style="width: 18rem;margin-left: 150px">
-                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
+                       */ ?>
 
 
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
             </div>
         </section>
 

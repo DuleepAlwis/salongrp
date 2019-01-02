@@ -279,6 +279,8 @@ function selectService()
 
 function availableTimeSlots()
 {
+   //  alert("AAA");
+    var ajax = new XMLHttpRequest();
     var empId = document.getElementById("beautician").value;
     var serviceId = document.getElementById("service").value;
     var participants = document.getElementById("participants").value;
@@ -344,15 +346,22 @@ function availableTimeSlots()
                             reservedTime[i] = result[1][i];
                         }
                     }
+
                     setTimeList(timeslots, reservedTime);
                 }
             }
         }
-
         ajax.open("POST", url, true);
         ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         ajax.send('number=4' + '&date=' + dateAppoint + '&employee=' + empId + '&service=' + serviceId);
+       //alert(timeslots+" "+ajax.status+" "+ajax.readyState+" "+ajax.responseType);
+
     }
+    else
+    {
+        console.log("Fill the fields");
+    }
+
 
 
 
@@ -361,7 +370,7 @@ function availableTimeSlots()
 function setTimeList(timeslots,reservedTime)
 {
     var i=0;
-    console.log(timeslots+" "+reservedTime);
+    //console.log(timeslots+" "+reservedTime);
     if(reservedTime.length>0)
     {
 

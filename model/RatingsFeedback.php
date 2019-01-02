@@ -42,4 +42,15 @@ class RatingsFeedback
         }
         return null;
     }
+
+    public function getEmployees()
+    {
+        $sql = "select emp.name as name,emp.propic as location,sum(ratings.ratevalue) as ratevalue from ratings,employee as emp where emp.id=ratings.employee group by ratings.employee;";
+        $stmt = $this->con->prepare($sql);
+        if($stmt->execute())
+        {
+            return $stmt;
+        }
+        return null;
+    }
 }

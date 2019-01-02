@@ -34,7 +34,8 @@ require_once("../../controller/CustomerController.php");
         </div>
     </div>
     <div class="col-md-6">
-        <h3 style="font-style: italic;font-style: oblique;margin-top: 17px">Profile</h3>
+
+        <h3 style="font-style: italic;font-style: oblique;margin-top: 17px">Profile </h3>
         <table class="profileData">
             <tbody id="profileData">
             <tr><td>Name</td><td style="display: block;width:65px"></td><td><b><?php echo $_SESSION['name']; ?></b></td></tr>
@@ -52,8 +53,10 @@ require_once("../../controller/CustomerController.php");
         <button type="button" class="mt-5 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
             Change Password
         </button>
-
-        <!-- Modal -->
+        <button type="button" class="mt-5 btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterAppointment">
+            Make an appointment
+        </button>
+        <!-- Profile data update -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -95,6 +98,7 @@ require_once("../../controller/CustomerController.php");
             </div>
         </div>
     </div>
+        <!--Password Update -->
         <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -123,10 +127,54 @@ require_once("../../controller/CustomerController.php");
                 </div>
             </div>
         </div>
+        <!--Make appointment -->
+        <div class="modal fade" id="exampleModalCenterAppointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Make an appointment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table>
+                            <h5 id="editId"><?php echo $_SESSION['id']; ?></h5>
+                            <form name="register" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                                <tr><td>Date :<b id="warning" class="text-danger"></b>
+                                        <input id="date" type="date" name="date" class="form-control" width="17px"></td></tr>
+                                <tr><td>Service :<br>
+                                        <select class="form-control" name="service" id="service" onChange="loadBeautician()"></select></td></tr>
+                                <tr><td>Beautician :<br>
+                                        <select class="form-control" name="beautician" id="beautician">
+                                            <option value="Any">Any</option>
+                                        </select>
+                                        <b id="alertMsg"></b></td></tr>
+                                <tr><td>Number of particiapants :<br>
+                                        <input class="form-control" id="participants" type="number" name="participants" min="1" max="13" width="17px" value="1"></td></tr>
+
+                                <tr><td><button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button><br>
+                                        <select class="form-control" name="timeslots" id="timeslots"></select></td></tr>
+                                <tr><td><input class="btn btn-info" type="submit" name="submitAppointment"></td><td><input type="reset" class="form-control" value="Reset"></td></tr>
+                            </form>
+                        </table>
+                        <!--<div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>-->
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
         <div class="col-md-2">
             <!-- Button trigger modal -->
 
             </div>
+        </div>
+        <div class="col-md-1">
         </div>
     <div class="msgBtn">
         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #20c997;border-radius: 17px;border-style: ridge" onclick="getCustomerMessages('<?php echo $_SESSION['id']; ?>','<?php echo $_SESSION['name']; ?>')"><img src="../../img/icons/messageicon1.png"> <b>Messages</b></button>

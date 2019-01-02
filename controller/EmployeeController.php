@@ -6,6 +6,12 @@ if(file_exists("../../model/Employee.php"))
     require_once( "../../model/Employee.php");
 }
 
+if(file_exists("model/RatingsFeedback.php"))
+{
+    require_once("model/Database.php");
+    require_once("model/RatingsFeedback.php");
+}
+
 function AddEmployee()
 {
     if($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -150,6 +156,13 @@ function uploadPhoto($id)
 
         return false;
     }
+}
+
+
+function getEmployeeRatings()
+{
+    $empRatings = new RatingsFeedback();
+    return $empRatings->getEmployees();
 }
 
 function getReceptionist()

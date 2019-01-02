@@ -14,95 +14,111 @@
 <body class="customer-background" onload="loadServices()">
 <?php
 require_once("../logallow.php");
- require_once("../layout/CustomerLayout.php");
+require_once("../layout/CustomerLayout.php");
 ?>
 <div class="container-fluid">
     <h3 align="center">Make a new appointment</h3>
     <div class="row mt-5">
 
+        <div class="col-md-5"></div>
+        <div class="col-md-7">
+            <form name="appointment" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                <table>
+                    <tr>
+                        <td>
+                            Date :<b id="warning" class="text-danger"></b>
+                            <input name="date" id="date" type="date" class="form-control" width="17px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Service :<br>
+                            <select class="form-control" name="service" id="service" onChange="loadBeautician()"></select>
+                        </td>
 
+                    </tr>
+                    <tr>
+                        <td>
+                            Beautician :<br>
+                            <select class="form-control" name="beautician" id="beautician">
+                                <option value="Any">Any</option>
+                            </select>
+                            <b id="alertMsg"></b>
+                        </td>
+                    </tr>
 
-        <div class="col-md-2 ml-1">
-            Date :<b id="warning" class="text-danger"></b>
-            <input id="date" type="date" class="form-control" width="17px">
+                    <tr>
+                        <td>
+                            Number of particiapants :<br>
+                            <input class="form-control" id="participants" type="number" min="1" max="13" width="17px" value="1" style="width:50%">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button></td>
+                        <td><select class="form-control" name="timeslots" id="timeslots"></select></td>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr><td><input class="btn btn-info" type="submit" name="submitAppointment"></td></tr>
+                </table>
+            </form>
         </div>
-        <div class="col-md-1">
-            Service :<br>
-            <select class="form-control" name="service" id="service" onChange="loadBeautician()"></select>
-        </div>
+                    <!--<tr class="col-md-1 ml-3 mt-4">
+                        <td><button class="btn btn-info" onclick="addToAppointments()">Add</button>
+                    </tr>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div style="overflow-y: auto;height:350px">
+                    <table class="table table-hover mt-5">
+                        <thead class="thead-dark bg-primary">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Beautician</th>
+                            <th scope="col">Service</th>
+                            <th scope="col">Number of participants</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="AppointmentTable">
 
-        <div class="col-md-1"></div>
-        <div class="col-md-1">
-            Beautician :<br>
-            <select class="form-control" name="beautician" id="beautician">
-                    <option value="Any">Any</option>
-                </select>
-            <b id="alertMsg"></b>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col--md-1 ml-2">
-            Number of particiapants :<br>
-            <input class="form-control" id="participants" type="number" min="1" max="13" width="17px" value="1">
-        </div>
-
-        <div class="col-md-1"></div>
-        <div class="col--md-1 mr-3">
-            <button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button><br>
-            <select class="form-control" name="timeslots" id="timeslots"></select>
-        </div>
-        <div class="col-md-1 ml-3 mt-4">
-            <button class="btn btn-info" onclick="addToAppointments()">Add</button>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div style="overflow-y: auto;height:350px">
-        <table class="table table-hover mt-5">
-            <thead class="thead-dark bg-primary">
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Date</th>
-                <th scope="col">Beautician</th>
-                <th scope="col">Service</th>
-                <th scope="col">Number of participants</th>
-                <th scope="col">Time</th>
-                <th scope="col">Price</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody id="AppointmentTable">
-
-            </tbody>
-        </table>
-            </div>
-
-            <table class="mt-1">
-            <table class="mt-5">
-                <tr>
-                    <td>Total : <input class="ml-3" type="text" id="totalprice" value="0"></td>
-                    <td>Advance payment : <input type="text" id="advancep" value="0"></td>
-                    <td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>
-                    <td><span style="display: inline-block;width: 700px"></span></td>
-                    <td>
-
-
-
-
-                        <!--<div id="msgArea">
-                            <div id="customerMsgbox" class="jumbotron">
-                                <ul id="msgList">
-                                    <li>111</li>
-                                </ul>
-                            </div>
-                        <div id="customerMsgflip" class="alert alert-success border-info" style="width: 150px"><i class="fa-amazon"></i>Message
-
+                        </tbody>
+                    </table>
                         </div>
-                        </div>-->
-                    </td>
-                </tr>
-            </table>
-    </div>
+
+                        <table class="mt-1">
+                        <table class="mt-5">
+                            <tr>
+                                <td>Total : <input class="ml-3" type="text" id="totalprice" value="0"></td>
+                                <td>Advance payment : <input type="text" id="advancep" value="0"></td>
+                                <td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>
+                                <td><span style="display: inline-block;width: 700px"></span></td>
+                                <td>
+
+
+
+
+                                    <!--<div id="msgArea">
+                                        <div id="customerMsgbox" class="jumbotron">
+                                            <ul id="msgList">
+                                                <li>111</li>
+                                            </ul>
+                                        </div>
+                                    <div id="customerMsgflip" class="alert alert-success border-info" style="width: 150px"><i class="fa-amazon"></i>Message
+
+                                    </div>
+                                    </div>-->
+                    <!-- </td>
+                 </tr>
+             </table>-->
+        </div>
         <div class="col-md-1">
 
         </div>
