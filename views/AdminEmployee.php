@@ -13,37 +13,23 @@
 </head>
 <body class="">
 
-<nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
-    <div class='container'>
-        <img src='../img/icons/image13.png' width='10%' height='10%'><a href='index.php' class='navbar-brand'>Salon Sanrooka</a>
-        <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav'>
-            <span class='navbar-toggler-icon'></span>
-        </button>
-        <span style='display: inline-block;width=350px'></span>
-        <div class='collapse navbar-collapse justify-content-end' style='align-content: right;' id='navbarNav'>
+<?php
+include "layout/AdminLayout.php";
+include "../controller/EmployeeController.php";
+if(isset($_POST["submit"]))
+{
 
+    if(AddEmployee())
+    {
+        echo "<script type='text/javascript'>alert('Added successfully')</script>";
+    }
+    else
+    {
+        echo "<script type='text/javascript'>alert('Something wrong, Re-enter details')</script>";
 
-            <ul class='navbar-nav ml-auto justify-content-end'>
-                <li class='nav-item dropdown mr-3'>
-                    <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown'>
-                        <img src='../img/icons/user.png' width='35%' height='35%'></i><?php echo "aaa"; ?>
-                    </a>
-                    <div class='dropdown-menu' style='z-index: 999'>
-                        <a href='profile.html' class='dropdown-item'>
-                            <i class='fa fa-user-circle'></i> Profile
-                        </a>
-                        <a href='settings.html' class='dropdown-item'>
-                            <i class='fa fa-gear'></i> Logout
-                        </a>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-</nav>
-
+    }
+}
+?>
 <header id="main-header" class="py-2 bg-warning text-white">
     <div class="container">
         <div class="row">
@@ -51,7 +37,7 @@
                 <h1>Employee</h1>
             </div>
             <div class="col-md-4"></div>
-            <div class="col-md-2"><a href="AdminDashboard.php"><h1>Dashboard</h1></a></div>
+            <div class="col-md-2"><a href="AdminDashboard.php"><img src="../img/icons/house.png" style="width:50px"></img></a></div>
         </div>
     </div>
 </header>
@@ -87,43 +73,53 @@
 
                     <div class="form-row">
                         NIC:
-                        <input type="text" class="form-control" id="inputnic" placeholder="nic" required>
+                        <input type="text" class="form-control" id="inputnic" name="NIC" placeholder="nic" required pattern="[0-9]{9}[Vv||xX]">
 
                         Name:
-                        <input type="text" class="form-control" id="inputName" placeholder="Name" pattern="[A-Za-z]{255}" required>
+                        <input type="text" class="form-control" id="inputName" name="Name" placeholder="Name" required>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                            <input type="email" class="form-control" id="inputEmail" name="Email" placeholder="abc@gmail.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" minlength="7" required>
+                            <input type="password" class="form-control" id="inputPassword4" name="Password" placeholder="Password" minlength="7" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                        <input type="text" class="form-control" id="inputAddress" name="Address" placeholder="1234 Main St" required>
                     </div>
                     <div class="form-group">
                         <label for="inputMobile">Mobile No</label>
-                        <input type="text" class="form-control" id="inputMobile" placeholder="01123456789" pattern="[0-9]{10}" required>
+                        <input type="text" class="form-control" id="inputMobile" name="Contact" placeholder="01123456789" pattern="[0-9]{10}" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputJdate">Joined date</label>
-                            <input type="date" class="form-control" id="inputJdate">
+                            <input type="date" class="form-control" name="jdate" id="inputJdate">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputGender" class="form-control">
+                            <label for="inputState">Gender</label>
+                            <select id="inputGender" name="gender" class="form-control">
                                 <option selected>Male</option>
                                 <option>Female</option>
                             </select>
                         </div>
 
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputState">User level</label>
+                            <select id="inputGender" name="ulevel" class="form-control">
+                                <option selected>Admin</option>
+                                <option>Receptionist</option>
+                                <option>Beautician</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="modal-footer">
-                        <button type="reset" name="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="reset" name="reset" class="btn btn-secondary" data-dismiss="modal"></input>
                         <button type="submit" name="submit"  class="btn btn-primary">Save</button>
                     </div>
                 </form>.
@@ -133,54 +129,49 @@
     </div>
 </div>
 <!-- USERS -->
-<section id="posts">
-    <div class="container">
-        <div class="row">
-            <div class="col">
 
-                <table class="table table-striped" style="overflow-y: auto">
-                    <thead class="thead-inverse">
-                    <tr>
-                        <th>Code</th>
+<div class="container">
+
+    <div class="row mt-3">
+
+
+        <div class="col-md-12">
+            <h1 align="center">Employees</h1>
+            <div class="table-responisve-md" style="height:500px;overflow-y:auto">
+                <table class="table table-bordered" style="height:150px">
+
+                    <caption>Employee List</caption>
+                    <thead>
+                    <tr style="position:sticky;background-color: #01549b">
+                        <th>NIC</th>
                         <th>Name</th>
                         <th>TPNO</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Join-Date</th>
                         <th>Gender</th>
+                        <th>User Level</th>
                         <th></th>
                         <th></th>
                     </tr>
                     </thead>
-                    <tbody class="bg-light text-primary">
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>John Doe</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
+                    <tbody class="text-primary">
 
-                        <td><button class="btn btn-info">View</button></td>
-                        <td><button class="btn btn-danger">Remove</button></td>
+                        <?php
 
+                        if(($result=getAll())!=null)
+                        {
 
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>John Doe</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>jdoe@gmail.com</td>
+                            $result->bind_result($id,$NIC,$name,$tpno,$email,$address,$joindate,$gender,$ulevel);
+                            while($result->fetch())
+                            {
+                                echo "<tr><td scope='row'>".$NIC."</td><td>".$name."</td><td>".$tpno."</td><td>".$email."</td><td>".
+                                $address."</td><td>".$joindate."</td><td>".$gender."</td><td>".$ulevel."</td><td><button class='btn btn-info'>".'View'."</button></td><td><button class='btn btn-danger'>".'Remove'."</button></td></tr>";
+                            }
 
-                        <td><button class="btn btn-info">View</button></td>
-                        <td><button class="btn btn-danger">Remove</button></td>
+                        }
+                        ?>
 
-
-                    </tr>
                     </tbody>
                 </table>
 
@@ -188,8 +179,7 @@
             </div>
         </div>
     </div>
-
-</section>
+</div>
 
 
 

@@ -6,75 +6,35 @@
  * Time: 8:48 PM
  */
 
+
 class Service
 {
-    private $serviceId;
-    private $name;
-    private $price;
-    private $duration;
+
+    public $serviceId;
+    public $name;
+    public $price;
+    public $duration;
+    public $con;
 
     /**
      * @return mixed
      */
-    public function getServiceId()
+    public function __construct()
     {
-        return $this->serviceId;
+
+        $this->con = Database::getConnection();
     }
 
-    /**
-     * @param mixed $serviceId
-     */
-    public function setServiceId($serviceId)
+    public function getServices()
     {
-        $this->serviceId = $serviceId;
+        $sql = "select id,name,price,duration from services;";
+        $stmt = $this->con->prepare($sql);
+        if($stmt->execute())
+        {
+            return $stmt;
+        }
+        return null;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param mixed $price
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDuration()
-    {
-        return $this->duration;
-    }
-
-    /**
-     * @param mixed $duration
-     */
-    public function setDuration($duration)
-    {
-        $this->duration = $duration;
-    }
 
 }

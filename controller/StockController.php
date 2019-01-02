@@ -6,21 +6,28 @@
  * Time: 1:32 AM
  */
 
-include "../model/Stock.php";
+include "../../model/Database.php";
+include "../../model/Stock.php";
 
 
 function AddItem()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+        
         $stock = new Stock();
-
-        if ($stock->AddItem())
+        $stock->itemName = $_POST["Name"];
+        $stock->quantity = $_POST["Quantity"];
+        $stock->brand = $_POST["brand"];
+        $stock->preOrderl = $_POST["preOrderl"];
+        $stock->price = $_POST["price"];
+        if($stock->AddItem())
         {
             return true;
         }
         else
         {
+
             return false;
         }
 

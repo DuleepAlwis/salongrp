@@ -97,11 +97,23 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/*Chat Application css styles */
 
+.receiver-List
+{
+    border: #1c7430;
+    border-style: solid;
+}
 
+/*Payment Css */
+.payment-list
+{
+    height: 350px;
+    overflow-y: auto;
+}
 
-body {
-    background: #333;
+.receptionist-background{
+    background-color: #c6c8ca;
     color: #fff; }
 
 #services{
@@ -219,9 +231,16 @@ body {
     border-style: outset;
 }
 
+.menuBox
+{
+    border-color: #0A0A0A;
+    border-style: solid;
+}
 .menuBox:hover
 {
     border-color: #014c8c;
+    /*border-width: 50px*/
+
 }
 
 
