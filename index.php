@@ -155,6 +155,7 @@
                         $result->store_result();
                         $result->bind_result($name,$location,$rateValue);
                         $i=1;
+                        echo $result->num_rows;
                         while($i<$result->num_rows)
                         {
                             echo "<div class='row'>";
@@ -163,7 +164,7 @@
 
                                 $rateValue = $rateValue."%";
                                     echo "<div class='col-md-3'><div class='card border-light' style='width: 18rem;margin-left: 0px;border-style: inset;'>
-                            <img class='card-img-top' src=" . "$location" . " alt='Card'" . ">
+                            <img class='card-img-top' src=" . "$location" . " alt='Card'" . " height='250px'>
                             <div class='card-body' style='background-color: #8699a4'>
                                 <p class='card-text text-dark'><b>" . "$name" . "</b></p>
                                <div style='border-radius: 7px;border-style: inset'>

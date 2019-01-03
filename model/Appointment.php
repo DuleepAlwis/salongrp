@@ -43,25 +43,33 @@ class Appointment
     }
 
     
-    public function getAll($date,$employee)
+    public function getAllAppointments($date,$employee)
     {
         if($employee==0)
         {
-            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee  where appointment.beauticianid=employee.id and
-                        appointment.serviceid=services.id and appointment.date='$date' and appointment.state='0';";
+            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee,customer where appointment.beauticianid=employee.id and
+                        appointment.serviceid=services.id and customer.id=appointment.customerid and appointment.date=? and appointment.state=?;";
+            $state = 0;
+            $stmt = $this->con->prepare($sql);
+                $stmt->bind_param("ss",$date,$state);
+
         }
         else
         {
-            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee  where appointment.beauticianid=employee.id and
-                        appointment.serviceid=services.id and appointment.date='$date' and appointment.beauticianid='$employee' and appointment.state='0';";
+            $sql = "select appointment.appointmentid,customer.name,appointment.date,appointment.time,services.name,employee.name,appointment.price from appointment,services,employee,customer
+  where appointment.beauticianid=employee.id and
+                        appointment.serviceid=services.id and customer.id=appointment.customerid and appointment.date=? and appointment.beauticianid=? and appointment.state=?;";
+            $state = 0;
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("sss",$date,$employee,$state);
         }
-        if($stmt = $this->con->prepare($sql))
-        {
+
+
             if($stmt->execute())
             {
                 return $stmt;
             }
-        }
+
         return null;
     }
 

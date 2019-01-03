@@ -139,9 +139,12 @@ class Login
         //echo strcmp($credentials['user'],$uname); //." ".$credentials['password'];
         //echo strcmp($credentials['password'],$userPassword);
         //echo $credentials['password']." ".$userPassword;
-        if(strcmp($credentials['user'],$uname)>=0 && strcmp($credentials['password'],$userPassword)>=0)
+        echo strlen($userPassword);
+        echo strcmp($credentials['password'],$userPassword);
+        /*if(strlen($uname)>0 && strlen($userPassword)>0 && strcmp($credentials['user'],$uname)>=0 && strcmp($credentials['password'],$userPassword)>=0)
         {
 
+            echo $uname." ".$userPassword;
             if(file_exists("../views/admin/index.php"))
             {
                 session_start();
@@ -150,7 +153,7 @@ class Login
                 return true;
             }
 
-        }
+        }*/
 
         echo /*$stmt->affected_rows*/" "." ".$stmt->error;
         return false;

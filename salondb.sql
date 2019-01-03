@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2019 at 09:13 AM
+-- Generation Time: Jan 03, 2019 at 10:54 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -32,12 +32,26 @@ CREATE TABLE `appointment` (
   `appointmentid` int(255) NOT NULL,
   `customerid` int(255) NOT NULL,
   `date` date NOT NULL,
-  `time` time(6) NOT NULL,
+  `time` varchar(6) NOT NULL,
   `state` int(3) NOT NULL,
   `price` double NOT NULL,
   `serviceid` int(255) DEFAULT NULL,
   `beauticianid` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appointmentid`, `customerid`, `date`, `time`, `state`, `price`, `serviceid`, `beauticianid`) VALUES
+(26, 48, '2019-01-13', '9.3', 0, 375, 3, 1),
+(27, 48, '2019-01-27', '9', 0, 375, 3, 1),
+(30, 48, '2019-01-27', '9.15', 0, 375, 3, 1),
+(33, 48, '2019-01-27', '12.3', 0, 1125, 3, 1),
+(34, 49, '2019-01-27', '13.45', 0, 750, 3, 1),
+(35, 49, '2019-01-03', '9.3', 0, 375, 3, 1),
+(38, 49, '2019-01-27', '10', 0, 375, 3, 1),
+(39, 49, '2019-01-21', '9.3', 0, 375, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -140,7 +154,9 @@ INSERT INTO `customer` (`id`, `name`, `email`, `address`, `tpno`, `terms`, `stat
 (45, 'delectus', 'skshlerin@example.org', '93011 Alena River Apt. 179\nSammyton, ND 55413', '', 0, 0, 'East Darienton', NULL, NULL, '075b0dcba7543bbba4a3d10f1254df3f4642a745', '', '', ''),
 (46, 'dulip', 'dulip@gmail.com', 'aaa', '0715789641', 0, 0, 'aaa', 'Badulla', 'M', '74ead3b7d72c9f14c6213cf1b2c18572', '', '|ÕÒ<ëur\\µ³Ã‰·', ''),
 (47, 'Max Tennyson', 'MaxTennyson@gmail.com', '11A', '0712365478', 0, 0, 'BNM', 'Kalutara', 'M', '33381ee5c6a6d89e3b23d6b39cd0992b', '', '£;Ñp¼\"5É¬Nê‰ù)', ''),
-(48, 'Dulip', 'dulip123@gmail.com', '111', '0715896321', 0, 0, 'AAA', 'Vavuniya', 'M', '67aec879aac46115ed68d50d6a9abd6e', '', 'X`Ìkˆ~EŠ;èB–è', '');
+(48, 'Dulip', 'dulip123@gmail.com', '111', '0715896321', 0, 0, 'AAA', 'Vavuniya', 'M', '67aec879aac46115ed68d50d6a9abd6e', '', 'X`Ìkˆ~EŠ;èB–è', ''),
+(49, 'Nimal', 'Nimal@gmail.com', '111', '0715789631', 0, 0, 'aaxz', 'Kilinochchi', 'M', '9ad24f2850062550f982603578e32db6', 'Nimal123', 'T‡×Á¹gëàï3', ''),
+(50, 'Tharanga', 'tharanga@gmail.com', 'asa', '0715758963', 0, 0, 'aas', 'Ampara', 'M', '6d9b3e1cc0c7df2096a153c0b49127be', 'tharanga123', 'û¨ä„µœ‡Õ\\@ÿu', '');
 
 -- --------------------------------------------------------
 
@@ -188,12 +204,13 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `password`, `passw`, `salary`, `code`, `NIC`, `validationc`, `gender`, `userLevel`, `description`, `propic`) VALUES
 (1, 'AbcAVCX', '1234667891', 'aba@gmail.com', '123A,Aaa,UIO', '2018-10-03', '1234567', '', 1.111111111111111e15, '', '123453689V', NULL, 'Male', 'B', 'lknlknjbjaaa', ''),
-(2, 'K.Kasun lkj123', '0715877633', 'kasun1@gmail.com', '123A,Aaa,UIO', '0000-00-00', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123466789V', '0', 'Male', 'B', NULL, 'img/profilepic/85e35c114d56b278b699c949acde7932images5.jpg'),
+(2, 'K.Kasun lkj123', '0715877633', 'kasun1@gmail.com', '123A,Aaa,UIO', '0000-00-00', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123466789V', '0', 'Male', 'B', NULL, 'img/profilepic/e49c8bf68f41de03ca9a5eb91951a819index1.jpg'),
 (7, 'ABCXYZ1', '0715759133', 'dulipABC@gmail.com', '', '0000-00-00', '204d47bf7966f88ef2a8aad4a3f82317', '', 0, '', NULL, NULL, NULL, 'R', NULL, ''),
 (8, 'admin', '0715759133', 'admin@gmail.com', '123A,Aaa,KIO', '2018-08-01', '0192023a7bbd73250516f069df18b500', 'admin123', 0, '', '123456579V', '0', 'Male', 'A', '', ''),
-(10, 'K.Kasun', '0715237398', 'kasun@gmail.com', '123A,Aaa,KIO', '2018-10-03', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123456791V', '0', 'Male', 'B', ',jnn,mn,m', 'img/profilepic/b328c0f61e9dc8f75a7bd980bedb83a4person1.jpg'),
+(10, 'K.Kasun', '0715237398', 'kasun@gmail.com', '123A,Aaa,KIO', '2018-10-03', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123456791V', '0', 'Male', 'B', ',jnn,mn,m', 'img/profilepic/25995e5395a242b7dc54b94166c5c7a7images6.jpg'),
 (12, 'Max Tennyson', '0715894321', 'MaxTennyson@gmail.com', '123A,Aaa,aws', '2019-01-02', '89ef5e6a5e6af895aad66febf6b9d775', 'maxt123', 0, '', '123456789V', '0', 'Male', 'B', 'nmnbjhy', 'img/profilepic/6e2e0d7f698714dabc7627ed7f2bc2c6mens5-570x5701.jpg'),
-(13, 'Kabal', '0715759133', 'kabal@gmail.com', '123A,Aaa,aws', '2019-01-01', 'dd02b2e4be82df30da0c382c05110a5f', 'kabal123', 0, '', '123569837V', '0', 'Male', 'B', 'mlksads', 'img/profilepic/f474e20a76432c9e53a017abf3014cf5images2.jpg');
+(13, 'Kabal', '0715759133', 'kabal@gmail.com', '123A,Aaa,aws', '2019-01-01', 'dd02b2e4be82df30da0c382c05110a5f', 'kabal123', 0, '', '123569837V', '0', 'Male', 'B', 'mlksads', 'img/profilepic/f474e20a76432c9e53a017abf3014cf5images2.jpg'),
+(14, 'Bandara', '0715896321', 'bandara@gmail.com', '', '0000-00-00', '2bb3b9e8770fa260143b60799751a86b', '', 0, '', NULL, NULL, NULL, 'R', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -213,7 +230,8 @@ CREATE TABLE `empservice` (
 INSERT INTO `empservice` (`employee`, `service`) VALUES
 (1, 2),
 (1, 3),
-(2, 4);
+(2, 4),
+(10, 2);
 
 -- --------------------------------------------------------
 
@@ -285,7 +303,12 @@ INSERT INTO `messages` (`mid`, `customerid`, `question`, `answer`, `state`, `tim
 (34, '2', NULL, NULL, '1', NULL, ' aaa', 'R', '2018-11-07 09:09:00'),
 (35, '2', NULL, NULL, '1', NULL, 'bbb', 'C', '2018-11-07 09:09:12'),
 (36, '48', NULL, NULL, '1', NULL, 'Hey\n', 'C', '2018-12-31 22:07:09'),
-(37, '48', NULL, NULL, '1', NULL, 'How are you\n', 'R', '2018-12-31 22:07:37');
+(37, '48', NULL, NULL, '1', NULL, 'How are you\n', 'R', '2018-12-31 22:07:37'),
+(38, '48', NULL, NULL, '1', NULL, ' ', 'C', '2019-01-02 20:50:48'),
+(39, '48', NULL, NULL, '1', NULL, '123\n', 'C', '2019-01-02 21:06:49'),
+(40, '48', NULL, NULL, '1', NULL, ' i need to know', 'C', '2019-01-02 21:07:08'),
+(41, '48', NULL, NULL, '1', NULL, ' somethings\n', 'C', '2019-01-02 21:07:16'),
+(42, '48', NULL, NULL, '1', NULL, 'what  do you need to know?\n', 'R', '2019-01-02 21:09:19');
 
 -- --------------------------------------------------------
 
@@ -523,7 +546,8 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `employee`, `ratevalue`, `feedback`) VALUES
-(1, 2, 80, 'lkanlfkna\r\n');
+(1, 2, 80, 'lkanlfkna\r\n'),
+(2, 10, 87, 'asklmacv');
 
 -- --------------------------------------------------------
 
@@ -779,7 +803,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointmentid` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `appointmentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `appointmentpay`
@@ -797,7 +821,7 @@ ALTER TABLE `beautician`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `empleave`
@@ -809,7 +833,7 @@ ALTER TABLE `empleave`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `healthytips`
@@ -821,7 +845,7 @@ ALTER TABLE `healthytips`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `nonappointmentpay`
@@ -845,7 +869,7 @@ ALTER TABLE `purchasepay`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `services`

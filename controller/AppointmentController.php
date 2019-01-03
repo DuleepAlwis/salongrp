@@ -37,7 +37,7 @@ function getAppointmentEmployee($date,$employee)
         $employee = 0;
     }
 
-    return $appointment->getAll($date,$employee);
+    return $appointment->getAllAppointments($date,$employee);
 }
 
 function getCustomerAppointments($id)

@@ -19,7 +19,7 @@ class Customer
     public $passw;
     public $state=0;
     public $terms=0;
-    public $validationc;
+    public $validationc=0;
     protected $db;
     protected $con;
 
@@ -51,7 +51,7 @@ class Customer
         }
         $sql = "insert into customer(name,email,address,tpno,password,passw,city,district,state,terms,validationc,gender) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('sssssssssss',$this->name,$this->email,$this->address,$this->tpno,$this->password
+        $stmt->bind_param('ssssssssssss',$this->name,$this->email,$this->address,$this->tpno,$this->password
             ,$this->passw,$this->city,$this->district,$this->state,$this->terms,$this->validationc,$this->gender);
         if($stmt->execute())
         {
