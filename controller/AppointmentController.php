@@ -46,4 +46,11 @@ function getCustomerAppointments($id)
     return $appointment->getCustomerAppointments($id);
 }
 
+function getBeauticianAppointments($id)
+{
+    $appointment = new Appointment();
+    return $appointment->getBeauticianAppointments($id);
+}
+
+
 

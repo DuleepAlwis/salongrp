@@ -58,10 +58,10 @@ class Payment
         }
     }
 
-    public function ProductInsert($productid,$quantity,$price)
+    public function ProductInsert($productid,$quantity,$price,$date,$time)
     {
-        $date = date("y-m-d");
-        $time = date("H:i:s");
+        //$date = date("y-m-d");
+        //$time = date("H:i:s");
         $sqlInsert = "insert into purchaseitem(itemid,date,time,quantity,price) values(?,?,?,?,?);";
         $stmtInsert = $this->con->prepare($sqlInsert);
         $stmtInsert->bind_param("sssss",$productid,$date,$time,$quantity,$price);

@@ -305,11 +305,12 @@ class Employee
         }
     }
 
-    public function getBeauticians()
+    public function getBeauticians($uLevel)
     {
-        $sql = "select id,name from employee;";
+        $sql = "select id,name from employee where userLevel=?;";
         if($stmt=$this->con->prepare($sql))
         {
+            $stmt->bind_param("s",$uLevel);
             if($stmt->execute())
             {
                 return $stmt;

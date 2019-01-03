@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 function getBeautician()
 {
     $beautician = new Employee();
-    $result = $beautician->getBeauticians();
+    $result = $beautician->getBeauticians("B");
     $arr = array();
     $i = 0;
     if($result)

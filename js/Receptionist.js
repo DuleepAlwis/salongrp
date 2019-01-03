@@ -412,6 +412,9 @@ function NonAppointmentPay(Serviceid,beauticianid,price)
 function PurchasePay(Productid,quantity,price)
 {
     var url = "../../controller/ReceptionistAjax.php";
+    var date = new Date();
+    var paymentDate = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+    var paymentTime = date.getTime();
     ajax.open("POST",url,true);
     ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     ajax.send('Productid='+Productid+'&quantity='+quantity+'&price='+price+'&number=5');
@@ -420,7 +423,7 @@ function PurchasePay(Productid,quantity,price)
     setTimeout(function (){
         ajax.open("POST",url,true);
         ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        ajax.send('Productid='+Productid+'&quantity='+quantity+'&price='+price+'&number=5');
+        ajax.send('Productid='+Productid+'&quantity='+quantity+'&price='+price+'&number=5'+'&date'+paymentDate+'&time='+paymentTime);
         console.log(Productid+"art");
         return true;
     },11000);

@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             echo json_encode([$result]);
         }
         break;
-        case "5":if($result=PurchasePay($_POST["Productid"],$_POST["quantity"],$_POST["price"]))
+        case "5":if($result=PurchasePay($_POST["Productid"],$_POST["quantity"],$_POST["price"],$_POST["date"],$_POST["time"]))
         {
             echo json_encode([$result]);
         }
@@ -55,7 +55,7 @@ function getBeauticians()
 {
     $employee = new Employee();
 
-    if (($result = $employee->getBeauticians()) != null) {
+    if (($result = $employee->getBeauticians("B")) != null) {
         $emp = array();
         $result->bind_result($id, $name);
         $i = 0;
@@ -97,10 +97,10 @@ function NonAppointmentPay($serviceid,$beauticianid,$price,$date,$time)
 
 }
 
-function PurchasePay($productid,$quantity,$price)
+function PurchasePay($productid,$quantity,$price,$date,$time)
 {
     $payment = new Payment();
-    if($result=$payment->ProductInsert($productid,$quantity,$price))
+    if($result=$payment->ProductInsert($productid,$quantity,$price,$date,$time))
     {
         if($result>0)
         {

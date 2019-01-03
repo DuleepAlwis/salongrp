@@ -12,6 +12,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         case "1":removeProduct($_POST["Id"]);break;
         case "2":removeService($_POST["Id"]);break;
         case "3":removeEmployee($_POST["Id"]);break;
+        case "4":getBeautician();break;
+        case "5":getServices();break;
+
     }
 }
 
@@ -57,4 +60,46 @@ function removeEmployee($id)
     }
 }
 
+//Number 4 for getBeauticans
+function getBeauticians()
+{
+    $employee = new Employee();
+
+    if (($result = $employee->getBeauticians("B")) != null) {
+        $emp = array();
+        $result->bind_result($id, $name);
+        $i = 0;
+        while ($result->fetch()) {
+            $emp[$id] = $name;
+        }
+        echo json_encode([true, $emp]);
+
+
+    } else {
+        echo json_encode([false, null]);
+    }
+}
+
+function getServices()
+{
+    $service = new Service();
+    $result = $service->getServices();
+    $arr = array();
+    $i = 0;
+    if($result)
+    {
+        $result->bind_result($id,$name,$price,$duration);
+        while($result->fetch())
+        {
+            $arr[$id] = array($name,$price,$duration);
+            $i = $i+1;
+        }
+        echo json_encode([true,$arr]);
+    }
+    else
+    {
+        echo json_encode([false]);
+    }
+
+}
 ?>

@@ -37,9 +37,9 @@ require_once("../../controller/AppointmentController.php");
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Beautician</th>
                         <th scope="col">Service</th>
-                        <th scope="col">Time</th>
                         <th scope="col">Price</th>
                         <th scope="col">State</th>
                         <th scope="col"></th>
@@ -47,7 +47,7 @@ require_once("../../controller/AppointmentController.php");
                     </thead>
                     <tbody id="AppointmentTable">
                     <?php
-                        if($result=getCustomerAppointments(1))
+                        if($result=getCustomerAppointments($_SESSION["id"]))
                         {
                             $result->bind_result($appointmentid,$date,$time,$state,$price,$service,$employee);
                             $color="";
@@ -55,7 +55,7 @@ require_once("../../controller/AppointmentController.php");
                             if($state==0)
                             {
                                 $color = 'Lime';
-                                $statement = "Not completed";
+                                $statement = "N/C";
                             }
                             else
                             {
@@ -64,8 +64,8 @@ require_once("../../controller/AppointmentController.php");
                             }
                             while($result->fetch())
                             {
-                                echo "<tr style='background-color: $color'><td>".$appointmentid."</td><td>".$date."<td/><td>".$employee."</td><td>".$service."<td/><td>".$time."</td><td>".
-                                    $price."</td><td>".$statement."</td></tr>";
+                                echo "<tr style='background-color: $color'><td>".$appointmentid."</td><td>".$date."</td><td>".$time."</td><td>".$employee."</td><td>".$service."</td><td>".
+                                    $price."</td><td>".$statement."</td><td></td></tr>";
                             }
                         }
                     ?>

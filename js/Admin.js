@@ -5,7 +5,7 @@ var service = []; //[serviceId,serviceName]
 //Load Beautician's from the DB
 function loadBeautician()
 {
-    var url = "../../controller/CustomerServer.php";
+    var url = "../../controller/AdminAjax.php";
     ajax.onreadystatechange = beauticianList
     ajax.open("POST",url,true);
     ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
@@ -72,7 +72,7 @@ function selectBeautician() {
 
 function loadServices()
 {
-    var url = "../../controller/CustomerServer.php";
+    var url = "../../controller/AdminAjax.php";
 
     ajax.onreadystatechange = serviceList
     ajax.open("POST",url,true);

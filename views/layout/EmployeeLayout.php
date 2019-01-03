@@ -2,47 +2,39 @@
 /**
  * Created by PhpStorm.
  * User: dulip
- * Date: 10/6/18
- * Time: 6:15 AM
+ * Date: 10/13/18
+ * Time: 7:46 PM
  */
-echo "
-<nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
-    <div class='container'>
-      <a href='../../index1.html' class='navbar-brand'>Salon Sanrooka</a>
-      <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav'>
+echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
+    <img src='../../img/icons/image13.png' width='110px'><a class='navbar-brand text-white display-5' href='#' style='font-size: 35px'>Salon Sanrooka</a>
+    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
         <span class='navbar-toggler-icon'></span>
-      </button>
-      <div class='collapse navbar-collapse' id='navbarNav'>
-        <!-- <ul class='navbar-nav'>
-          <li class='nav-item px-2'>
-            <a href='employee_viewappointments.html' class='nav-link'>View Appointments</a>
-          </li>
-          <li class='nav-item px-2'>
-            <a href='employee_postpone.html' class='nav-link'>Postpone</a>
-          </li>
-        </ul> -->
+    </button>
+    <div class='collapse navbar-collapse justify-content-end' id='navbarNav'>
+        <ul class='navbar-nav'>
+            <li class='nav-item'>
+                <a class='btn-outline-info nav-link text-white' href='../../'>Home <span class='sr-only'>(current)</span></a>
+            </li>
+            <li class='nav-item'>
+                <a class='btn-outline-info nav-link text-white' href='./'>New Appointments</a>
+            </li>
+            <li class='nav-item text-white'>
+                <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>My Appointments</a>
+            </li>
+            <li class='nav-item dropdown'>
+             
+                    <button class='btn btn-outline-primary dropdown-toggle btn-hover' type='button' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+ 
+                    </button>
+                    <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='navbarDropdownMenuLink'>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='./'>Profile</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='../logout.php'>Logout</a>
 
-        <ul class='navbar-nav ml-auto'>
-          <li class='nav-item px-2'>
-            <a href='employee_viewappointments.php' class='nav-link'>View Appointments</a>
-          </li>
-          <li class='nav-item px-2'>
-            <a href='employee_postpone.php' class='nav-link'>Apply Leave</a>
-          </li>
-          <li class='nav-item dropdown mr-3'>
-            <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown'>
-              <i class='fa fa-user'></i> 
-            </a>
-            <div class='dropdown-menu'>
-              <a href='employee_myprofile.php' class='dropdown-item'>
-                <i class='fa fa-user-circle'></i> Profile
-              </a>
-              <a href='#' class='dropdown-item'>
-                <i class='fa fa-gear'></i> Logout
-              </a>
-            </div>
-          </li>
-      </div>
+                    </div>
+                
+            </li>
+            <li><span style='display: inline-block;width:175px'></span></li>
+        </ul>
     </div>
-  </nav>
-  ";
+</nav>"
+?>

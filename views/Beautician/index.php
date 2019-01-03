@@ -16,7 +16,7 @@
 <body class="customer-background" onload="CallMethods()">
 <?php
 include "../logallow.php";
-require_once("../layout/CustomerLayout.php");
+require_once("../layout/EmployeeLayout.php");
 require_once("../../controller/RatingsFeedbackController.php");
 require_once("../../controller/EmployeeController.php");
 ?>
