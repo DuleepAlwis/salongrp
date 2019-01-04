@@ -9,7 +9,7 @@ function loadBeautician()
     ajax.onreadystatechange = beauticianList
     ajax.open("POST",url,true);
     ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    ajax.send('number=1');
+    ajax.send('number=4');
 }
 
 function beauticianList()
@@ -29,6 +29,7 @@ function beauticianList()
                 {
                     beautician.push([keys[i],values[i]]);
                 }
+
                 selectBeautician();
             }
         }
@@ -43,7 +44,8 @@ function selectBeautician() {
 
         var select = document.getElementById("beautician");
         var k = select.length - 1;
-        for (k = select.length - 1; k >= 0; k--) {
+        for (k = select.length - 1; k >= 0; k--)
+        {
             select.remove(k);
         }
         /*var option = document.createElement("option");
@@ -52,17 +54,19 @@ function selectBeautician() {
         option.style.color = "black";
         select.appendChild(option);*/
         var i = 0;
+        console.log(111);
         for (i = 0; i < beautician.length; i++) {
             var option = document.createElement("option");
             option.style.color = "black";
             option.setAttribute("value", beautician[i][0]);
             option.innerHTML = beautician[i][1];
             select.appendChild(option);
+            console.log(option);
 
         }
     }
     catch (e) {
-
+        console.log(e);
     }
     loadServices();
 }
@@ -77,7 +81,7 @@ function loadServices()
     ajax.onreadystatechange = serviceList
     ajax.open("POST",url,true);
     ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    ajax.send('number=2');
+    ajax.send('number=5');
 }
 
 function serviceList() {
@@ -87,7 +91,7 @@ function serviceList() {
             if (result[0]) {
                 var keys = Object.keys(result[1]);
                 var values = Object.values(result[1]);
-                console.log(keys+" "+values);
+                //console.log(keys+" "+values);
                 var i = 0;
                 for (i = 0; i < keys.length; i++) {
                     service.push([keys[i], values[i][0], values[i][1], values[i][2]]);
@@ -290,5 +294,16 @@ function updateReceptionist(id)
         editInput[i].value = productTd[i].innerText;
         console.log(editInput[i]+" "+productTd[i].innerText);
     }
+}
+
+function removeEmployeeService(empId,serviceId)
+{
+    $url = "../../controller/AdminAjax.php";
+    ajax.open("POST",$url,true);
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send("number=6"+"&empId="+empId+"&serviceId="+serviceId);
+    setTimeout(function () {
+        window.location.href = window.location.href;
+    },1500);
 }
 

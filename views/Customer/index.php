@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/main.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 <body class="customer-background" onload="loadServices()">
 <?php
@@ -215,3 +216,4 @@ if(isset($_POST["submitAppointment"]))
                 </script>";
     }
 }
+?>

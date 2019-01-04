@@ -7,7 +7,12 @@ function stockReport()
 {
 
     var date = new Date();
-    var today = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+    var month = date.getMonth();
+    if(month==0)
+    {
+        month = 1;
+    }
+    var today = date.getFullYear()+"-"+month+"-"+date.getDate();
     var doc = new jsPDF('p', 'pt');
 
     var res = doc.autoTableHtmlToJson(document.getElementById("stock-details"));
@@ -39,7 +44,16 @@ function RevenueReport()
     calculateTotalRevenue();
     var i = 0;
     var date = new Date();
-    var today = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+    var month = date.getMonth();
+    alert(month);
+    console.log(month);
+    if(month==0)
+    {
+        month = 1;
+    }
+
+
+    var today = date.getFullYear()+"-"+month+"-"+date.getDate();
     var doc = new jsPDF('p', 'pt');
     var productTable = document.getElementById("product-revenue");
     var serviceTable = document.getElementById("service-revenue");
@@ -55,7 +69,8 @@ function RevenueReport()
             doc.setTextColor(40);
             doc.setFontStyle('normal');
             //doc.addImage(headerImgData, 'JPEG', data.settings.margin.left, 20, 50, 50);
-            doc.text("Revenue Report from products on "+today, data.settings.margin.left, 50);
+            //doc.text("Revenue Report from products on "+today, data.settings.margin.left, 0,0,0);
+            doc.Text(20,20,"Revenue Report from products on "+today);
         };
 
         var options = {
@@ -92,7 +107,7 @@ function RevenueReport()
         var options = {
             beforePageContent: header,
             margin: {
-                top: 80
+                top: 150
             },
             startY: doc.autoTableEndPosY() + 20
         };

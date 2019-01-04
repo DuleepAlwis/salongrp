@@ -374,7 +374,7 @@ require_once ("../../controller/AdminController.php");
 <script src="../../js/sb-admin.min.js"></script>
 <script src="../../js/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/admin.js"></script>
+<script src="../../js/Admin.js"></script>
 
 
 </body>

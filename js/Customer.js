@@ -144,7 +144,7 @@ function CallMethods()
 function loadBeautician()
 {
     //console.log((document.getElementById("service").value).split("&")[0]);
-    var service = document.getElementById("service").value.split("&")[0];
+    var service = document.getElementById("service").value.split("-")[0];
     var url = "../../controller/CustomerServer.php";
     ajax.onreadystatechange = beauticianList
     ajax.open("POST",url,true);
@@ -268,7 +268,7 @@ function selectService()
     {
         option = document.createElement("option");
         option.style.color = "black";
-        var servicedetails = service[i][0]+"&"+service[i][2]+"&"+service[i][3]+"&"+service[i][1];
+        var servicedetails = service[i][0]+"-"+service[i][2]+"-"+service[i][3]+"-"+service[i][1];
         option.setAttribute("value",servicedetails);
         option.innerHTML = service[i][1];
         select.appendChild(option);
@@ -474,6 +474,34 @@ function updateCustomer()
         console.log(editInput[j].value+" "+tr[i].childNodes[1].innerText);
         j = j+1;
     }
+}
+
+
+function updateAppointment(appointmentId)
+{
+   var tr = document.getElementById(appointmentId).childNodes;
+   console.log(tr+" "+tr[1].innerText+" "+tr[4].innerText);
+   var appId = document.getElementById("appointmentId");
+   appId.value = appointmentId;
+   appId.setAttribute("min",appointmentId);
+   appId.setAttribute("max",appointmentId);
+   document.getElementById("date").value = tr[1].innerText;
+   document.getElementById("time").value = tr[2].innerText;
+   var serviceName = tr[4].innerText;
+   var i = 0;
+   for(i=0;i<service.length;i++)
+   {
+       if(service[i][1]==serviceName)
+       {
+           serviceName = service[i][0]+"-"+serviceName;
+       }
+   }
+    document.getElementById("service").value = serviceName;
+    loadBeautician();
+
+    document.getElementById("beautician").selected = tr[3].innerText;
+
+
 }
 
 //======================================================================================================================

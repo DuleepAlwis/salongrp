@@ -1,7 +1,17 @@
 <?php
 
-include "../model/Database.php";
-include "../model/Login.php";
+if(file_exists("../model/Database.php"))
+{
+    include "../model/Database.php";
+    include "../model/Login.php";
+}
+
+if(file_exists("model/Database.php"))
+{
+    include "./model/Database.php";
+    include "./model/Login.php";
+}
+
 $login = new Login();
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
@@ -37,6 +47,24 @@ if($_SERVER["REQUEST_METHOD"]=="GET")
     }
 
 }
+
+function forgotPassword($email)
+{
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+        $login = new Login();
+        if($login->forgotPassword($email))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+}
+
 
 function test($data)
 {

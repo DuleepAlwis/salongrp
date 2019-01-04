@@ -33,6 +33,7 @@ class ServiceEmployee
 
     public function removeEmpService($employee,$service)
     {
+
         $sql = "delete from empservice where employee=? and service=?;";
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param("ss",$employee,$service);
@@ -45,7 +46,7 @@ class ServiceEmployee
 
     public function getServiceEmployee()
     {
-        $sql = "select employee.name,services.name from empservice,employee,services where employee.id=empservice.employee and services.id=empservice.service;";
+        $sql = "select employee.name,employee.id,services.name,services.id from empservice,employee,services where employee.id=empservice.employee and services.id=empservice.service;";
         $stmt = $this->con->prepare($sql);
         if($stmt->execute())
         {

@@ -45,7 +45,7 @@ class Login
                         'hashPassword' => $password,'passw'=>$passw, 'city' => $city, 'district' => $district,'gender'=>$gender);
                     //Direct to Customer Profile
                     //header("Location:../views/Customer/");
-
+//mail("duleepalwis@gmail.com","Success","Great Messages");
                     header("Location:../views/Customer/CustomerProfile.php");
                     return true;
 
@@ -139,8 +139,8 @@ class Login
         //echo strcmp($credentials['user'],$uname); //." ".$credentials['password'];
         //echo strcmp($credentials['password'],$userPassword);
         //echo $credentials['password']." ".$userPassword;
-        echo strlen($userPassword);
-        echo strcmp($credentials['password'],$userPassword);
+        //echo strlen($userPassword);
+        //echo strcmp($credentials['password'],$userPassword);
         /*if(strlen($uname)>0 && strlen($userPassword)>0 && strcmp($credentials['user'],$uname)>=0 && strcmp($credentials['password'],$userPassword)>=0)
         {
 
@@ -195,6 +195,45 @@ class Login
                 return false;
             }
         }
+    }
+
+    public function forgotPassword($email)
+    {
+        $emailHash = rand(10,1000);
+        $dbHash = md5($emailHash);
+        
+        //Employee forgot email
+        $sql = "update employee set passw=?,password=? where email=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sss",$emailHash,$dbHash,$email);
+        if($stmt->execute())
+        {
+            $stmt->store_result();
+            if($stmt->affected_rows>0)
+            {
+                mail($email,"This is your new password, use this when you login",$emailHash);
+                return true;
+            }
+
+        }
+
+        //Customer forgot email
+        $sql = "update customer set passw=?,password=? where email=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sss",$emailHash,$dbHash,$email);
+        if($stmt->execute())
+        {
+            $stmt->store_result();
+            if($stmt->affected_rows>0)
+            {
+                mail($email,"This is your new password, use this when you login",$emailHash);
+                return true;
+            }
+
+        }
+        return false;
+
+
     }
 
 

@@ -19,7 +19,7 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
                 <a class='btn-outline-info nav-link text-white' href='./'>New Appointments</a>
             </li>
             <li class='nav-item text-white'>
-                <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>Previous Apoointment</a>
+                <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>My Appointments</a>
             </li>
             <li class='nav-item dropdown'>
              

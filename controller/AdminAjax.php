@@ -12,8 +12,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         case "1":removeProduct($_POST["Id"]);break;
         case "2":removeService($_POST["Id"]);break;
         case "3":removeEmployee($_POST["Id"]);break;
-        case "4":getBeautician();break;
+        case "4":getBeauticians();break;
         case "5":getServices();break;
+        case "6":removeEmpService($_POST["empId"],$_POST["serviceId"]);break;
 
     }
 }
@@ -100,6 +101,22 @@ function getServices()
     {
         echo json_encode([false]);
     }
+
+}
+
+function removeEmpService($emp,$service)
+{
+    $serviceEmp = new ServiceEmployee();
+    $result = $serviceEmp->removeEmpService($emp,$service);
+    if($result)
+    {
+        echo json_encode([true,$result]);
+    }
+    else
+    {
+        echo json_encode([false,$result]);
+    }
+
 
 }
 ?>

@@ -87,6 +87,7 @@
                                 <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
                             </div>
                             <small>Don't have an account? Then <a class="text-dark" href="./register.php">Sign in</a></small>
+                            <small>Forgot Password <a class="text-dark" href="./forgotpassword.php">Forgot Password</a></small>
 
 
                     </div>

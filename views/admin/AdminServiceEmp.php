@@ -72,12 +72,12 @@ require_once ("../../controller/AdminController.php");
                         if(($result=getServiceEmployee())!=null)
                         {
                             //id,NIC,name,tpno,email,address,joindate,gender,userLevel,description
-                            $result->bind_result($service,$beautician);
+                            $result->bind_result($empName,$empId,$serviceName,$serviceId);
                             $id = 0;
                             while($result->fetch())
                             {
                                 $id = $id+1;
-                                echo "<tr id='$id'><th scope='row'>".$id."</th><td>".$service."</td><td>".$beautician."</td><td><button class='btn btn-danger' onclick="."removeEmployeeService('$id')".">"."Remove"."</button></td></tr>";
+                                echo "<tr id='$id'><th scope='row'>".$id."</th><td>".$serviceName."</td><td>".$empName."</td><td><button class='btn btn-danger' onclick="."removeEmployeeService('$empId','$serviceId')".">"."Remove"."</button></td></tr>";
                             }
 
                         }
@@ -120,7 +120,7 @@ require_once ("../../controller/AdminController.php");
 <script src="../../js/sb-admin.min.js"></script>
 <script src="../../js/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/admin.js"></script>
+<script src="../../js/Admin.js"></script>
 
 
 </body>

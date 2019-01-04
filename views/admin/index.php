@@ -64,7 +64,7 @@ require_once("../../controller/AppointmentController.php");
 
                         <div class="form-group col-md-4">
                             <label for="employee"><b>Employee</b></label><br>
-                            <select id="employee" name="employee" class="mt-1"></select>
+                            <select id="beautician" name="beautician" class="form-control mt-1"></select>
                         </div>
                         <div class="form-group col-md-2 mt-3">
 
@@ -97,10 +97,10 @@ require_once("../../controller/AppointmentController.php");
                         </thead>
                         <tbody class="text-primary">
                         <?php
-                        if(!empty($_POST["date"]) && isset($_POST["employee"]))
+                        if(!empty($_POST["date"]) && isset($_POST["beautician"]))
                         {
                             //echo $_POST["date"]." ".$_POST["employee"];
-                            if(($result=getAppointmentEmployee($_POST["date"],$_POST["employee"]))!=null)
+                            if(($result=getAppointmentEmployee($_POST["date"],$_POST["beautician"]))!=null)
                             {
                                 $result->bind_result($id,$name,$date,$time,$service,$beautician,$price);
                                 while($result->fetch())
@@ -176,9 +176,7 @@ require_once("../../controller/AppointmentController.php");
 <script src="../../js/sb-admin.min.js"></script>
 <script src="../../js/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/Receptionist.js"></script>
-<script src="../../js/CustomerHelp.js"></script>
-
+<script src="../../js/Admin.js"></script>
 
 
 </body>

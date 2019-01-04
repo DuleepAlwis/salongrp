@@ -137,4 +137,20 @@ class Appointment
 
     }
 
+    public function UpdateAppointment($id)
+    {
+        $sql = "update appointment set beauticianid=?,date=?,time=? where appointmentid=?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ssss",$this->BeauticianId,$this->date,$this->time,$id);
+        if($stmt->execute())
+        {
+            $stmt->store_result();
+            if($stmt->affected_rows>0)
+            {
+                return true;
+            }
+        }
+        return $stmt->affected_rows;
+    }
+
 }

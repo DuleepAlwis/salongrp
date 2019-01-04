@@ -232,7 +232,6 @@ require_once ("../../controller/AdminController.php");
 <script src="../../js/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/Admin.js"></script>
-<script src="../../js/CustomerHelp.js"></script>
 
 
 

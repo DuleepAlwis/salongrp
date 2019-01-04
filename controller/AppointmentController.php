@@ -29,6 +29,24 @@ function addAppointment($customerId)
 
 }
 
+function updateAppointment($appointmentId)
+{
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+        $appointment = new Appointment();
+        $appointment->AppointmentId = $appointmentId;
+        $appointment->BeauticianId = $_POST["beautician"];
+        $appointment->date = $_POST["date"];
+        $appointment->time = $_POST["time"];
+        $result = $appointment->UpdateAppointment($appointmentId);
+        if($result)
+        {
+            return true;
+        }
+        return $result;
+    }
+}
+
 function getAppointmentEmployee($date,$employee)
 {
     $appointment = new Appointment();
