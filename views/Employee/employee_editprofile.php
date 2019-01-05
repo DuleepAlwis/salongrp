@@ -10,9 +10,51 @@
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+<<<<<<< HEAD:views/Employee/employee_editprofile.php
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="../../index1.html" class="navbar-brand">Salon Sanrooka</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="employee_viewappointments.html" class="nav-link">View Appointments</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="employee_postpone.html" class="nav-link">Postpone</a>
+          </li>
+        </ul> -->
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item px-2">
+            <a href="employee_viewappointments.php" class="nav-link">View Appointments</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="employee_appointments_history.php" class="nav-link">Appointment History</a>
+          </li>
+          <li class="nav-item dropdown mr-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i> 
+            </a>
+            <div class="dropdown-menu">
+              <a href="employee_myprofile.php" class="dropdown-item">
+                <i class="fa fa-user-circle"></i> Profile
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-gear"></i> Logout
+              </a>
+            </div>
+          </li>
+      </div>
+    </div>
+  </nav>
+=======
 <?php
 include "../layout/EmployeeLayout.php";
 ?>
+>>>>>>> 206f80d1d073d59e03bd845d011335882dc32cc8:views/Beautician/employee_editprofile.php
 
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
@@ -80,23 +122,46 @@ include "../layout/EmployeeLayout.php";
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="7" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
                 </div>
+                <div class="form-group">
+                  <label for="inputnic">NIC</label>
+                  <input type="text" class="form-control" id="inputnic" placeholder="NIC" required pattern="[0-9]{9}[Vv||xX]">
+                </div>
+                <fieldset class="form-group">
+                  <div class="row">
+                    <label for="inputgender" class="col-form-label col-sm-2 pt-0">Gender</label>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
                 
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputcity">City</label>
-                    <select id="inputcity" class="form-control">
+                    <label for="inputdistrict">District</label>
+                    <select id="inputdistrict" class="form-control">
                       <option selected>Choose...</option>
                       <option>Ampara</option>
                       <option>Anuradhapura</option>
@@ -127,15 +192,24 @@ include "../layout/EmployeeLayout.php";
                     
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="inputdistrict">District</label>
-                    <input type="text" class="form-control" id="inputdistrict" placeholder="District">
+                    <label for="inputcity">City</label>
+                    <input type="text" class="form-control" id="inputcity" placeholder="City">
                   </div>
                 </div>
                 
                 <br><br>
-                <a href="#" type="submit" class="btn btn-primary">Save Changes</a>
+                <!-- <button type="submit" class="btn btn-primary">Save Changes</button>
+                  <script>
+                    function myFunction() {
+                      alert("Save Changes are Successfully");
+                    }
+                  </script> -->
 
-                <a href="#" type="submit" class="btn btn-primary">Cancel</a>
+                <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
+
+                <a href="#" type="submit" class="btn btn-primary">Save Changes </a> 
+
+                <a href="employee_myprofile.php" type="submit" class="btn btn-primary">Cancel</a>
 
               </form>
             </div>
@@ -143,13 +217,14 @@ include "../layout/EmployeeLayout.php";
         </div>
         <div class="col-md-3">
           <!-- <h3>Your Avatar</h3> -->
-          <img src="img/avatar.png" alt="" class="d-block img-fluid mb-3">
+          <img src="../../img/avatar.png" alt="" class="d-block img-fluid mb-3">
           <button class="btn btn-primary btn-block">Change Image</button>
           <!-- <button class="btn btn-danger btn-block">Delete Image</button> -->
         </div>
       </div>
     </div>
   </section>
+
 
   <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
     <div class="conatiner">
@@ -189,16 +264,9 @@ include "../layout/EmployeeLayout.php";
     </div>
   </div>
 
-
-<<<<<<< HEAD:views/Beautician/employee_editprofile.php
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/popper.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
-=======
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
->>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744:views/employee_editprofile.html
   <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
   <script>
       CKEDITOR.replace( 'editor1' );

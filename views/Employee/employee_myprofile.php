@@ -10,9 +10,51 @@
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+<<<<<<< HEAD:views/Employee/employee_myprofile.php
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="../../index1.html" class="navbar-brand">Salon Sanrooka</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="employee_viewappointments.html" class="nav-link">View Appointments</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="employee_postpone.html" class="nav-link">Postpone</a>
+          </li>
+        </ul> -->
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item px-2">
+            <a href="employee_viewappointments.php" class="nav-link">View Appointments</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="employee_appointment_history.php" class="nav-link">Appointment History</a>
+          </li>
+          <li class="nav-item dropdown mr-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i> 
+            </a>
+            <div class="dropdown-menu">
+              <a href="employee_myprofile.php" class="dropdown-item">
+                <i class="fa fa-user-circle"></i> Profile
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-gear"></i> Logout
+              </a>
+            </div>
+          </li>
+      </div>
+    </div>
+  </nav>
+=======
 <?php
 include "../layout/EmployeeLayout.php";
 ?>
+>>>>>>> 206f80d1d073d59e03bd845d011335882dc32cc8:views/Beautician/employee_myprofile.php
 
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
@@ -121,7 +163,7 @@ include "../layout/EmployeeLayout.php";
                 </div>
                 <br><br>
 
-          <a href="employee_editprofile.html" type="submit" class="btn btn-primary">Edit Profile</a>
+          <a href="employee_editprofile.php" type="submit" class="btn btn-primary">Edit Profile</a>
 
               </form>
             </div>

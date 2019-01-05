@@ -13,9 +13,57 @@
   <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 </head>
 <body>
+<<<<<<< HEAD:views/Employee/employee_viewappointments.php
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="../../index1.html" class="navbar-brand">Salon Sanrooka</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="employee_viewappointments.html" class="nav-link active">View Appointments</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="employee_postpone.html" class="nav-link">Postpone</a>
+          </li>
+        </ul> -->
+
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item px-2">
+            <a href="employee_viewappointments.php" class="nav-link">View Appointments</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="employee_appointment_history.php" class="nav-link">Appointment History</a>
+          </li>
+          <li class="nav-item dropdown mr-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i> 
+            </a>
+            <div class="dropdown-menu">
+              <a href="employee_myprofile.php" class="dropdown-item">
+                <i class="fa fa-user-circle"></i> Profile
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fa fa-gear"></i> Logout
+              </a>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="login.html" class="nav-link">
+              <i class="fa fa-user-times"></i> Logout
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+=======
 <?php
 include "../layout/EmployeeLayout.php";
 ?>
+>>>>>>> 206f80d1d073d59e03bd845d011335882dc32cc8:views/Beautician/employee_viewappointments.php
 
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
@@ -35,7 +83,7 @@ include "../layout/EmployeeLayout.php";
   <section id="posts"><br><br><br>
     <div class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header">
               <h4>Appointments</h4>
@@ -61,6 +109,8 @@ include "../layout/EmployeeLayout.php";
                   <td>Rs. 200.00</td>
                   <td>10/09/2018</td>
                   <td>10.30 AM</td>
+                  <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#postponeModal">
+                  <i class="fa fa-angle-double-right"></i> Postpone</button></td>
                 </tr>
                 <tr>
                   <td scope="row">2</td>
@@ -69,6 +119,8 @@ include "../layout/EmployeeLayout.php";
                   <td>Rs. 800.00</td>
                   <td>11/09/2018</td>
                   <td>04.00 PM</td>
+                 <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#postponeModal">
+                  <i class="fa fa-angle-double-right"></i> Postpone</button></td>
                 </tr>
                 <tr>
                   <td scope="row">3</td>
@@ -77,14 +129,17 @@ include "../layout/EmployeeLayout.php";
                   <td>Rs. 2000.00</td>
                   <td>11/09/2018</td>
                   <td>05.30 PM</td>
+                  <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#postponeModal">
+                  <i class="fa fa-angle-double-right"></i> Postpone</button></td>
                 </tr>
               </tbody>
               
             </table>
           </div>
         </div>
+
         
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
           <div class="card text-center bg-primary text-white mb-3">
             <div class="card-body">
               <h3>Appointments</h3>
@@ -94,11 +149,33 @@ include "../layout/EmployeeLayout.php";
               <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
   </section>
+
+  <div class="modal fade" role="dialog" id="postponeModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"> Appointment Postpone</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Message:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="12" cols="60"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- calender -->
   
@@ -119,7 +196,7 @@ include "../layout/EmployeeLayout.php";
   
 
   <!-- CATEGORY MODAL -->
-  <div class="modal fade" id="addCategoryModal">
+  <!-- <div class="modal fade" id="addCategoryModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-success text-white">
@@ -140,10 +217,10 @@ include "../layout/EmployeeLayout.php";
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- USER MODAL -->
-  <div class="modal fade" id="addUserModal">
+  <!-- <div class="modal fade" id="addUserModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-warning text-white">
@@ -177,16 +254,10 @@ include "../layout/EmployeeLayout.php";
       </div>
     </div>
   </div>
-
-<<<<<<< HEAD:views/Beautician/employee_viewappointments.php
+ -->
   <script src="../../js/jquery.min.js"></script>
   <script src="../../js/popper.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
-=======
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
->>>>>>> 68bde942519064024c5cc733eeaa6d9840cc9744:views/employee_viewappointments.html
   <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
   <!-- Date Picker -->
   <script src="js/bootstrap-datepicker.js"></script>
