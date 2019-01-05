@@ -109,15 +109,19 @@ function ChangePassword($id)
     {
         $employee = new Employee();
 
-        $employee->password = $_POST["password"];
-        if($employee->ChangePassword($_SESSION["id"]))
-        {
-            $_SESSION["passw"] = $_POST["password"];
-            return true;
-        }
-        else
-        {
-            return false;
+        if ($_SESSION["passw"] == $_POST["cpassword"]){
+            $employee->password = $_POST["password"];
+            if($_POST["password"] == $_POST["rpassword"]){
+                if($employee->ChangePassword($_SESSION["id"]))
+                {
+                    $_SESSION["passw"] = $_POST["password"];
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 

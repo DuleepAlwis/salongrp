@@ -55,7 +55,7 @@ require_once("../../controller/AppointmentController.php");
                         $statement = "";
                         if($state==0)
                         {
-                            $color = 'Lime';
+                            $color = '#7FFFD4';
                             $statement = "N/C";
                         }
                         else

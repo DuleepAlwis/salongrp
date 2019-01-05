@@ -64,10 +64,16 @@ function getCustomerAppointments($id)
     return $appointment->getCustomerAppointments($id);
 }
 
-function getBeauticianAppointments($id)
+function getBeauticianPreAppointments($id)
 {
     $appointment = new Appointment();
-    return $appointment->getBeauticianAppointments($id);
+    return $appointment->getBeauticianPreAppointments($id);
+}
+
+function getBeauticianNewAppointments($id)
+{
+    $appointment = new Appointment();
+    return $appointment->getBeauticianNewAppointments($id);
 }
 
 
