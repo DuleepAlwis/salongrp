@@ -41,26 +41,27 @@ class Payment
         }
     }
 
-    public function NonAppointmentInsert($serviceid,$beauticianid,$price)
+    public function NonAppointmentInsert($serviceid,$beauticianid,$price,$date,$time)
     {
+
         $sqlInsert = "insert into nonappointmentpay(serviceid,beauticianid,price,date,time) values(?,?,?,?,?);";
         $stmtInsert = $this->con->prepare($sqlInsert);
-        $stmtInsert->bind_param("sssss",$serviceid,$beauticianid,$price,date(y-m-d),time());
+        $stmtInsert->bind_param("sssss",$serviceid,$beauticianid,$price,$date,$time);
 
         if($stmtInsert->execute())
         {
-            return true;
+            return $stmtInsert->affected_rows;
         }
         else
         {
-            return false;
+            return $stmtInsert->error;
         }
     }
 
-    public function ProductInsert($productid,$quantity,$price)
+    public function ProductInsert($productid,$quantity,$price,$date,$time)
     {
-        $date = date("y-m-d");
-        $time = date("H:i:s");
+        //$date = date("y-m-d");
+        //$time = date("H:i:s");
         $sqlInsert = "insert into purchaseitem(itemid,date,time,quantity,price) values(?,?,?,?,?);";
         $stmtInsert = $this->con->prepare($sqlInsert);
         $stmtInsert->bind_param("sssss",$productid,$date,$time,$quantity,$price);

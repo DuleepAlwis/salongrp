@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 </head>
 <body>
+<<<<<<< HEAD:views/Employee/employee_viewappointments.php
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
       <a href="../../index1.html" class="navbar-brand">Salon Sanrooka</a>
@@ -58,6 +59,11 @@
       </div>
     </div>
   </nav>
+=======
+<?php
+include "../layout/EmployeeLayout.php";
+?>
+>>>>>>> 206f80d1d073d59e03bd845d011335882dc32cc8:views/Beautician/employee_viewappointments.php
 
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">

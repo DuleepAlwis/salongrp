@@ -1,114 +1,121 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: user
- * Date: 9/8/2018
- * Time: 3:26 PM
+ * User: dulee
+ * Date: 11/7/2018
+ * Time: 7:39 PM
  */
-/*echo '
-<nav class='navbar navbar-expand-sm navbar-dark bg-dark p-0'>
-    <div class='container'>
-      <a href='index.html' class='navbar-brand'>Salon Sanrooka</a>
-      <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav'>
-        <span class='navbar-toggler-icon'></span>
-      </button>
-      <div class='collapse navbar-collapse justify-content-end' id='navbarNav'>
-        
-
-        <ul class='navbar-nav ml-auto justify-content-end'>
-          <li class='nav-item dropdown mr-3'>
-            <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown'>
-              <img src='../img/user.png' width='35%' height='35%'></i><?php echo; ?>
-            </a>
-            <div class='dropdown-menu'>
-              <a href='profile.html' class='dropdown-item'>
-                <i class='fa fa-user-circle'></i> Profile
-              </a>
-              <a href='settings.html' class='dropdown-item'>
-                <i class='fa fa-gear'></i> Logout
-              </a>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <header id='main-header' class='py-2 bg-primary'>
-    <div class='container'>
-      <div class='row'>
-        <div id='payment' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/coins.png' width='35%' height='35%'><a href='ReceptionistPayment.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Payment</a>
-        </div>
-        <div id='appointment' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/appointment.png' width='35%' height='35%'><a href='ReceptionistAppointment.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Appointment</a>
-        </div>
-        <div id='stock' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/stock.png' width='35%' height='35%'><a href='ReceptionistStock.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Stock details</a>
-        </div>
-        <div id='report' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/report1.png' width='35%' height='35%'><a href='ReceptionistReport.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>S & R Report</a>
-        </div>
-        <div id='support' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/support.png' width='35%' height='35%'><a href='ReceptionistSupport.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Customer Sup.</a>
-        </div>
-        <div id='leave' class='col-md-2 menuBox' style='border-style: outset;background-color: #28a745'>
-         <img src='../img/leave.png' width='35%' height='35%'><a href='ReceptionistLeave.php' style='font-size: 23px;color: #343a40 ' class='navbar-brand display-5'>Employee Leave</a>
-        </div>
-        
-      </div>
-    </div>
-  </header>
-
-  
-    '*/
-
 echo "
-    <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-        <img src='../../img/icons/image13.png' width='110px'><a class='navbar-brand display-5' href='#' style='font-size: 35px'>Salon Sanrooka</a>
-        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-            <span class='navbar-toggler-icon'></span>
-        </button>
-        <div class='collapse navbar-collapse justify-content-end' id='navbarNav'>
-            <ul class='navbar-nav'>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='../../index.php'><button class='btn btn-info'>Home</button> </a>
-                </li>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistAppointment.php'><button class='btn btn-info btn-hover'>Appointment</button> </a>
-                </li>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistStock.php'><button class='btn btn-info btn-hover'>Stock</button> </a>
-                </li>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistPayment.php'><button class='btn btn-info btn-hover'>Payment</button> </a>
-                </li>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistSupport.php'><button class='btn btn-info btn-hover'>Customer Help</button> </a>
-                </li>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistReport.php'><button class='btn btn-info btn-hover'>Reports</button> </a>
-                </li>
-                <li class='nav-item active'>
-                    <a class='nav-link' href='ReceptionistLeave.php'><button class='btn btn-info btn-hover'>Leaves</button> </a>
-                </li>
-                <li class='nav-item'>
-                <div class='dropdown'>
-                   <button class='btn btn-info dropdown-toggle btn-hover' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                <img src='../../img/icons/user.png' width='55%' height='55%'>
-                              </button>
-                              <div class='dropdown-menu dropdown-hover' aria-labelledby='dropdownMenu2'>
-                                <button class='dropdown-item' type='button'><a class='nav-link' href='ReceptionistProfile.php'>Profile</a></button>
-                                <button class='dropdown-item' type='button'><a class='nav-link' href='../logout.php'>Logout</a></button>
-                                
-                              </div>
-                            </div>
-                            </li>
-                            <li></li>
-            </ul>
-        </div>
-    </nav>
-"
-?>
+ <nav class='navbar navbar-expand-lg navbar-dark bg-dark text-white'>
 
+      <a class='navbar-brand mr-1' href='../../'>Salon Sanrooka</a>
+
+      <button class='btn btn-link btn-sm text-white order-1 order-sm-0' id='sidebarToggle' href='#'>
+        <i class='fas fa-bars'></i>
+      </button>
+
+      <!-- Navbar Search -->
+      <form class='d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0'>
+        <div class='input-group'>
+          <input type='text' class='form-control' placeholder='Search for...' aria-label='Search' aria-describedby='basic-addon2'>
+          <div class='input-group-append'>
+            <button class='btn btn-primary' type='button'>
+              <i class='fas fa-search'></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Navbar -->
+      <ul class='navbar-nav ml-auto ml-md-0'>
+        <li class='nav-item dropdown no-arrow mx-1'>
+          <a class='nav-link dropdown-toggle' href='#' id='alertsDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-bell fa-fw'></i>
+            <span class='badge badge-danger'>9+</span>
+          </a>
+          <div class='dropdown-menu dropdown-menu-right' aria-labelledby='alertsDropdown'>
+            <a class='dropdown-item' href='#'>Action</a>
+            <a class='dropdown-item' href='#'>Another action</a>
+            <div class='dropdown-divider'></div>
+            <a class='dropdown-item' href='#'>Something else here</a>
+          </div>
+        </li>
+        <li class='nav-item dropdown no-arrow mx-1'>
+          <a class='nav-link dropdown-toggle' href='#' id='messagesDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-envelope fa-fw'></i>
+            <span class='badge badge-danger'>7</span>
+          </a>
+          <div class='dropdown-menu dropdown-menu-right' aria-labelledby='messagesDropdown'>
+            <a class='dropdown-item' href='#'>Action</a>
+            <a class='dropdown-item' href='#'>Another action</a>
+            <div class='dropdown-divider'></div>
+            <a class='dropdown-item' href='#'>Something else here</a>
+          </div>
+        </li>
+        <li class='nav-item dropdown no-arrow'>
+          <a class='nav-link dropdown-toggle' href='#' id='userDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-user-circle fa-fw'></i>
+          </a>
+          <div class='dropdown-menu dropdown-menu-right' aria-labelledby='userDropdown'>
+            <a class='dropdown-item' href='./ReceptionistProfile.php'>Profile</a>
+            <a class='dropdown-item' href='../logout.php'>Logout</a>
+            
+        </li>
+      </ul>
+
+    </nav>
+
+    <div id='wrapper'>
+
+      <!-- Sidebar -->
+      <ul class='sidebar navbar-nav'>
+        <li class='nav-item'>
+          <a class='nav-link' href=''>
+            <i class='fas fa-fw fa-tachometer-alt'></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class='nav-item dropdown'>
+          <a class='nav-link dropdown-toggle' href='#' id='pagesDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <i class='fas fa-fw fa-folder'></i>
+            <span>Pages</span>
+          </a>
+          <div class='dropdown-menu' aria-labelledby='pagesDropdown'>
+            <h6 class='dropdown-header'>Login Screens:</h6>
+            <a class='dropdown-item' href='login.html'>Login</a>>
+            <a class='dropdown-item' href='register.html'>Register</a>
+            <a class='dropdown-item' href='forgot-password.html'>Forgot Password</a>
+            <div class='dropdown-divider'></div>
+            <h6 class='dropdown-header'>Other Pages:</h6>
+            <a class='dropdown-item' href='404.html'>404 Page</a>
+            <a class='dropdown-item active' href='blank.html'>Blank Page</a>
+          </div>>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='./'>
+            <i class='fas fa-fw fa-chart-area'></i>
+            <span>Appointments</span></a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='./ReceptionistStock.php'>
+            <i class='fas fa-fw fa-table'></i>
+            <span>Stock</span></a>
+        </li>
+          <li class='nav-item'>
+              <a class='nav-link' href='./ReceptionistPayment.php'>
+                  <i class='fas fa-fw fa-table'></i>
+                  <span>Payment</span></a>
+          </li>
+          <li class='nav-item'>
+              <a class='nav-link' href='./ReceptionistReport.php'>
+                  <i class='fas fa-fw fa-table'></i>
+                  <span>Report</span></a>
+          </li>
+          <li class='nav-item'>
+              <a class='nav-link' href='.'>
+                  <i class='fas fa-fw fa-table'></i>
+                  <span>Employee Leaves</span></a>
+          </li>
+      </ul>
+ "
+?>

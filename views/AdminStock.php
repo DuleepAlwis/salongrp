@@ -169,3 +169,13 @@ if(isset($_POST["submit"]))
 </script>
 </body>
 </html>
+
+<?php
+if($_POST["submit"])
+{
+    $result = AddItem();
+    if($result)
+    {
+
+    }
+}

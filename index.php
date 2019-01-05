@@ -17,7 +17,11 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
+<?php
+    session_start();
+    require_once("controller/EmployeeController.php");
 
+?>
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -35,9 +39,9 @@
                         <li class="nav-item">
                             <a href="#home-section" class="nav-link text-primary">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a href="#register" class="nav-link text-primary">Register</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a href="#services" class="nav-link text-primary">Services</a>
                         </li>
@@ -47,11 +51,56 @@
                         <li class="nav-item">
                             <a href="#Gallery" class="nav-link text-primary">About us</a>
                         </li>
+                        <?php
+                        
+                        if(!isset($_SESSION["id"]))
+                            {
+                                echo "
+                                     <li class='nav-item'>
+                            <span href='' class='nav-link text-primary'><button type='button' class='btn btn-primary border' data-toggle='modal' data-target='#exampleModal'>Login</button></span>
+                        </li>
+                                ";
+                            }
+                       ?>
 
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-info">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body bg-primary">
+                        <form name="login" method="post" action="controller/LoginController.php">
+                            <div class="form-group">
+                                <input type="text" name="uname" class="form-control form-control-lg" placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
+                            </div>
+                            <small>Don't have an account? Then <a class="text-dark" href="./register.php">Sign in</a></small>
+                            <small>Forgot Password <a class="text-dark" href="./forgotpassword.php">Forgot Password</a></small>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="login" class="btn btn-success text-dark" value="Login"> <input type="reset" class="btn btn-success" value="Cancel" data-dismiss="modal">
+
+                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>-->
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <header id="home-section">
             <div class="dark-overlay">
                 <div class="home-inner">
@@ -61,7 +110,17 @@
                                 <h1 class="display-4"><strong></strong><strong></strong></h1>
                             </div>
                             <div class="col-lg-4">
-                                <div class="card bg-primary text-center card-form">
+
+                                <?php
+                        
+                                    if(!isset($_SESSION["id"]))
+                                        {
+                                            echo "
+                                            <button  type='button' class='btn btn-primary border' data-toggle='modal' data-target='#exampleModal'>Make an appointment</button>
+                                            ";
+                                        }
+                                ?>
+                                <!--<div class="card bg-primary text-center card-form">
                                     <div class="card-body">
                                         <h3>Here is your Login</h3>
                                         <form name="login" method="post" action="controller/LoginController.php">
@@ -76,7 +135,7 @@
                                             <input type="submit" name="login" class="btn btn-outline-light" value="Login"> <input type="reset" class="btn btn-outline-light" value="Cancel">
 
                                         </form>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -86,53 +145,102 @@
         </header>
 
         <!-- EXPLORE HEAD-->
-        <section id="register">
+        <!--<section id="register">
             <!-- EXPLORE SECTION -->
         <section id="explore-section" class="bg-light text-muted py-5">
             <div class="container">
-                <form name="register" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <h3>Register</h3>
-                    <div class="form-row">
-                        Name:
-                        <input type="text" class="form-control" name="Name" placeholder="Name" required size="100">
-                        <div class="form-group col-md-6">
-                            <label for="inputMobile">Mobile number:</label>
-                            <input type="text" class="form-control" name="Mobile" placeholder="0715659741" required pattern="[0-9]{10}" size="13" style="width: 50%" title="Enter in the given format">
-                        </div>
-                        <div class="col-md-6"></div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" name="Email" placeholder="mymail@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Password</label>
-                            <input type="password" class="form-control" name="Password" placeholder="Password" required pattern=".{7,}" title="7 or more characters">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" name="Address" placeholder="" required maxlength="100">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputDistrict">City</label>
-                        <input type="text" class="form-control" name="City" placeholder="" required maxlength="20">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputDistrict">District</label>
-                        <select name="District" id="district" class="form-control" style="width:50%">
-                            <option>Ampara</option><option>Anuradhapura</option><option>Badulla</option><option>Batticaloa</option><option>Colombo</option><option>Galle</option><option>Gampaha</option><option>Hambantota</option>
-                            <option>Jaffna</option><option>Kalutara</option><option>Kandy</option><option>Kegalle</option><option>Kilinochchi</option><option>Kurunegala</option><option>Moneragala</option><option>Mannar</option>
-                            <option>Matara</option><option>Mullaitivu</option><option>Nuwara Eliya</option><option>Polonnaruwa</option><option>Puttalam</option><option>Ratnapura</option><option>Matale</option><option>Vavuniya</option>
-                        </select>
-                    </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary" name="submit" value="Sign in"> <input type="reset" class="btn btn-primary" name="Cancel" value="Cancel">
-                </form>
+                <?php
+                $result = getEmployeeRatings();
+                if($result)
+                    {
+                        $result->store_result();
+                        $result->bind_result($name,$location,$rateValue);
+                        $i=1;
+                        echo $result->num_rows;
+                        while($i<$result->num_rows)
+                        {
+                            echo "<div class='row'>";
+                            while($result->fetch())
+                            {
+
+                                $rateValue = $rateValue."%";
+                                    echo "<div class='col-md-3'><div class='card border-light' style='width: 18rem;margin-left: 0px;border-style: inset;'>
+                            <img class='card-img-top' src=" . "$location" . " alt='Card'" . " height='250px'>
+                            <div class='card-body' style='background-color: #8699a4'>
+                                <p class='card-text text-dark'><b>" . "$name" . "</b></p>
+                               <div style='border-radius: 7px;border-style: inset'>
+<div class='mt-0 progress'><div class='progress-bar' role='progressbar' aria-valuenow=" . "0" . " aria-valuemin='0' aria-valuemax='100' style="."width:$rateValue"."></div></div>
+</div></div></div></div><div class='col-md-1'></div>";
+
+                                    if ($i % 3 == 0 || $i==$result->num_rows)
+                                    {
+                                        break;
+                                    }
+                                $i = $i + 1;
+
+                            }
+                            echo "</div>";
+
+                        }
+
+                    }
+                    else
+                    {
+                        echo 111;
+                    }
+                    ?>
+
+                        <?php
+                        /*$result = getEmployeeRatings();
+                        $i=0;
+                        if($result)
+                        {
+                            $result->bind_result($name,$location,$rateValue);
+                            echo $name." ".$location." ".$rateValue;
+
+                            while($i!=$result->num_rows)
+                            {
+                                echo "<div class='carousel-inner'>";
+                                if ($i == 0) {
+                                    echo "<div class='carousel-item active'>";
+                                } else {
+                                    echo "<div class='carousel-item'>";
+
+                                }
+
+
+                                echo "<div class='row'>";
+                                while ($result->fetch())
+                                {
+                                    $rateValue = $rateValue . "%";
+                                    echo "<div class='card' style='width: 18rem;margin-left: 150px'>
+                            <img class='card-img-top' src=" . "$location" . " alt='Card image cap'" . ">
+                            <div class='card-body'>
+                                <p class='card-text'><b>" . "$name" . "</b></p>
+                               <div style='border-radius: 7px;border-style: inset'>
+<div class='mt-0 progress'><div class='progress-bar' role='progressbar' aria-valuenow=" . "0" . " aria-valuemin='0' aria-valuemax='100' style="."width:$rateValue"."></div></div>
+</div>";
+                                    $i = $i + 1;
+                                    if ($i % 3 == 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                                echo "</div></div></div>";
+                            }
+                                
+
+                            }
+
+
+
+                       */ ?>
+
+
             </div>
         </section>
 
-        </section>
+        <!--</section>-->
 
 
         <!-- CREATE HEAD -->
@@ -143,7 +251,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                    <div class="card ml-3" style="width: 18rem;">
+                    <div class="card ml-3 border-primary" style="width: 18rem;border-style: outset">
                         <img class="card-img-top" src="img/image7.jpg" width="50" height="150" alt="Card image cap">
                         <div class="card-body">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
@@ -447,32 +555,6 @@
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
 </html>
-<?php
-
-if(isset($_POST['submit']))
-{
-    if(strlen(trim($_POST["Password"]))<7)
-    {
-        "<script type='text/javascript'>alert('Password field must be 7 characters or more')</script>";
-    }
-    else
-    {
-        include "controller/CustomerController.php";
-
-        if(Addcustomer())
-        {
-            echo "<script type='text/javascript'>alert('Successfully registered')</script>";
-        }
-        else
-        {
-            echo "<script type='text/javascript'>alert('Invalid details')</script>";
-        }
-    }
-
-}
-
-?>
 
 
 
-        

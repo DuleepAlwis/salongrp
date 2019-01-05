@@ -97,24 +97,126 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-/*Chat Application css styles */
-
-.receiver-List
+/*CustomerHelp Application css styles */
+#customerMsgbox,#customerMsgflip
 {
-    border: #1c7430;
+    padding:7px;
+}
+
+#customerMsgflip
+{
+    width:150px;
+    border-radius: 13px;
+    background-color: #e5eecc;
+    border-style: solid
+}
+
+#customerMsgbox
+{
+    width: 150px;
+    height: 250px;
+    overflow-y: auto
+}
+
+#msgArea
+{
+    opacity: 1.5
+}
+
+
+
+@media only screen and (min-width: 500px){
+    #messageArea
+    {
+        left:100%;
+        top:100%;
+
+
+    }
+
+    #messageArea > div
+    {
+        left:50%;
+        top:50%
+    }
+
+
+}
+
+
+
+
+.msgBtn {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin-right: 17px;
+    margin-bottom: 17px
+}
+
+#messageArea
+{
+    left:77%;
+    top:100%;
+    bottum:0%
+
+}
+.uploadPhoto
+{
+    width:500px;
+    height: 500px;
+}
+
+.avatar
+{
+    width:250px;
+    height: 250px;
+    border-color: #2a2730;
+    border-style: outset;
+}
+.chat-list
+{
+    border-color: aliceblue;
     border-style: solid;
+    background-color: #e2e6ea;
+    overflow-y: auto;
+    height: 350px;
+    width: 250px
+
 }
 
 /*Payment Css */
 .payment-list
 {
-    height: 350px;
+    height: 250px;
     overflow-y: auto;
 }
 
+.payment-list thead
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #00CA79;
+    table-layout: fixed
+}
+
 .receptionist-background{
-    background-color: #c6c8ca;
-    color: #fff; }
+    background-color: #bee5eb;
+    color: #fff;
+}
+
+.customer-background
+{
+    background-color: #b1dfbb;
+}
+
+.register-box
+{
+    border-color: #0b0b0b;
+    border-style: ridge;
+    padding: 7px;
+}
 
 #services{
     background-color: #025aa5;
