@@ -16,19 +16,19 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
                 <a class='btn-outline-info nav-link text-white' href='../../'>Home <span class='sr-only'>(current)</span></a>
             </li>
             <li class='nav-item'>
-                <a class='btn-outline-info nav-link text-white' href='./'>New Appointments</a>
+                <a class='btn-outline-info nav-link text-white' href='../Beautician/employee_newappointment.php'>New Appointments</a>
             </li>
             <li class='nav-item text-white'>
-                <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>My Appointments</a>
+                <a class='btn-outline-info nav-link text-white' href='../Beautician/employee_preappointment.php'>Previous Appointments</a>
             </li>
             <li class='nav-item dropdown'>
              
-                    <button class='btn btn-outline-primary dropdown-toggle btn-hover' type='button' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                    &nbsp;&nbsp;<button class='btn btn-outline-primary dropdown-toggle btn-hover' type='button' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
  
                     </button>
                     <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='navbarDropdownMenuLink'>
-                        <!--<button class='dropdown-item'>--><a class='nav-link' href='./'>Profile</a>
-                        <!--<button class='dropdown-item'>--><a class='nav-link' href='../logout.php'>Logout</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link fa fa-user' href='./'>&nbsp;&nbsp;Profile</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link fa fa-sign-out' href='../logout.php'>&nbsp;&nbsp;Logout</a>
 
                     </div>
                 
