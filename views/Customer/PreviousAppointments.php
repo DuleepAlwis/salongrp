@@ -22,8 +22,19 @@ require_once("../logallow.php");
 require_once("../layout/CustomerLayout.php");
 require_once("../../controller/AppointmentController.php");
 ?>
+
+<div id="content-wrapper">
 <div class="container-fluid">
-    <h3 align="center">My Appointments</h3>
+    <div class="col-md-12" style="z-index: -1;">
+
+    <br><ol class="breadcrumb" style="background-color: #dee2e6;" >
+        <li class="breadcrumb-item">
+            <h2><i class="fa fa-calendar"></i> My Appointment</h2>
+        </li>
+    </ol>
+    </div>
+
+<div class="container-fluid">
     <div class="row mt-5">
 
 
@@ -153,7 +164,7 @@ require_once("../../controller/AppointmentController.php");
     </div>
 
     <div class="msgBtn">
-        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #20c997;border-radius: 17px;border-style: ridge" onclick="getCustomerMessages('<?php echo $_SESSION['id']; ?>','<?php echo $_SESSION['name']; ?>')"><img src="../../img/icons/messageicon1.png"> <b>Messages</b></button>
+        <button type="button" class="btn fa fa-comment-o" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #20c997;border-radius: 15px;border-color: black;" onclick="getCustomerMessages('<?php echo $_SESSION['id']; ?>','<?php echo $_SESSION['name']; ?>')"><b>&nbsp;&nbsp;Chat</b></button>
     </div>
     <div id="messageArea">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -184,6 +195,8 @@ require_once("../../controller/AppointmentController.php");
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 
                 <script src="../../js/vendor/jquery-3.2.1.min.js"></script>

@@ -19,28 +19,8 @@ include "../logallow.php";
 require_once("../layout/EmployeeLayout.php");
 require_once("../../controller/RatingsFeedbackController.php");
 require_once("../../controller/EmployeeController.php");
-<<<<<<< HEAD
-include '../../model/Connection.php';
 
-$sql = "SELECT * FROM appointment INNER JOIN employee ON  appointment.beauticianid=employee.id WHERE employee.email='".$_SESSION['email'] ."' AND appointment.date >= CURDATE()";
-   
-$query = mysqli_query($conn, $sql);
-
-if (!$query) {
-  die ('SQL Error: ' . mysqli_error($conn));
-}
-=======
 require_once("../../controller/AppointmentController.php");
-// include '../../model/Connection.php';
-
-// $sql = "SELECT * FROM appointment INNER JOIN employee ON  appointment.beauticianid=employee.id WHERE employee.email='".$_SESSION['email'] ."' AND appointment.date >= CURDATE()";
-   
-// $query = mysqli_query($conn, $sql);
-
-// if (!$query) {
-//   die ('SQL Error: ' . mysqli_error($conn));
-// }
->>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
 
 ?>
 
@@ -53,11 +33,8 @@ require_once("../../controller/AppointmentController.php");
             <li class="breadcrumb-item">
                 <!-- <h3 class="text-dark" align="center">My Profile</h3> -->
 
-<<<<<<< HEAD
-                <h1><i class='fas fa-fw fa-chart-area'></i> New Appointments</h1>
-=======
-                <h2><i class='fas fa-fw fa-chart-area'></i> My New Appointments</h2>
->>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
+                <h2><i class='fa fa-calendar'></i> My New Appointments</h2>
+                
             </li>
             <!--<li class="breadcrumb-item active">Blank Page</li>-->
         </ol>
@@ -69,45 +46,13 @@ require_once("../../controller/AppointmentController.php");
       <div class="row">
         <div class="col-md-12">
           <div class="card">
-<<<<<<< HEAD
+
             <div class="card-header">
               <h4>My Appointments</h4>
             </div>
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Appointment ID</th>
-                  <th>Customer ID</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>State</th>
-                  <th>Price</th>
-                  <th>Service ID</th>
-                  <th></th>
-                </tr>
-              </thead>
+            
 
-              <tbody>
-
-                <?php
-
-                while ($row = mysqli_fetch_array($query)){
-                echo '<tr> 
-                  <td>'.$row['appointmentid'].'</td>
-                  <td>'.$row['customerid'].'</td>
-                  <td>'. date('F d, Y', strtotime($row['date'])) . '</td>
-                  <td>'.$row['time'].'</td>
-                  <td>'.$row['state'].'</td>
-                  <td>'.$row['price'].'</td>
-                  <td>'.$row['serviceid'].'</td>
-                </tr>';
-              }
-              ?>
-                
-              </tbody>
-              
-            </table>
-=======
+       
             <div class="card-body" style="background-color: #f8f9fa;">
             <table class="table table-striped table-bordered">
               <thead class="thead-dark bg-primary">
@@ -133,7 +78,7 @@ require_once("../../controller/AppointmentController.php");
                       $statement = "";
                       if($state==0)
                       {
-                          $color = '#ccccff';
+                          $color = '#9eacd6b0';
                           $statement = "N/C";
                       }
                       else
@@ -154,18 +99,14 @@ require_once("../../controller/AppointmentController.php");
               </tbody>
               
             </table></div>
->>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
           </div>
         </div>
 
       </div>
     </div>
   </section>
-<<<<<<< HEAD
 </div></div>
 
-
-=======
 </div>
 </div>
 
@@ -177,8 +118,6 @@ require_once("../../controller/AppointmentController.php");
             </div>
         </div>
     </footer>
->>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
-
 
 
 

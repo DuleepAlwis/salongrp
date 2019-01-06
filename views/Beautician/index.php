@@ -185,7 +185,7 @@ require_once("../../controller/EmployeeController.php");
                                                                 <div class="col-md-10"> 
                                                                     <input type="submit" name="updatePassword" class="btn btn-primary" value="Save Changes">
 
-                                                                    <input type="reset" class="btn btn-secondary" value="Reset">
+                                                                    <input type="reset" class="btn btn-secondary" value="Cancel">
                                                                 </div>
                                                             </div>
                                                         </form>
