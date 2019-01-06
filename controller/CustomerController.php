@@ -98,17 +98,23 @@ function ChangePassword($id)
     {
         $customer = new Customer();
         
-        $customer->password = $_POST["password"];
-        if($customer->ChangePassword($_SESSION["id"]))
-        {
-            $_SESSION["passw"] = $_POST["password"];
+        //if ($_SESSION["passw"] == $_POST["cpassword"]){
+            $customer->password = $_POST["password"];
+
+            if($_POST["password"] == $_POST["rpassword"]){
+
+                if($customer->ChangePassword($_SESSION["id"]))
+                {
+                    $_SESSION["passw"] = $_POST["password"];
             //echo $_SESSION["passw"]." "."123";
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            }
+        //}
     }
   
 }
