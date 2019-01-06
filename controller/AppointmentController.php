@@ -22,6 +22,15 @@ function addAppointment($customerId)
         $result = $appointment->AddAppointment();
         if($result)
         {
+            try
+            {
+                $str = "You made an Appointment on ".$appointment->date." ".$appointment->time." "."Total price: ".$appointment->price;
+                mail($_SESSION["email"],"Appontment on",$str);
+            }
+            catch (Exception $x)
+            {
+
+            }
             return true;
         }
         return $result;

@@ -16,10 +16,10 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
                 <a class='btn-outline-info nav-link text-white' href='../../'>Home <span class='sr-only'>(current)</span></a>
             </li>
             <li class='nav-item'>
-                <a class='btn-outline-info nav-link text-white' href='../Beautician/employee_newappointment.php'>New Appointments</a>
+                <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>My Appointments</a>
             </li>
             <li class='nav-item text-white'>
-                <a class='btn-outline-info nav-link text-white' href='../Beautician/employee_preappointment.php'>Previous Apoointment</a>
+                <a class='btn-outline-info nav-link text-white' href=''>Logged in as ".$_SESSION['name']."</a>
             </li>
             <li class='nav-item dropdown'>
              
@@ -27,13 +27,13 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
  
                     </button>
                     <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='navbarDropdownMenuLink'>
-                        <!--<button class='dropdown-item '>--><a class='nav-link fa fa-user' href='../Beautician/index.php'>&nbsp;&nbsp;Profile</a>
-                        <!--<button class='dropdown-item'>--><a class='nav-link fa fa-sign-out' href='../logout.php'>&nbsp;&nbsp;Logout</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='./'>Profile</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='../logout.php'>Logout</a>
 
                     </div>
                 
             </li>
-            <li><span style='display: inline-block;width:110px'></span></li>
+            <li><span style='display: inline-block;width:175px'></span></li>
         </ul>
     </div>
 </nav>"

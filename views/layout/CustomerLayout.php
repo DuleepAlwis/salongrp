@@ -21,6 +21,9 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
             <li class='nav-item text-white'>
                 <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>My Appointments</a>
             </li>
+            <li class='nav-item text-white'>
+                <a class='btn-outline-info nav-link text-white text-light'>Logged in as ".$_SESSION['name']."</a>
+            </li>
             <li class='nav-item dropdown'>
              
                     <button class='btn btn-outline-primary dropdown-toggle btn-hover' type='button' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
