@@ -24,9 +24,9 @@ echo "
             </button>
           </div>
           -->
-          <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#ReceptionistAdd'>
-          Appoint Receptionist
-</button>
+          
+                <a class='btn-outline-info nav-link text-white text-light'>Logged in as ".$_SESSION['name']."</a>
+            
         
         </div>
       </form>

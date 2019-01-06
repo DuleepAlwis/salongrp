@@ -201,7 +201,7 @@ class Login
     {
         $emailHash = rand(10,1000);
         $dbHash = md5($emailHash);
-        
+
         //Employee forgot email
         $sql = "update employee set passw=?,password=? where email=?;";
         $stmt = $this->con->prepare($sql);

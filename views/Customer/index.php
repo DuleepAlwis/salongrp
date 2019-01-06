@@ -42,7 +42,7 @@ require_once("../../controller/AppointmentController.php");
                     <tr>
                         <td>
                             Date :<b id="warning" class="text-danger"></b>
-                            <input name="date" id="date" type="date" class="form-control" width="17px">
+                            <input name="date" id="date" type="date" class="form-control"  width="17px">
                         </td>
                     </tr>
                     <tr>
@@ -80,12 +80,32 @@ require_once("../../controller/AppointmentController.php");
                         <td>Total : <input class="form-control" type="text" name="totalprice" id="totalprice" value="0"></td>
                     </tr>
                     <tr>
-                        <td>Advance payment : <input class="form-control" type="text" id="advancep" value="0"></td>
+                        <td>Advance payment : <input class="form-control" type="text" id="advancep" value="" name="ap"></td>
                         <!--<td><button class="mt-3 btn btn-outline-primary">Make payment</button></td>-->
                     </tr>
-                    <tr><td><input class="btn btn-primary mt-3" type="submit" name="submitAppointment" value="Save"></td><td><input type="reset" class="btn btn-primary mt-3" value="Cancel"></td></tr>
+                    <tr><td><input class="btn btn-primary mt-3" type="hidden" id="clickMe" name="submitAppointment" value="Save"></td><td><input type="reset" class="btn btn-primary mt-3" value="Cancel"></td></tr>
                 </table>
             </form>
+            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" >
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="business" value="sanrookasalon@gmail.com">
+                            <input type="hidden" name="lc" value="US">
+                            <input type="hidden" name="item_name" value="paypalPlugin">
+                            <input type="hidden" name="item_number" value="paypalPlugin">
+                            <input type="hidden" name="amount" id="paypalval" value="">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="button_subtype" value="services">
+                            <input type="hidden" name="no_note" value="0">
+                            <input type="hidden" name="cn" value="Add special instructions to the seller:">
+                            <input type="hidden" name="no_shipping" value="1">
+                            <input type="hidden" name="rm" value="1">
+                            <input type="hidden" name="return" value="http://localhost/salongrp/views/Customer/">
+                            <input type="hidden" name="cancel_return" value="http://localhost/salongrp/views/Customer/">
+                            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted">
+                            <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" onclick="saveAppoinment()" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+
+                        </form>
         </div>
         <div class="col-md-2">
             <button class="btn btn-outline-primary" onclick="availableTimeSlots()">Available time slots :</button>

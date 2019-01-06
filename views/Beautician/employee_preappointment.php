@@ -34,6 +34,11 @@ if (!$query) {
 ?>
 
 <div id="content-wrapper">
+<div class="container">
+    <div class="col-md-12" style="z-index: -1;">
+    <br><ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <h1><i class='fas fa-fw fa-chart-area'></i> Appointments History</h1>
 <div class="container-fluid">
     <div class="col-md-12" style="z-index: -1;">
     <br><ol class="breadcrumb" style="background-color: #dee2e6;">
@@ -44,6 +49,7 @@ if (!$query) {
     </div>
 
     <section id="posts"><br>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -51,6 +57,7 @@ if (!$query) {
             <div class="card-body" style="background-color: #f8f9fa";>
               <table class="table table-striped table-bordered">
                   <thead class="thead-dark bg-primary" >
+
                   <tr>
                       <th scope="col">No</th>
                       <th scope="col">Date</th>
@@ -60,19 +67,24 @@ if (!$query) {
                       <th scope="col">Price</th>
                       <th scope="col">State</th>
                       <!-- <th scope="col"></th> -->
+
                   </tr>
                   </thead>
                   <tbody id="AppointmentTable">
                   <?php
                   //appointment.appointmentid,appointment.date,appointment.time,appointment.state,appointment.price,services.name,employee.name
+
                   if($result=getBeauticianPreAppointments($_SESSION["id"]))
                   {
                       $result->bind_result($appointmentid,$date,$time,$name,$state,$price,$service);
+
                       $color="";
                       $statement = "";
                       if($state==0)
                       {
                           $color = '#9eacd6b0';
+
+
                           $statement = "N/C";
                       }
                       else
@@ -82,13 +94,17 @@ if (!$query) {
                       }
                       while($result->fetch())
                       {
+
                           echo "<tr style='background-color: $color'><td>".$appointmentid."</td><td>".$date."</td><td>".$time."</td><td>".$name."</td><td>".$service."</td><td>".
                               $price."</td><td>".$statement."</td></tr>";
+
                       }
                   }
                   ?>
                   </tbody>
+
               </table></div>
+
           </div>
         </div>
 
@@ -99,6 +115,7 @@ if (!$query) {
 </div>
 </div>
 
+
 <br><br>  
     <footer class="sticky-footer"><br><br><br>
         <div class="container my-auto">
@@ -107,6 +124,7 @@ if (!$query) {
             </div>
         </div>
     </footer>
+
 
 
 </body>

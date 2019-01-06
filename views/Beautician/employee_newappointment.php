@@ -19,16 +19,8 @@ include "../logallow.php";
 require_once("../layout/EmployeeLayout.php");
 require_once("../../controller/RatingsFeedbackController.php");
 require_once("../../controller/EmployeeController.php");
+
 require_once("../../controller/AppointmentController.php");
-// include '../../model/Connection.php';
-
-// $sql = "SELECT * FROM appointment INNER JOIN employee ON  appointment.beauticianid=employee.id WHERE employee.email='".$_SESSION['email'] ."' AND appointment.date >= CURDATE()";
-   
-// $query = mysqli_query($conn, $sql);
-
-// if (!$query) {
-//   die ('SQL Error: ' . mysqli_error($conn));
-// }
 
 ?>
 
@@ -42,6 +34,7 @@ require_once("../../controller/AppointmentController.php");
                 <!-- <h3 class="text-dark" align="center">My Profile</h3> -->
 
                 <h2><i class='fa fa-calendar'></i> My New Appointments</h2>
+                
             </li>
             <!--<li class="breadcrumb-item active">Blank Page</li>-->
         </ol>
@@ -53,6 +46,13 @@ require_once("../../controller/AppointmentController.php");
       <div class="row">
         <div class="col-md-12">
           <div class="card">
+
+            <div class="card-header">
+              <h4>My Appointments</h4>
+            </div>
+            
+
+       
             <div class="card-body" style="background-color: #f8f9fa;">
             <table class="table table-striped table-bordered">
               <thead class="thead-dark bg-primary">
@@ -105,6 +105,8 @@ require_once("../../controller/AppointmentController.php");
       </div>
     </div>
   </section>
+</div></div>
+
 </div>
 </div>
 
@@ -116,7 +118,6 @@ require_once("../../controller/AppointmentController.php");
             </div>
         </div>
     </footer>
-
 
 
 

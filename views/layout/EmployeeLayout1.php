@@ -16,13 +16,10 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
                 <a class='btn-outline-info nav-link text-white' href='../../'>Home <span class='sr-only'>(current)</span></a>
             </li>
             <li class='nav-item'>
-                <a class='btn-outline-info nav-link text-white' href='./'>New Appointments</a>
-            </li>
-            <li class='nav-item text-white'>
                 <a class='btn-outline-info nav-link text-white' href='./PreviousAppointments.php'>My Appointments</a>
             </li>
             <li class='nav-item text-white'>
-                <a class='btn-outline-info nav-link text-white text-light'>Logged in as ".$_SESSION['name']."</a>
+                <a class='btn-outline-info nav-link text-white' href=''>Logged in as ".$_SESSION['name']."</a>
             </li>
             <li class='nav-item dropdown'>
              
@@ -30,7 +27,7 @@ echo "<nav class='navbar navbar-expand-lg navbar-light bg-dark text-white'>
  
                     </button>
                     <div class='dropdown-menu dropdown-hover text-dark' aria-labelledby='navbarDropdownMenuLink'>
-                        <!--<button class='dropdown-item'>--><a class='nav-link' href='./CustomerProfile.php'>Profile</a>
+                        <!--<button class='dropdown-item'>--><a class='nav-link' href='./'>Profile</a>
                         <!--<button class='dropdown-item'>--><a class='nav-link' href='../logout.php'>Logout</a>
 
                     </div>

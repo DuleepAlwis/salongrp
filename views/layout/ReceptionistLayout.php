@@ -22,6 +22,8 @@ echo "
             <button class='btn btn-primary' type='button'>
               <i class='fas fa-search'></i>
             </button>
+                            <a class='btn-outline-info nav-link text-white text-light'>Logged in as ".$_SESSION['name']."</a>
+
           </div>
         </div>
       </form>

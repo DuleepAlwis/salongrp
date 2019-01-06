@@ -106,16 +106,22 @@ function addToAppointments()
 
 
 }
+function saveAppoinment()
+{
+    document.getElementById("clickMe").click();
+}
 
 function calculatrTotal()
 {
     var tPrice = document.getElementById("totalprice");
     var advancep = document.getElementById("advancep");
-    var price = document.getElementById("service").value.split("&")[1];
+    var paypalvalue = document.getElementById("paypalval");
+    var price = document.getElementById("service").value.split("-")[1];
     totalPrice = totalPrice+parseFloat(price);
     console.log(totalPrice);
     tPrice.value = ""+totalPrice;
     advancep.value = ""+(totalPrice/2);
+    paypalvalue.value=""+(totalPrice/360);
 }
 
 function removeRow(rowNumber,price)

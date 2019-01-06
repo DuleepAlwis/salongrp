@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2019 at 10:54 AM
+-- Generation Time: Jan 04, 2019 at 11:39 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -48,10 +48,12 @@ INSERT INTO `appointment` (`appointmentid`, `customerid`, `date`, `time`, `state
 (27, 48, '2019-01-27', '9', 0, 375, 3, 1),
 (30, 48, '2019-01-27', '9.15', 0, 375, 3, 1),
 (33, 48, '2019-01-27', '12.3', 0, 1125, 3, 1),
-(34, 49, '2019-01-27', '13.45', 0, 750, 3, 1),
+(34, 49, '2019-01-11', '13.45', 0, 750, 3, 1),
 (35, 49, '2019-01-03', '9.3', 0, 375, 3, 1),
-(38, 49, '2019-01-27', '10', 0, 375, 3, 1),
-(39, 49, '2019-01-21', '9.3', 0, 375, 3, 1);
+(38, 49, '2019-01-23', '10', 0, 375, 3, 1),
+(39, 49, '2018-01-11', '17.15', 0, 375, 3, 1),
+(40, 49, '2019-01-27', '10.3', 0, 2500, 4, 2),
+(41, 51, '2019-01-17', '17.15', 0, 375, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,8 @@ INSERT INTO `customer` (`id`, `name`, `email`, `address`, `tpno`, `terms`, `stat
 (47, 'Max Tennyson', 'MaxTennyson@gmail.com', '11A', '0712365478', 0, 0, 'BNM', 'Kalutara', 'M', '33381ee5c6a6d89e3b23d6b39cd0992b', '', '£;Ñp¼\"5É¬Nê‰ù)', ''),
 (48, 'Dulip', 'dulip123@gmail.com', '111', '0715896321', 0, 0, 'AAA', 'Vavuniya', 'M', '67aec879aac46115ed68d50d6a9abd6e', '', 'X`Ìkˆ~EŠ;èB–è', ''),
 (49, 'Nimal', 'Nimal@gmail.com', '111', '0715789631', 0, 0, 'aaxz', 'Kilinochchi', 'M', '9ad24f2850062550f982603578e32db6', 'Nimal123', 'T‡×Á¹gëàï3', ''),
-(50, 'Tharanga', 'tharanga@gmail.com', 'asa', '0715758963', 0, 0, 'aas', 'Ampara', 'M', '6d9b3e1cc0c7df2096a153c0b49127be', 'tharanga123', 'û¨ä„µœ‡Õ\\@ÿu', '');
+(50, 'Tharanga', 'tharanga@gmail.com', 'asa', '0715758963', 0, 0, 'aas', 'Ampara', 'M', '6d9b3e1cc0c7df2096a153c0b49127be', 'tharanga123', 'û¨ä„µœ‡Õ\\@ÿu', ''),
+(51, 'Duleep', 'duleepalwis@gmail.com', '123A', '0715759321', 0, 0, 'CCC', 'Colombo', 'M', '2bc8b80330086f74c00325fc404a85da', '850', '‹¢ºÏÝáå1Yt®e¬HûÛ', '');
 
 -- --------------------------------------------------------
 
@@ -207,7 +210,7 @@ INSERT INTO `employee` (`id`, `name`, `tpno`, `email`, `address`, `joindate`, `p
 (2, 'K.Kasun lkj123', '0715877633', 'kasun1@gmail.com', '123A,Aaa,UIO', '0000-00-00', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123466789V', '0', 'Male', 'B', NULL, 'img/profilepic/e49c8bf68f41de03ca9a5eb91951a819index1.jpg'),
 (7, 'ABCXYZ1', '0715759133', 'dulipABC@gmail.com', '', '0000-00-00', '204d47bf7966f88ef2a8aad4a3f82317', '', 0, '', NULL, NULL, NULL, 'R', NULL, ''),
 (8, 'admin', '0715759133', 'admin@gmail.com', '123A,Aaa,KIO', '2018-08-01', '0192023a7bbd73250516f069df18b500', 'admin123', 0, '', '123456579V', '0', 'Male', 'A', '', ''),
-(10, 'K.Kasun', '0715237398', 'kasun@gmail.com', '123A,Aaa,KIO', '2018-10-03', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123456791V', '0', 'Male', 'B', ',jnn,mn,m', 'img/profilepic/25995e5395a242b7dc54b94166c5c7a7images6.jpg'),
+(10, 'K.Kasun', '0715237398', 'kasun@gmail.com', '123A,Aaa,KIu', '2018-10-03', '031110d8a7024dfcbf57eedda7c9dac9', 'kasun123', 0, '', '123456791V', '0', 'Male', 'B', ',jnn,mn,m', 'img/profilepic/d45ad13fcf19568fc37c1e49ed99f240person1.jpg'),
 (12, 'Max Tennyson', '0715894321', 'MaxTennyson@gmail.com', '123A,Aaa,aws', '2019-01-02', '89ef5e6a5e6af895aad66febf6b9d775', 'maxt123', 0, '', '123456789V', '0', 'Male', 'B', 'nmnbjhy', 'img/profilepic/6e2e0d7f698714dabc7627ed7f2bc2c6mens5-570x5701.jpg'),
 (13, 'Kabal', '0715759133', 'kabal@gmail.com', '123A,Aaa,aws', '2019-01-01', 'dd02b2e4be82df30da0c382c05110a5f', 'kabal123', 0, '', '123569837V', '0', 'Male', 'B', 'mlksads', 'img/profilepic/f474e20a76432c9e53a017abf3014cf5images2.jpg'),
 (14, 'Bandara', '0715896321', 'bandara@gmail.com', '', '0000-00-00', '2bb3b9e8770fa260143b60799751a86b', '', 0, '', NULL, NULL, NULL, 'R', NULL, '');
@@ -231,7 +234,11 @@ INSERT INTO `empservice` (`employee`, `service`) VALUES
 (1, 2),
 (1, 3),
 (2, 4),
-(10, 2);
+(10, 2),
+(10, 5),
+(10, 6),
+(13, 2),
+(13, 7);
 
 -- --------------------------------------------------------
 
@@ -308,7 +315,8 @@ INSERT INTO `messages` (`mid`, `customerid`, `question`, `answer`, `state`, `tim
 (39, '48', NULL, NULL, '1', NULL, '123\n', 'C', '2019-01-02 21:06:49'),
 (40, '48', NULL, NULL, '1', NULL, ' i need to know', 'C', '2019-01-02 21:07:08'),
 (41, '48', NULL, NULL, '1', NULL, ' somethings\n', 'C', '2019-01-02 21:07:16'),
-(42, '48', NULL, NULL, '1', NULL, 'what  do you need to know?\n', 'R', '2019-01-02 21:09:19');
+(42, '48', NULL, NULL, '1', NULL, 'what  do you need to know?\n', 'R', '2019-01-02 21:09:19'),
+(43, '49', NULL, NULL, '1', NULL, 'Hey', 'C', '2019-01-03 19:34:33');
 
 -- --------------------------------------------------------
 
@@ -371,7 +379,11 @@ INSERT INTO `nonappointmentpay` (`paymentid`, `serviceid`, `beauticianid`, `pric
 (32, 2, 1, 357, '2018-11-30', '00:00:00'),
 (33, 4, 2, 2500, '2018-11-30', '00:00:00'),
 (34, 3, 1, 375, '2018-11-30', '00:00:00'),
-(35, 3, 2, 375, '2018-11-30', '00:00:00');
+(35, 3, 2, 375, '2018-11-30', '00:00:00'),
+(36, 4, 1, 2500, '2019-00-03', '00:00:00'),
+(37, 2, 10, 1071, '2019-00-03', '00:00:00'),
+(38, 2, 10, 357, '2019-00-03', '00:00:00'),
+(39, 3, 2, 375, '2019-00-03', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -403,12 +415,9 @@ INSERT INTO `purchaseitem` (`paymentid`, `itemid`, `date`, `time`, `quantity`, `
 (13, 26, '2018-12-21', '21:06:31.000000', 1, '999'),
 (14, 26, '2018-12-21', '21:10:07.000000', 1, '999'),
 (15, 49, '2018-12-21', '21:13:45.000000', 1, '1000'),
-(16, 50, '2018-12-21', '21:15:05.000000', 1, '135'),
 (17, 26, '2018-12-21', '21:21:40.000000', 1, '999'),
 (18, 26, '2018-12-21', '21:22:00.000000', 1, '999'),
 (19, 2, '2018-12-21', '21:23:25.000000', 1, '1550'),
-(20, 50, '2018-12-21', '21:25:37.000000', 1, '135'),
-(21, 50, '2018-12-21', '21:30:45.000000', 1, '135'),
 (22, 49, '2018-12-21', '21:42:29.000000', 1, '1000'),
 (23, 2, '2018-12-21', '21:42:29.000000', 1, '1550'),
 (24, 26, '2018-12-21', '21:50:17.000000', 1, '999'),
@@ -469,11 +478,7 @@ INSERT INTO `purchaseitem` (`paymentid`, `itemid`, `date`, `time`, `quantity`, `
 (79, 2, '2018-12-22', '17:22:19.000000', 1, '1550'),
 (80, 7, '2018-12-22', '17:22:26.000000', 1, '1399'),
 (81, 26, '2018-12-22', '17:22:27.000000', 1, '999'),
-(82, 50, '2018-12-22', '17:42:04.000000', 1, '135'),
-(83, 50, '2018-12-22', '17:42:07.000000', 1, '135'),
-(84, 50, '2018-12-22', '17:43:25.000000', 1, '135'),
 (85, 2, '2018-12-22', '17:43:28.000000', 1, '1550'),
-(86, 50, '2018-12-22', '17:43:28.000000', 1, '135'),
 (87, 7, '2018-12-22', '17:44:12.000000', 1, '1399'),
 (88, 49, '2018-12-22', '17:44:12.000000', 1, '1000'),
 (89, 7, '2018-12-22', '17:44:23.000000', 1, '1399'),
@@ -492,28 +497,17 @@ INSERT INTO `purchaseitem` (`paymentid`, `itemid`, `date`, `time`, `quantity`, `
 (102, 26, '2018-12-27', '18:44:31.000000', 1, '999'),
 (103, 26, '2018-12-28', '19:20:52.000000', 1, '999'),
 (104, 26, '2018-12-28', '19:21:03.000000', 1, '999'),
-(105, 50, '2018-12-28', '19:25:13.000000', 1, '135'),
-(106, 50, '2018-12-28', '19:25:24.000000', 1, '135'),
 (107, 26, '2018-12-28', '19:49:23.000000', 1, '999'),
-(108, 50, '2018-12-28', '19:49:23.000000', 1, '135'),
 (109, 26, '2018-12-28', '19:49:34.000000', 1, '999'),
-(110, 50, '2018-12-28', '19:49:34.000000', 1, '135'),
 (111, 2, '2018-12-28', '22:54:06.000000', 1, '1550'),
 (112, 26, '2018-12-28', '22:54:06.000000', 1, '999'),
 (113, 2, '2018-12-28', '22:54:17.000000', 1, '1550'),
 (114, 26, '2018-12-28', '22:54:17.000000', 1, '999'),
 (115, 49, '2018-12-28', '22:54:50.000000', 1, '1000'),
-(116, 50, '2018-12-28', '22:54:50.000000', 1, '135'),
-(117, 50, '2018-12-28', '22:55:01.000000', 1, '135'),
 (118, 2, '2018-12-30', '15:26:40.000000', 1, '1550'),
 (119, 2, '2018-12-30', '15:27:27.000000', 1, '1550'),
 (120, 2, '2018-12-30', '15:27:38.000000', 1, '1550'),
-(121, 50, '2018-12-30', '15:29:29.000000', 1, '135'),
-(122, 50, '2018-12-30', '15:29:40.000000', 1, '135'),
-(123, 50, '2018-12-30', '15:31:15.000000', 1, '135'),
-(124, 50, '2018-12-30', '15:31:26.000000', 1, '135'),
-(125, 50, '2018-12-30', '15:31:30.000000', 1, '135'),
-(126, 50, '2018-12-30', '15:31:41.000000', 1, '135');
+(127, 7, '2019-01-03', '11:26:50.000000', 1, '1399');
 
 -- --------------------------------------------------------
 
@@ -613,8 +607,7 @@ INSERT INTO `stock` (`id`, `name`, `quantity`, `currentq`, `brand`, `price`, `pr
 (7, 'North for Men Recharge Hair & Body Wash', 17, 0, 'North for Men', 1399, 13, ''),
 (26, 'Studio Dry Turban Hair Towel', 11, 0, 'Alterna', 999, 11, ''),
 (49, 'North for Men Recharge Shaving Geln', 67, 0, 'Alterna', 1000, 11, ''),
-(50, 'Studio Dry Turban Hair Towel', 11, 0, 'Alterna', 135, 10, ''),
-(51, 'Studio Dry Turban Hair Towel1', 11, 0, 'Ateral', 135, 10, '');
+(52, 'Studio Dry Turban Hair Towel3', 17, 0, 'Ateral', 1959.25, 13, '');
 
 -- --------------------------------------------------------
 
@@ -803,7 +796,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointmentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `appointmentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `appointmentpay`
@@ -821,7 +814,7 @@ ALTER TABLE `beautician`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `empleave`
@@ -845,19 +838,19 @@ ALTER TABLE `healthytips`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `mid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `nonappointmentpay`
 --
 ALTER TABLE `nonappointmentpay`
-  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `paymentid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `purchasepay`
@@ -881,7 +874,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `supplier`
