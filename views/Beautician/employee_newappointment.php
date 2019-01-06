@@ -41,7 +41,7 @@ require_once("../../controller/AppointmentController.php");
             <li class="breadcrumb-item">
                 <!-- <h3 class="text-dark" align="center">My Profile</h3> -->
 
-                <h2><i class='fas fa-fw fa-chart-area'></i> My New Appointments</h2>
+                <h2><i class='fa fa-calendar'></i> My New Appointments</h2>
             </li>
             <!--<li class="breadcrumb-item active">Blank Page</li>-->
         </ol>

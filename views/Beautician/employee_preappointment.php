@@ -38,7 +38,7 @@ if (!$query) {
     <div class="col-md-12" style="z-index: -1;">
     <br><ol class="breadcrumb" style="background-color: #dee2e6;">
         <li class="breadcrumb-item">
-            <h2><i class='fas fa-fw fa-chart-area'></i> My Previous Appointments</h2>
+            <h2><i class='fa fa-calendar'></i> My Previous Appointments</h2>
         </li>
     </ol>
     </div>
