@@ -104,10 +104,10 @@ class Appointment
          return null;
     }
 
-    public function getBeauticianAppointments($id)
+    public function getBeauticianPreAppointments($id)
     {
-        $sql = "select appointment.appointmentid,appointment.date,appointment.time,appointment.state,appointment.price,services.name,employee.name
-         from appointment,employee,services where beauticianid=? and appointment.serviceid=services.id and appointment.beauticianid=employee.id;";
+        $sql = "select appointment.appointmentid,appointment.date,appointment.time,customer.name,appointment.state,appointment.price,services.name
+         from appointment,employee,services,customer where beauticianid=? and appointment.serviceid=services.id and appointment.beauticianid=employee.id and customer.id=appointment.customerid and appointment.date < CURDATE();";
 
         if($stmt = $this->con->prepare($sql))
         {
@@ -119,6 +119,25 @@ class Appointment
         }
         return null;
     }
+
+    public function getBeauticianNewAppointments($id)
+    {
+        // $sql = "select appointment.appointmentid,appointment.date,appointment.time,appointment.state,appointment.price,services.name,employee.name
+        //  from appointment,employee,services where beauticianid=? and appointment.serviceid=services.id and appointment.beauticianid=employee.id and appointment.date > CURDATE();";
+        $sql = "select appointment.appointmentid,appointment.date,appointment.time,customer.name,appointment.state,appointment.price,services.name
+        from appointment,employee,services,customer where beauticianid=? and appointment.serviceid=services.id and appointment.beauticianid=employee.id and customer.id=appointment.customerid and appointment.date > CURDATE();";
+
+        if($stmt = $this->con->prepare($sql))
+        {
+            $stmt->bind_param("s",$id);
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+        }
+        return null;
+    }
+
 
     public function getAvailableTime($date,$empId,$serviceId)
     {

@@ -25,9 +25,15 @@ require_once("../../controller/EmployeeController.php");
 <div class="container-fluid">
     <div class="col-md-12" style="z-index: -1;">
 
+<<<<<<< HEAD
     <br><ol class="breadcrumb border" style="background-color: #dee2e6;" >
         <li class="breadcrumb-item">
             <h1><i class="fa fa-user"></i> My Profile</h1>
+=======
+    <br><ol class="breadcrumb" style="background-color: #dee2e6;" >
+        <li class="breadcrumb-item">
+            <h2><i class="fa fa-user"></i> My Profile</h2>
+>>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
         </li>
     </ol>
     </div>
@@ -36,7 +42,11 @@ require_once("../../controller/EmployeeController.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+<<<<<<< HEAD
                     <div class="card border">
+=======
+                    <div class="card">
+>>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
                         <div class="card-body" style="background-color: #f8f9fa;">
                             <div class="container-fluid">
                                 <div class="row mt-5">
@@ -235,7 +245,11 @@ require_once("../../controller/EmployeeController.php");
     <footer class="sticky-footer">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
+<<<<<<< HEAD
                 <span>Copyright © Your Website 2018</span>
+=======
+                <br><span>Copyright © Your Website 2018</span><br><br>
+>>>>>>> 52faddc8f3fb8f58c0155ec13f39cc39cd54de48
             </div>
         </div>
     </footer>
